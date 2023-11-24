@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "IKSTeam11": {
+    "project-team11": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -11,11 +11,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/iksteam11",
+            "outputPath": "dist/project-team11",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -46,9 +46,12 @@
               "outputHashing": "all"
             },
             "development": {
+              "buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -57,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "IKSTeam11:build:production"
+              "browserTarget": "project-team11:build:production"
             },
             "development": {
-              "buildTarget": "IKSTeam11:build:development"
+              "browserTarget": "project-team11:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "IKSTeam11:build"
+            "browserTarget": "project-team11:build"
           }
         },
         "test": {
@@ -91,8 +94,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "fe772b6e-b7db-43fb-a5d7-d132ce8ea527"
   }
 }

@@ -2,11 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }).compileComponents();
-  });
+  beforeEach(() => TestBed.configureTestingModule({
+    declarations: [AppComponent]
+  }));
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -14,16 +12,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'IKSTeam11' title`, () => {
+  it(`should have as title 'project-team11'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('IKSTeam11');
+    expect(app.title).toEqual('project-team11');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, IKSTeam11');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('project-team11 app is running!');
   });
 });
