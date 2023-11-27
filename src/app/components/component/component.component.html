@@ -1,0 +1,53 @@
+<a routerLink="/accommodation-details">
+  <div class="app-component-container">
+    <div class="app-component-park-lineapartmentin-miami-fl1">
+      <img
+        [attr.src]="image_src"
+        [attr.alt]="image_alt"
+        class="app-component-image"
+      />
+    </div>
+    <div class="app-component-matimg">
+      <span class="app-component-text">{{ apartment }}</span>
+      <span class="app-component-text01">{{ location }}</span>
+      <div class="app-component-starrate">
+        <img
+          [attr.alt]="Vector_alt"
+          [attr.src]="Vector_src"
+          class="app-component-vector"
+        />
+        <span class="app-component-text02">{{ location1 }}</span>
+      </div>
+      <div class="app-component-matimg1">
+        <img
+          [attr.alt]="Vector_alt1"
+          [attr.src]="Vector_src1"
+          class="app-component-vector1"
+        />
+        <span class="app-component-text03"><span>TV</span></span>
+        <img
+          [attr.alt]="Vector_alt2"
+          [attr.src]="Vector_src2"
+          class="app-component-vector2"
+        />
+        <span class="app-component-text05"><span>Wi-Fi</span></span>
+        <img
+          [attr.alt]="Vector_alt3"
+          [attr.src]="Vector_src3"
+          class="app-component-vector3"
+        />
+        <span class="app-component-text07"><span>Parking</span></span>
+        <img
+          [attr.alt]="Vector_alt4"
+          [attr.src]="Vector_src4"
+          class="app-component-vector4"
+        />
+        <span class="app-component-text09"><span>Kitchen</span></span>
+      </div>
+      <div class="app-component-price">
+        <span class="app-component-text11">{{ text }}</span>
+        <span class="app-component-text12">per night</span>
+      </div>
+    </div>
+  </div>
+</a>

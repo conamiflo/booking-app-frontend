@@ -1,0 +1,686 @@
+:host { 
+  display: contents; 
+}
+.register-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.register-desktop10 {
+  width: 100%;
+  height: 1080px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.register-rectangle4 {
+  top: 107px;
+  left: 268px;
+  width: 1354px;
+  height: 798px;
+  display: flex;
+  position: absolute;
+  background-size: cover;
+  background-image: url("/assets/external/rectangle44682-hirg.svg");
+  background-position: center;
+}
+.register-donthaveaaccountcontainer {
+  width: 677px;
+  height: 798px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 20px 0 0 20px;
+  flex-direction: column;
+  justify-content: center;
+}
+.register-image1 {
+  gap: var(--dl-space-space-sixunits);
+  width: 677px;
+  height: 798px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: center;
+  background-image: url('#');
+  background-position: center;
+}
+.register-text {
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  font-size: 68px;
+  align-self: center;
+  font-style: normal;
+  text-align: center;
+  font-family: Alatsi;
+  font-weight: 400;
+  line-height: 36px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.register-text02 {
+  color: rgba(255, 255, 255, 1);
+  width: 466px;
+  height: auto;
+  font-size: 20px;
+  align-self: center;
+  font-style: normal;
+  text-align: center;
+  font-family: Alatsi;
+  font-weight: 400;
+  line-height: 36px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.register-navlink {
+  display: contents;
+}
+.register-matbtn {
+  gap: 16px;
+  width: 165px;
+  height: 40px;
+  display: flex;
+  padding: 0 16px;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  padding-left: 0px;
+  border-radius: 10px;
+  padding-right: 0px;
+  justify-content: center;
+  text-decoration: none;
+  background-color: rgba(241, 90, 42, 1);
+}
+.register-content {
+  gap: 9px;
+  display: flex;
+  padding: 11px 0;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.register-text04 {
+  color: var(--dl-color-shades-white);
+  height: auto;
+  text-align: center;
+  line-height: 36px;
+}
+.register-text06 {
+  color: rgba(255, 255, 255, 1);
+  width: 353px;
+  height: auto;
+  font-size: 20px;
+  align-self: center;
+  font-style: normal;
+  text-align: center;
+  font-family: Alatsi;
+  font-weight: 400;
+  line-height: 36px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.register-logincontainer {
+  gap: var(--dl-space-space-halfunit);
+  width: 677px;
+  height: 798px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 20px 0 0 20px;
+  flex-direction: column;
+  justify-content: center;
+}
+.register-logo11 {
+  width: 116px;
+  height: 116px;
+  align-self: center;
+}
+
+.register-lastnamematinput {
+  gap: 9px;
+  width: 390px;
+  height: 57px;
+  display: flex;
+  overflow: hidden;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.register-maticon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.register-vector {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+}
+.register-frame {
+  width: 552px;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.register-matinputslot {
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.6000000238418579);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.register-matdivider {
+  width: 552px;
+  height: 1px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  background-color: rgba(241, 90, 42, 0.41999998688697815);
+}
+.register-lastnamematinput1 {
+  gap: 9px;
+  width: 390px;
+  height: 57px;
+  display: flex;
+  overflow: hidden;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.register-maticon1 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.register-vector1 {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+}
+.register-frame01 {
+  width: 552px;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.register-matinputslot01 {
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.6000000238418579);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.register-matdivider1 {
+  width: 552px;
+  height: 1px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  background-color: rgba(241, 90, 42, 0.41999998688697815);
+}
+.register-confirmpasswordmatinput {
+  gap: 9px;
+  width: 390px;
+  height: 57px;
+  display: flex;
+  overflow: hidden;
+  align-self: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.register-maticon2 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.register-vector2 {
+  width: 20px;
+  height: 21px;
+}
+.register-frame02 {
+  width: 552px;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.register-matinputslot02 {
+  height: 41px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.register-frame03 {
+  gap: 10px;
+  display: flex;
+  padding: 8px 0;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+}
+.register-matinputslot03 {
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.6000000238418579);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.register-matdivider2 {
+  width: 552px;
+  height: 1px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  background-color: rgba(241, 90, 42, 0.41999998688697815);
+}
+.register-firstnamematinput {
+  gap: 9px;
+  width: 390px;
+  height: 57px;
+  display: flex;
+  overflow: hidden;
+  align-self: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.register-maticon3 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.register-manicon {
+  width: 17px;
+  height: 17px;
+}
+.register-maticon4 {
+  width: inherit;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-self: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.register-matinputslot04 {
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.6000000238418579);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.register-matdivider3 {
+  width: initial;
+  height: 1px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  background-color: rgba(241, 90, 42, 0.41999998688697815);
+}
+.register-phonenumbermatinput {
+  gap: 9px;
+  width: 390px;
+  height: 57px;
+  display: flex;
+  overflow: hidden;
+  align-self: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.register-maticon5 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.register-phone-vector {
+  width: 15px;
+  height: 15px;
+  align-self: center;
+}
+.register-frame04 {
+  width: 552px;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.register-matinputslot05 {
+  height: 41px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.register-frame05 {
+  gap: 10px;
+  display: flex;
+  padding: 8px 0;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+}
+.register-matinputslot06 {
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.6000000238418579);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.register-matdivider4 {
+  width: 552px;
+  height: 1px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  background-color: rgba(241, 90, 42, 0.41999998688697815);
+}
+.register-emailmatinput {
+  gap: 9px;
+  width: 390px;
+  height: 57px;
+  display: flex;
+  overflow: hidden;
+  align-self: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.register-maticon6 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-self: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.register-mess-vector {
+  width: 20px;
+  height: 19px;
+  align-self: center;
+}
+.register-frame06 {
+  width: 357px;
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.register-matinputslot07 {
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.register-frame07 {
+  gap: 10px;
+  display: flex;
+  padding: 8px 0;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+}
+.register-matinputslot08 {
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.6000000238418579);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.register-matdivider5 {
+  width: 357px;
+  height: 1px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  background-color: rgba(241, 90, 42, 0.41999998688697815);
+}
+.register-passwordmatinput {
+  gap: 9px;
+  width: 390px;
+  height: 57px;
+  display: flex;
+  overflow: hidden;
+  align-self: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.register-maticon7 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-self: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.register-pass-vector {
+  width: 20px;
+  height: 21px;
+}
+.register-matinputslot09 {
+  height: 41px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.register-matinputslot10 {
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.6000000238418579);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.register-matdivider6 {
+  width: 552px;
+  height: 1px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  background-color: rgba(241, 90, 42, 0.41999998688697815);
+}
+.register-adressmatinput {
+  gap: 9px;
+  width: 390px;
+  height: 57px;
+  display: flex;
+  overflow: hidden;
+  align-self: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.register-maticon8 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.register-locationon {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+}
+.register-frame08 {
+  width: 552px;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.register-matinputslot11 {
+  height: 41px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.register-frame09 {
+  gap: 10px;
+  display: flex;
+  padding: 8px 0;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+}
+.register-matinputslot12 {
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.6000000238418579);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.register-matdivider7 {
+  width: 552px;
+  height: 1px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  background-color: rgba(241, 90, 42, 0.41999998688697815);
+}
+.register-matbtn1 {
+  gap: 16px;
+  width: 378px;
+  height: 40px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 0px;
+  padding-left: 0px;
+  border-radius: 10px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  justify-content: center;
+  background-color: rgba(241, 90, 42, 1);
+}
+.register-content1 {
+  gap: 9px;
+  display: flex;
+  padding: 11px 0;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.register-text08 {
+  color: var(--dl-color-shades-white);
+  height: auto;
+  text-align: center;
+  line-height: 36px;
+}
