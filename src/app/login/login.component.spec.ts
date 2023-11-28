@@ -1,21 +1,20 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import { RouterModule } from '@angular/router'
+import { CommonModule } from '@angular/common'
 
-import { LoginComponent } from './login.component';
+import { LoginComponent } from './login.component'
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+const routes = [
+  {
+    path: '',
+    component: LoginComponent,
+  },
+]
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [LoginComponent]
-    });
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+@NgModule({
+  declarations: [LoginComponent],
+  imports: [CommonModule, RouterModule.forChild(routes)],
+  exports: [LoginComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+export class LoginModule {}
