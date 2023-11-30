@@ -7,7 +7,7 @@ import {Component, Input} from '@angular/core';
 })
 export class AccommodationCardComponent {
   @Input()
-  image_src: string = '/assets/external/accommodations/1/1-300h.png'
+  image_src: string = '/assets/external/accommodations/1/1.jpg'
   @Input()
   image_alt: string = 'image'
   @Input()
