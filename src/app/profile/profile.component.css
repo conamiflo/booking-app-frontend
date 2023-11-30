@@ -294,6 +294,13 @@ input::placeholder{
   border-radius: 10px;
   border: none;
 }
+.profil-page-save:hover{
+  cursor: pointer;
+}
+.profil-page-reset:hover{
+  cursor: pointer;
+}
+
 @media(max-width: 1600px) {
   .profil-page-profildiv {
     left: 300px;
