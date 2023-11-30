@@ -1,0 +1,124 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Set a high z-index value */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  color: #333;
+  border-bottom: 2px solid rgba(241, 90, 42, 1);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+
+  padding-left: 50px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-name {
+  font-size: 28px;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.navbar-right {
+  padding-right: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+}
+
+.company-logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 28px;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 1000;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: rgba(241, 90, 42, 1);
+  color: rgba(241, 90, 42, 1);
+}
+
+.loginBtn{
+  color: var(--dl-color-shades-white);
+  text-align: center;
+  line-height: 36px;
+  font-size: 20px;
+  width: 104px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  background-color: rgba(241, 90, 42, 1);
+  border: none;
+}
+
+.loginBtn:hover{
+  cursor: pointer;
+}
+
+.links{
+  padding-left: 50px;
+  display: flex;
+  flex-direction: row;
+  font-size: 28px;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: rgba(241, 90, 42, 1);
+  color: rgba(241, 90, 42, 1);
+}
+
+.profile-link{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.divider {
+  width: 1px;
+  height: 35px;
+  background-color: rgba(241, 90, 42, 1);
+  margin: 0 10px;
+}
+.profile-link:hover {
+  cursor: pointer;
+}
