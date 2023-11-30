@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div class="navbar-container">
+    <div class="navbar-left">
+      <div class="company-info" (click)="redirectToHome()">
+        <img src="/assets/external/logo.svg" alt="Company Logo" class="company-logo" />
+        <span class="company-name">Booking</span>
+      </div>
+
+      <div class="links">
+        <div class="divider"></div>
+        <span class="profile-link" (click)="redirectToProfile()">Profile</span>
+        <div class="divider"></div>
+      </div>
+
+    </div>
+
+    <div class="navbar-right">
+      <button class="loginBtn" (click)="redirectToLogin()">Login</button>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div class="profil-page-container">
+  <div class="profil-page-profile-page">
+    <div class="profil-page-profildiv">
+
+      <span class="profil-page-edit-profile-text">
+        <span>Edit profile</span>
+      </span>
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <input type="file" #fileInput style="display: none" (change)="handleFileInput($event)" formControlName="picture">
+        <img
+          [src]="selectedImageSrc"
+          alt="unsplashC8Ta0gwPbQg4012"
+          class="profil-page-profile-picture"
+          (click)="openFileInput()"
+        />
+        <div class="profil-page-first-name">
+          <input type="text" id="first-name" name="first-name" class="profil-page-rectangle7" formControlName="firstName" />
+          <span class="profil-page-text01"><span>First Name</span></span>
+        </div>
+
+        <div class="profil-page-last-name">
+          <input type="text" id="last-name" name="last-name" class="profil-page-rectangle7" formControlName="lastName"/>
+          <span class="profil-page-text01"><span>Last Name</span></span>
+        </div>
+
+        <div class="profil-page-email">
+          <input type="email" id="email" name="email" class="profil-page-rectangle71"  formControlName="email" />
+          <span class="profil-page-text01"><span>Email</span></span>
+        </div>
+
+        <div class="profil-page-address">
+          <input type="text" id="address" name="address" class="profil-page-rectangle71"  formControlName="address" />
+          <span class="profil-page-text01"><span>Address</span></span>
+        </div>
+
+        <div class="profil-page-number">
+          <input type="text" id="number" name="number" class="profil-page-rectangle7"  formControlName="phone" />
+          <span class="profil-page-text01"><span>Phone Number</span></span>
+        </div>
+
+        <div class="profil-page-username">
+          <input type="text" id="username" name="username" class="profil-page-rectangle7"  formControlName="username" />
+          <span class="profil-page-text01"><span>Username</span></span>
+        </div>
+
+
+        <div class="profil-page-password">
+          <span class="profil-page-text01"><span>Password</span></span>
+          <div class="lineup">
+
+            <input type="{{ passwordInputType }}" id="password" name="password" class="profil-page-rectangle71" formControlName="password" />
+
+            <div class="profil-page-group8">
+              <label>
+                <input type="checkbox" id="showPasswordCheckbox" formControlName="showPassword">
+              </label>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div>
+          <button type="submit" class="profil-page-save">Save</button>
+          <button type="button" class="profil-page-reset" (click)="resetForm()">Reset</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

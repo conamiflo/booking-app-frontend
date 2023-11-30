@@ -21,19 +21,20 @@
         </span>
       </div>
       <div class="rightsection">
+        <form class = "register-form" (ngSubmit)="onSubmit()">
         <div class="formcontainer">
           <div class="inputscontainer">
-            <div class="signupbtn button">
+            <button type="submit" class="signupbtn button">
               <div class="content1">
                 <span class="text04 vTextbutton">SIGN UP</span>
               </div>
-            </div>
+            </button>
             <button class="buttonsgroup">
               <div class="guestradio">
-                <input type="radio" name="radio" />
+                <input type="radio" name="guest" class="radiobtn"/>
               </div>
               <div class="ownerradio">
-                <input type="radio" name="radio" class="owner" />
+                <input type="radio" name="owner" class="radiobtn" />
               </div>
               <span class="guest1"><span>Guest</span></span>
               <span class="text06"><span>Owner</span></span>
@@ -57,6 +58,8 @@
                         type="text"
                         placeholder="Email"
                         class="matinputslot01"
+                        [(ngModel)]="email"
+                        name="email"
                       />
                     </div>
                     <div class="matdivider"></div>
@@ -78,6 +81,8 @@
                         type="password"
                         placeholder="Password"
                         class="matinputslot03"
+                        [(ngModel)]="password"
+                        name="password"
                       />
                     </div>
                     <div class="matdivider1"></div>
@@ -104,6 +109,8 @@
                         type="password"
                         placeholder="Confirm password"
                         class="matinputslot05"
+                        [(ngModel)]="confirmPassword"
+                        name="confirmPassword"
                       />
                     </div>
                     <div class="matdivider2"></div>
@@ -130,6 +137,8 @@
                         type="text"
                         placeholder="First name"
                         class="matinputslot07"
+                        [(ngModel)]="firstName"
+                        name="firstName"
                       />
                     </div>
                     <div class="matdivider3"></div>
@@ -156,6 +165,8 @@
                         type="text"
                         placeholder="Last name"
                         class="matinputslot09"
+                        [(ngModel)]="lastName"
+                        name="lastName"
                       />
                     </div>
                     <div class="matdivider4"></div>
@@ -182,6 +193,8 @@
                         type="text"
                         placeholder="Address"
                         class="matinputslot11"
+                        [(ngModel)]="address"
+                        name="address"
                       />
                     </div>
                     <div class="matdivider5"></div>
@@ -208,6 +221,8 @@
                         type="text"
                         placeholder="Phone number"
                         class="matinputslot13"
+                        [(ngModel)]="phoneNumber"
+                        name="phoneNumber"
                       />
                     </div>
                     <div class="matdivider6"></div>
@@ -225,6 +240,7 @@
             <img alt="logo114041" src="/assets/external/logo.svg" class="logo11" />
           </div>
         </div>
+        </form>
       </div>
     </div>
   </div>

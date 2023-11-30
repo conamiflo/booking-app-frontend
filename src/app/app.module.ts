@@ -10,6 +10,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
+import {ProfileModule} from "./profile/profile.module";
+import {LayoutModule} from "./layout/layout.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +24,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AccommodationModule,
     BrowserAnimationsModule,
     HttpClientModule
+    ProfileModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
