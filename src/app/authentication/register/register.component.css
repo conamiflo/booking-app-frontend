@@ -11,6 +11,9 @@
   border-radius: 20px 0 0 20px;
   background-color: rgba(252, 248, 236, 1);
 }
+.register-navlink1 {
+  display: contents;
+}
 .register {
   width: 100%;
   height: 1080px;
