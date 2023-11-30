@@ -7,6 +7,10 @@ import {AuthModule} from "./authentication/auth.module";
 
 
 
+import {ProfileComponent} from "./profile/profile.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {ProfileModule} from "./profile/profile.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +18,8 @@ import {AuthModule} from "./authentication/auth.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]

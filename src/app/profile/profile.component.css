@@ -1,0 +1,311 @@
+:host {
+  display: contents;
+}
+.profil-page-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 98vh;
+  align-items: center;
+  flex-direction: column;
+}
+.profil-page-profile-page {
+  width: 97vw;
+  height: 90vh;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+
+}
+.profil-page-profildiv {
+  top: 9vh;
+  left: 22vw;
+  width: 54vw;
+  height: 80vh;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(255, 255, 255, 1);
+}
+.profil-page-profile-picture {
+  top: 26.49124526977539px;
+  left: 44.52662658691406px;
+  width: 109px;
+  height: 110px;
+  position: absolute;
+  border-radius: 500px;
+}
+.profil-page-edit-profile-text {
+  top: 26px;
+  left: 181px;
+  color: rgba(0, 0, 0, 1);
+  width: 399px;
+  height: auto;
+  position: absolute;
+  font-size: 45px;
+  font-style: italic;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profil-page-first-name {
+  top: 98px;
+  left: 183.5587615966797px;
+  width: 368.0262145996094px;
+  height: 98.40061950683594px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+
+.profil-page-rectangle7 {
+  top: 34.45623016357422px;
+  left: 0px;
+  width: 368px;
+  height: 64px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(173, 173, 173, 1);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+
+
+.profil-page-text01 {
+  left: 0.44139716029167175px;
+  color: rgba(27, 27, 27, 1);
+  width: 218px;
+  height: auto;
+  position: absolute;
+  font-size: 26px;
+  font-style: italic;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profil-page-last-name {
+  top: 98px;
+  left: 609.7420043945312px;
+  width: 369.8436279296875px;
+  height: 98.40061950683594px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profil-page-email {
+  top: 212.8434600830078px;
+  left: 183.55874633789062px;
+  width: 793.3009033203125px;
+  height: 98.65705108642578px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profil-page-rectangle71 {
+  top: 34.712669372558594px;
+  left: 0.00000908046422409825px;
+  width: 793px;
+  height: 64px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(173, 173, 173, 1);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+input{
+  font-size: 24px;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+input::placeholder{
+  position: absolute;
+  font-size: 24px;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.profil-page-address {
+  top: 327.943359375px;
+  left: 183.55874633789062px;
+  width: 796.0270385742188px;
+  height: 98.65705108642578px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profil-page-number {
+  top: 443.0432434082031px;
+  left: 183.55874633789062px;
+  width: 368.0262145996094px;
+  height: 98.65705108642578px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profil-page-username {
+  top: 443.0432434082031px;
+  left: 609.7421875px;
+  width: 368.0262145996094px;
+  height: 98.65705108642578px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profil-page-city {
+  top: 558px;
+  left: 183.5587615966797px;
+  width: 368.0262145996094px;
+  height: 98.80020141601562px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profil-page-state {
+  top: 558px;
+  left: 606.9998779296875px;
+  width: 372.5863342285156px;
+  height: 98.80018615722656px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profil-page-password {
+  top: 558px;;
+  left: 183.55874633789062px;
+  width: 796.0270385742188px;
+  height: 98.65705108642578px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+
+.lineup{
+  display: flex;
+  align-items: center;
+}
+.profil-page-group8 {
+  top: 52px;
+  left: 751.44140625px;
+  width: 32.19440841674805px;
+  height: 32.5496711730957px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 1;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.profil-page-group8 input[type="checkbox"] {
+  width: 20px;
+  height: 50px;
+  cursor: pointer;
+  accent-color: rgba(241, 90, 42, 1);
+}
+
+.profil-page-cancle {
+  top: 673.2430419921875px;
+  left: 180.83224487304688px;
+  width: 186.16796875px;
+  height: 50.24201965332031px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.profil-page-reset {
+  top: 673.2430419921875px;
+  left: 180.83224487304688px;
+  width: 186.16796875px;
+  height: 50.24201965332031px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  color: rgba(241, 90, 42, 1);
+  position: absolute;
+  font-size: 28px;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 2px solid rgba(241, 90, 42, 1);
+  background: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  border: none;
+}
+
+.profil-page-save {
+  top: 673.2430419921875px;
+  left: 374px;
+  width: 163.56719970703125px;
+  height: 50.24201965332031px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(241, 90, 42, 1);
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  font-size: 28px;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+}
+@media(max-width: 1600px) {
+  .profil-page-profildiv {
+    left: 300px;
+  }
+}
+@media(max-width: 1200px) {
+  .profil-page-profildiv {
+    left: 65px;
+  }
+}
+@media(max-width: 991px) {
+  .profil-page-profildiv {
+    left: -35px;
+  }
+}
