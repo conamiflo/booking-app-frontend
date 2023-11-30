@@ -1,14 +1,14 @@
-<div class="accommodation-card-container">
+<div class="accommodation-card-container" [routerLink]="['/accommodation', accommodation.id]">
   <div class="accommodation-card-park-lineapartmentin-miami-fl1">
     <img
-      [attr.src]="image_src"
-      [attr.alt]="image_alt"
+      [attr.src]="accommodation.photos.at(0)"
+      [attr.alt]="accommodation.photos.at(0)"
       class="accommodation-card-image"
     />
   </div>
   <div class="accommodation-card-matimg">
-    <span class="accommodation-card-text"><span>{{ text }}</span></span>
-    <span class="accommodation-card-text02"><span>{{ text1 }}</span></span>
+    <span class="accommodation-card-text"><span>{{ accommodation.name }}</span></span>
+    <span class="accommodation-card-text02"><span>{{ accommodation.location }}</span></span>
     <div class="accommodation-card-starrate">
       <img
         [attr.alt]="Vector_alt5"
@@ -44,8 +44,16 @@
       <span class="accommodation-card-text12"><span>{{ text8 }}</span></span>
     </div>
     <div class="accommodation-card-price">
-      <span class="accommodation-card-text14"><span>{{ text3 }}</span></span>
-      <span class="accommodation-card-text16"><span>{{ text7 }}</span></span>
+      <div>
+        <span class="accommodation-card-text14"><span>${{ accommodation.price }}</span></span>
+        <span class="accommodation-card-text16"><span>{{ text7 }}</span></span>
+      </div>
+      <div class="accommodation-card-guests">
+        <span class="accommodation-card-text16"><span>Min. guests: {{accommodation.minGuests}}  </span></span>
+        <span class="accommodation-card-text16"><span>Max. guests: {{accommodation.maxGuests}}</span></span>
+
+      </div>
+
     </div>
   </div>
 </div>

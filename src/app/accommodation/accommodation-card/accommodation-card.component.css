@@ -164,15 +164,15 @@
   text-decoration: none;
 }
 .accommodation-card-price {
-  gap: var(--dl-space-space-halfunit);
-  width: auto;
+  width: 100%;
   height: auto;
   display: flex;
   overflow: hidden;
   align-items: center;
   flex-shrink: 0;
-  justify-content: center;
+  justify-content: space-between;
 }
+
 .accommodation-card-text14 {
   color: rgba(18, 61, 108, 1);
   height: auto;

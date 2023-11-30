@@ -7,8 +7,8 @@ import {environment} from "../../env/env";
   providedIn: 'root'
 })
 export class AccommodationService {
-  private accommodationList: Accommodation[] = [];
-  constructor(private httpClient: HttpClient) { }
+  private accommodationList: Accommodation[];
+  constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<Accommodation[]>{
     return this.httpClient.get<Accommodation[]>(environment.apiHost + 'accommodations')

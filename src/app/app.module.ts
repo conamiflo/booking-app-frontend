@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {AuthModule} from "./authentication/auth.module";
 import {AccommodationModule} from "./accommodation/accommodation.module";
+import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -16,7 +18,9 @@ import {AccommodationModule} from "./accommodation/accommodation.module";
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    AccommodationModule
+    AccommodationModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
