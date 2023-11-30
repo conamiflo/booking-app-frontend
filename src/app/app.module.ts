@@ -12,6 +12,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {ProfileModule} from "./profile/profile.module";
 import {LayoutModule} from "./layout/layout.module";
+import { MapsModule } from '@syncfusion/ej2-angular-maps';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {LayoutModule} from "./layout/layout.module";
     BrowserAnimationsModule,
     HttpClientModule,
     ProfileModule,
-    LayoutModule
+    LayoutModule,
+    MapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
