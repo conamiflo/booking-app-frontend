@@ -1,6 +1,10 @@
 :host {
   display: contents;
 }
+.body{
+  background-color: rgba(255, 255, 255, 1);
+}
+
 .login-container {
   width: 100%;
   display: flex;
@@ -15,7 +19,6 @@
   width: 98%;
   height: 100%;
   display: flex;
-  padding: 107px 283px;
   overflow: hidden;
   align-items: center;
   flex-shrink: 0;
@@ -394,3 +397,4 @@
 .button-wrap{
   display: contents;
 }
+
