@@ -7,5 +7,14 @@ import {Component, NgModule} from '@angular/core'
 })
 
 export class LoginComponent {
+  email: string = '';
+  password: string = '';
+
+  onSubmit(): void {
+    console.log('Email:', this.email);
+    console.log('Password:', this.password);
+    this.email = '';
+    this.password = '';
+  }
 }
 
