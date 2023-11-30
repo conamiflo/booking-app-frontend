@@ -18,7 +18,7 @@ export class AccommodationDetailsComponent {
       const id = +params['accommodationId']
       this.accommodationService.getAccommodation(id).subscribe({
         next: (data: Accommodation) => {
-          console.log(data.price)
+          console.log(data.defaultPrice)
           this.accommodation = data}
       })
     })

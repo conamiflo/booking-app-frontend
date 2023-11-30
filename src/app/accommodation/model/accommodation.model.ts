@@ -3,7 +3,7 @@ export interface Accommodation {
   name: string;
   description: string;
   location: string;
-  price: number;
+  defaultPrice: number;
   photos: string[];
   minGuests: number;
   maxGuests: number;
