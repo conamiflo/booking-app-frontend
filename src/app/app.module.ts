@@ -23,7 +23,7 @@ import {LayoutModule} from "./layout/layout.module";
     AuthModule,
     AccommodationModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
     ProfileModule,
     LayoutModule
   ],
