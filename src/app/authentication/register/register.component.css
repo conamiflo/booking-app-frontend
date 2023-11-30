@@ -1062,6 +1062,8 @@
   height: 116px;
   position: absolute;
 }
+
+
 @media(max-width: 1200px) {
   .container1 {
     left: 0px;
@@ -1206,4 +1208,5 @@
   .logocontainer {
     height: 161px;
   }
+
 }
