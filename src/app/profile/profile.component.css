@@ -5,13 +5,13 @@
   width: 100%;
   display: flex;
   overflow: auto;
-  min-height: 100vh;
+  min-height: 98vh;
   align-items: center;
   flex-direction: column;
 }
 .profil-page-profile-page {
   width: 97vw;
-  height: 98vh;
+  height: 90vh;
   display: flex;
   overflow: hidden;
   position: relative;
@@ -23,8 +23,8 @@
 .profil-page-profildiv {
   top: 9vh;
   left: 22vw;
-  width: 60vw;
-  height: 82vh;
+  width: 54vw;
+  height: 80vh;
   display: flex;
   position: absolute;
   align-items: flex-start;
@@ -198,7 +198,7 @@ input::placeholder{
   flex-shrink: 1;
 }
 .profil-page-password {
-  top: 673.2430419921875px;
+  top: 558px;;
   left: 183.55874633789062px;
   width: 796.0270385742188px;
   height: 98.65705108642578px;
@@ -233,7 +233,7 @@ input::placeholder{
 }
 
 .profil-page-cancle {
-  top: 820.3151245117188px;
+  top: 673.2430419921875px;
   left: 180.83224487304688px;
   width: 186.16796875px;
   height: 50.24201965332031px;
@@ -243,7 +243,7 @@ input::placeholder{
   flex-shrink: 1;
 }
 .profil-page-reset {
-  top: 820.3151245117188px;
+  top: 673.2430419921875px;
   left: 180.83224487304688px;
   width: 186.16796875px;
   height: 50.24201965332031px;
@@ -270,7 +270,7 @@ input::placeholder{
 }
 
 .profil-page-save {
-  top: 820px;
+  top: 673.2430419921875px;
   left: 374px;
   width: 163.56719970703125px;
   height: 50.24201965332031px;
