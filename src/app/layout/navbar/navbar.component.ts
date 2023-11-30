@@ -17,4 +17,8 @@ export class NavbarComponent {
   redirectToProfile() {
     this.router.navigate(['/profile']);
   }
+
+  redirectToHome() {
+    this.router.navigate(['']);
+  }
 }

@@ -75,6 +75,10 @@ body, html {
   color: rgba(241, 90, 42, 1);
 }
 
+.company-info:hover{
+  cursor: pointer;
+}
+
 .loginBtn{
   color: var(--dl-color-shades-white);
   text-align: center;
@@ -99,7 +103,7 @@ body, html {
   font-size: 28px;
   text-align: center;
   font-family: Lato;
-  font-weight: 400;
+  font-weight: 700;
   line-height: normal;
   font-stretch: normal;
   text-decoration: rgba(241, 90, 42, 1);
@@ -115,7 +119,7 @@ body, html {
 
 .divider {
   width: 1px;
-  height: 35px;
+  height: 45px;
   background-color: rgba(241, 90, 42, 1);
   margin: 0 10px;
 }

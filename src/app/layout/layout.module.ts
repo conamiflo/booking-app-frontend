@@ -8,9 +8,6 @@ import {NavbarComponent} from "./navbar/navbar.component";
 
 @NgModule({
   declarations: [
-    FooterComponent
-  ],
-  exports: [
     FooterComponent,
     NavbarComponent
   ],
