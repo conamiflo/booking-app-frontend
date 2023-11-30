@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {AuthModule} from "./authentication/auth.module";
+import {AccommodationModule} from "./accommodation/accommodation.module";
 
 
 
@@ -14,7 +15,8 @@ import {AuthModule} from "./authentication/auth.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    AccommodationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
