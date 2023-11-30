@@ -245,6 +245,7 @@
   flex-shrink: 0;
   border-radius: 32px;
   justify-content: center;
+  accent-color: rgba(241, 90, 42, 1);
 }
 .ownerradio {
   top: 22px;
@@ -258,6 +259,7 @@
   flex-shrink: 0;
   border-radius: 32px;
   justify-content: center;
+  accent-color: rgba(241, 90, 42, 1);
 }
 .owner {
   top: 5px;

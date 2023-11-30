@@ -232,6 +232,13 @@ input::placeholder{
   accent-color: rgba(241, 90, 42, 1);
 }
 
+.notificationcb input[type="checkbox"]{
+  width: 20px;
+  height: 50px;
+  cursor: pointer;
+  accent-color: rgba(241, 90, 42, 1);
+}
+
 .profil-page-cancle {
   top: 673.2430419921875px;
   left: 180.83224487304688px;
@@ -243,7 +250,7 @@ input::placeholder{
   flex-shrink: 1;
 }
 .profil-page-reset {
-  top: 673.2430419921875px;
+  top: 740px;
   left: 180.83224487304688px;
   width: 186.16796875px;
   height: 50.24201965332031px;
@@ -269,8 +276,32 @@ input::placeholder{
   border: none;
 }
 
-.profil-page-save {
+
+.notificationcb{
   top: 673.2430419921875px;
+
+  left: 180.83224487304688px;
+  height: 50.24201965332031px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  position: absolute;
+  font-size: 24px;
+  font-style: italic;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profil-page-save {
+  top: 740px;
   left: 374px;
   width: 163.56719970703125px;
   height: 50.24201965332031px;
@@ -294,11 +325,51 @@ input::placeholder{
   border-radius: 10px;
   border: none;
 }
+
+.profil-page-edit{
+  top: 740px;
+  left: 545px;
+  width: 163.56719970703125px;
+  height: 50.24201965332031px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(241, 90, 42, 1);
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  font-size: 28px;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+}
+
+.profil-page-edit:hover{
+  cursor: pointer;
+  background: rgba(255, 255, 255, 1);
+  color: rgba(241, 90, 42, 1);
+  border: solid rgba(241, 90, 42, 1);
+}
+
 .profil-page-save:hover{
   cursor: pointer;
+  background: rgba(255, 255, 255, 1);
+  color: rgba(241, 90, 42, 1);
+  border: solid rgba(241, 90, 42, 1);
+
 }
 .profil-page-reset:hover{
   cursor: pointer;
+  background: rgba(241, 90, 42, 1);
+  color: rgba(255, 255, 255, 1);
 }
 
 @media(max-width: 1600px) {

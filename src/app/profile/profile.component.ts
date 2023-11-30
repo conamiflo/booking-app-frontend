@@ -19,11 +19,13 @@ export class ProfileComponent {
     state: new FormControl(),
     password: new FormControl(),
     showPassword: new FormControl(),
-    picture: new FormControl()
+    picture: new FormControl(),
+    notifications: new FormControl()
   })
   constructor(private fb: FormBuilder) { }
   ngOnInit(): void{
     this.loadFields();
+    this.disableForm();
   }
   @ViewChild('fileInput') fileInput!: ElementRef;
   selectedImageSrc: string | ArrayBuffer | null = null;
@@ -39,6 +41,7 @@ export class ProfileComponent {
     this.profileForm.controls['state'].setValue('Bozorgi');
     this.profileForm.controls['password'].setValue('qwerasdf');
     this.profileForm.controls['showPassword'].setValue(false);
+    this.profileForm.controls['notifications'].setValue(true);
 
     this.selectedImageSrc = '/assets/external/person.svg';
   }
@@ -77,5 +80,25 @@ export class ProfileComponent {
 
   resetForm() {
     this.loadFields();
+  }
+
+  disableForm() {
+    Object.keys(this.profileForm.controls).forEach((controlName) => {
+      const control = this.profileForm.get(controlName);
+      control?.disable();
+    });
+  }
+  enableForm() : void{
+    Object.keys(this.profileForm.controls).forEach((controlName) => {
+      const control = this.profileForm.get(controlName);
+      control?.enable();
+    });
+  }
+  editForm() {
+    this.enableForm();
+  }
+
+  save() {
+    this.disableForm();
   }
 }

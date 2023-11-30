@@ -2,20 +2,21 @@
   display: contents;
 }
 .body{
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(252, 248, 236, 1);
 }
 
 .login-container {
   width: 100%;
-  display: flex;
   overflow: auto;
-  min-height: 100vh;
+  min-height: 97vh;
   align-items: center;
   flex-direction: column;
   font-family: Lato;
+  margin-top: 10px;
+  background-color: rgba(252, 248, 236, 1);
+  padding: 0;
 }
 .login-desktop2 {
-  gap: 10px;
   width: 98%;
   height: 100%;
   display: flex;
@@ -39,7 +40,7 @@
   background-color: white;
   background-position: center;
   /*border: 0.5px solid rgba(241, 90, 42, 1);*/
-
+  margin-top: 85px;
 }
 .login-sing-up-bg-image {
   gap: 130px;

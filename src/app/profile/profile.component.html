@@ -15,7 +15,7 @@
       </span>
       <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-        <input type="file" #fileInput style="display: none" (change)="handleFileInput($event)" formControlName="picture">
+        <input type="file" #fileInput style="display: none" (change)="handleFileInput($event)" formControlName="picture" [disabled]="true">
         <img
           [src]="selectedImageSrc"
           alt="unsplashC8Ta0gwPbQg4012"
@@ -23,32 +23,32 @@
           (click)="openFileInput()"
         />
         <div class="profil-page-first-name">
-          <input type="text" id="first-name" name="first-name" class="profil-page-rectangle7" formControlName="firstName" />
+          <input type="text" id="first-name" name="first-name" class="profil-page-rectangle7" formControlName="firstName" [disabled]="true"/>
           <span class="profil-page-text01"><span>First Name</span></span>
         </div>
 
         <div class="profil-page-last-name">
-          <input type="text" id="last-name" name="last-name" class="profil-page-rectangle7" formControlName="lastName"/>
+          <input type="text" id="last-name" name="last-name" class="profil-page-rectangle7" formControlName="lastName" [disabled]="true"/>
           <span class="profil-page-text01"><span>Last Name</span></span>
         </div>
 
         <div class="profil-page-email">
-          <input type="email" id="email" name="email" class="profil-page-rectangle71"  formControlName="email" />
+          <input type="email" id="email" name="email" class="profil-page-rectangle71"  formControlName="email"  [disabled]="true"/>
           <span class="profil-page-text01"><span>Email</span></span>
         </div>
 
         <div class="profil-page-address">
-          <input type="text" id="address" name="address" class="profil-page-rectangle71"  formControlName="address" />
+          <input type="text" id="address" name="address" class="profil-page-rectangle71"  formControlName="address"  [disabled]="true"/>
           <span class="profil-page-text01"><span>Address</span></span>
         </div>
 
         <div class="profil-page-number">
-          <input type="text" id="number" name="number" class="profil-page-rectangle7"  formControlName="phone" />
+          <input type="text" id="number" name="number" class="profil-page-rectangle7"  formControlName="phone"  [disabled]="true"/>
           <span class="profil-page-text01"><span>Phone Number</span></span>
         </div>
 
         <div class="profil-page-username">
-          <input type="text" id="username" name="username" class="profil-page-rectangle7"  formControlName="username" />
+          <input type="text" id="username" name="username" class="profil-page-rectangle7"  formControlName="username" [disabled]="true" />
           <span class="profil-page-text01"><span>Username</span></span>
         </div>
 
@@ -57,21 +57,25 @@
           <span class="profil-page-text01"><span>Password</span></span>
           <div class="lineup">
 
-            <input type="{{ passwordInputType }}" id="password" name="password" class="profil-page-rectangle71" formControlName="password" />
+            <input type="{{ passwordInputType }}" id="password" name="password" class="profil-page-rectangle71" formControlName="password" [disabled]="true" />
 
             <div class="profil-page-group8">
               <label>
                 <input type="checkbox" id="showPasswordCheckbox" formControlName="showPassword">
               </label>
             </div>
-
           </div>
+        </div>
 
+        <div  class="notificationcb">
+          <input type="checkbox" id="notifications" formControlName="notifications" [disabled]="true">
+          <span for="nofitications">Receive notifications</span>
         </div>
 
         <div>
-          <button type="submit" class="profil-page-save">Save</button>
+          <button type="submit" class="profil-page-save" (click)="save()">Save</button>
           <button type="button" class="profil-page-reset" (click)="resetForm()">Reset</button>
+          <button type="button" class="profil-page-edit" (click)="editForm()">Edit</button>
         </div>
 
       </form>
