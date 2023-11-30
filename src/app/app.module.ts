@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {AuthModule} from "./authentication/auth.module";
+import {AccommodationModule} from "./accommodation/accommodation.module";
+import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -18,6 +21,9 @@ import {LayoutModule} from "./layout/layout.module";
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    AccommodationModule,
+    BrowserAnimationsModule,
+    HttpClientModule
     ProfileModule,
     LayoutModule
   ],
