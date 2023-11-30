@@ -1,0 +1,88 @@
+<div class="login-container">
+  <div class="login-desktop2">
+    <div class="login-rectangle4">
+      <div class="login-sing-up-bg-image">
+        <div class="background-image"></div>
+        <span class="login-welcome-text"><span>Welcome</span></span>
+        <span class="login-detail-text">
+          <span>
+            Step into a world of comfort and convenience tailored specifically to your needs. Find your ideal home away from home among our collection of handpicked apartments.
+          </span>
+        </span>
+        <div class="login-sign-up-content">
+          <span class="login-text2">
+            <span>Don’t have an account yet?</span>
+          </span>
+          <a routerLink='/register' class="login-navlink">
+            <div class="login-sing-up-mat-btn button">
+              <div class="login-content">
+                <span class="login-text4 vTextbutton">
+                  <span>SIGN UP</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="login-frame266">
+        <a routerLink="/" class="login-navlink1">
+          <img alt="logo" src="/assets/external/logo.svg" class="login-logo11" />
+        </a>
+        <form class="login-form" (ngSubmit)="onSubmit()">
+          <div class="login-email-input">
+            <div class="login-frame">
+              <img
+                alt="Frame2683301"
+                src="/assets/external/email.svg"
+                class="login-frame268"
+              />
+            </div>
+            <div class="login-frame1">
+              <div class="login-matinputslot">
+                <div class="login-frame2">
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    class="login-emailinputslot input"
+                    [(ngModel)]="email"
+                    name="email"
+                  />
+                </div>
+                <div class="login-matdivider"></div>
+              </div>
+            </div>
+          </div>
+          <div class="login-password-input">
+            <div class="login-maticon">
+              <img
+                alt="Vector3301"
+                src="/assets/external/password.svg"
+                class="login-vector"
+              />
+            </div>
+            <div class="login-frame3">
+              <div class="login-matinputslot1">
+                <div class="login-frame4">
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    class="login-passwordinputslot input"
+                    [(ngModel)]="password"
+                    name="password"
+                  />
+                </div>
+                <div class="login-matdivider1"></div>
+              </div>
+            </div>
+          </div>
+          <div class="login-log-in-btn button">
+            <div class="login-content1">
+                <button type="submit" class="button-like-span">LOG IN</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

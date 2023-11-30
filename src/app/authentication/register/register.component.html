@@ -1,0 +1,247 @@
+<div class="container">
+  <div class="register">
+    <div class="container1">
+      <div class="leftsection">
+        <div class="background-image"></div>
+        <span class="welcome"><span>Welcome</span></span>
+        <span class="description">
+          <span>
+            Step into a world of comfort and convenience tailored specifically to your needs. Find your ideal home away from home among our collection of handpicked apartments.
+          </span>
+        </span>
+        <a routerLink="/login" class="register-navlik">LOG IN
+          <div class="loginbtn">
+            <div class="content">
+              <span class="text02 vTextbutton">LOG IN</span>
+            </div>
+          </div>
+        </a>
+        <span class="account">
+          <span>You have an account? </span>
+        </span>
+      </div>
+      <div class="rightsection">
+        <form class = "register-form" (ngSubmit)="onSubmit()">
+        <div class="formcontainer">
+          <div class="inputscontainer">
+            <button type="submit" class="signupbtn button">
+              <div class="content1">
+                <span class="text04 vTextbutton">SIGN UP</span>
+              </div>
+            </button>
+            <button class="buttonsgroup">
+              <div class="guestradio">
+                <input type="radio" name="guest" class="radiobtn"/>
+              </div>
+              <div class="ownerradio">
+                <input type="radio" name="owner" class="radiobtn" />
+              </div>
+              <span class="guest1"><span>Guest</span></span>
+              <span class="text06"><span>Owner</span></span>
+            </button>
+            <img
+              alt="Vector4041"
+              src="/assets/external/email.svg"
+              class="vector"
+            />
+            <div class="emailcontainer">
+              <div class="emailinput">
+                <div class="frame">
+                  <div class="maticon">
+                    <span class="text08 vIconmedium1"></span>
+                  </div>
+                </div>
+                <div class="frame01">
+                  <div class="matinputslot">
+                    <div class="frame02">
+                      <input
+                        type="text"
+                        placeholder="Email"
+                        class="matinputslot01"
+                        [(ngModel)]="email"
+                        name="email"
+                      />
+                    </div>
+                    <div class="matdivider"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="passwordcontainer">
+              <div class="passwordinput">
+                <div class="frame03">
+                  <div class="maticon1">
+                    <span class="text09 vIconmedium1"></span>
+                  </div>
+                </div>
+                <div class="frame04">
+                  <div class="matinputslot02">
+                    <div class="frame05">
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        class="matinputslot03"
+                        [(ngModel)]="password"
+                        name="password"
+                      />
+                    </div>
+                    <div class="matdivider1"></div>
+                  </div>
+                </div>
+              </div>
+              <img
+                alt="Vector4041"
+                src="/assets/external/password.svg"
+                class="vector1"
+              />
+            </div>
+            <div class="confirmpasswordcontainer">
+              <div class="confirmpasswordinput">
+                <div class="frame06">
+                  <div class="maticon2">
+                    <span class="text10 vIconmedium1"></span>
+                  </div>
+                </div>
+                <div class="frame07">
+                  <div class="matinputslot04">
+                    <div class="frame08">
+                      <input
+                        type="password"
+                        placeholder="Confirm password"
+                        class="matinputslot05"
+                        [(ngModel)]="confirmPassword"
+                        name="confirmPassword"
+                      />
+                    </div>
+                    <div class="matdivider2"></div>
+                  </div>
+                </div>
+              </div>
+              <img
+                alt="Vector4041"
+                src="/assets/external/password.svg"
+                class="vector2"
+              />
+            </div>
+            <div class="namecontainer">
+              <div class="nameinput">
+                <div class="frame09">
+                  <div class="maticon3">
+                    <span class="text11 vIconmedium1"></span>
+                  </div>
+                </div>
+                <div class="frame10">
+                  <div class="matinputslot06">
+                    <div class="frame11">
+                      <input
+                        type="text"
+                        placeholder="First name"
+                        class="matinputslot07"
+                        [(ngModel)]="firstName"
+                        name="firstName"
+                      />
+                    </div>
+                    <div class="matdivider3"></div>
+                  </div>
+                </div>
+              </div>
+              <img
+                alt="Vector4041"
+                src="/assets/external/person.svg"
+                class="vector3"
+              />
+            </div>
+            <div class="lastnamecontainer">
+              <div class="addressinput">
+                <div class="frame12">
+                  <div class="maticon4">
+                    <span class="text12 vIconmedium1"></span>
+                  </div>
+                </div>
+                <div class="frame13">
+                  <div class="matinputslot08">
+                    <div class="frame14">
+                      <input
+                        type="text"
+                        placeholder="Last name"
+                        class="matinputslot09"
+                        [(ngModel)]="lastName"
+                        name="lastName"
+                      />
+                    </div>
+                    <div class="matdivider4"></div>
+                  </div>
+                </div>
+              </div>
+              <img
+                alt="Vector4041"
+                src="/assets/external/person.svg"
+                class="vector4"
+              />
+            </div>
+            <div class="addresscontainer">
+              <div class="addressinput1">
+                <div class="frame15">
+                  <div class="maticon5">
+                    <span class="text13 vIconmedium1"></span>
+                  </div>
+                </div>
+                <div class="frame16">
+                  <div class="matinputslot10">
+                    <div class="frame17">
+                      <input
+                        type="text"
+                        placeholder="Address"
+                        class="matinputslot11"
+                        [(ngModel)]="address"
+                        name="address"
+                      />
+                    </div>
+                    <div class="matdivider5"></div>
+                  </div>
+                </div>
+              </div>
+              <img
+                alt="Vector4041"
+                src="/assets/external/location.svg"
+                class="vector5"
+              />
+            </div>
+            <div class="phonecontainer">
+              <div class="phoneinput">
+                <div class="frame18">
+                  <div class="maticon6">
+                    <span class="text14 vIconmedium1"></span>
+                  </div>
+                </div>
+                <div class="frame19">
+                  <div class="matinputslot12">
+                    <div class="frame20">
+                      <input
+                        type="text"
+                        placeholder="Phone number"
+                        class="matinputslot13"
+                        [(ngModel)]="phoneNumber"
+                        name="phoneNumber"
+                      />
+                    </div>
+                    <div class="matdivider6"></div>
+                  </div>
+                </div>
+              </div>
+              <img
+                alt="Vector4041"
+                src="/assets/external/phone.svg"
+                class="vector6"
+              />
+            </div>
+          </div>
+          <div class="logocontainer">
+            <img alt="logo114041" src="/assets/external/logo.svg" class="logo11" />
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
