@@ -1,5 +1,9 @@
 import {Component, ElementRef, ViewChild} from '@angular/core'
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {ProfileService} from "./profile.service";
+import {Profile} from "./model/profile.model"
+import {Accommodation} from "../accommodation/model/accommodation.model";
+import {ProfileModule} from "./profile.module";
 
 @Component({
   selector: 'app-profile',
@@ -8,46 +12,56 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class ProfileComponent {
 
+
+  constructor(private fb: FormBuilder, private profileService: ProfileService ) { }
+
+  profile : Profile;
+
+  ngOnInit(): void{
+    this.profileService.getProfile().subscribe({
+      next: (data: Profile) => {
+        this.profile = data;
+        this.loadFields();
+        this.disableForm();
+      }
+    })
+
+  }
+
   profileForm = new FormGroup({
     firstName: new FormControl(),
     lastName: new FormControl(),
-    email: new FormControl(),
+    email: new FormControl({value:'', disabled:true}),
     address: new FormControl(),
     phone: new FormControl(),
-    username: new FormControl(),
     city: new FormControl(),
     state: new FormControl(),
     password: new FormControl(),
     showPassword: new FormControl(),
     picture: new FormControl(),
-    notifications: new FormControl()
+    notifications: new FormControl(),
+
   })
-  constructor(private fb: FormBuilder) { }
-  ngOnInit(): void{
-    this.loadFields();
-    this.disableForm();
-  }
+
   @ViewChild('fileInput') fileInput!: ElementRef;
   selectedImageSrc: string | ArrayBuffer | null = null;
 
-  loadFields(): void{
-    this.profileForm.controls['firstName'].setValue('John');
-    this.profileForm.controls['lastName'].setValue('Jones');
-    this.profileForm.controls['email'].setValue('jones14@gmail.com');
-    this.profileForm.controls['address'].setValue('33062 Zboncak isle');
-    this.profileForm.controls['phone'].setValue('0617597142');
-    this.profileForm.controls['username'].setValue('jones14');
-    this.profileForm.controls['city'].setValue('Mehrab');
-    this.profileForm.controls['state'].setValue('Bozorgi');
-    this.profileForm.controls['password'].setValue('qwerasdf');
-    this.profileForm.controls['showPassword'].setValue(false);
-    this.profileForm.controls['notifications'].setValue(true);
+  editButtonsVisible = false;
 
-    this.selectedImageSrc = '/assets/external/person.svg';
+  loadFields(): void{
+    this.profileForm.controls['email'].setValue(this.profile.email);
+    this.profileForm.controls['firstName'].setValue(this.profile.firstName);
+    this.profileForm.controls['lastName'].setValue(this.profile.lastName);
+    this.profileForm.controls['address'].setValue(this.profile.address);
+    this.profileForm.controls['phone'].setValue(this.profile.phoneNumber);
+    this.profileForm.controls['password'].setValue(this.profile.password);
+    this.profileForm.controls['showPassword'].setValue(false);
+    this.profileForm.controls['notifications'].setValue(this.profile.notifications);
+    this.selectedImageSrc = this.profile.photo;
   }
 
   onSubmit(): void {
-    console.log(this.profileForm.value);
+    //console.log(this.profileForm.value);
   }
 
 
@@ -88,17 +102,45 @@ export class ProfileComponent {
       control?.disable();
     });
   }
-  enableForm() : void{
+  enableForm(): void {
     Object.keys(this.profileForm.controls).forEach((controlName) => {
-      const control = this.profileForm.get(controlName);
-      control?.enable();
+      if (controlName !== 'email') {
+        const control = this.profileForm.get(controlName);
+        control?.enable();
+      }
     });
   }
   editForm() {
     this.enableForm();
+    this.editButtonsVisible = true;
+  }
+
+  collectData() : Profile{
+    const formValue = this.profileForm.value;
+
+    const profileData : Profile = {
+      firstName : formValue.firstName,
+      lastName : formValue.lastName,
+      email : this.profile.email,
+      address : formValue.address,
+      phoneNumber : formValue.phone,
+      password : formValue.password,
+      notifications : formValue.notifications,
+      photo : formValue.picture
+    }
+
+    return profileData;
   }
 
   save() {
-    this.disableForm();
+    this.profileService.updateProfile(this.collectData()).subscribe({
+      next: (data: Profile) => {
+        this.profile = data;
+        console.log(data);
+        this.loadFields();
+        this.disableForm();
+        this.editButtonsVisible = false;
+      }
+    })
   }
 }
