@@ -4,7 +4,7 @@
 .profil-page-container {
   width: 100%;
   display: flex;
-  overflow: auto;
+  overflow: visible;
   min-height: 98vh;
   align-items: center;
   flex-direction: column;
@@ -13,7 +13,7 @@
   width: 97vw;
   height: 90vh;
   display: flex;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   align-items: flex-start;
   flex-shrink: 0;
