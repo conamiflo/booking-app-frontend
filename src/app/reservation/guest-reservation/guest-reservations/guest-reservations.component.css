@@ -1,0 +1,307 @@
+:host {
+  display: contents;
+}
+.guest-reservations-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.guest-reservations-desktop41 {
+  width: 100%;
+  height: 1080px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.guest-reservations-rectangle5 {
+  top: 154px;
+  left: 344px;
+  width: 1232px;
+  height: 1px;
+  opacity: 0.25;
+  position: absolute;
+}
+.guest-reservations-reservations {
+  gap: 32px;
+  top: 222px;
+  left: 344px;
+  width: 1232px;
+  height: 364px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.guest-reservations-reservations:focus {
+  outline: unset;
+}
+.guest-reservations-text {
+  color: var(--dl-color-default-blackishgreen);
+  height: auto;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Roboto;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.guest-reservations-search-bar {
+  width: 1232px;
+  height: 60px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.guest-reservations-matselectslot {
+  gap: 10px;
+  top: 10px;
+  left: 0px;
+  width: 229px;
+  height: 39px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  position: absolute;
+  align-self: stretch;
+  transition: 0.3s;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(0, 0, 0, 0.41999998688697815);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+.guest-reservations-matselectslot:focus {
+  outline: unset;
+}
+.guest-reservations-matinputslot {
+  gap: 10px;
+  color: rgba(18, 61, 108, 0.8700000047683716);
+  width: 149px;
+  display: flex;
+  overflow: hidden;
+  font-size: 14px;
+  text-align: left;
+  transition: 0.3s;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+  padding-left: 25px;
+}
+.guest-reservations-matinputslot:focus {
+  outline: unset;
+}
+.guest-reservations-maticon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.guest-reservations-text2 {
+  color: var(--dl-color-black-054);
+  height: auto;
+  position: absolute;
+  text-align: center;
+  line-height: 100%;
+}
+.guest-reservations-start-date {
+  gap: 10px;
+  top: 10px;
+  left: 262px;
+  width: 229px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  position: absolute;
+  align-self: stretch;
+  transition: 0.3s;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(0, 0, 0, 0.41999998688697815);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+.guest-reservations-start-date:focus {
+  outline: unset;
+}
+.guest-reservations-start-date-input {
+  gap: 10px;
+  color: rgba(18, 61, 108, 0.8700000047683716);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 14px;
+  text-align: left;
+  transition: 0.3s;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+  padding-left: 25px;
+}
+.guest-reservations-start-date-input:focus {
+  outline: unset;
+}
+.guest-reservations-start-date-icon {
+  top: 22px;
+  left: 273px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+.guest-reservations-end-date-icon {
+  top: 21px;
+  left: 535px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+.guest-reservations-end-date {
+  gap: 10px;
+  top: 10px;
+  left: 525px;
+  width: 229px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  position: absolute;
+  align-self: stretch;
+  transition: 0.3s;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(0, 0, 0, 0.41999998688697815);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+.guest-reservations-end-date:focus {
+  outline: unset;
+}
+.guest-reservations-end-date-input {
+  gap: 10px;
+  color: rgba(18, 61, 108, 0.8700000047683716);
+  width: 195px;
+  display: flex;
+  overflow: hidden;
+  font-size: 14px;
+  text-align: left;
+  transition: 0.3s;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+  padding-left: 25px;
+}
+.guest-reservations-end-date-input:focus {
+  outline: unset;
+}
+.guest-reservations-search-name {
+  gap: 10px;
+  top: 10px;
+  left: 788px;
+  width: 306px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  position: absolute;
+  align-self: stretch;
+  transition: 0.3s;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(0, 0, 0, 0.41999998688697815);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+.guest-reservations-search-name:focus {
+  outline: unset;
+}
+.guest-reservations-search-name-input {
+  gap: 10px;
+  color: rgba(18, 61, 108, 0.8700000047683716);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 14px;
+  text-align: left;
+  transition: 0.3s;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+  padding-left: 25px;
+}
+.guest-reservations-search-name-input:focus {
+  outline: unset;
+}
+.guest-reservations-search-icon {
+  top: 23px;
+  left: 799px;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+}
+.guest-reservations-person-icon {
+  top: 22px;
+  left: 12px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+.guest-reservations-search-btn {
+  top: 10px;
+  left: 1139px;
+  width: 37px;
+  height: 39px;
+  display: flex;
+  padding: 0 16px;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 56px;
+  justify-content: center;
+  background-color: rgba(241, 90, 42, 1);
+}
+.guest-reservations-text4 {
+  color: var(--dl-color-shades-white);
+  height: auto;
+  text-align: center;
+  line-height: 100%;
+}
+.guest-reservations-vector {
+  top: 23px;
+  left: 1151px;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+}
+.guest-reservations-guest-reservations {
+  gap: 16px;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.guest-reservations-line {
+  width: 1232px;
+  height: 0px;
+  opacity: 0.25;
+}
+.guest-reservations-line1 {
+  width: 1232px;
+  height: 0px;
+  opacity: 0.25;
+}

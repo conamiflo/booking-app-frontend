@@ -1,0 +1,80 @@
+<div class="guest-reservations-container">
+  <div class="guest-reservations-desktop41">
+    <img src alt="Rectangle55261" class="guest-reservations-rectangle5" />
+    <div class="guest-reservations-reservations">
+      <span class="guest-reservations-text">
+        <span>Your Reservations</span>
+      </span>
+      <div class="guest-reservations-search-bar">
+        <div class="guest-reservations-matselectslot">
+          <input
+            type="text"
+            placeholder="Filter by: "
+            class="guest-reservations-matinputslot"
+          />
+          <div class="guest-reservations-maticon">
+            <span class="guest-reservations-text2 vIconmedium">
+              <span>arrow_drop_down</span>
+            </span>
+          </div>
+        </div>
+        <div class="guest-reservations-start-date input">
+          <input
+            type="number"
+            placeholder="Check in"
+            class="guest-reservations-start-date-input"
+          />
+        </div>
+        <img
+          src="https://play.teleporthq.io/static/svg/default-img.svg"
+          alt="uiwdate5361"
+          class="guest-reservations-start-date-icon"
+        />
+        <img
+          src="https://play.teleporthq.io/static/svg/default-img.svg"
+          alt="uiwdate5361"
+          class="guest-reservations-end-date-icon"
+        />
+        <div class="guest-reservations-end-date input">
+          <input
+            type="text"
+            placeholder="Check out"
+            class="guest-reservations-end-date-input"
+          />
+        </div>
+        <div class="guest-reservations-search-name input">
+          <input
+            type="text"
+            placeholder=" Search"
+            class="guest-reservations-search-name-input"
+          />
+        </div>
+        <img
+          src="https://play.teleporthq.io/static/svg/default-img.svg"
+          alt="Vector5371"
+          class="guest-reservations-search-icon"
+        />
+        <img
+          src="https://play.teleporthq.io/static/svg/default-img.svg"
+          alt="Vector5361"
+          class="guest-reservations-person-icon"
+        />
+        <div class="guest-reservations-search-btn">
+          <span class="guest-reservations-text4 vIconmedium">
+            <span>edt</span>
+          </span>
+        </div>
+        <img
+          src="https://play.teleporthq.io/static/svg/default-img.svg"
+          alt="Vector5371"
+          class="guest-reservations-vector"
+        />
+      </div>
+      <div class="guest-reservations-guest-reservations">
+        <div *ngFor="let guestReservation of guestReservations">
+          <app-guest-reservation-card></app-guest-reservation-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
