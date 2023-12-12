@@ -1,29 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-  <div class="navbar-container">
-    <div class="navbar-left">
-      <div class="company-info" (click)="redirectToHome()">
-        <img src="/assets/external/logo.svg" alt="Company Logo" class="company-logo" />
-        <span class="company-name">Booking</span>
-      </div>
+<div class="navbar-container">
+  <div class="navbar-left">
+    <div class="company-info" (click)="redirectToHome()">
+      <img src="/assets/external/logo.svg" alt="Company Logo" class="company-logo" />
+      <span class="company-name">Booking</span>
+    </div>
 
+    <ng-container *ngIf="isLoggedIn()">
       <div class="links">
         <div class="divider"></div>
         <span class="profile-link" (click)="redirectToProfile()">Profile</span>
         <div class="divider"></div>
       </div>
-
-    </div>
-
-    <div class="navbar-right">
-      <button class="loginBtn" (click)="redirectToLogin()">Login</button>
-
-    </div>
+    </ng-container>
+    <ng-container *ngIf="isLoggedInGuest()">
+      <div class="links">
+        <div class="divider"></div>
+        <span class="reservations-link" (click)="redirectToProfile()">Reservations</span>
+        <div class="divider"></div>
+      </div>
+    </ng-container>
   </div>
-</body>
-</html>
+
+  <div class="navbar-right">
+    <ng-container *ngIf="isLoggedIn(); else loggedOut">
+      <div>
+        <button class="loginBtn" (click)="logout()">Logout</button>
+        <div>{{ role }} : {{ username }}</div>
+      </div>
+    </ng-container>
+    <ng-template #loggedOut>
+      <button class="loginBtn" (click)="redirectToLogin()">Login</button>
+    </ng-template>
+  </div>
+</div>
