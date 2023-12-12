@@ -7,40 +7,44 @@
       </span>
       <div class="guest-reservations-search-bar">
         <div class="guest-reservations-matselectslot">
-          <input
-            type="text"
-            placeholder="Filter by: "
-            class="guest-reservations-matinputslot"
-          />
           <div class="guest-reservations-maticon">
             <span class="guest-reservations-text2 vIconmedium">
-              <span>arrow_drop_down</span>
             </span>
           </div>
+          <select class="form-control" id="guest-reservations-matinputslot">
+            <option disabled selected hidden>Filter by:</option>
+            <option>Accepted</option>
+            <option>Declined</option>
+            <option>Waiting</option>
+          </select>
         </div>
         <div class="guest-reservations-start-date input">
           <input
-            type="number"
+            type="date"
             placeholder="Check in"
             class="guest-reservations-start-date-input"
+            onFocus="(this.type='date')"
+            onBlur="(this.type='text')"
           />
         </div>
         <img
-          src="https://play.teleporthq.io/static/svg/default-img.svg"
+          src="/assets/external/uiwdate1246-3quh.svg"
           alt="uiwdate5361"
           class="guest-reservations-start-date-icon"
         />
-        <img
-          src="https://play.teleporthq.io/static/svg/default-img.svg"
-          alt="uiwdate5361"
-          class="guest-reservations-end-date-icon"
-        />
         <div class="guest-reservations-end-date input">
-          <input
-            type="text"
-            placeholder="Check out"
-            class="guest-reservations-end-date-input"
-          />
+            <img
+              alt="uiwdate1328"
+              src="/assets/external/uiwdate1328-rwmf.svg"
+              class="cards-uiwdate1"
+            />
+            <input
+              type="date"
+              placeholder="Check out"
+              class="guest-reservations-end-date-input"
+              onFocus="(this.type='date')"
+              onBlur="(this.type='text')"
+            />
         </div>
         <div class="guest-reservations-search-name input">
           <input
@@ -48,24 +52,23 @@
             placeholder=" Search"
             class="guest-reservations-search-name-input"
           />
+          <img
+            src="/assets/external/searchicon.svg"
+            alt="Vector5371"
+            class="guest-reservations-search-icon"
+          />
         </div>
         <img
-          src="https://play.teleporthq.io/static/svg/default-img.svg"
-          alt="Vector5371"
-          class="guest-reservations-search-icon"
-        />
-        <img
-          src="https://play.teleporthq.io/static/svg/default-img.svg"
+          src="/assets/external/person2.svg"
           alt="Vector5361"
           class="guest-reservations-person-icon"
         />
         <div class="guest-reservations-search-btn">
           <span class="guest-reservations-text4 vIconmedium">
-            <span>edt</span>
           </span>
         </div>
         <img
-          src="https://play.teleporthq.io/static/svg/default-img.svg"
+          src="/assets/external/vector1328-34x.svg"
           alt="Vector5371"
           class="guest-reservations-vector"
         />

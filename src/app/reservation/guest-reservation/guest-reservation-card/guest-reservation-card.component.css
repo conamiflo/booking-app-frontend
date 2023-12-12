@@ -27,6 +27,9 @@
   height: auto;
   text-align: left;
   line-height: normal;
+  font-size: 16px;
+  font-style: normal;
+  font-family: Lato;
 }
 .guest-reservation-component-guest-info {
   width: 73px;
