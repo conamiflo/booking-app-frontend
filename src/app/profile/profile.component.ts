@@ -4,6 +4,7 @@ import {ProfileService} from "./profile.service";
 import {Profile} from "./model/profile.model"
 import {Accommodation} from "../accommodation/model/accommodation.model";
 import {ProfileModule} from "./profile.module";
+import {AuthService} from "../authentication/auth.service";
 
 @Component({
   selector: 'app-profile',
@@ -13,12 +14,12 @@ import {ProfileModule} from "./profile.module";
 export class ProfileComponent {
 
 
-  constructor(private fb: FormBuilder, private profileService: ProfileService ) { }
+  constructor(private fb: FormBuilder, private profileService: ProfileService, private authService: AuthService) { }
 
   profile : Profile;
 
   ngOnInit(): void{
-    this.profileService.getProfile().subscribe({
+    this.profileService.getProfile(this.authService.getUsername()).subscribe({
       next: (data: Profile) => {
         this.profile = data;
         this.loadFields();
@@ -54,7 +55,7 @@ export class ProfileComponent {
     this.profileForm.controls['lastName'].setValue(this.profile.lastName);
     this.profileForm.controls['address'].setValue(this.profile.address);
     this.profileForm.controls['phone'].setValue(this.profile.phoneNumber);
-    this.profileForm.controls['password'].setValue(this.profile.password);
+    this.profileForm.controls['password'].setValue("");
     this.profileForm.controls['showPassword'].setValue(false);
     this.profileForm.controls['notifications'].setValue(this.profile.notifications);
     this.selectedImageSrc = this.profile.photo;
@@ -133,7 +134,7 @@ export class ProfileComponent {
   }
 
   save() {
-    this.profileService.updateProfile(this.collectData()).subscribe({
+    this.profileService.updateProfile(this.collectData(), this.authService.getUsername()).subscribe({
       next: (data: Profile) => {
         this.profile = data;
         console.log(data);

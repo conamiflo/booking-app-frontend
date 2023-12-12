@@ -10,11 +10,11 @@ import {environment} from "../../env/env";
 export class ProfileService {
   constructor(private httpClient: HttpClient) {}
 
-  getProfile(): Observable<Profile>{
-    return this.httpClient.get<Profile>(environment.apiHost + 'users/asd@gmail.com')
+  getProfile(email : String): Observable<Profile>{
+    return this.httpClient.get<Profile>(environment.apiHost + 'users/' + email);
   }
 
-  updateProfile(profile : Profile): Observable<Profile>{
-    return this.httpClient.put<Profile>(environment.apiHost + 'users/asd@gmail.com/update', profile)
+  updateProfile(profile : Profile, email : String): Observable<Profile>{
+    return this.httpClient.put<Profile>(environment.apiHost + 'users/' + email + '/update', profile);
   }
 }
