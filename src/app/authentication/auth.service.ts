@@ -23,27 +23,52 @@ export class AuthService {
   }
 
   login(auth: Login): Observable<AuthResponse> {
-    console.log("trece");
-    console.log(auth.email);
     return this.http.post<AuthResponse>(environment.apiHost + 'auth/logIn', auth, {
       headers: this.headers,
     });
   }
 
   logout(): Observable<string> {
-    return this.http.get(environment.apiHost + 'auth/logOut', {
+    return this.http.post(environment.apiHost + 'auth/logOut', {}, {
       responseType: 'text',
     });
   }
 
-  getRole(): any {
+  getRole(): string {
     if (this.isLoggedIn()) {
-      const accessToken: any = localStorage.getItem('user');
-      const helper = new JwtHelperService();
+      const accessToken: string | null = localStorage.getItem('user');
 
-      return helper.decodeToken(accessToken).role[0].authority;
+      if(accessToken === null){
+        return "unauthorized";
+      }
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(accessToken);
+
+      console.log("decoded token:");
+      console.log(decodedToken);
+      if (decodedToken && decodedToken.role && decodedToken.role.length > 0) {
+        return decodedToken.role;
+      }
     }
-    return null;
+    return "unauthorized";
+  }
+
+  getUsername(): string {
+    if (this.isLoggedIn()) {
+      const accessToken: string | null = localStorage.getItem('user');
+
+      if (accessToken === null) {
+        return "unauthorized";
+      }
+
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(accessToken);
+
+      if (decodedToken && decodedToken.sub) {
+        return decodedToken.sub; // Assuming 'sub' represents the username in your token
+      }
+    }
+    return "unauthorized";
   }
 
   isLoggedIn(): boolean {
