@@ -290,6 +290,7 @@
 .guest-reservations-guest-reservations {
   gap: 16px;
   height: auto;
+  width: 100%;
   display: flex;
   align-items: flex-start;
   flex-shrink: 0;

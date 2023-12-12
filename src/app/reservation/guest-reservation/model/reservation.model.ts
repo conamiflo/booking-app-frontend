@@ -6,4 +6,5 @@ export interface GuestReservation {
   numberOfGuests: number;
   status: string;
   price: number;
+  photos: string[];
 }

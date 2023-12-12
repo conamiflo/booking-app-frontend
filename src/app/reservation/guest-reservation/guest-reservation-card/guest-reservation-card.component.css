@@ -2,7 +2,7 @@
   display: contents;
 }
 .guest-reservation-component-frame150 {
-  gap: 40px;
+  gap: 80px;
   width: 100%;
   height: 48px;
   display: flex;
@@ -13,7 +13,7 @@
 }
 .guest-reservation-component-accommodation-info {
   gap: 16px;
-  width: 303px;
+  width: 300px;
   display: flex;
   align-items: center;
 }
