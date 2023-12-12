@@ -116,13 +116,22 @@ body, html {
   align-content: center;
   align-items: center;
 }
-
+.profile-link:hover {
+  cursor: pointer;
+}
 .divider {
   width: 1px;
   height: 45px;
   background-color: rgba(241, 90, 42, 1);
   margin: 0 10px;
 }
-.profile-link:hover {
+
+.reservations-link{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.reservations-link:hover {
   cursor: pointer;
 }
