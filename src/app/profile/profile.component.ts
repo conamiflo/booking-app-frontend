@@ -5,6 +5,7 @@ import {Profile} from "./model/profile.model"
 import {Accommodation} from "../accommodation/model/accommodation.model";
 import {ProfileModule} from "./profile.module";
 import {AuthService} from "../authentication/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +15,7 @@ import {AuthService} from "../authentication/auth.service";
 export class ProfileComponent {
 
 
-  constructor(private fb: FormBuilder, private profileService: ProfileService, private authService: AuthService) { }
+  constructor(private router: Router, private fb: FormBuilder, private profileService: ProfileService, private authService: AuthService) { }
 
   profile : Profile;
 
@@ -143,5 +144,14 @@ export class ProfileComponent {
         this.editButtonsVisible = false;
       }
     })
+  }
+
+  deleteUser() {
+    this.profileService.deleteProfile(this.authService.getUsername());
+    this.authService.logout().subscribe(() => {
+      // Perform any additional logout tasks if needed
+      localStorage.removeItem('user');
+      this.router.navigate(['/login']);
+    });
   }
 }

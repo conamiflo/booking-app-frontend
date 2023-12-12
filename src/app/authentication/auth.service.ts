@@ -44,8 +44,6 @@ export class AuthService {
       const helper = new JwtHelperService();
       const decodedToken = helper.decodeToken(accessToken);
 
-      console.log("decoded token:");
-      console.log(decodedToken);
       if (decodedToken && decodedToken.role && decodedToken.role.length > 0) {
         return decodedToken.role;
       }
