@@ -43,4 +43,8 @@ export class NavbarComponent {
   redirectToHome() {
     this.router.navigate(['']);
   }
+
+  isLoggedInGuest() {
+    return this.authService.isLoggedIn() && this.authService.getRole() === "Guest";
+  }
 }

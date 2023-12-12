@@ -12,6 +12,13 @@
         <div class="divider"></div>
       </div>
     </ng-container>
+    <ng-container *ngIf="isLoggedInGuest()">
+      <div class="links">
+        <div class="divider"></div>
+        <span class="reservations-link" (click)="redirectToProfile()">Reservations</span>
+        <div class="divider"></div>
+      </div>
+    </ng-container>
   </div>
 
   <div class="navbar-right">
