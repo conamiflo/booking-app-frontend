@@ -29,14 +29,10 @@
         <a routerLink="/" class="login-navlink1">
           <img alt="logo" src="/assets/external/logo.svg" class="login-logo11" />
         </a>
-        <form class="login-form" (ngSubmit)="onSubmit()">
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <div class="login-email-input">
             <div class="login-frame">
-              <img
-                alt="Frame2683301"
-                src="/assets/external/email.svg"
-                class="login-frame268"
-              />
+              <img alt="Frame2683301" src="/assets/external/email.svg" class="login-frame268" />
             </div>
             <div class="login-frame1">
               <div class="login-matinputslot">
@@ -45,8 +41,7 @@
                     type="text"
                     placeholder="Email"
                     class="login-emailinputslot input"
-                    [(ngModel)]="email"
-                    name="email"
+                    formControlName="username"
                   />
                 </div>
                 <div class="login-matdivider"></div>
@@ -55,11 +50,7 @@
           </div>
           <div class="login-password-input">
             <div class="login-maticon">
-              <img
-                alt="Vector3301"
-                src="/assets/external/password.svg"
-                class="login-vector"
-              />
+              <img alt="Vector3301" src="/assets/external/password.svg" class="login-vector" />
             </div>
             <div class="login-frame3">
               <div class="login-matinputslot1">
@@ -68,8 +59,7 @@
                     type="password"
                     placeholder="Password"
                     class="login-passwordinputslot input"
-                    [(ngModel)]="password"
-                    name="password"
+                    formControlName="password"
                   />
                 </div>
                 <div class="login-matdivider1"></div>
@@ -78,7 +68,7 @@
           </div>
           <div class="login-log-in-btn button">
             <div class="login-content1">
-                <button type="submit" class="button-like-span">LOG IN</button>
+              <button type="submit" class="button-like-span">LOG IN</button>
             </div>
           </div>
         </form>
