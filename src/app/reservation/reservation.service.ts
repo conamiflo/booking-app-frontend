@@ -12,5 +12,7 @@ export class ReservationService {
   getAll(): Observable<GuestReservation[]>{
     return this.httpClient.get<GuestReservation[]>(environment.apiHost + 'reservations')
   }
-
+  getGuestReservations(email:string): Observable<GuestReservation[]>{
+    return this.httpClient.get<GuestReservation[]>(environment.apiHost + 'reservations/guest/' + email)
+  }
 }
