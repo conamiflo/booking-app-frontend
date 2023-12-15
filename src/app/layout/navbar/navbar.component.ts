@@ -40,6 +40,10 @@ export class NavbarComponent {
     this.router.navigate(['/profile']);
   }
 
+  redirectToReservations() {
+    this.router.navigate(['/guest/reservations']);
+  }
+
   redirectToHome() {
     this.router.navigate(['']);
   }

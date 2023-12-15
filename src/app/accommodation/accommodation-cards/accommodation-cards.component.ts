@@ -27,6 +27,4 @@ export class AccommodationCardsComponent {
     this.clickedAccommodation = accommodation.id.toString();
   }
 
-
-
 }
