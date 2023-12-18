@@ -144,11 +144,12 @@
   height: 24px;
   display: flex;
   position: relative;
-  align-items: flex-start;
+  align-items: center;
   flex-shrink: 0;
 }
 .cards-text2 {
   color: var(--dl-color-black-054);
+  font-size: medium;
   height: auto;
   position: absolute;
   text-align: center;
