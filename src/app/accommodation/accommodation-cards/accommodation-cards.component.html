@@ -2,7 +2,10 @@
 
 <div class="cards-container">
   <div class="cards-desktop11">
-
+<!--    <div>-->
+<!--      <input type="file" (change)="showPreviewImage($event)">-->
+<!--      <img [src]="localUrl" *ngIf="localUrl" class="imgPlaceholder">-->
+<!--    </div>-->
     <div class="cards-matfiltertoolbarcontent">
       <div class="cards-guestsdropdown">
         <img
@@ -10,18 +13,13 @@
           src="/assets/external/vector1246-yfdf.svg"
           class="cards-vector"
         />
-        <input
-          type="text"
-          placeholder="      2 Guests"
-          class="cards-matinputslot"
-        />
+        <input type="range" min="1" max="12"
+               class="cards-matinputslot"
+               [(ngModel)]="numberOfGuests"
+               (ngModelChange)="onNumberOfGuestChanged()">
         <div class="cards-maticon">
           <span class="cards-text2 vIconmedium">
-            <img
-              alt="arrow_down"
-              src="/assets/external/arrow_down.jpg"
-              class="cards-vector"
-            />
+           {{numberOfGuests}}
           </span>
         </div>
       </div>
@@ -34,21 +32,22 @@
         <input
           type="text"
           placeholder="     Location"
+          [(ngModel)]="location"
           class="cards-matinputslot1"
         />
       </div>
-      <div class="cards-filtersmatinputslot">
-        <input
-          type="text"
-          placeholder="     Filters"
-          class="cards-matinputslot2"
-        />
-        <img
-          alt="Vector1328"
-          src="/assets/external/vector1328-cuqk.svg"
-          class="cards-vector2"
-        />
-      </div>
+<!--      <div class="cards-filtersmatinputslot">-->
+<!--        <input-->
+<!--          type="text"-->
+<!--          placeholder="     Filters"-->
+<!--          class="cards-matinputslot2"-->
+<!--        />-->
+<!--        <img-->
+<!--          alt="Vector1328"-->
+<!--          src="/assets/external/vector1328-cuqk.svg"-->
+<!--          class="cards-vector2"-->
+<!--        />-->
+<!--      </div>-->
       <div class="cards-checkinmatinputslot">
         <img
           alt="uiwdate1246"
@@ -56,11 +55,14 @@
           class="cards-uiwdate"
         />
         <input
-          type="text"
+          type="date"
+          [(ngModel)]="checkInDate"
+          (ngModelChange)="checkInDateChange()"
           placeholder="      Check in"
           class="cards-matinputslot3"
         />
       </div>
+      -
       <div class="cards-checkoutmatinputslot">
         <img
           alt="uiwdate1328"
@@ -68,12 +70,13 @@
           class="cards-uiwdate1"
         />
         <input
-          type="text"
+          type="date"
+          [(ngModel)]="checkOutDate"
           placeholder="      Check out"
           class="cards-matinputslot4"
         />
       </div>
-      <div class="cards-matbtn2">
+      <div class="cards-matbtn2" (click)="searchAccommodations()">
         <img
           alt="Vector1328"
           src="/assets/external/vector1328-34x.svg"
