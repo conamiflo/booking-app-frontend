@@ -285,6 +285,11 @@
   justify-content: center;
   background-color: rgba(241, 90, 42, 1);
 }
+
+.cards-matbtn2 :hover {
+  cursor: pointer;
+}
+
 .cards-vector3 {
   width: 14px;
   height: 14px;

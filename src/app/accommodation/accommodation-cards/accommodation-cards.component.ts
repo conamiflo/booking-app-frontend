@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Accommodation} from "../model/accommodation.model";
 import {AccommodationService} from "../accommodation.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-accommodation-cards',
@@ -12,6 +13,10 @@ export class AccommodationCardsComponent {
   clickedAccommodation: string = '';
   // localUrl: any[];
   numberOfGuests: number;
+  location : string;
+  checkInDate : string;
+  checkOutDate: string;
+
   constructor(private  service: AccommodationService) {
     this.numberOfGuests = 1;
   }
@@ -45,5 +50,19 @@ export class AccommodationCardsComponent {
 
   onNumberOfGuestChanged() {
     console.log(this.numberOfGuests);
+  }
+
+  checkInDateChange() {
+    console.log(this.checkInDate);
+  }
+
+  searchAccommodations() {
+    console.log(this.numberOfGuests, this.location, this.checkInDate, this.checkOutDate)
+    this.service.searchAccommodations(this.numberOfGuests, this.location, this.checkInDate, this.checkOutDate).subscribe({
+      next: (data: Accommodation[]) =>{
+        this.accommodations = data
+      },
+      error: (_) => {console.log("Error!")}
+    })
   }
 }

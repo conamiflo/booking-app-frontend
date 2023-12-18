@@ -32,6 +32,7 @@
         <input
           type="text"
           placeholder="     Location"
+          [(ngModel)]="location"
           class="cards-matinputslot1"
         />
       </div>
@@ -55,11 +56,13 @@
         />
         <input
           type="date"
+          [(ngModel)]="checkInDate"
+          (ngModelChange)="checkInDateChange()"
           placeholder="      Check in"
           class="cards-matinputslot3"
         />
       </div>
-      >
+      -
       <div class="cards-checkoutmatinputslot">
         <img
           alt="uiwdate1328"
@@ -68,11 +71,12 @@
         />
         <input
           type="date"
+          [(ngModel)]="checkOutDate"
           placeholder="      Check out"
           class="cards-matinputslot4"
         />
       </div>
-      <div class="cards-matbtn2">
+      <div class="cards-matbtn2" (click)="searchAccommodations()">
         <img
           alt="Vector1328"
           src="/assets/external/vector1328-34x.svg"
