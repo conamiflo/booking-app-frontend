@@ -429,17 +429,9 @@
     </div>
 
     <div class="location-maps">
-      <span class="page-text008"><span>Location</span></span><br><br>
-      <img
-        alt="Vector1226"
-        src="/assets/external/vector1226-jooip.svg"
-        class="cards-vector1"
-      />
-      <span class="page-text172"><span> {{accommodation.location}}</span></span>
-      <div class="map-container">
-        <img class="map" src="/assets/external/map.png"/>
-      </div>
+      <app-map [locationToSearch]="accommodation.location"></app-map>
     </div>
+
 
     <div class="page-frame250">
       <div class="page-frame168">

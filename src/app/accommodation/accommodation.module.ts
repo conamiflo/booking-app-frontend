@@ -11,15 +11,16 @@ import {
   AccommodationRequestCardComponent
 } from "./accommodation-requests/accommodation-request-card/accommodation.request.card";
 
-import {FormsModule} from "@angular/forms";
+import {SharedModule} from "../shared/shared.module";
 import { DialogAccommodationFilterComponent } from './dialog-accommodation-filter/dialog-accommodation-filter.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MaterialModule} from "../material.module";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatLegacySliderModule} from "@angular/material/legacy-slider";
-import {AccommodationCreationComponent} from "./accommodation-creation/accommodation-creation.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AccommodationCreationComponent } from './accommodation-creation/accommodation-creation.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     AccommodationDetailsComponent,
     AccommodationCardComponent,
     AccommodationRequestComponent,
-    AccommodationRequestCardComponent
+    AccommodationRequestCardComponent,
     AccommodationCreationComponent
   ],
   exports: [
@@ -35,7 +36,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     AccommodationCreationComponent
   ],
   imports: [
-
     CommonModule,
     RouterModule,
     FormsModule,
@@ -43,8 +43,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatDialogModule,
     MaterialModule,
     MatSliderModule,
-    MatLegacySliderModule
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatLegacySliderModule,
+    SharedModule
   ]
 })
 export class AccommodationModule { }
