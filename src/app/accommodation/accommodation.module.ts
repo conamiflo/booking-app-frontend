@@ -4,12 +4,20 @@ import {RouterModule, Route} from "@angular/router";
 import { AccommodationCardsComponent } from './accommodation-cards/accommodation-cards.component';
 import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
 import { AccommodationCardComponent } from './accommodation-card/accommodation-card.component';
+import {
+  AccommodationRequestComponent
+} from "./accommodation-requests/accommodation-request/accommodation.request.component";
+import {
+  AccommodationRequestCardComponent
+} from "./accommodation-requests/accommodation-request-card/accommodation.request.card";
 
 @NgModule({
   declarations: [
     AccommodationCardsComponent,
     AccommodationDetailsComponent,
-    AccommodationCardComponent
+    AccommodationCardComponent,
+    AccommodationRequestComponent,
+    AccommodationRequestCardComponent
   ],
   exports: [
     AccommodationCardsComponent
