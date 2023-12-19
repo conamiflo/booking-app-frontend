@@ -2,40 +2,45 @@
 <div class="filter-form-contents">
   <p>Minimum price:</p>
   <mat-form-field>
-    <input matInput disabled [(ngModel)]="data.minimumPrice" placeholder="{{minPrice}}" class="filter-input">
+    <input matInput disabled [(ngModel)]="data.minimumPrice" placeholder="{{data.minimumPrice}}" class="filter-input">
   </mat-form-field>
 
   <p>Maximum price:</p>
   <mat-form-field>
-    <input matInput disabled [(ngModel)]="data.maximumPrice" placeholder="{{maxPrice}}" class="filter-input">
+    <input matInput disabled [(ngModel)]="data.maximumPrice" placeholder="{{data.maximumPrice}}" class="filter-input">
   </mat-form-field>
 
   <mat-slider min="1" max="1000">
-    <input value="300" [(ngModel)]="minPrice" matSliderStartThumb>
-    <input value="400" [(ngModel)]="maxPrice" matSliderEndThumb>
+    <input value="300" [(ngModel)]="data.minimumPrice" matSliderStartThumb>
+    <input value="400" [(ngModel)]="data.maximumPrice" matSliderEndThumb>
   </mat-slider>
 
   <mat-label>Accommodation type</mat-label>
-  <mat-form-field>
-  <select matNativeControl required>
-    <option value="studio">Studio</option>
-    <option value="one-bedroom">One bedroom</option>
-    <option value="two-bedroom">Two bedroom</option>
-    <option value="house">House</option>
 
-  </select>
-  </mat-form-field>
+<!--  <select matNativeControl (change)="onSelectionChange($event)" [(ngModel)]="data.type">-->
+<!--    <option value="studio" selected>Studio</option>-->
+<!--    <option value="one-bedroom">One bedroom</option>-->
+<!--    <option value="two-bedroom">Two bedroom</option>-->
+<!--    <option value="house">House</option>-->
 
-  <mat-label>Amenities:</mat-label>
-  <div *ngFor="let amenity of amenities">
+<!--  </select>-->
+  <div *ngFor="let accommdoationType of data.type">
     <label>
-      <input type="checkbox" [value]="amenity.name"> {{ amenity.name }}
+      <input type="checkbox" [value]="accommdoationType.value"  [checked]="accommdoationType.checked" (change)="onChangeAccommodationType($event)"> {{ accommdoationType.name }}
     </label>
   </div>
-  
+
+
+  <mat-label>Amenities:</mat-label>
+  <div *ngFor="let amenity of data.amenities">
+    <label>
+      <input type="checkbox" [value]="amenity.id"  [checked]="amenity.checked" (change)="onChangeAmenity($event)"> {{ amenity.name }}
+    </label>
+  </div>
+
 </div>
 
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onNoClick()">No, Reset</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Apply</button>
 </div>

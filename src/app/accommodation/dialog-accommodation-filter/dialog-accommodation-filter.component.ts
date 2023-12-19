@@ -19,30 +19,55 @@ import {NgForOf} from "@angular/common";
 })
 export class DialogAccommodationFilterComponent {
 
-  amenities: Amenity[] = [
-    {id: 1, name: 'Amenity 1' },
-    {id: 2, name: 'Amenity 2' },
-
-  ];
-  maxPrice :number;
-  minPrice : number;
-  value = 0;
   constructor(
     public dialogRef: MatDialogRef<DialogAccommodationFilterComponent>,
     @Inject(MAT_DIALOG_DATA) public data: AccommodationFilterModel) {
-    this.minPrice=1;
-    this.maxPrice=1000;
-
   }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  onMinimumPriceChange() {
 
+  onSelectionChangeAmenity($event: Event) {
+    const target = $event.target as HTMLInputElement;
+    console.log(target.value +",Checked: "+target.checked);
   }
 
-  protected readonly min = min;
+
+
+
+  onChangeAmenity($event: Event) {
+
+    const target = $event.target as HTMLInputElement;
+    const id = target.value;
+    const isChecked = target.checked;
+
+    this.data.amenities = this.data.amenities.map((d) =>
+    {
+      // @ts-ignore
+      if(d.id == id){
+        d.checked = isChecked;
+        return d;
+      }return d;
+    })
+
+
+    console.log(id + " " + isChecked);
+  }
+
+  onChangeAccommodationType($event: Event) {
+    const target = $event.target as HTMLInputElement;
+    const value = target.value;
+    const isChecked = target.checked;
+
+    this.data.type = this.data.type.map((d)=>{
+      if(d.value == value){
+        d.checked = isChecked;
+        return d;
+      }
+      return d;
+    })
+  }
 }
 

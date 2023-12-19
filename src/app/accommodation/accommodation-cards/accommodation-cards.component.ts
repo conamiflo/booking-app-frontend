@@ -6,6 +6,9 @@ import {AccommodationType} from "../model/accommodationtype.model";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogAccommodationFilterComponent} from "../dialog-accommodation-filter/dialog-accommodation-filter.component";
 import {AccommodationFilterModel} from "../model/accommodation-filter.model";
+import {AccommodationTypeCheckBox} from "../model/accommodation-type.model";
+import {AmenityBackend} from "../model/amenity-backend.model";
+import {AccommodationWithAmenities} from "../model/accommodation-with-amenities.model";
 
 
 @Component({
@@ -14,47 +17,53 @@ import {AccommodationFilterModel} from "../model/accommodation-filter.model";
   styleUrls: ['./accommodation-cards.component.css']
 })
 export class AccommodationCardsComponent {
-  accommodations: Accommodation[] = [];
+  accommodations: AccommodationWithAmenities[] = [];
+  accommodationsForShow: AccommodationWithAmenities[] =[];
   clickedAccommodation: string = '';
   localUrl: any[];
   numberOfGuests: number;
   location: string;
   checkInDate: string;
   checkOutDate: string;
-  showPopup: boolean = false;
-  minimumPrice: number;
-  maximumPrice: number;
-  amenitiesFilter: Amenity[];
-  accommodationTypeFilter: AccommodationType;
+  minimumPrice = 1;
+  maximumPrice = 1000;
+  selectedAccommodationType : AccommodationTypeCheckBox[] = [
+    {value: "one-bedroom", name: 'One bedroom', checked: true },
+    {value: "two-bedroom", name: 'Two bedroom', checked: true },
+    {value: "house", name: 'House', checked: true },
+    {value: "studio", name: 'Studio', checked: true }
+  ];
+  amenities: Amenity[] = [
+    {id: 1, name: 'Amenity 1', checked: false },
+    {id: 2, name: 'Amenity 2', checked: false },
+  ];
 
   constructor(public dialog: MatDialog, private service: AccommodationService) {
     this.numberOfGuests = 1;
   }
 
-  togglePopup(): void {
-    this.showPopup = !this.showPopup;
-  }
-
-  closePopup(): void {
-    this.showPopup = false;
-  }
-
-  submitForm(): void {
-    // Handle form submission logic here
-    console.log('Form submitted:');
-    this.closePopup(); // Close the popup after form submission
-  }
-
-
   ngOnInit(): void {
     this.service.getAll().subscribe({
-      next: (data: Accommodation[]) => {
-        this.accommodations = data
+      next: (data: AccommodationWithAmenities[]) => {
+        this.accommodations = data;
+        this.accommodationsForShow = this.accommodations;
       },
       error: (_) => {
         console.log("Error!")
       }
-    })
+    });
+    this.service.getAllAmenitiesCheckBoxes().subscribe({
+      next: (data: AmenityBackend[]) => {
+        this.amenities = []
+        for (let i = 0; i  < data.length; i++){
+          this.amenities.push({id: data[i].id, name: data[i].name , checked: false });
+        }
+
+      },
+      error: (_) => {
+        console.log("Error!");
+      }
+    });
   }
 
   onAccommodationClicked(accommodation: Accommodation): void {
@@ -86,26 +95,41 @@ export class AccommodationCardsComponent {
   searchAccommodations() {
     console.log(this.numberOfGuests, this.location, this.checkInDate, this.checkOutDate)
     this.service.searchAccommodations(this.numberOfGuests, this.location, this.checkInDate, this.checkOutDate).subscribe({
-      next: (data: Accommodation[]) => {
-        this.accommodations = data
+      next: (data: AccommodationWithAmenities[]) => {
+        this.accommodations = data;
+        this.accommodationsForShow = this.accommodations;
       },
       error: (_) => {
         console.log("Error!")
       }
-    })
+    });
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAccommodationFilterComponent, {
       width: '350px',
-
-      data: {minimumPrice: this.minimumPrice, maximumPrice: this.maximumPrice}
+      data: {minimumPrice: this.minimumPrice, maximumPrice: this.maximumPrice, amenities: this.amenities, type: this.selectedAccommodationType}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if(result !== undefined){
         this.minimumPrice = (<AccommodationFilterModel>result).minimumPrice;
-        console.log("Minimalna cena" + this.minimumPrice)
+        this.maximumPrice = (<AccommodationFilterModel>result).maximumPrice;
+        this.selectedAccommodationType = (<AccommodationFilterModel>result).type;
+        this.amenities = (<AccommodationFilterModel>result).amenities;
+
+        this.accommodationsForShow = this.service.filter(this.maximumPrice, this.minimumPrice, this.selectedAccommodationType, this.amenities, this.accommodations);
+
+      }else{
+        this.minimumPrice = 1;
+        this.maximumPrice = 1000;
+        for (let i = 0; i < this.amenities.length; i++){
+          this.amenities[i].checked = false;
+        }
+        for (let i = 0; i < this.selectedAccommodationType.length; i++){
+          this.selectedAccommodationType[i].checked = true;
+        }
+        this.ngOnInit();
       }
 
     });

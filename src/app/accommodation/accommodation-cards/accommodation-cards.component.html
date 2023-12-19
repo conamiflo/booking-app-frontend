@@ -82,7 +82,7 @@
       </div>
     </div>
     <div class="cards-cardscontent">
-      <div *ngFor="let accommodation of accommodations">
+      <div *ngFor="let accommodation of accommodationsForShow">
         <app-accommodation-card (clicked)="onAccommodationClicked($event)" [accommodation]="accommodation"></app-accommodation-card>
       </div>
     </div>

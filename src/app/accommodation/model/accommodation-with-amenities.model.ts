@@ -1,4 +1,6 @@
-export interface Accommodation {
+import {AmenityBackend} from "./amenity-backend.model";
+
+export interface AccommodationWithAmenities {
   id: number;
   name: string;
   description: string;
@@ -8,4 +10,5 @@ export interface Accommodation {
   minGuests: number;
   maxGuests: number;
   type: string;
+  amenities: AmenityBackend[];
 }
