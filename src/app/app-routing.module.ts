@@ -10,6 +10,7 @@ import {AccommodationDetailsComponent} from "./accommodation/accommodation-detai
 import {
   GuestReservationsComponent
 } from "./reservation/guest-reservation/guest-reservations/guest-reservations.component";
+import {AccommodationCreationComponent} from "./accommodation/accommodation-creation/accommodation-creation.component";
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'accommodation', component:AccommodationCardsComponent},
   { path: 'accommodation/:accommodationId', component:AccommodationDetailsComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'guest/reservations', component: GuestReservationsComponent}
+  { path: 'guest/reservations', component: GuestReservationsComponent},
+  { path: 'accommodation-creation', component: AccommodationCreationComponent}
 
 ];
 
