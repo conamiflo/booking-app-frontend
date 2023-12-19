@@ -1,0 +1,83 @@
+<div class="guest-reservations-container">
+  <div class="guest-reservations-desktop41">
+    <img src alt="Rectangle55261" class="guest-reservations-rectangle5" />
+    <div class="guest-reservations-reservations">
+      <span class="guest-reservations-text">
+        <span>Your Reservations</span>
+      </span>
+      <div class="guest-reservations-search-bar">
+        <div class="guest-reservations-matselectslot">
+          <div class="guest-reservations-maticon">
+            <span class="guest-reservations-text2 vIconmedium">
+            </span>
+          </div>
+          <select class="form-control" id="guest-reservations-matinputslot">
+            <option disabled selected hidden>Filter by:</option>
+            <option>Accepted</option>
+            <option>Declined</option>
+            <option>Waiting</option>
+          </select>
+        </div>
+        <div class="guest-reservations-start-date input">
+          <input
+            type="date"
+            placeholder="Check in"
+            class="guest-reservations-start-date-input"
+            onFocus="(this.type='date')"
+            onBlur="(this.type='text')"
+          />
+        </div>
+        <img
+          src="/assets/external/uiwdate1246-3quh.svg"
+          alt="uiwdate5361"
+          class="guest-reservations-start-date-icon"
+        />
+        <div class="guest-reservations-end-date input">
+            <img
+              alt="uiwdate1328"
+              src="/assets/external/uiwdate1328-rwmf.svg"
+              class="cards-uiwdate1"
+            />
+            <input
+              type="date"
+              placeholder="Check out"
+              class="guest-reservations-end-date-input"
+              onFocus="(this.type='date')"
+              onBlur="(this.type='text')"
+            />
+        </div>
+        <div class="guest-reservations-search-name input">
+          <input
+            type="text"
+            placeholder=" Search"
+            class="guest-reservations-search-name-input"
+          />
+          <img
+            src="/assets/external/searchicon.svg"
+            alt="Vector5371"
+            class="guest-reservations-search-icon"
+          />
+        </div>
+        <img
+          src="/assets/external/person2.svg"
+          alt="Vector5361"
+          class="guest-reservations-person-icon"
+        />
+        <div class="guest-reservations-search-btn">
+          <span class="guest-reservations-text4 vIconmedium">
+          </span>
+        </div>
+        <img
+          src="/assets/external/vector1328-34x.svg"
+          alt="Vector5371"
+          class="guest-reservations-vector"
+        />
+      </div>
+      <div class="guest-reservations-guest-reservations">
+        <div *ngFor="let guestReservation of guestReservations">
+          <app-guest-reservation-card [guestReservation]="guestReservation"></app-guest-reservation-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
