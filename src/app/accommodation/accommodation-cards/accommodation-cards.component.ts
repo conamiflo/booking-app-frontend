@@ -129,7 +129,7 @@ export class AccommodationCardsComponent {
         for (let i = 0; i < this.selectedAccommodationType.length; i++){
           this.selectedAccommodationType[i].checked = true;
         }
-        this.ngOnInit();
+        this.searchAccommodations();
       }
 
     });
