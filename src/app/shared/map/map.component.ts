@@ -1,6 +1,7 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, SimpleChanges} from '@angular/core';
 import * as L from 'leaflet';
 import {MapService} from "./map.service";
+import {Accommodation} from "../../accommodation/model/accommodation.model";
 
 @Component({
   selector: 'app-map',
@@ -9,9 +10,14 @@ import {MapService} from "./map.service";
 })
 export class MapComponent implements AfterViewInit {
   private map: any;
-
-  constructor(private mapService: MapService) {}
-
+  private mapInitializedPromise: Promise<void>;
+  private mapInitializedResolver: () => void;
+  constructor(private mapService: MapService, private elementRef: ElementRef) {
+    this.mapInitializedPromise = new Promise<void>((resolve) => {
+      this.mapInitializedResolver = resolve;
+    });
+  }
+  @Input() locationToSearch: string; // New input property
   private initMap(): void {
     this.map = L.map('map', {
       center: [45.2396, 19.8227],
@@ -47,12 +53,12 @@ export class MapComponent implements AfterViewInit {
   }
 
   search(): void {
-    this.mapService.search('Strazilovska 19, Novi Sad').subscribe({
+    this.mapService.search(this.locationToSearch).subscribe({
       next: (result) => {
         console.log(result);
         L.marker([result[0].lat, result[0].lon])
           .addTo(this.map)
-          .bindPopup('Strazilovska 19.')
+          .bindPopup(this.locationToSearch)
           .openPopup();
       },
       error: () => {},
@@ -68,4 +74,5 @@ export class MapComponent implements AfterViewInit {
     });
     this.initMap();
   }
+
 }
