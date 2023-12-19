@@ -18,6 +18,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MaterialModule} from "../material.module";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatLegacySliderModule} from "@angular/material/legacy-slider";
+import {AccommodationCreationComponent} from "./accommodation-creation/accommodation-creation.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import {MatLegacySliderModule} from "@angular/material/legacy-slider";
     AccommodationCardComponent,
     AccommodationRequestComponent,
     AccommodationRequestCardComponent
+    AccommodationCreationComponent
   ],
   exports: [
-    AccommodationCardsComponent
+    AccommodationCardsComponent,
+    AccommodationCreationComponent
   ],
   imports: [
 
@@ -40,6 +44,7 @@ import {MatLegacySliderModule} from "@angular/material/legacy-slider";
     MaterialModule,
     MatSliderModule,
     MatLegacySliderModule
+    ReactiveFormsModule
   ]
 })
 export class AccommodationModule { }
