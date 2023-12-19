@@ -15,6 +15,7 @@ import {
   AccommodationRequestComponent
 } from "./accommodation/accommodation-requests/accommodation-request/accommodation.request.component";
 import {AccommodationCreationComponent} from "./accommodation/accommodation-creation/accommodation-creation.component";
+import {AccommodationEditComponent} from "./accommodation/accommodation-edit/accommodation-edit.component";
 
 
 const routes: Routes = [
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'guest/reservations', component: GuestReservationsComponent},
   { path: 'activation/:email', component: AccountActivationComponent},
   { path: 'accommodationRequests', component: AccommodationRequestComponent},
-  { path: 'accommodation-creation', component: AccommodationCreationComponent}
+  { path: 'accommodation-creation', component: AccommodationCreationComponent},
+  { path: 'accommodationEdit/:id', component: AccommodationEditComponent}
 ];
 
 @NgModule({

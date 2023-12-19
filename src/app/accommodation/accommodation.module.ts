@@ -17,9 +17,10 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MaterialModule} from "../material.module";
 import {MatSliderModule} from "@angular/material/slider";
-import {MatLegacySliderModule} from "@angular/material/legacy-slider";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AccommodationCreationComponent } from './accommodation-creation/accommodation-creation.component';
+import {MatLegacySliderModule} from "@angular/material/legacy-slider";
+import {AccommodationEditComponent} from "./accommodation-edit/accommodation-edit.component";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AccommodationCreationComponent } from './accommodation-creation/accommo
     AccommodationCardComponent,
     AccommodationRequestComponent,
     AccommodationRequestCardComponent,
-    AccommodationCreationComponent
+    AccommodationCreationComponent,
+    AccommodationEditComponent
   ],
   exports: [
     AccommodationCardsComponent,
