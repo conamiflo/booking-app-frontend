@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {Accommodation} from "../model/accommodation.model";
 import {AccommodationService} from "../accommodation.service";
-import {Observable} from "rxjs";
+import {Amenity} from "../model/amenity.model";
+import {AccommodationType} from "../model/accommodationtype.model";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogAccommodationFilterComponent} from "../dialog-accommodation-filter/dialog-accommodation-filter.component";
+import {AccommodationFilterModel} from "../model/accommodation-filter.model";
+
 
 @Component({
   selector: 'app-accommodation-cards',
@@ -11,22 +16,44 @@ import {Observable} from "rxjs";
 export class AccommodationCardsComponent {
   accommodations: Accommodation[] = [];
   clickedAccommodation: string = '';
-  // localUrl: any[];
+  localUrl: any[];
   numberOfGuests: number;
-  location : string;
-  checkInDate : string;
+  location: string;
+  checkInDate: string;
   checkOutDate: string;
+  showPopup: boolean = false;
+  minimumPrice: number;
+  maximumPrice: number;
+  amenitiesFilter: Amenity[];
+  accommodationTypeFilter: AccommodationType;
 
-  constructor(private  service: AccommodationService) {
+  constructor(public dialog: MatDialog, private service: AccommodationService) {
     this.numberOfGuests = 1;
   }
 
+  togglePopup(): void {
+    this.showPopup = !this.showPopup;
+  }
+
+  closePopup(): void {
+    this.showPopup = false;
+  }
+
+  submitForm(): void {
+    // Handle form submission logic here
+    console.log('Form submitted:');
+    this.closePopup(); // Close the popup after form submission
+  }
+
+
   ngOnInit(): void {
     this.service.getAll().subscribe({
-      next: (data: Accommodation[]) =>{
+      next: (data: Accommodation[]) => {
         this.accommodations = data
       },
-      error: (_) => {console.log("Error!")}
+      error: (_) => {
+        console.log("Error!")
+      }
     })
   }
 
@@ -35,18 +62,18 @@ export class AccommodationCardsComponent {
   }
 
 
-  // showPreviewImage(event: Event) {
-  //   const target = <HTMLInputElement>event.target
-  //   if(!target) return;
-  //   if (target.files && target.files[0]) {
-  //     var reader = new FileReader();
-  //     reader.onload = (e: any) => {
-  //       this.localUrl = e.target.result;
-  //       console.log(this.localUrl);
-  //     }
-  //     reader.readAsDataURL(target.files[0]);
-  //   }
-  // }
+  showPreviewImage(event: Event) {
+    const target = <HTMLInputElement>event.target
+    if (!target) return;
+    if (target.files && target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.localUrl = e.target.result;
+        console.log(this.localUrl);
+      }
+      reader.readAsDataURL(target.files[0]);
+    }
+  }
 
   onNumberOfGuestChanged() {
     console.log(this.numberOfGuests);
@@ -59,10 +86,28 @@ export class AccommodationCardsComponent {
   searchAccommodations() {
     console.log(this.numberOfGuests, this.location, this.checkInDate, this.checkOutDate)
     this.service.searchAccommodations(this.numberOfGuests, this.location, this.checkInDate, this.checkOutDate).subscribe({
-      next: (data: Accommodation[]) =>{
+      next: (data: Accommodation[]) => {
         this.accommodations = data
       },
-      error: (_) => {console.log("Error!")}
+      error: (_) => {
+        console.log("Error!")
+      }
     })
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogAccommodationFilterComponent, {
+      width: '350px',
+
+      data: {minimumPrice: this.minimumPrice, maximumPrice: this.maximumPrice}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if(result !== undefined){
+        this.minimumPrice = (<AccommodationFilterModel>result).minimumPrice;
+        console.log("Minimalna cena" + this.minimumPrice)
+      }
+
+    });
   }
 }

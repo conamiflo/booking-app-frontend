@@ -1,12 +1,23 @@
 
 
 <div class="cards-container">
+
   <div class="cards-desktop11">
 <!--    <div>-->
 <!--      <input type="file" (change)="showPreviewImage($event)">-->
 <!--      <img [src]="localUrl" *ngIf="localUrl" class="imgPlaceholder">-->
 <!--    </div>-->
-    <div class="cards-matfiltertoolbarcontent">
+    <div class="cards-matfiltertoolbarcontent" >
+      <div class="cards-filtersmatinputslot" (click)="openDialog()">
+        <span class="cards-matinputslot2">
+          Filters
+        </span>
+        <img
+          alt="Vector1328"
+          src="/assets/external/vector1328-cuqk.svg"
+          class="cards-vector2"
+        />
+      </div>
       <div class="cards-guestsdropdown">
         <img
           alt="Vector1246"
@@ -17,10 +28,7 @@
                class="cards-matinputslot"
                [(ngModel)]="numberOfGuests"
                (ngModelChange)="onNumberOfGuestChanged()">
-        <div class="cards-maticon">
-          <span class="cards-text2 vIconmedium">
-           {{numberOfGuests}}
-          </span>
+        <div class="cards-maticon">{{numberOfGuests}}
         </div>
       </div>
       <div class="cards-locationmatinputslot">
@@ -36,18 +44,7 @@
           class="cards-matinputslot1"
         />
       </div>
-<!--      <div class="cards-filtersmatinputslot">-->
-<!--        <input-->
-<!--          type="text"-->
-<!--          placeholder="     Filters"-->
-<!--          class="cards-matinputslot2"-->
-<!--        />-->
-<!--        <img-->
-<!--          alt="Vector1328"-->
-<!--          src="/assets/external/vector1328-cuqk.svg"-->
-<!--          class="cards-vector2"-->
-<!--        />-->
-<!--      </div>-->
+
       <div class="cards-checkinmatinputslot">
         <img
           alt="uiwdate1246"

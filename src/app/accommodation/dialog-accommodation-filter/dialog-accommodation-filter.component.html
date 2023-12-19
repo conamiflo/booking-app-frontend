@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Filter Accommodations</h1>
+<div class="filter-form-contents">
+  <p>Minimum price:</p>
+  <mat-form-field>
+    <input matInput disabled [(ngModel)]="data.minimumPrice" placeholder="{{minPrice}}" class="filter-input">
+  </mat-form-field>
+
+  <p>Maximum price:</p>
+  <mat-form-field>
+    <input matInput disabled [(ngModel)]="data.maximumPrice" placeholder="{{maxPrice}}" class="filter-input">
+  </mat-form-field>
+
+  <mat-slider min="1" max="1000">
+    <input value="300" [(ngModel)]="minPrice" matSliderStartThumb>
+    <input value="400" [(ngModel)]="maxPrice" matSliderEndThumb>
+  </mat-slider>
+
+  <mat-label>Accommodation type</mat-label>
+  <mat-form-field>
+  <select matNativeControl required>
+    <option value="studio">Studio</option>
+    <option value="one-bedroom">One bedroom</option>
+    <option value="two-bedroom">Two bedroom</option>
+    <option value="house">House</option>
+
+  </select>
+  </mat-form-field>
+
+  <mat-label>Amenities:</mat-label>
+  <div *ngFor="let amenity of amenities">
+    <label>
+      <input type="checkbox" [value]="amenity.name"> {{ amenity.name }}
+    </label>
+  </div>
+  
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Apply</button>
+</div>

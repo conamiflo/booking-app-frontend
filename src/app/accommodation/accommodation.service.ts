@@ -31,7 +31,6 @@ export class AccommodationService {
     if (endDate) {
       params = params.set('endDate', endDate); // Convert Date to YYYY-MM-DD format
     }
-
     return this.httpClient.get<Accommodation[]>(environment.apiHost + 'accommodations/search', { params });
   }
 }
