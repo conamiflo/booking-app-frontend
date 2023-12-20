@@ -37,7 +37,8 @@ const routes: Routes = [
   { path: 'accommodation-creation', component: AccommodationCreationComponent},
   { path: 'accommodationEdit/:id', component: AccommodationEditComponent},
   { path: 'accommodation-creation', component: AccommodationCreationComponent},
-  { path: 'owners-accommodations', component: OwnersAccommodationsCardsComponent}
+  { path: 'owners-accommodations', component: OwnersAccommodationsCardsComponent},
+  { path: 'accommodationPreview/:accommodationId', component:AccommodationDetailsComponent}
 
 ];
 

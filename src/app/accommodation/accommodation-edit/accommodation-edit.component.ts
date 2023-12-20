@@ -233,6 +233,7 @@ export class AccommodationEditComponent {
         this.addAmenities(this.newAccId);
         this.addPrices(this.newAccId);
         this.addAvailabilities(this.newAccId);
+        this.router.navigate(['']);
       },
       error: (_) => {
         console.log("Error!")

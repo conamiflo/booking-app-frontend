@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Accommodation} from "../model/accommodation.model";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {AccommodationService} from "../accommodation.service";
 import {MapService} from "../../shared/map/map.service";
 import * as L from "leaflet";
@@ -15,7 +15,7 @@ import {Availability} from "../model/availability.model";
 @Component({
   selector: 'app-accommodation-details',
   templateUrl: './accommodation-details.component.html',
-  styleUrls: ['./accommodation-details.component.css']
+  styleUrls: ['./accommodation-preview.component.css']
 })
 export class AccommodationDetailsComponent {
   accommodation: Accommodation;
@@ -27,9 +27,7 @@ export class AccommodationDetailsComponent {
   checkOutString: string | null;
   reservation :ReservationBookingDtoModel;
 
-  constructor(private authService: AuthService,private dataPipe: DatePipe,private route: ActivatedRoute,
-              private accommodationService: AccommodationService, private mapService: MapService,
-              private router : Router) {
+  constructor(private authService: AuthService,private dataPipe: DatePipe,private route: ActivatedRoute, private accommodationService: AccommodationService, private mapService: MapService) {
 
 
     this.reservation = new class implements ReservationBookingDtoModel {
@@ -41,10 +39,6 @@ export class AccommodationDetailsComponent {
       startDate: string;
     }
 
-  }
-
-  isAccommodationPreview(): boolean {
-    return this.router.url.includes('accommodationPreview');
   }
 
 
@@ -68,6 +62,7 @@ export class AccommodationDetailsComponent {
 
 
   }
+
   bookReservation($event: MouseEvent) {
     this.checkInString = this.dataPipe.transform(this.checkInDate, 'yyyy-MM-dd');
     this.checkOutString = this.dataPipe.transform(this.checkOutDate, 'yyyy-MM-dd');

@@ -14,7 +14,7 @@
 }
 .guest-reservation-component-accommodation-info {
   gap: 16px;
-  width: 280px;
+  width: 200px;
   display: flex;
   align-items: center;
 }
@@ -31,6 +31,7 @@
   font-size: 16px;
   font-style: normal;
   font-family: Lato;
+  cursor: pointer;
 }
 .guest-reservation-component-guest-info {
   width: 300px;
@@ -65,7 +66,7 @@
   position: absolute;
 }
 .guest-reservation-component-date-info {
-  width: 60px;
+  width: 100px;
   height: 40px;
   display: flex;
   overflow: hidden;

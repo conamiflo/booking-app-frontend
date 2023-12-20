@@ -19,14 +19,15 @@ export class AccommodationRequestComponent {
   ngOnInit(): void {
     this.accommodationService.getAllInactiveAccommodations().subscribe({
       next: (data: AccommodationDetails[]) =>{
+        console.log(data);
         if (data && data.length > 0) {
           this.accommodationRequests = data;
         } else {
-          console.log("Error.");
+          console.log("Error load.");
         }
       },
       error: (error: any) => {
-        console.log("Error:", error);
+        console.log("Error method", error);
       }
     })
   }
