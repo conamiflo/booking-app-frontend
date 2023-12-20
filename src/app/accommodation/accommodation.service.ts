@@ -17,4 +17,8 @@ export class AccommodationService {
     return this.httpClient.get<Accommodation>(environment.apiHost + 'accommodations/' + id)
   }
 
+  getOwnersAccommodation(email: string): Observable<Accommodation[]>{
+    return this.httpClient.get<Accommodation[]>(environment.apiHost + 'accommodations/owner/' + email)
+  }
+
 }

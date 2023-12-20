@@ -6,17 +6,20 @@ import { AccommodationDetailsComponent } from './accommodation-details/accommoda
 import { AccommodationCardComponent } from './accommodation-card/accommodation-card.component';
 import {AccommodationCreationComponent} from "./accommodation-creation/accommodation-creation.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {OwnersAccommodationsCardsComponent} from "./owners-accommodations/owners-accommodations-cards.component";
 
 @NgModule({
   declarations: [
     AccommodationCardsComponent,
     AccommodationDetailsComponent,
     AccommodationCardComponent,
-    AccommodationCreationComponent
+    AccommodationCreationComponent,
+    OwnersAccommodationsCardsComponent
   ],
   exports: [
     AccommodationCardsComponent,
-    AccommodationCreationComponent
+    AccommodationCreationComponent,
+    OwnersAccommodationsCardsComponent
   ],
   imports: [
     CommonModule,
