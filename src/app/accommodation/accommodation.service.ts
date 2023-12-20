@@ -9,6 +9,11 @@ import {AccommodationType} from "./model/accommodationtype.model";
 import {AmenityBackend} from "./model/amenity-backend.model";
 import {AccommodationWithAmenities} from "./model/accommodation-with-amenities.model";
 import {AccommodationDetails} from "./accommodation-creation/model/accomodationDetails.model";
+
+import {ReservationBookingDtoModel} from "./model/reservation-booking-dto.model";
+import {ReservationBookingResultDTO} from "./model/reservation-booking-result-dto.model";
+import {Availability} from "./model/availability.model";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,6 +39,17 @@ export class AccommodationService {
   getAccommodation(id: number): Observable<Accommodation>{
     return this.httpClient.get<Accommodation>(environment.apiHost + 'accommodations/' + id);
   }
+
+  createReservation(reservation: ReservationBookingDtoModel): Observable<ReservationBookingResultDTO> {
+    return this.httpClient.post<ReservationBookingResultDTO>(environment.apiHost + 'reservations', reservation);
+  }
+
+  getAccommodationAvailability(accommodationId: number): Observable<Availability[]> {
+    const url = `${environment.apiHost}availabilities/accommodation/${accommodationId}`;
+    console.log("Ovo je url:" +url);
+    return this.httpClient.get<Availability[]>(url);
+  }
+
   searchAccommodations(guests?: number, location?: string, startDate?: string, endDate?: string): Observable<AccommodationWithAmenities[]> {
     let params = new HttpParams();
 
@@ -117,4 +133,9 @@ export class AccommodationService {
   getAllAmenitiesCheckBoxes() {
     return this.httpClient.get<AmenityBackend[]>(environment.apiHost + 'amenities');
   }
+
+  getOwnersAccommodation(email: string): Observable<Accommodation[]>{
+    return this.httpClient.get<Accommodation[]>(environment.apiHost + 'accommodations/owner/' + email)
+  }
+
 }

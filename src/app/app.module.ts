@@ -15,7 +15,9 @@ import { MapsModule } from '@syncfusion/ej2-angular-maps';
 import {ReservationsModule} from "./reservation/reservations.module";
 import {Interceptor} from "./authentication/interceptor";
 import {MatDialogModule} from "@angular/material/dialog";
-import {DatePipe} from "@angular/common";
+
+import {CommonModule, DatePipe} from "@angular/common";
+
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import {DatePipe} from "@angular/common";
     AppComponent,
   ],
   imports: [
+    CommonModule,
     MatDialogModule,
     BrowserModule,
     AppRoutingModule,

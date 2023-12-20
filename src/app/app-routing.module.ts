@@ -15,7 +15,13 @@ import {
   AccommodationRequestComponent
 } from "./accommodation/accommodation-requests/accommodation-request/accommodation.request.component";
 import {AccommodationCreationComponent} from "./accommodation/accommodation-creation/accommodation-creation.component";
+
 import {AccommodationEditComponent} from "./accommodation/accommodation-edit/accommodation-edit.component";
+
+import {
+  OwnersAccommodationsCardsComponent
+} from "./accommodation/owners-accommodations/owners-accommodations-cards.component";
+
 
 
 const routes: Routes = [
@@ -29,7 +35,10 @@ const routes: Routes = [
   { path: 'activation/:email', component: AccountActivationComponent},
   { path: 'accommodationRequests', component: AccommodationRequestComponent},
   { path: 'accommodation-creation', component: AccommodationCreationComponent},
-  { path: 'accommodationEdit/:id', component: AccommodationEditComponent}
+  { path: 'accommodationEdit/:id', component: AccommodationEditComponent},
+  { path: 'accommodation-creation', component: AccommodationCreationComponent},
+  { path: 'owners-accommodations', component: OwnersAccommodationsCardsComponent}
+
 ];
 
 @NgModule({

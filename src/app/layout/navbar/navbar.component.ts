@@ -40,6 +40,13 @@ export class NavbarComponent {
     this.router.navigate(['/profile']);
   }
 
+  redirectToCreateAccommodation(){
+    this.router.navigate(['/accommodation-creation']);
+  }
+
+  redirectToOwnersAccommodations(){
+    this.router.navigate(['/owners-accommodations'])
+  }
   redirectToReservations() {
     this.router.navigate(['/guest/reservations']);
   }
