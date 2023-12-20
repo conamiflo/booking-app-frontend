@@ -24,7 +24,6 @@ export class AccommodationEditService {
   }
 
   updateAccommodation(a: Accommodation, accommodationId : number): Observable<Accommodation>{
-    console.log(a);
     return this.httpClient.put<Accommodation>(environment.apiHost + 'accommodations/' + accommodationId, a);
   }
   removeAccommodationAmenities(accommodationId: number): void {

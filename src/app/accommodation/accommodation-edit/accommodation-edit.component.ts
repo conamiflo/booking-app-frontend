@@ -10,11 +10,10 @@ import {PriceType} from "../accommodation-creation/model/price-type.model";
 import {AccommodationDetails} from "../accommodation-creation/model/accomodationDetails.model";
 import {Accommodation} from "../model/accommodation.model";
 import {AvailabilityPost} from "../accommodation-creation/model/availability-post.model";
-import {AccommodationType} from "../model/accommodationtype.model";
 import {AccommodationService} from "../accommodation.service";
 import {Observable} from "rxjs";
-import {AmenityBackend} from "../model/amenity-backend.model";
 import {AccommodationCreationService} from "../accommodation-creation/accommodation-creation.service";
+import {AccommodationStatus} from "../accommodation-creation/model/accommodation.status";
 
 @Component({
   selector: 'app-accommodation-creation',
@@ -142,7 +141,8 @@ export class AccommodationEditComponent {
       maxGuests: Number(this.accommodationCreationForm.controls.maxGuests.value),
       created: new Date(),
       type: this.accommodationCreationForm.controls.type.value,
-      priceType : priceType
+      priceType : priceType,
+      status : AccommodationStatus.Pending
     }
     return a;
   }
@@ -226,7 +226,6 @@ export class AccommodationEditComponent {
   }
 
   createAccommodation() {
-    this.accommodationEditService.removeAccommodationAmenities(this.accommodationId);
     this.accommodationEditService.updateAccommodation(this.collectAccommodationData(),this.accommodationId).subscribe({
       next: (data: Accommodation) => {
         console.log(data);

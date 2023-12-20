@@ -16,6 +16,7 @@ import {AvailabilityPost} from "./model/availability-post.model";
 import {AccommodationRequestService} from "../accommodation-requests/accommodation.request.service";
 import {AccommodationRequest} from "../accommodation-requests/model/accommodation.request.model";
 import {DatePipe} from "@angular/common";
+import {AccommodationStatus} from "./model/accommodation.status";
 
 @Component({
   selector: 'app-accommodation-creation',
@@ -86,7 +87,8 @@ export class AccommodationCreationComponent {
       maxGuests: Number(this.accommodationCreationForm.controls.maxGuests.value),
       created: new Date(),
       type: this.accommodationCreationForm.controls.type.value,
-      priceType : priceType
+      priceType : priceType,
+      status : AccommodationStatus.Pending
     }
     return a;
   }

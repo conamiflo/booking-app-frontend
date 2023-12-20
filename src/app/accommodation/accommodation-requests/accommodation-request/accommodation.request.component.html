@@ -6,10 +6,8 @@
         <span>Accommodation requests</span>
       </span>
       <div class="guest-reservations-guest-reservations">
-        <div>
-          <app-accommodation-card-request></app-accommodation-card-request>
-          <app-accommodation-card-request></app-accommodation-card-request>
-          <app-accommodation-card-request></app-accommodation-card-request>
+        <div *ngFor="let accommodation of accommodationRequests">
+          <app-accommodation-card-request [accommodation]="accommodation"></app-accommodation-card-request>
         </div>
       </div>
     </div>

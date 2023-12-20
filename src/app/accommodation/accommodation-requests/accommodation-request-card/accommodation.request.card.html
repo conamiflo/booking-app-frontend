@@ -5,11 +5,11 @@
       class="guest-reservation-component-rectangle18"
     />
     <span class="guest-reservation-component-accommodation-name">
-      {{ "Accommodation name"}}
+      {{ accommodation.name}}
     </span>
   </div>
   <div class="guest-reservation-component-guest-info">
-    <span class="guest-reservation-component-text">{{ "nemanjastjepanovic222@gmail.com" }}</span>
+    <span class="guest-reservation-component-text">{{ accommodation.ownerEmail }}</span>
     <img
       src="/assets/external/person.svg"
       class="guest-reservation-component-person-logo"
@@ -17,16 +17,16 @@
   </div>
   <div class="guest-reservation-component-date-info">
     <span class="guest-reservation-component-start-date">
-      <span>ID: {{"55"}}</span>
+      <span>{{accommodation.status}}</span>
     </span>
   </div>
   <div class="guest-reservation-component-date2-info">
     <span class="guest-reservation-component-start-date">
-      <span>Type: {{"Edited"}}</span>
+      <span>{{accommodation.type}}</span>
     </span>
   </div>
   <div class="guest-reservation-component-status-info">
-      <div class="guest-reservation-component-stylelayer button">
+      <div class="guest-reservation-component-stylelayer button" (click)="acceptRequest()">
         <span class="guest-reservation-component-text5">Accept</span>
       </div>
     <div class="guest-reservation-component-stylelayer button">
