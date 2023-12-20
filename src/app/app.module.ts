@@ -15,6 +15,7 @@ import { MapsModule } from '@syncfusion/ej2-angular-maps';
 import {ReservationsModule} from "./reservation/reservations.module";
 import {Interceptor} from "./authentication/interceptor";
 import {MatDialogModule} from "@angular/material/dialog";
+import {CommonModule, DatePipe} from "@angular/common";
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     AppComponent,
   ],
   imports: [
+    CommonModule,
     MatDialogModule,
     BrowserModule,
     AppRoutingModule,
@@ -38,7 +40,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     provide: HTTP_INTERCEPTORS,
     useClass: Interceptor,
     multi: true,
-  }],
+  },DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

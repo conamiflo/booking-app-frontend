@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import {RouterModule, Route} from "@angular/router";
 import { AccommodationCardsComponent } from './accommodation-cards/accommodation-cards.component';
 import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
@@ -13,6 +13,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MaterialModule} from "../material.module";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatLegacySliderModule} from "@angular/material/legacy-slider";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -25,7 +27,7 @@ import {MatLegacySliderModule} from "@angular/material/legacy-slider";
     AccommodationCardsComponent
   ],
   imports: [
-
+    MatNativeDateModule,
     CommonModule,
     RouterModule,
     FormsModule,
@@ -34,7 +36,8 @@ import {MatLegacySliderModule} from "@angular/material/legacy-slider";
     MaterialModule,
     MatSliderModule,
     MatLegacySliderModule,
-    SharedModule
+    SharedModule,
+    MatDatepickerModule
   ]
 })
 export class AccommodationModule { }
