@@ -7,9 +7,7 @@ import { AccommodationCardComponent } from './accommodation-card/accommodation-c
 import {AccommodationCreationComponent} from "./accommodation-creation/accommodation-creation.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {OwnersAccommodationsCardsComponent} from "./owners-accommodations/owners-accommodations-cards.component";
-
 import {SharedModule} from "../shared/shared.module";
-import {FormsModule} from "@angular/forms";
 import { DialogAccommodationFilterComponent } from './dialog-accommodation-filter/dialog-accommodation-filter.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";

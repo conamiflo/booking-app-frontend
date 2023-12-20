@@ -71,7 +71,7 @@ export class AccommodationCreationComponent {
     }
     const a: AccommodationDetails = {
       id: 0,
-      ownerEmail: "a@gmail.com",
+      ownerEmail: this.authService.getUsername(),
       name: this.accommodationCreationForm.controls.appartmentName.value,
       description: this.accommodationCreationForm.controls.description.value,
       location: this.accommodationCreationForm.controls.location.value,
