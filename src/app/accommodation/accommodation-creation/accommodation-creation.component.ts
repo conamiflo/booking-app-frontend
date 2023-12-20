@@ -13,6 +13,9 @@ import {AccommodationType} from "./model/accommodation-type.model";
 import {PriceType} from "./model/price-type.model";
 import {Availability} from "./model/availability.model";
 import {AvailabilityPost} from "./model/availability-post.model";
+import {AccommodationRequestService} from "../accommodation-requests/accommodation.request.service";
+import {AccommodationRequest} from "../accommodation-requests/model/accommodation.request.model";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-accommodation-creation',
@@ -21,7 +24,9 @@ import {AvailabilityPost} from "./model/availability-post.model";
 })
 export class AccommodationCreationComponent {
 
-  constructor(private router: Router, private fb: FormBuilder, private accommodationCreationService: AccommodationCreationService, private authService: AuthService) {
+  constructor(private router: Router, private fb: FormBuilder, private accommodationCreationService: AccommodationCreationService,
+              private authService: AuthService,private accommodationRequestService: AccommodationRequestService,
+              private dataPipe: DatePipe) {
   }
 
   accommodationCreationForm = new FormGroup({
@@ -176,6 +181,10 @@ export class AccommodationCreationComponent {
         this.addAmenities(this.newAccId);
         this.addPrices(this.newAccId);
         this.addAvailabilities(this.newAccId);
+
+        this.accommodationRequestService.createAccommodationRequest(this.createAccommodationRequest(this.collectAccommodationData()));
+        this.getAccommodationRequests()
+
       },
       error: (_) => {
         console.log("Error!")
@@ -184,8 +193,37 @@ export class AccommodationCreationComponent {
 
   }
 
+  getAccommodationRequests(): void{
+    this.accommodationRequestService.getAccommodationRequests().subscribe( {
+      next: (data: AccommodationRequest[]) => {
+        console.log(data);
+      }
+    })
+  }
+
+
   removeAvailability(i: number) {
     this.availability.splice(i, 1);
+  }
+
+  createAccommodationRequest(accommodation: AccommodationDetails) : AccommodationRequest{
+    const accommodationRequest = {
+      editedAccommondation: 9999999,
+      creationType: "New",
+      id: 0,
+      ownerEmail: this.authService.getUsername(),
+      name: accommodation.name,
+      description: accommodation.description,
+      location: accommodation.location,
+      defaultPrice: accommodation.defaultPrice,
+      photos: accommodation.photos,
+      minGuests: accommodation.minGuests,
+      maxGuests: accommodation.maxGuests,
+      created: accommodation.created,
+      type: accommodation.type,
+      priceType: accommodation.priceType,
+    };
+    return accommodationRequest;
   }
 
   addAvailability() {

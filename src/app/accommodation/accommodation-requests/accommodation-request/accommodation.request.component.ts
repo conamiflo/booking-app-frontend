@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import {AuthService} from "../../../authentication/auth.service";
+import {AccommodationRequestService} from "../accommodation.request.service";
 
 @Component({
   selector: 'app-accommodation-request',
@@ -7,7 +8,7 @@ import {AuthService} from "../../../authentication/auth.service";
   styleUrls: ['./accommodation.request.component.css'],
 })
 export class AccommodationRequestComponent {
-  constructor() {
+  constructor(private accommodationRequestService: AccommodationRequestService) {
   }
 
 }

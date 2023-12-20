@@ -5,6 +5,7 @@ import {environment} from "../../../env/env";
 // @ts-ignore
 import {Amenity} from "./model/amenity.model";
 import {Accommodation} from "../model/accommodation.model";
+import {AccommodationRequest} from "./model/accommodation.request.model";
 
 
 @Injectable({
@@ -12,15 +13,12 @@ import {Accommodation} from "../model/accommodation.model";
 })
 export class AccommodationRequestService {
   constructor(private httpClient: HttpClient) {}
-
-  // getAllAmmenities(): Observable<Amenity[]>{
-  //   return this.httpClient.get<Amenity[]>(environment.apiHost + 'amenities');
-  // }
-  //
-  // createAccommodation(a: Accommodation): Observable<Accommodation>{
-  //   console.log(a);
-  //   return this.httpClient.post<Accommodation>(environment.apiHost + 'accommodations', a);
-  // }
-  //
+  createAccommodationRequest(accReq: AccommodationRequest): Observable<AccommodationRequest>{
+    console.log(accReq)
+    return this.httpClient.post<AccommodationRequest>(environment.apiHost + 'accommodationRequests', accReq);
+  }
+  getAccommodationRequests(): Observable<AccommodationRequest[]>{
+    return this.httpClient.get<AccommodationRequest[]>(environment.apiHost + 'accommodationRequests');
+  }
 
 }
