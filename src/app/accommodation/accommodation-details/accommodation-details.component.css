@@ -9,6 +9,53 @@
   align-items: center;
   flex-direction: column;
 }
+.cards-matinputslot3 {
+  border: none; /* Removes the border */
+  outline: none;
+  gap: 10px;
+  color: rgba(18, 61, 108, 0.8700000047683716);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 14px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.cards-checkoutmatinputslot {
+  gap: 10px;
+  width: 229px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(164, 164, 164, 0.42);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+.cards-uiwdate {
+   width: 15px;
+   height: 15px;
+}
+.cards-checkinmatinputslot {
+  gap: 10px;
+  width: 229px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(164, 164, 164, 0.42);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
 .page-page-container {
   gap: 7px;
   width: 60%;
@@ -160,13 +207,27 @@
   height: 20px;
 }
 .page-button {
-  width: auto;
+  width: 100%;
   display: flex;
   align-items: flex-start;
   flex-shrink: 0;
   flex-direction: column;
   border: none;
   background: white;
+}
+.page-button-upper {
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+  border: none;
+  background: white;
+}
+.page-button-upper :hover {
+   cursor: pointer;
+ }
+.page-button :hover {
+  cursor: pointer;
 }
 .page-stylelayer1 {
   gap: 4px;
@@ -206,7 +267,7 @@
 }
 .page-desctiption-frame {
   gap: 16px;
-  width: 100%;
+  width: 50%;
   height: auto;
   display: flex;
   padding: 1px 0 0;
@@ -1092,6 +1153,60 @@
   align-items: center;
   flex-shrink: 0;
 }
+.cards-vector {
+  width: 15px;
+  height: 15px;
+}
+.description-booking-container{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.booking-form-container{
+  gap: 10px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+}
+.booking-form{
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+.cards-matinputslot {
+  gap: 10px;
+  color: rgba(18, 61, 108, 0.8700000047683716);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 14px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.cards-guestsdropdown {
+  gap: 10px;
+  width: 229px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(164, 164, 164, 0.42);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
 .page-date21 {
   gap: 7.749186038970947px;
   width: 32.54658126831055px;
@@ -1102,6 +1217,24 @@
   flex-shrink: 0;
   flex-direction: column;
   justify-content: center;
+}
+.cards-matinputslot4 {
+  border: none; /* Removes the border */
+  outline: none;
+  gap: 10px;
+  color: rgba(18, 61, 108, 0.8700000047683716);
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  font-size: 14px;
+  text-align: left;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.cards-uiwdate1 {
+  width: 15px;
+  height: 15px;
 }
 .page-text067 {
   color: rgba(18, 61, 108, 1);
