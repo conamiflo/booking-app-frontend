@@ -226,7 +226,8 @@ export class AccommodationEditComponent {
   }
 
   createAccommodation() {
-    this.accommodationCreationService.createAccommodation(this.collectAccommodationData()).subscribe({
+    this.accommodationEditService.removeAccommodationAmenities(this.accommodationId);
+    this.accommodationEditService.updateAccommodation(this.collectAccommodationData(),this.accommodationId).subscribe({
       next: (data: Accommodation) => {
         console.log(data);
         this.newAccId = data.id;

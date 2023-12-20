@@ -26,7 +26,6 @@ export class AccommodationCreationService {
     console.log(a);
     return this.httpClient.post<Accommodation>(environment.apiHost + 'accommodations', a);
   }
-
   addAmenity(a: Amenity, id: string){
     return this.httpClient.put<Accommodation>(environment.apiHost + 'accommodations/' + id + "/amenity/" + a.id, {});
   }

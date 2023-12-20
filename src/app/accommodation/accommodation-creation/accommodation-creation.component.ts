@@ -177,13 +177,9 @@ export class AccommodationCreationComponent {
         const acc: AccommodationType = {
           type: this.newAccId.toString()
         }
-
         this.addAmenities(this.newAccId);
         this.addPrices(this.newAccId);
         this.addAvailabilities(this.newAccId);
-
-        this.accommodationRequestService.createAccommodationRequest(this.createAccommodationRequest(this.collectAccommodationData()));
-        this.getAccommodationRequests()
 
       },
       error: (_) => {
@@ -193,37 +189,9 @@ export class AccommodationCreationComponent {
 
   }
 
-  getAccommodationRequests(): void{
-    this.accommodationRequestService.getAccommodationRequests().subscribe( {
-      next: (data: AccommodationRequest[]) => {
-        console.log(data);
-      }
-    })
-  }
-
 
   removeAvailability(i: number) {
     this.availability.splice(i, 1);
-  }
-
-  createAccommodationRequest(accommodation: AccommodationDetails) : AccommodationRequest{
-    const accommodationRequest = {
-      editedAccommondation: 9999999,
-      creationType: "New",
-      id: 0,
-      ownerEmail: this.authService.getUsername(),
-      name: accommodation.name,
-      description: accommodation.description,
-      location: accommodation.location,
-      defaultPrice: accommodation.defaultPrice,
-      photos: accommodation.photos,
-      minGuests: accommodation.minGuests,
-      maxGuests: accommodation.maxGuests,
-      created: accommodation.created,
-      type: accommodation.type,
-      priceType: accommodation.priceType,
-    };
-    return accommodationRequest;
   }
 
   addAvailability() {

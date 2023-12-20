@@ -11,6 +11,7 @@ import {PricePost} from "../accommodation-creation/model/price-post.model";
 import {Availability} from "../accommodation-creation/model/availability.model";
 import {AvailabilityPost} from "../accommodation-creation/model/availability-post.model";
 import {AmenityBackend} from "../model/amenity-backend.model";
+import {AccommodationDetails} from "../accommodation-creation/model/accomodationDetails.model";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,14 @@ export class AccommodationEditService {
 
   getAllAmmenities(): Observable<Amenity[]>{
     return this.httpClient.get<Amenity[]>(environment.apiHost + 'amenities');
+  }
+
+  updateAccommodation(a: Accommodation, accommodationId : number): Observable<Accommodation>{
+    console.log(a);
+    return this.httpClient.put<Accommodation>(environment.apiHost + 'accommodations/' + accommodationId, a);
+  }
+  removeAccommodationAmenities(accommodationId: number): void {
+    this.httpClient.delete(environment.apiHost + 'accommodations/amenities/' + accommodationId);
   }
 
   getAmenitiesByAccommodationId(accommodationId : number) :Observable<Amenity[]>{
