@@ -4,6 +4,9 @@ import {RouterModule, Route} from "@angular/router";
 import { AccommodationCardsComponent } from './accommodation-cards/accommodation-cards.component';
 import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
 import { AccommodationCardComponent } from './accommodation-card/accommodation-card.component';
+import {AccommodationCreationComponent} from "./accommodation-creation/accommodation-creation.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {OwnersAccommodationsCardsComponent} from "./owners-accommodations/owners-accommodations-cards.component";
 
 import {SharedModule} from "../shared/shared.module";
 import {FormsModule} from "@angular/forms";
@@ -22,9 +25,14 @@ import {MatNativeDateModule} from "@angular/material/core";
     AccommodationCardsComponent,
     AccommodationDetailsComponent,
     AccommodationCardComponent,
+    AccommodationCreationComponent,
+    OwnersAccommodationsCardsComponent
+
   ],
   exports: [
-    AccommodationCardsComponent
+    AccommodationCardsComponent,
+    AccommodationCreationComponent,
+    OwnersAccommodationsCardsComponent
   ],
   imports: [
     MatNativeDateModule,
@@ -37,7 +45,9 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatSliderModule,
     MatLegacySliderModule,
     SharedModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    ReactiveFormsModule
+
   ]
 })
 export class AccommodationModule { }

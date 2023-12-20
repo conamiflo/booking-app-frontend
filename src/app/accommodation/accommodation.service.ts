@@ -118,4 +118,9 @@ export class AccommodationService {
   getAllAmenitiesCheckBoxes() {
     return this.httpClient.get<AmenityBackend[]>(environment.apiHost + 'amenities');
   }
+
+  getOwnersAccommodation(email: string): Observable<Accommodation[]>{
+    return this.httpClient.get<Accommodation[]>(environment.apiHost + 'accommodations/owner/' + email)
+  }
+
 }
