@@ -60,4 +60,8 @@ export class AccommodationEditService {
     const av : AvailabilityPost = {startDate: new Date(a.from), endDate: new Date(a.to), id: 0}
     return this.httpClient.post<AvailabilityPost>(environment.apiHost + 'availabilities/accommodation/' + id, av);
   }
+
+  activateAccommodation(id: number) {
+    return this.httpClient.put<void>(environment.apiHost + "accommodations/activate/"+id, {});
+  }
 }

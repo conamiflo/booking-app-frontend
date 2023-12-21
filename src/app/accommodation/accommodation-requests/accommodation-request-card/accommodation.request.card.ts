@@ -20,8 +20,8 @@ export class AccommodationRequestCardComponent {
 
   acceptRequest() {
     this.accommodation.status = AccommodationStatus.Active;
-    this.accommodationService.updateAccommodation(this.accommodation,this.accommodation.id).subscribe({
-      next: (data: Accommodation) => {
+    this.accommodationService.activateAccommodation(this.accommodation.id).subscribe({
+      next: () => {
         this.showCard = false;
       },
       error: (_) => {

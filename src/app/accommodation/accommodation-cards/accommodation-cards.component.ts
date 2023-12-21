@@ -32,7 +32,7 @@ export class AccommodationCardsComponent {
   selectedAccommodationType : AccommodationTypeCheckBox[] = [
     {value: "OneBedroom", name: 'One bedroom', checked: true },
     {value: "TwoBedroom", name: 'Two bedroom', checked: true },
-    {value: "House", name: 'House', checked: true },
+    {value: "PentHouse", name: 'House', checked: true },
     {value: "Studio", name: 'Studio', checked: true }
   ];
   amenities: Amenity[] = [
