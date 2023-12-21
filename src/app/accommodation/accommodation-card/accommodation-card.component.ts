@@ -75,7 +75,7 @@ export class AccommodationCardComponent {
   @Input()
   text7: string = 'per night'
 
-  constructor() {}
+
 
   protected readonly environment = environment;
 
