@@ -19,17 +19,24 @@
         <div class="divider"></div>
       </div>
     </ng-container>
-    <ng-container *ngIf="!isLoggedInGuest()">
+    <ng-container *ngIf="isLoggedInOwner()">
       <div class="links">
         <div class="divider"></div>
         <span class="reservations-link" (click)="redirectToCreateAccommodation()">Create accommodation</span>
         <div class="divider"></div>
       </div>
     </ng-container>
-    <ng-container *ngIf="!isLoggedInGuest()">
+    <ng-container *ngIf="isLoggedInOwner()">
       <div class="links">
         <div class="divider"></div>
         <span class="reservations-link" (click)="redirectToOwnersAccommodations()">My accommodations</span>
+        <div class="divider"></div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isLoggedInAdmin()">
+      <div class="links">
+        <div class="divider"></div>
+        <span class="reservations-link" (click)="redirectToAccommodationRequests()">Accommodation requests</span>
         <div class="divider"></div>
       </div>
     </ng-container>

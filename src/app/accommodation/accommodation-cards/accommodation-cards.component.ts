@@ -18,6 +18,7 @@ import {AccommodationStatus} from "../accommodation-creation/model/accommodation
   styleUrls: ['./accommodation-cards.component.css']
 })
 export class AccommodationCardsComponent {
+  acc : AccommodationWithAmenities[] = [];
   accommodations: AccommodationWithAmenities[] = [];
   accommodationsForShow: AccommodationWithAmenities[];
   clickedAccommodation: string = '';
@@ -47,9 +48,11 @@ export class AccommodationCardsComponent {
   ngOnInit(): void {
     this.service.getAll().subscribe({
       next: (data: AccommodationWithAmenities[]) => {
-        this.accommodations = data;
-        this.accommodationsForShow = this.accommodations;
-        this.checkAccommodationStatus(this.accommodations);
+        this.acc = data;
+        //this.accommodationsForShow = this.accommodations;
+        this.checkAccommodationStatus(this.acc);
+        console.log("geawrge");
+        console.log(this.accommodationsForShow);
       },
       error: (_) => {
         console.log("Error!")
@@ -73,10 +76,11 @@ export class AccommodationCardsComponent {
     this.service.getActiveAccommodations().subscribe({
       next: (data: AccommodationDetails[]) => {
         const activeAccommodations = accommodations.filter(acc => {
-          return data.some(detail => detail.id === acc.id && detail.status === AccommodationStatus.Active);
+          return data.some(detail => (detail.id === acc.id) && (detail.status.toString() == 'Active'));
         });
         this.accommodations = activeAccommodations;
         this.accommodationsForShow = activeAccommodations;
+
       }
     });
 
