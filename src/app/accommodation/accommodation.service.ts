@@ -29,6 +29,10 @@ export class AccommodationService {
     return this.httpClient.get<AccommodationDetails[]>(environment.apiHost + 'accommodations/inactive');
   }
 
+  getActiveAccommodations(): Observable<AccommodationDetails[]>{
+    return this.httpClient.get<AccommodationDetails[]>(environment.apiHost + 'accommodations/active');
+  }
+
   activateAccommodation(accommodationId : number): void{
     console.log(environment.apiHost + 'accommodations/activate/' + accommodationId)
     this.httpClient.put<number>(environment.apiHost + 'accommodations/activate/' + accommodationId, accommodationId);
