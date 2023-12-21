@@ -16,6 +16,7 @@ import {MatSliderModule} from "@angular/material/slider";
 import {MatLegacySliderModule} from "@angular/material/legacy-slider";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {NgbCarousel, NgbCarouselModule, NgbSlide} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -33,6 +34,9 @@ import {MatNativeDateModule} from "@angular/material/core";
     OwnersAccommodationsCardsComponent
   ],
   imports: [
+    NgbCarouselModule,
+    NgbSlide,
+    NgbCarousel,
     MatNativeDateModule,
     CommonModule,
     RouterModule,
@@ -44,7 +48,9 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatLegacySliderModule,
     SharedModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbCarousel,
+    NgbSlide
 
   ]
 })
