@@ -1,7 +1,7 @@
 <div *ngIf="showCard" class="guest-reservation-component-frame150">
   <div class="guest-reservation-component-accommodation-info">
     <img
-      src="/assets/external/accommodations/1/1.jpg"
+      [attr.src]="environment.apiImagesLocation+accommodation.photos.at(0)"
       class="guest-reservation-component-rectangle18"
     />
     <span class="guest-reservation-component-accommodation-name" (click)="accommodationPreview()">

@@ -30,10 +30,10 @@ export class AccommodationCardsComponent {
   minimumPrice = 1;
   maximumPrice = 1000;
   selectedAccommodationType : AccommodationTypeCheckBox[] = [
-    {value: "one-bedroom", name: 'One bedroom', checked: true },
-    {value: "two-bedroom", name: 'Two bedroom', checked: true },
-    {value: "house", name: 'House', checked: true },
-    {value: "studio", name: 'Studio', checked: true }
+    {value: "OneBedroom", name: 'One bedroom', checked: true },
+    {value: "TwoBedroom", name: 'Two bedroom', checked: true },
+    {value: "House", name: 'House', checked: true },
+    {value: "Studio", name: 'Studio', checked: true }
   ];
   amenities: Amenity[] = [
     {id: 1, name: 'Amenity 1', checked: false },
@@ -117,6 +117,7 @@ export class AccommodationCardsComponent {
     this.service.searchAccommodations(this.numberOfGuests, this.location, this.checkInDate, this.checkOutDate).subscribe({
       next: (data: AccommodationWithAmenities[]) => {
         this.accommodations = data;
+        console.log(data);
         this.accommodationsForShow = this.accommodations;
       },
       error: (_) => {

@@ -4,6 +4,7 @@ import {AccommodationStatus} from "../../accommodation-creation/model/accommodat
 import {AccommodationEditService} from "../../accommodation-edit/accommodation-edit.service";
 import {Accommodation} from "../../model/accommodation.model";
 import {Router} from "@angular/router";
+import {environment} from "../../../../env/env";
 
 @Component({
   selector: 'app-accommodation-card-request',
@@ -46,4 +47,5 @@ export class AccommodationRequestCardComponent {
   }
 
 
+  protected readonly environment = environment;
 }
