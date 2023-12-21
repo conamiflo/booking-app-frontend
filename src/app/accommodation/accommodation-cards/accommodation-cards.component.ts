@@ -1,14 +1,15 @@
-import {Component, Inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {Accommodation} from "../model/accommodation.model";
 import {AccommodationService} from "../accommodation.service";
 import {Amenity} from "../model/amenity.model";
-import {AccommodationType} from "../model/accommodationtype.model";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogAccommodationFilterComponent} from "../dialog-accommodation-filter/dialog-accommodation-filter.component";
 import {AccommodationFilterModel} from "../model/accommodation-filter.model";
 import {AccommodationTypeCheckBox} from "../model/accommodation-type.model";
 import {AmenityBackend} from "../model/amenity-backend.model";
 import {AccommodationWithAmenities} from "../model/accommodation-with-amenities.model";
+import {AccommodationDetails} from "../accommodation-creation/model/accomodationDetails.model";
+import {AccommodationStatus} from "../accommodation-creation/model/accommodation.status";
 
 
 @Component({
@@ -17,8 +18,9 @@ import {AccommodationWithAmenities} from "../model/accommodation-with-amenities.
   styleUrls: ['./accommodation-cards.component.css']
 })
 export class AccommodationCardsComponent {
+  acc : AccommodationWithAmenities[] = [];
   accommodations: AccommodationWithAmenities[] = [];
-  accommodationsForShow: AccommodationWithAmenities[] =[];
+  accommodationsForShow: AccommodationWithAmenities[];
   clickedAccommodation: string = '';
   localUrl: any[];
   numberOfGuests: number;
@@ -37,6 +39,7 @@ export class AccommodationCardsComponent {
     {id: 1, name: 'Amenity 1', checked: false },
     {id: 2, name: 'Amenity 2', checked: false },
   ];
+  newAccommdoations : AccommodationWithAmenities[];
 
   constructor(public dialog: MatDialog, private service: AccommodationService) {
     this.numberOfGuests = 1;
@@ -45,8 +48,11 @@ export class AccommodationCardsComponent {
   ngOnInit(): void {
     this.service.getAll().subscribe({
       next: (data: AccommodationWithAmenities[]) => {
-        this.accommodations = data;
-        this.accommodationsForShow = this.accommodations;
+        this.acc = data;
+        //this.accommodationsForShow = this.accommodations;
+        this.checkAccommodationStatus(this.acc);
+        console.log("geawrge");
+        console.log(this.accommodationsForShow);
       },
       error: (_) => {
         console.log("Error!")
@@ -64,6 +70,20 @@ export class AccommodationCardsComponent {
         console.log("Error!");
       }
     });
+  }
+
+  checkAccommodationStatus(accommodations : AccommodationWithAmenities[]){
+    this.service.getActiveAccommodations().subscribe({
+      next: (data: AccommodationDetails[]) => {
+        const activeAccommodations = accommodations.filter(acc => {
+          return data.some(detail => (detail.id === acc.id) && (detail.status.toString() == 'Active'));
+        });
+        this.accommodations = activeAccommodations;
+        this.accommodationsForShow = activeAccommodations;
+
+      }
+    });
+
   }
 
   onAccommodationClicked(accommodation: Accommodation): void {

@@ -8,9 +8,12 @@ import {Amenity} from "./model/amenity.model";
 import {AccommodationType} from "./model/accommodationtype.model";
 import {AmenityBackend} from "./model/amenity-backend.model";
 import {AccommodationWithAmenities} from "./model/accommodation-with-amenities.model";
+import {AccommodationDetails} from "./accommodation-creation/model/accomodationDetails.model";
+
 import {ReservationBookingDtoModel} from "./model/reservation-booking-dto.model";
 import {ReservationBookingResultDTO} from "./model/reservation-booking-result-dto.model";
 import {Availability} from "./model/availability.model";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +22,22 @@ export class AccommodationService {
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<AccommodationWithAmenities[]>{
+    return this.httpClient.get<AccommodationWithAmenities[]>(environment.apiHost + 'accommodations/amenities');
+  }
+
+  getAllInactiveAccommodations(): Observable<AccommodationDetails[]>{
+    return this.httpClient.get<AccommodationDetails[]>(environment.apiHost + 'accommodations/inactive');
+  }
+
+  getActiveAccommodations(): Observable<AccommodationDetails[]>{
+    return this.httpClient.get<AccommodationDetails[]>(environment.apiHost + 'accommodations/active');
+  }
+
+  activateAccommodation(accommodationId : number): void{
+    console.log(environment.apiHost + 'accommodations/activate/' + accommodationId)
+    this.httpClient.put<number>(environment.apiHost + 'accommodations/activate/' + accommodationId, accommodationId);
+  }
+  getAllAccommodations(): Observable<AccommodationWithAmenities[]>{
     return this.httpClient.get<AccommodationWithAmenities[]>(environment.apiHost + 'accommodations/amenities');
   }
   getAccommodation(id: number): Observable<Accommodation>{

@@ -21,7 +21,7 @@
         </span>
       </div>
       <div class="rightsection">
-        <form class = "register-form" (ngSubmit)="onSubmit()">
+        <form [formGroup]="registrationForm" class = "register-form" (ngSubmit)="onSubmit()">
         <div class="formcontainer">
           <div class="inputscontainer">
             <button type="submit" class="signupbtn button">
@@ -31,10 +31,10 @@
             </button>
             <button class="buttonsgroup">
               <div class="guestradio">
-                <input type="radio" name="guest" class="radiobtn"/>
+                <input type="radio" formControlName="userType" value="Guest" class="radiobtn"/>
               </div>
               <div class="ownerradio">
-                <input type="radio" name="owner" class="radiobtn" />
+                <input type="radio" formControlName="userType" value="Owner" class="radiobtn" />
               </div>
               <span class="guest1"><span>Guest</span></span>
               <span class="text06"><span>Owner</span></span>
@@ -58,7 +58,7 @@
                         type="text"
                         placeholder="Email"
                         class="matinputslot01"
-                        [(ngModel)]="email"
+                        formControlName="email"
                         name="email"
                       />
                     </div>
@@ -81,7 +81,7 @@
                         type="password"
                         placeholder="Password"
                         class="matinputslot03"
-                        [(ngModel)]="password"
+                        formControlName="password"
                         name="password"
                       />
                     </div>
@@ -109,7 +109,7 @@
                         type="password"
                         placeholder="Confirm password"
                         class="matinputslot05"
-                        [(ngModel)]="confirmPassword"
+                        formControlName="confirmPassword"
                         name="confirmPassword"
                       />
                     </div>
@@ -137,7 +137,7 @@
                         type="text"
                         placeholder="First name"
                         class="matinputslot07"
-                        [(ngModel)]="firstName"
+                        formControlName="firstName"
                         name="firstName"
                       />
                     </div>
@@ -165,7 +165,7 @@
                         type="text"
                         placeholder="Last name"
                         class="matinputslot09"
-                        [(ngModel)]="lastName"
+                        formControlName="lastName"
                         name="lastName"
                       />
                     </div>
@@ -193,7 +193,7 @@
                         type="text"
                         placeholder="Address"
                         class="matinputslot11"
-                        [(ngModel)]="address"
+                        formControlName="address"
                         name="address"
                       />
                     </div>
@@ -221,7 +221,7 @@
                         type="text"
                         placeholder="Phone number"
                         class="matinputslot13"
-                        [(ngModel)]="phoneNumber"
+                        formControlName="phoneNumber"
                         name="phoneNumber"
                       />
                     </div>

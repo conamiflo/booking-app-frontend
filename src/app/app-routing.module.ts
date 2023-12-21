@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {RegisterComponent} from "./authentication/register/register.component";
+import {RegisterComponent} from "./registration/register.component";
 import {LoginComponent} from "./authentication/login/login.component";
 
 import {AccommodationCardsComponent} from "./accommodation/accommodation-cards/accommodation-cards.component";
@@ -10,10 +10,18 @@ import {AccommodationDetailsComponent} from "./accommodation/accommodation-detai
 import {
   GuestReservationsComponent
 } from "./reservation/guest-reservation/guest-reservations/guest-reservations.component";
+import {AccountActivationComponent} from "./account-activation/account.activation.component";
+import {
+  AccommodationRequestComponent
+} from "./accommodation/accommodation-requests/accommodation-request/accommodation.request.component";
 import {AccommodationCreationComponent} from "./accommodation/accommodation-creation/accommodation-creation.component";
+
+import {AccommodationEditComponent} from "./accommodation/accommodation-edit/accommodation-edit.component";
+
 import {
   OwnersAccommodationsCardsComponent
 } from "./accommodation/owners-accommodations/owners-accommodations-cards.component";
+
 
 
 const routes: Routes = [
@@ -24,8 +32,13 @@ const routes: Routes = [
   { path: 'accommodation/:accommodationId', component:AccommodationDetailsComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'guest/reservations', component: GuestReservationsComponent},
+  { path: 'activation/:email', component: AccountActivationComponent},
+  { path: 'accommodationRequests', component: AccommodationRequestComponent},
   { path: 'accommodation-creation', component: AccommodationCreationComponent},
-  { path: 'owners-accommodations', component: OwnersAccommodationsCardsComponent}
+  { path: 'accommodationEdit/:id', component: AccommodationEditComponent},
+  { path: 'accommodation-creation', component: AccommodationCreationComponent},
+  { path: 'owners-accommodations', component: OwnersAccommodationsCardsComponent},
+  { path: 'accommodationPreview/:accommodationId', component:AccommodationDetailsComponent}
 
 ];
 

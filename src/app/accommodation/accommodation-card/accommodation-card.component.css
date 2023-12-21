@@ -197,3 +197,14 @@
   font-stretch: normal;
   text-decoration: none;
 }
+
+.edit-accommodation-btn{
+  font-family: Lato;
+  background-color: rgba(241, 90, 42, 1);
+  color: white;
+  border : unset;
+  height: 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}

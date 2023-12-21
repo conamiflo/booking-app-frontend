@@ -1,33 +1,33 @@
-import { Component } from '@angular/core'
-import {Router} from "@angular/router";
-import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {ProfileService} from "../../profile/profile.service";
+import {Component} from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {AccommodationEditService} from "./accommodation-edit.service";
 import {AuthService} from "../../authentication/auth.service";
-import {Profile} from "../../profile/model/profile.model";
-import {AccommodationCreationService} from "./accommodation-creation.service";
-import {Amenity} from "./model/amenity.model";
-import {Price} from "./model/price.model";
-import {AccommodationDetails} from "./model/accomodationDetails.model";
+import {Amenity} from "../model/amenity.model";
+import {Price} from "../accommodation-creation/model/price.model";
+import {Availability} from "../accommodation-creation/model/availability.model";
+import {PriceType} from "../accommodation-creation/model/price-type.model";
+import {AccommodationDetails} from "../accommodation-creation/model/accomodationDetails.model";
 import {Accommodation} from "../model/accommodation.model";
-import {AccommodationType} from "./model/accommodation-type.model";
-import {PriceType} from "./model/price-type.model";
-import {Availability} from "./model/availability.model";
-import {AvailabilityPost} from "./model/availability-post.model";
-import {AccommodationRequestService} from "../accommodation-requests/accommodation.request.service";
-import {AccommodationRequest} from "../accommodation-requests/model/accommodation.request.model";
-import {DatePipe} from "@angular/common";
-import {AccommodationStatus} from "./model/accommodation.status";
+import {AvailabilityPost} from "../accommodation-creation/model/availability-post.model";
+import {AccommodationService} from "../accommodation.service";
+import {Observable} from "rxjs";
+import {AccommodationCreationService} from "../accommodation-creation/accommodation-creation.service";
+import {AccommodationStatus} from "../accommodation-creation/model/accommodation.status";
 
 @Component({
   selector: 'app-accommodation-creation',
-  templateUrl: 'accommodation-creation.component.html',
-  styleUrls: ['accommodation-creation.component.css'],
+  templateUrl: 'accommodation-edit.component.html',
+  styleUrls: ['accommodation-edit.component.css'],
 })
-export class AccommodationCreationComponent {
+export class AccommodationEditComponent {
 
-  constructor(private router: Router, private fb: FormBuilder, private accommodationCreationService: AccommodationCreationService,
-              private authService: AuthService,private accommodationRequestService: AccommodationRequestService,
-              private dataPipe: DatePipe) {
+  accommodationId : number;
+  accommodation : Observable<Accommodation>;
+  constructor(private route: ActivatedRoute,private router: Router, private fb: FormBuilder,
+              private accommodationCreationService: AccommodationCreationService,
+              private authService: AuthService,private accommodationService: AccommodationService,
+              private accommodationEditService: AccommodationEditService) {
   }
 
   accommodationCreationForm = new FormGroup({
@@ -56,7 +56,61 @@ export class AccommodationCreationComponent {
 
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.accommodationId = params['id'] || -999;
+    });
+
+    this.accommodation = this.accommodationService.getAccommodation(this.accommodationId);
+    this.loadAccommodationData(this.accommodation);
     this.loadFields();
+    this.loadAmenities(this.accommodationId);
+    this.loadAvailabilities(this.accommodationId);
+    this.loadPrices(this.accommodationId);
+    this.loadPriceType(this.accommodationId);
+  }
+  loadAccommodationData(accommodation: Observable<Accommodation>): void {
+    accommodation.subscribe({
+      next: (data: Accommodation) => {
+        this.accommodationCreationForm.patchValue({
+          appartmentName: data.name,
+          description: data.description,
+          location: data.location,
+          defaultPrice: data.defaultPrice,
+          maxGuests: data.maxGuests,
+          minGuests: data.minGuests,
+          type: data.type
+        });
+      }
+    });
+  }
+
+  loadAmenities(accommodationId : number): void{
+    this.accommodationEditService.getAmenitiesByAccommodationId(accommodationId).subscribe( {
+      next: (data: Amenity[]) => {
+        this.selectedAmenities = data;
+      }
+    })
+  }
+
+  loadAvailabilities(accommodationId : number): void{
+    this.accommodationEditService.getAvailabilitiesByAccommodationId(accommodationId).subscribe( {
+      next: (data: Availability[]) => {
+        this.availability = data;
+      }
+    })
+  }
+
+  loadPrices(accommodationId : number): void{
+    this.accommodationEditService.getPricesByAccommodationId(accommodationId).subscribe( {
+      next: (data: Price[]) => {
+        console.log(data);
+        this.prices = data;
+      }
+    })
+  }
+
+  loadPriceType(accommodationId: number): void {
+    this.accommodationCreationForm.controls.priceType.setValue('PER_GUEST');
   }
 
   loadFields() {
@@ -172,13 +226,10 @@ export class AccommodationCreationComponent {
   }
 
   createAccommodation() {
-    this.accommodationCreationService.createAccommodation(this.collectAccommodationData()).subscribe({
+    this.accommodationEditService.updateAccommodation(this.collectAccommodationData(),this.accommodationId).subscribe({
       next: (data: Accommodation) => {
         console.log(data);
         this.newAccId = data.id;
-        const acc: AccommodationType = {
-          type: this.newAccId.toString()
-        }
         this.addAmenities(this.newAccId);
         this.addPrices(this.newAccId);
         this.addAvailabilities(this.newAccId);
@@ -190,7 +241,6 @@ export class AccommodationCreationComponent {
     })
 
   }
-
 
   removeAvailability(i: number) {
     this.availability.splice(i, 1);
@@ -204,4 +254,5 @@ export class AccommodationCreationComponent {
     this.availability.push(a);
 
   }
+
 }
