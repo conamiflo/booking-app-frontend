@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Accommodation} from "../model/accommodation.model";
+import {environment} from "../../../env/env";
 
 @Component({
   selector: 'app-accommodation-card',
@@ -60,4 +61,6 @@ export class AccommodationCardComponent {
   @Input()
   text7: string = 'per night'
   constructor() {}
+
+  protected readonly environment = environment;
 }

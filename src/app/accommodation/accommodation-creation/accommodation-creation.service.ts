@@ -41,4 +41,12 @@ export class AccommodationCreationService {
     const av : AvailabilityPost = {startDate: new Date(a.from), endDate: new Date(a.to), id: 0}
     return this.httpClient.post<AvailabilityPost>(environment.apiHost + 'availabilities/accommodation/' + id, av);
   }
+
+  uploadPictures(formData: FormData){
+    return this.httpClient.post<string[]>(environment.apiHost+"files/upload", formData, {
+      reportProgress: true,
+      observe: 'events'
+    });
+  }
+
 }
