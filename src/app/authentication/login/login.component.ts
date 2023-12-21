@@ -21,21 +21,19 @@ export class LoginComponent {
     password: new FormControl('', Validators.required)
   })
   onSubmit(): void {
-    console.log(this.loginForm.value.username);
-    console.log("Uslo");
     if(this.loginForm.valid) {
       const login: Login = {
         email: this.loginForm.value.username || "",
         password: this.loginForm.value.password || ""
       }
-      console.log("drugo");
-      console.log(login.email);
       this.authService.login(login).subscribe({
         next: (response: AuthResponse) => {
           localStorage.setItem('user', response.token);
-          console.log(response.token);
           this.authService.setUser()
           this.router.navigate([''])
+        },
+        error: (error: any) => {
+          alert("Invalid account information! ")
         }
       })
     }

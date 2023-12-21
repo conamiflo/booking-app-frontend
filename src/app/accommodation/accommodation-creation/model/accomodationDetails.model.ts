@@ -1,4 +1,5 @@
 import {PriceType} from "./price-type.model";
+import {AccommodationStatus} from "./accommodation.status";
 
 export interface AccommodationDetails{
   id: number;
@@ -13,4 +14,5 @@ export interface AccommodationDetails{
   created: Date;
   type: string;
   priceType: PriceType;
+  status: AccommodationStatus;
 }

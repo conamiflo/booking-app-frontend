@@ -1,6 +1,10 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Accommodation} from "../model/accommodation.model";
+
 import {environment} from "../../../env/env";
+
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-accommodation-card',
@@ -10,9 +14,19 @@ import {environment} from "../../../env/env";
 export class AccommodationCardComponent {
   @Input()
   accommodation: Accommodation;
-
+  showButton: boolean = false;
   @Output()
   clicked: EventEmitter<Accommodation> = new EventEmitter<Accommodation>();
+
+  constructor(private router:Router) {}
+  ngOnInit() {
+    if (this.router.url.includes('owners-accommodations')) {
+      this.showButton = true;
+    }
+  }
+  goToEditPage(){
+    this.router.navigate(['accommodationEdit', this.accommodation.id]);
+  }
 
   onAccommodationClicked(): void{
     this.clicked.emit(this.accommodation)
@@ -60,7 +74,9 @@ export class AccommodationCardComponent {
   text3: string = '€195 '
   @Input()
   text7: string = 'per night'
+
   constructor() {}
 
   protected readonly environment = environment;
+
 }

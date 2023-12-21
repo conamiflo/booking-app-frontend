@@ -58,4 +58,16 @@ export class NavbarComponent {
   isLoggedInGuest() {
     return this.authService.isLoggedIn() && this.authService.getRole() === "Guest";
   }
+
+  isLoggedInOwner(){
+    return this.authService.isLoggedIn() && this.authService.getRole() === "Owner";
+  }
+
+  isLoggedInAdmin(){
+    return this.authService.isLoggedIn() && this.authService.getRole() === "Admin";
+  }
+
+  redirectToAccommodationRequests() {
+    this.router.navigate(['accommodationRequests']);
+  }
 }

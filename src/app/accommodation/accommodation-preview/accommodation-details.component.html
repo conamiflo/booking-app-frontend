@@ -68,31 +68,9 @@
       </div>
     </div>
     <div class="page-photos">
-<!--      <img [attr.alt]="environment.apiImagesLocation + accommodation.photos.at(0)"-->
-<!--           [attr.src]="accommodation.photos.at(0)"-->
-<!--           class="page-accommodation-image" />-->
-      <ngb-carousel [interval]="2000" class="carousel-wrapper" >
-        <ng-template ngbSlide *ngFor="let image of accommodation.photos" class="carousel-wrapper">
-          <div class="carousel-wrapper">
-              <img class="slider-image" [attr.src]="environment.apiImagesLocation+image" [attr.alt]="image">
-          </div>
-        </ng-template>
-      </ngb-carousel>
-
-      <!--      <c-carousel>-->
-<!--        <c-carousel-indicators></c-carousel-indicators>-->
-<!--        <c-carousel-inner>-->
-<!--          <c-carousel-item *ngFor="let slide of accommodation.photos">-->
-<!--            <img-->
-<!--              [src]="environment.apiImagesLocation+slide"-->
-<!--              alt="{{ slide }}"-->
-<!--              class="d-block w-100"-->
-<!--              loading="lazy" />-->
-<!--          </c-carousel-item>-->
-<!--        </c-carousel-inner>-->
-<!--        <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>-->
-<!--        <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>-->
-<!--      </c-carousel>-->
+      <img [attr.alt]="accommodation.photos.at(0)"
+           [attr.src]="accommodation.photos.at(0)"
+           class="page-accommodation-image" />
     </div>
 
 <div class="description-booking-container">
@@ -122,7 +100,7 @@
       </span>
   </div>
 
-  <div *ngIf="!isAccommodationPreview()" class="booking-form-container">
+  <div class="booking-form-container">
     <div class="booking-form">
       <span class="page-text008"><span>Check In</span></span>
 
