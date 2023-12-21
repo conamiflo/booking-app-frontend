@@ -28,6 +28,7 @@ import {AccommodationEditComponent} from "./accommodation-edit/accommodation-edi
 
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {NgbCarousel, NgbCarouselModule, NgbSlide} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -48,6 +49,9 @@ import {MatNativeDateModule} from "@angular/material/core";
     OwnersAccommodationsCardsComponent
   ],
   imports: [
+    NgbCarouselModule,
+    NgbSlide,
+    NgbCarousel,
     MatNativeDateModule,
     CommonModule,
     RouterModule,
@@ -60,7 +64,9 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatLegacySliderModule,
     SharedModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbCarousel,
+    NgbSlide
 
   ]
 })

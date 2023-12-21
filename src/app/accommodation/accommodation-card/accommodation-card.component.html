@@ -1,7 +1,7 @@
 <div class="accommodation-card-container" [routerLink]="['/accommodation', accommodation.id]">
   <div class="accommodation-card-park-lineapartmentin-miami-fl1">
     <img
-      [attr.src]="accommodation.photos.at(0)"
+      [attr.src]="environment.apiImagesLocation+accommodation.photos.at(0)"
       [attr.alt]="accommodation.photos.at(0)"
       class="accommodation-card-image"
     />

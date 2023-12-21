@@ -11,6 +11,9 @@ import {AuthService} from "../../authentication/auth.service";
 import {ReservationBookingResultDTO} from "../model/reservation-booking-result-dto.model";
 import {AccommodationWithAmenities} from "../model/accommodation-with-amenities.model";
 import {Availability} from "../model/availability.model";
+import {environment} from "../../../env/env";
+import {NgbCarousel} from "@ng-bootstrap/ng-bootstrap";
+import {NgbSlide} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-accommodation-details',
@@ -137,4 +140,6 @@ export class AccommodationDetailsComponent {
       }
     });
   }
+
+    protected readonly environment = environment;
 }
