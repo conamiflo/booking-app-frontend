@@ -43,6 +43,8 @@ export class AccommodationCardsComponent {
 
   constructor(public dialog: MatDialog, private service: AccommodationService) {
     this.numberOfGuests = 1;
+    this.amenities = []
+
   }
 
   ngOnInit(): void {

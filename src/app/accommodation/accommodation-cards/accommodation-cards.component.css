@@ -99,7 +99,7 @@
 .cards-matfiltertoolbarcontent {
   gap: var(--dl-space-space-unit);
   width: inherit;
-  height: 50px;
+  height: 100px;
   display: flex;
   overflow: hidden;
   align-self: center;

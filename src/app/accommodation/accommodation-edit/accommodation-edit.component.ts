@@ -136,7 +136,7 @@ export class AccommodationEditComponent {
       description: this.accommodationCreationForm.controls.description.value,
       location: this.accommodationCreationForm.controls.location.value,
       defaultPrice: Number(this.accommodationCreationForm.controls.defaultPrice.value),
-      photos: [],
+      photos: this.getPhotoNames(),
       minGuests: Number(this.accommodationCreationForm.controls.minGuests.value),
       maxGuests: Number(this.accommodationCreationForm.controls.maxGuests.value),
       created: new Date(),
@@ -233,6 +233,8 @@ export class AccommodationEditComponent {
         this.addAmenities(this.newAccId);
         this.addPrices(this.newAccId);
         this.addAvailabilities(this.newAccId);
+        this.addPictures(this.uploadedPictures);
+
         this.router.navigate(['']);
       },
       error: (_) => {
@@ -254,5 +256,20 @@ export class AccommodationEditComponent {
     this.availability.push(a);
 
   }
-
+  private getPhotoNames() {
+    let pictures : string[] = [];
+    for(let i = 0; i < this.uploadedPictures.length; i++){
+      pictures.push(this.uploadedPictures[i].name);
+    }
+    return pictures;
+  }
+  private addPictures(uploadedPictures: File[]) {
+    for(let i = 0; i < uploadedPictures.length; i++){
+      const formData: FormData = new FormData();
+      formData.append('images', uploadedPictures[i], uploadedPictures[i].name);
+      this.accommodationCreationService.uploadPictures(formData).subscribe(
+        event => {console.log("Image uploaded successfully!")}
+      )
+    }
+  }
 }
