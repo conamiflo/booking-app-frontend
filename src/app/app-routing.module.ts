@@ -21,6 +21,7 @@ import {AccommodationEditComponent} from "./accommodation/accommodation-edit/acc
 import {
   OwnersAccommodationsCardsComponent
 } from "./accommodation/owners-accommodations/owners-accommodations-cards.component";
+import {OwnerReservationsComponent} from "./reservation/owner-reservation/owner-reservations/owner.reservations";
 
 
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'accommodation/:accommodationId', component:AccommodationDetailsComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'guest/reservations', component: GuestReservationsComponent},
+  { path: 'owner/reservations', component:OwnerReservationsComponent},
   { path: 'activation/:email', component: AccountActivationComponent},
   { path: 'accommodationRequests', component: AccommodationRequestComponent},
   { path: 'accommodation-creation', component: AccommodationCreationComponent},
