@@ -5,48 +5,18 @@
       <span class="company-name">Booking</span>
     </div>
 
-    <ng-container *ngIf="isLoggedIn()">
-      <div class="links">
-        <div class="divider"></div>
-        <span class="profile-link" (click)="redirectToProfile()">Profile</span>
-        <div class="divider"></div>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="isLoggedInGuest()">
-      <div class="links">
-        <div class="divider"></div>
-        <span class="reservations-link" (click)="redirectToReservations()">Reservations</span>
-        <div class="divider"></div>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="isLoggedInOwner()">
-      <div class="links">
-        <div class="divider"></div>
-        <span class="reservations-link" (click)="redirectToCreateAccommodation()">Create accommodation</span>
-        <div class="divider"></div>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="isLoggedInOwner()">
-      <div class="links">
-        <div class="divider"></div>
-        <span class="reservations-link" (click)="redirectToOwnersAccommodations()">My accommodations</span>
-        <div class="divider"></div>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="isLoggedInAdmin()">
-      <div class="links">
-        <div class="divider"></div>
-        <span class="reservations-link" (click)="redirectToAccommodationRequests()">Accommodation requests</span>
-        <div class="divider"></div>
-      </div>
-    </ng-container>
+
   </div>
 
   <div class="navbar-right">
     <ng-container *ngIf="isLoggedIn(); else loggedOut">
-      <div>
-        <button class="loginBtn" (click)="logout()">Logout</button>
-        <div>{{ role }} : {{ username }}</div>
+      <div class="profile-nav-container">
+
+          <div class="profile-image-container">
+            <img class="profile-image" src="/assets/external/person.svg" (click)="openDialog()" alt="profile-pic">
+
+          </div>
+
       </div>
     </ng-container>
     <ng-template #loggedOut>
@@ -54,3 +24,71 @@
     </ng-template>
   </div>
 </div>
+<div class="dialog-closer" (click)="closeDialog()"*ngIf="showDialog">
+
+</div>
+<div class="dialog-container"*ngIf="showDialog">
+  <div class="dialog-content" >
+    <div class="dialog-header">
+
+      <div class="profile-image-container-dialog">
+        <img class="profile-image" src="/assets/external/person.svg" alt="profile-pic">
+      </div>
+
+    </div>
+
+      <div class="options-container">
+        {{ role }} : {{ username }}
+
+        <ng-container *ngIf="isLoggedIn()">
+          <div class="links">
+            <span class="profile-link" (click)="redirectToProfile()">PROFILE</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInGuest()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToReservations()">RESERVATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInOwner()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToCreateAccommodation()">CREATE ACCOMMODATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInOwner()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToOwnersAccommodations()">MY ACCOMMODATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInAdmin()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToAccommodationRequests()">ACCOMMODATION REQUESTS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInOwner()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToAccommodationRequests()">RESERVATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="logout-container">
+        <button class="loginBtn" (click)="logout()">Log out</button>
+      </div>
+
+
+  </div>
+
+</div>
+
