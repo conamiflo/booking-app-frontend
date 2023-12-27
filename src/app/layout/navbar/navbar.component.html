@@ -12,7 +12,6 @@
     <ng-container *ngIf="isLoggedIn(); else loggedOut">
       <div class="profile-nav-container">
 
-          <button class="loginBtn" (click)="logout()">Logout</button>
           <div class="profile-image-container">
             <img class="profile-image" src="/assets/external/person.svg" (click)="openDialog()" alt="profile-pic">
 
@@ -75,8 +74,18 @@
 
           </div>
         </ng-container>
+        <ng-container *ngIf="isLoggedInOwner()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToAccommodationRequests()">RESERVATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
       </div>
 
+      <div class="logout-container">
+        <button class="loginBtn" (click)="logout()">Log out</button>
+      </div>
 
 
   </div>

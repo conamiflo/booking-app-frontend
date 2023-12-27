@@ -29,7 +29,12 @@ body, html {
 
 }
 
-
+.logout-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
 .options-container{
   display: flex;
   flex-direction: column;
