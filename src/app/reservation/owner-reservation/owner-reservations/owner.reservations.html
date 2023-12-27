@@ -6,10 +6,9 @@
         <span>Reservations for your accommodation</span>
       </span>
       <div class="owner-reservations-owner-reservations">
-<!--        <div *ngFor="let accommodation of accommodationRequests">-->
-<!--          <app-accommodation-card-request [accommodation]="accommodation"></app-accommodation-card-request>-->
-<!--        </div>-->
-            <app-owner-reservation-card-request></app-owner-reservation-card-request>
+        <div *ngFor="let reservation of ownerReservations">
+          <app-owner-reservation-card-request [ownerReservation]="reservation"></app-owner-reservation-card-request>
+        </div>
       </div>
     </div>
   </div>
