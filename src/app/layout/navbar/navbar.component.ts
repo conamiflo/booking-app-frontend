@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, HostListener} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../authentication/auth.service";
 
@@ -10,8 +10,9 @@ import {AuthService} from "../../authentication/auth.service";
 export class NavbarComponent {
   role: string = "";
   username: string = "";
+  showDialog = false;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private elementRef: ElementRef, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.userState.subscribe((role) => {
@@ -70,4 +71,17 @@ export class NavbarComponent {
   redirectToAccommodationRequests() {
     this.router.navigate(['accommodationRequests']);
   }
+
+
+
+
+  openDialog(): void {
+    this.showDialog = true;
+  }
+
+  closeDialog(): void {
+    this.showDialog = false;
+  }
+
+
 }

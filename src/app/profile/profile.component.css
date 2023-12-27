@@ -21,6 +21,12 @@ body {
   text-decoration: none;
 }
 
+.main-container{
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .profil-page-container {
   width: 60%;
   background-color: #fff;
@@ -30,6 +36,8 @@ body {
   box-sizing: border-box;
   height: auto;
   z-index: 2;
+  margin-top: 80px;
+  align-self: center;
 }
 
 .profil-page-container form{
