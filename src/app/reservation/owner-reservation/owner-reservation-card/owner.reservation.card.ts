@@ -26,7 +26,7 @@ export class OwnerReservationCardComponent {
     this.ownerReservation.status = ReservationStatus.Accepted;
     this.reservationService.acceptReservation(this.ownerReservation.id).subscribe({
       next: () => {
-        // this.showCard = false;
+        this.showCard = false;
       },
       error: (_) => {
         console.log("Error!")
@@ -38,7 +38,7 @@ export class OwnerReservationCardComponent {
     this.ownerReservation.status = ReservationStatus.Declined;
     this.reservationService.declineReservation(this.ownerReservation.id).subscribe({
       next: () => {
-        // this.showCard = false;
+        this.showCard = false;
       },
       error: (_) => {
         console.log("Error!")

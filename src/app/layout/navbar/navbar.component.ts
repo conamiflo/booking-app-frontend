@@ -72,6 +72,9 @@ export class NavbarComponent {
     this.router.navigate(['accommodationRequests']);
   }
 
+  redirectToOwnerReservations() {
+    this.router.navigate(['owner/reservations']);
+  }
 
 
 

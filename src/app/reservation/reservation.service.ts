@@ -22,11 +22,11 @@ export class ReservationService {
   }
 
   acceptReservation(id:number): Observable<OwnerReservation>{
-    return this.httpClient.get<OwnerReservation>(environment.apiHost + 'reservations/accept/' + id)
+    return this.httpClient.put<OwnerReservation>(environment.apiHost + 'reservations/accept/' + id, {})
   }
 
   declineReservation(id:number): Observable<OwnerReservation>{
-    return this.httpClient.get<OwnerReservation>(environment.apiHost + 'reservations/decline/' + id)
+    return this.httpClient.put<OwnerReservation>(environment.apiHost + 'reservations/decline/' + id, {})
   }
 
 }
