@@ -19,10 +19,6 @@ import {AccommodationDetails} from "../accommodation-creation/model/accomodation
 export class AccommodationEditService {
   constructor(private httpClient: HttpClient) {}
 
-  getAllAmmenities(): Observable<Amenity[]>{
-    return this.httpClient.get<Amenity[]>(environment.apiHost + 'amenities');
-  }
-
   updateAccommodation(a: Accommodation, accommodationId : number): Observable<Accommodation>{
     return this.httpClient.put<Accommodation>(environment.apiHost + 'accommodations/' + accommodationId, a);
   }
