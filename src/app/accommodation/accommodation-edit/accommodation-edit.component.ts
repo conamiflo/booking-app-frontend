@@ -139,7 +139,7 @@ export class AccommodationEditComponent {
       photos: this.getPhotoNames(),
       minGuests: Number(this.accommodationCreationForm.controls.minGuests.value),
       maxGuests: Number(this.accommodationCreationForm.controls.maxGuests.value),
-      created: new Date(),
+      created: Math.round( (new Date()).getTime() / 1000),
       type: this.accommodationCreationForm.controls.type.value,
       priceType : priceType,
       status : AccommodationStatus.Pending

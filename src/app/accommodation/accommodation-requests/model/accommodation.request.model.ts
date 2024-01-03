@@ -10,7 +10,7 @@ export interface AccommodationRequest {
     photos : string[],
     minGuests : number,
     maxGuests : number,
-    created : Date,
+    created : number,
     type : string,
     priceType: PriceType,
     editedAccommondation : number,
