@@ -54,7 +54,7 @@ export class AccommodationService {
     return this.httpClient.get<Availability[]>(url);
   }
 
-  searchAccommodations(guests?: number, location?: string, startDate?: string, endDate?: string): Observable<AccommodationWithAmenities[]> {
+  searchAccommodations(guests?: number, location?: string, startDate?: number, endDate?: number): Observable<AccommodationWithAmenities[]> {
     let params = new HttpParams();
 
     if (guests) {
