@@ -122,8 +122,19 @@ export class AccommodationDetailsComponent {
 
         for(let i = 0; i < availabilities.length; i++){
 
-          const startDate = new Date(availabilities[i].timeSlot.startDate);
-          const endDate = new Date(availabilities[i].timeSlot.endDate);
+          const startDate = new Date(availabilities[i].timeSlot.startEpochTime*1000);
+          const endDate = new Date(availabilities[i].timeSlot.endEpochTime*1000);
+          startDate.setHours(0);
+          startDate.setMinutes(0);
+          startDate.setSeconds(0);
+          startDate.setMilliseconds(0); // Ensure milliseconds are also set to 0
+
+// Set hours, minutes, and seconds to 00:00:00 for endDate
+          endDate.setHours(0);
+          endDate.setMinutes(0);
+          endDate.setSeconds(0);
+          endDate.setMilliseconds(0);
+
           console.log(i+"start"+startDate);
 
           console.log(i+"end"+endDate);
