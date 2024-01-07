@@ -3,6 +3,7 @@ import {Accommodation} from "../model/accommodation.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AccommodationService} from "../accommodation.service";
 import {MapService} from "../../shared/map/map.service";
+import {MatDialog} from "@angular/material/dialog";
 import * as L from "leaflet";
 import {MapComponent} from "../../shared/map/map.component";
 import {DatePipe} from "@angular/common";
@@ -14,6 +15,11 @@ import {Availability} from "../model/availability.model";
 import {environment} from "../../../env/env";
 import {NgbCarousel} from "@ng-bootstrap/ng-bootstrap";
 import {NgbSlide} from "@ng-bootstrap/ng-bootstrap";
+import {DialogAccommodationFilterComponent} from "../dialog-accommodation-filter/dialog-accommodation-filter.component";
+import {OwnerReviewDialogComponent} from "../../reviews/owner-review/dialog/owner-review-dialog-component";
+import {
+  AccommodationReviewDialogComponent
+} from "../../reviews/accommodation-review/dialog/accommodation-review-dialog-component";
 
 @Component({
   selector: 'app-accommodation-details',
@@ -32,7 +38,7 @@ export class AccommodationDetailsComponent {
 
   constructor(private authService: AuthService,private dataPipe: DatePipe,private route: ActivatedRoute,
               private accommodationService: AccommodationService, private mapService: MapService,
-              private router : Router) {
+              private router : Router, public dialog: MatDialog) {
 
 
     this.reservation = new class implements ReservationBookingDtoModel {
@@ -49,7 +55,6 @@ export class AccommodationDetailsComponent {
   isAccommodationPreview(): boolean {
     return this.router.url.includes('accommodationPreview');
   }
-
 
   filter = (date: Date | null): boolean => {
     return !date || this.events.includes(date.getTime());
@@ -163,5 +168,16 @@ export class AccommodationDetailsComponent {
     });
   }
 
-    protected readonly environment = environment;
+  openReviewOwnerDialog(): void {
+    const dialogRef = this.dialog.open(OwnerReviewDialogComponent, {
+      width: '550px'});
+  }
+
+  openReviewAccommodationDialog(): void{
+    const dialogRef = this.dialog.open(AccommodationReviewDialogComponent, {
+      width: '550px'});
+  }
+
+  protected readonly environment = environment;
+
 }

@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Owner review</h1>
+<div class="owner-review-content">
+  <mat-form-field appearance="outline">
+    <mat-label>Rate owner</mat-label>
+    <mat-select>
+      <mat-option value="1">1</mat-option>
+      <mat-option value="2">2</mat-option>
+      <mat-option value="3">3</mat-option>
+      <mat-option value="4">4</mat-option>
+      <mat-option value="5">5</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Review: </mat-label>
+    <textarea matInput id="review-textarea"></textarea>
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button class="page-stylelayer1" id="cancel-owner-review" (click)="onNoClick()">
+      <span class="page-text3 MontserratSemibold14px">
+        <span>Cancel</span>
+      </span>
+    </button>
+    <button mat-button class="page-stylelayer1">
+      <span class="page-text3 MontserratSemibold14px">
+        <span>Review owner</span>
+      </span>
+    </button>
+  </div>
+</div>
+

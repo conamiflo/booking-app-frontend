@@ -22,6 +22,7 @@ import {
   OwnersAccommodationsCardsComponent
 } from "./accommodation/owners-accommodations/owners-accommodations-cards.component";
 import {OwnerReservationsComponent} from "./reservation/owner-reservation/owner-reservations/owner.reservations";
+import {OwnerReviewDialogComponent} from "./reviews/owner-review/dialog/owner-review-dialog-component";
 
 
 

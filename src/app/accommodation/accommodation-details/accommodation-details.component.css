@@ -39,6 +39,12 @@
   border-radius: 4px;
 }
 
+.review-choice{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
 .cards-uiwdate {
    width: 15px;
    height: 15px;
