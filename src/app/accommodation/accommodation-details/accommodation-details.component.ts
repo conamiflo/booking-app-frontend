@@ -16,10 +16,12 @@ import {environment} from "../../../env/env";
 import {NgbCarousel} from "@ng-bootstrap/ng-bootstrap";
 import {NgbSlide} from "@ng-bootstrap/ng-bootstrap";
 import {DialogAccommodationFilterComponent} from "../dialog-accommodation-filter/dialog-accommodation-filter.component";
-import {OwnerReviewDialogComponent} from "../../reviews/owner-review/dialog/owner-review-dialog-component";
+import {ReviewDialogComponent} from "../../reviews/owner-review/dialog/review-dialog-component";
 import {
   AccommodationReviewDialogComponent
 } from "../../reviews/accommodation-review/dialog/accommodation-review-dialog-component";
+import {ReviewService} from "../../reviews/review.service";
+import {AccommodationDetails} from "../accommodation-creation/model/accomodationDetails.model";
 
 @Component({
   selector: 'app-accommodation-details',
@@ -27,7 +29,7 @@ import {
   styleUrls: ['./accommodation-details.component.css']
 })
 export class AccommodationDetailsComponent {
-  accommodation: Accommodation;
+  accommodation: AccommodationDetails;
   numberOfGuests: number = 1;
   events: number[] = [];
   checkInDate: Date | null = null;
@@ -38,7 +40,7 @@ export class AccommodationDetailsComponent {
 
   constructor(private authService: AuthService,private dataPipe: DatePipe,private route: ActivatedRoute,
               private accommodationService: AccommodationService, private mapService: MapService,
-              private router : Router, public dialog: MatDialog) {
+              private router : Router, public dialog: MatDialog, public reviewService : ReviewService) {
 
 
     this.reservation = new class implements ReservationBookingDtoModel {
@@ -63,19 +65,19 @@ export class AccommodationDetailsComponent {
 
   ngOnInit():void{
 
+    let id = -5;
+
     this.route.params.subscribe((params) =>{
-      const id = +params['accommodationId']
-      this.accommodationService.getAccommodation(id).subscribe({
-        next: (data: Accommodation) => {
-          console.log(data.defaultPrice)
+      id = +params['accommodationId']
+      this.accommodationService.getAccommodationById(id).subscribe({
+        next: (data: AccommodationDetails) => {
           this.accommodation = data;
           this.loadAvailabilities();
         }
       })
     });
-
-
   }
+
   bookReservation($event: MouseEvent) {
     this.checkInString = this.dataPipe.transform(this.checkInDate, 'yyyy-MM-dd');
     this.checkOutString = this.dataPipe.transform(this.checkOutDate, 'yyyy-MM-dd');
@@ -143,21 +145,15 @@ export class AccommodationDetailsComponent {
           startDate.setHours(0);
           startDate.setMinutes(0);
           startDate.setSeconds(0);
-          startDate.setMilliseconds(0); // Ensure milliseconds are also set to 0
+          startDate.setMilliseconds(0);
 
-// Set hours, minutes, and seconds to 00:00:00 for endDate
           endDate.setHours(0);
           endDate.setMinutes(0);
           endDate.setSeconds(0);
           endDate.setMilliseconds(0);
 
-          console.log(i+"start"+startDate);
-
-          console.log(i+"end"+endDate);
-
-          // Iterate through dates within the time slot range
           for (let currentDate = startDate; currentDate <= endDate; currentDate.setDate(currentDate.getDate() + 1)) {
-            this.events.push((new Date(currentDate)).getTime()); // Add the current date to the events list
+            this.events.push((new Date(currentDate)).getTime());
           }
         }
         console.log(this.events);
@@ -169,14 +165,25 @@ export class AccommodationDetailsComponent {
   }
 
   openReviewOwnerDialog(): void {
-    const dialogRef = this.dialog.open(OwnerReviewDialogComponent, {
-      width: '550px'});
+    const dialogRef = this.dialog.open(ReviewDialogComponent, {
+      width: '550px',
+      data: {
+        accommodationId: 0,
+        ownerEmail: this.accommodation.ownerEmail,
+        reviewType: "Owner"
+      }});
   }
 
   openReviewAccommodationDialog(): void{
-    const dialogRef = this.dialog.open(AccommodationReviewDialogComponent, {
-      width: '550px'});
+    const dialogRef = this.dialog.open(ReviewDialogComponent, {
+      width: '550px',
+      data: {
+        accommodationId: this.accommodation.id,
+        ownerEmail: "",
+        reviewType: "Accommodation"
+      }});
   }
+
 
   protected readonly environment = environment;
 

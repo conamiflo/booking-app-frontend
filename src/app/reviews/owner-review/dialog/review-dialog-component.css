@@ -1,7 +1,7 @@
 .filter-input{
   width:100%;
 }
-.owner-review-content{
+.review-content{
   width: 90%;
   display: flex;
   flex-direction: column;

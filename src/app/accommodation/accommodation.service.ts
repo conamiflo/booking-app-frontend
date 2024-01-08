@@ -43,7 +43,9 @@ export class AccommodationService {
   getAccommodation(id: number): Observable<Accommodation>{
     return this.httpClient.get<Accommodation>(environment.apiHost + 'accommodations/' + id);
   }
-
+  getAccommodationById(id: number): Observable<AccommodationDetails>{
+    return this.httpClient.get<AccommodationDetails>(environment.apiHost + 'accommodations/' + id);
+  }
   createReservation(reservation: ReservationBookingDtoModel): Observable<ReservationBookingResultDTO> {
     return this.httpClient.post<ReservationBookingResultDTO>(environment.apiHost + 'reservations', reservation);
   }
