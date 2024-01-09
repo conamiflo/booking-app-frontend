@@ -1,0 +1,54 @@
+<div class="page-frame251">
+  <div class="page-frame249">
+    <span class="page-text172"><span>{{review.guestEmail}}</span></span>
+    <div class="page-frame">
+      <img
+        alt="Vector2032"
+        src="/assets/external/vector2032-nc2m.svg"
+        class="page-vector"
+      />
+      <img
+        alt="Vector2032"
+        src="/assets/external/vector2032-6ulc.svg"
+        class="page-vector"
+      />
+      <img
+        alt="Vector2032"
+        src="/assets/external/vector2032-0rp.svg"
+        class="page-vector"
+      />
+      <img
+        alt="Vector2032"
+        src="/assets/external/vector2032-iqap.svg"
+        class="page-vector"
+      />
+      <img
+        alt="Vector2032"
+        src="/assets/external/vector2032-nc2m.svg"
+        class="page-vector"
+      />
+    </div>
+  </div>
+  <span class="page-text174">
+    <span>
+      {{review.description}}
+    </span>
+  </span>
+  <div class="date-report">
+    <span class="review-date">Reviewed on: {{creationDate.toString()}}</span>
+    <img
+      alt="report-icon"
+      src="/assets/external/report.svg"
+      class="page-vector"
+      style="width: 20px; height: 19px; margin-left: 80%;"
+      *ngIf="showReportIcon"
+    />
+    <img
+      alt="delete-icon"
+      src="/assets/external/trashcan-svgrepo-com.svg"
+      class="page-vector"
+      style="width: 25px; height: 24px; padding-bottom: 4px;"
+      *ngIf="showDeleteIcon"
+    />
+  </div>
+</div>

@@ -29,6 +29,7 @@ import {AccommodationEditComponent} from "./accommodation-edit/accommodation-edi
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {NgbCarousel, NgbCarouselModule, NgbSlide} from "@ng-bootstrap/ng-bootstrap";
+import {ReviewCardComponent} from "../reviews/review-card/review-card.component";
 
 
 
@@ -41,7 +42,8 @@ import {NgbCarousel, NgbCarouselModule, NgbSlide} from "@ng-bootstrap/ng-bootstr
     AccommodationRequestCardComponent,
     AccommodationCreationComponent,
     AccommodationEditComponent,
-    OwnersAccommodationsCardsComponent
+    OwnersAccommodationsCardsComponent,
+    ReviewCardComponent
   ],
   exports: [
     AccommodationCardsComponent,

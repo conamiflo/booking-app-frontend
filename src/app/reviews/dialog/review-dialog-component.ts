@@ -5,13 +5,13 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {NgForOf} from "@angular/common";
-import {MaterialModule} from "../../../material.module";
-import {AccommodationFilterModel} from "../../../accommodation/model/accommodation-filter.model";
-import {ReviewDialogModel} from "../../review.dialog";
-import {ReviewService} from "../../review.service";
-import {Review} from "../../review";
-import {AuthService} from "../../../authentication/auth.service";
-import {Amenity} from "../../../accommodation/accommodation-creation/model/amenity.model";
+import {MaterialModule} from "../../material.module";
+import {AccommodationFilterModel} from "../../accommodation/model/accommodation-filter.model";
+import {ReviewDialogModel} from "../review.dialog";
+import {ReviewService} from "../review.service";
+import {Review} from "../review";
+import {AuthService} from "../../authentication/auth.service";
+import {Amenity} from "../../accommodation/accommodation-creation/model/amenity.model";
 
 @Component({
   selector: 'app-owner-review-dialog',

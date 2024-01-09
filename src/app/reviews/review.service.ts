@@ -12,14 +12,17 @@ import {environment} from "../../env/env";
 export class ReviewService {
   constructor(private httpClient: HttpClient) {}
 
-  getReviews(): Observable<Review[]> {
-    return this.httpClient.get<Review[]>(environment.apiHost  + 'reviews');
-  }
-
   getReviewById(id: string): Observable<Review> {
     return this.httpClient.get<Review>(environment.apiHost + 'reviews/' +id );
   }
 
+  getReviewsByOwnerEmail(email: string): Observable<Review[]> {
+    return this.httpClient.get<Review[]>(environment.apiHost + 'reviews/owner/' + email);
+  }
+
+  getReviewsByAccommodationId(id: number): Observable<Review[]> {
+    return this.httpClient.get<Review[]>(environment.apiHost + 'reviews/accommodation/' + id);
+  }
   createReview(reviewDTO: Review): Observable<Review> {
     return this.httpClient.post<Review>(environment.apiHost + 'reviews', reviewDTO);
   }
