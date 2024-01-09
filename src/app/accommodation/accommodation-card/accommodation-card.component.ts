@@ -8,6 +8,7 @@ import {AccommodationService} from "../accommodation.service";
 import {AccommodationIsAutomaticApprovalDto} from "../model/accommodation-is-automatic-approval-dto.model";
 import {ReservationBookingDtoModel} from "../model/reservation-booking-dto.model";
 import {MatSlideToggleChange} from "@angular/material/slide-toggle";
+import {AuthService} from "../../authentication/auth.service";
 
 
 @Component({
@@ -21,16 +22,23 @@ export class AccommodationCardComponent {
   showEditButton: boolean = false;
 
   isAutomaticApproval: boolean = false;
+  guestLoggedIn: boolean = false;
+
+
 
   accommodationIsAutomaticApproval: AccommodationIsAutomaticApprovalDto;
 
   @Output()
   clicked: EventEmitter<Accommodation> = new EventEmitter<Accommodation>();
 
-  constructor(private router:Router, private accommodationService: AccommodationService) {
+  constructor(private router:Router, private accommodationService: AccommodationService, private authenticationService: AuthService) {
     this.accommodationIsAutomaticApproval = new class implements AccommodationIsAutomaticApprovalDto {
       id: number;
       automaticApproval: boolean;
+    }
+
+    if(authenticationService.getRole() === "Guest"){
+      this.guestLoggedIn = true;
     }
 
   }
