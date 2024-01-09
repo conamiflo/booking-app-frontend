@@ -29,6 +29,7 @@ import {AccommodationEditComponent} from "./accommodation-edit/accommodation-edi
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {NgbCarousel, NgbCarouselModule, NgbSlide} from "@ng-bootstrap/ng-bootstrap";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
 
@@ -48,26 +49,27 @@ import {NgbCarousel, NgbCarouselModule, NgbSlide} from "@ng-bootstrap/ng-bootstr
     AccommodationCreationComponent,
     OwnersAccommodationsCardsComponent
   ],
-  imports: [
-    NgbCarouselModule,
-    NgbSlide,
-    NgbCarousel,
-    MatNativeDateModule,
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    MatInputModule,
-    MatDialogModule,
-    MaterialModule,
-    MatSliderModule,
-    ReactiveFormsModule,
-    MatLegacySliderModule,
-    SharedModule,
-    MatDatepickerModule,
-    ReactiveFormsModule,
-    NgbCarousel,
-    NgbSlide
+    imports: [
+        NgbCarouselModule,
+        NgbSlide,
+        NgbCarousel,
+        MatNativeDateModule,
+        CommonModule,
+        RouterModule,
+        FormsModule,
+        MatInputModule,
+        MatDialogModule,
+        MaterialModule,
+        MatSliderModule,
+        ReactiveFormsModule,
+        MatLegacySliderModule,
+        SharedModule,
+        MatDatepickerModule,
+        ReactiveFormsModule,
+        NgbCarousel,
+        NgbSlide,
+        MatSlideToggleModule
 
-  ]
+    ]
 })
 export class AccommodationModule { }
