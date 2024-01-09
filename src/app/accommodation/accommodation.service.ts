@@ -13,6 +13,7 @@ import {AccommodationDetails} from "./accommodation-creation/model/accomodationD
 import {ReservationBookingDtoModel} from "./model/reservation-booking-dto.model";
 import {ReservationBookingResultDTO} from "./model/reservation-booking-result-dto.model";
 import {Availability} from "./model/availability.model";
+import {AccommodationIsAutomaticApprovalDto} from "./model/accommodation-is-automatic-approval-dto.model";
 
 @Injectable({
   providedIn: 'root'
@@ -133,4 +134,11 @@ export class AccommodationService {
     return this.httpClient.get<Accommodation[]>(environment.apiHost + 'accommodations/owner/' + email)
   }
 
+  setAccommodationIsAutomaticApproval(param: AccommodationIsAutomaticApprovalDto) : Observable<AccommodationIsAutomaticApprovalDto> {
+    return this.httpClient.put<AccommodationIsAutomaticApprovalDto>(environment.apiHost+'accommodations/approval',param);
+  }
+
+  getAccommodationIsAutomaticApprovalById(id: number) {
+    return this.httpClient.get<AccommodationIsAutomaticApprovalDto>(environment.apiHost + 'accommodations/'+id+'/approval');
+  }
 }

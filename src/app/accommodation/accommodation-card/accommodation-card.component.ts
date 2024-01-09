@@ -4,6 +4,10 @@ import {Accommodation} from "../model/accommodation.model";
 import {environment} from "../../../env/env";
 
 import {Router} from "@angular/router";
+import {AccommodationService} from "../accommodation.service";
+import {AccommodationIsAutomaticApprovalDto} from "../model/accommodation-is-automatic-approval-dto.model";
+import {ReservationBookingDtoModel} from "../model/reservation-booking-dto.model";
+import {MatSlideToggleChange} from "@angular/material/slide-toggle";
 
 
 @Component({
@@ -14,14 +18,26 @@ import {Router} from "@angular/router";
 export class AccommodationCardComponent {
   @Input()
   accommodation: Accommodation;
-  showButton: boolean = false;
+  showEditButton: boolean = false;
+
+  isAutomaticApproval: boolean = false;
+
+  accommodationIsAutomaticApproval: AccommodationIsAutomaticApprovalDto;
+
   @Output()
   clicked: EventEmitter<Accommodation> = new EventEmitter<Accommodation>();
 
-  constructor(private router:Router) {}
+  constructor(private router:Router, private accommodationService: AccommodationService) {
+    this.accommodationIsAutomaticApproval = new class implements AccommodationIsAutomaticApprovalDto {
+      id: number;
+      automaticApproval: boolean;
+    }
+
+  }
   ngOnInit() {
     if (this.router.url.includes('owners-accommodations')) {
-      this.showButton = true;
+      this.showEditButton = true;
+      this.loadAccommodationApproval();
     }
   }
   goToEditPage(){
@@ -31,6 +47,35 @@ export class AccommodationCardComponent {
   onAccommodationClicked(): void{
     this.clicked.emit(this.accommodation)
   }
+  loadAccommodationApproval() {
+    // Assuming you have a method in your service to get accommodation data
+    this.accommodationService.getAccommodationIsAutomaticApprovalById(this.accommodation.id).subscribe((data) => {
+      // Assuming 'isAutomaticApproval' property is available in the received data
+      this.isAutomaticApproval = data.automaticApproval; // Assign the value to toggle
+      this.accommodationIsAutomaticApproval.id = this.accommodation.id;
+      this.accommodationIsAutomaticApproval.automaticApproval = this.isAutomaticApproval;
+    });
+  }
+
+  toggleAutomaticApproval(event: MatSlideToggleChange) {
+    this.isAutomaticApproval = event.checked;
+    this.accommodationIsAutomaticApproval.automaticApproval = this.isAutomaticApproval;
+    // Assuming you have a method in your service to update accommodation data
+    this.accommodationService.setAccommodationIsAutomaticApproval(this.accommodationIsAutomaticApproval).subscribe(
+      (data) => {
+        // Handle success response after updating data
+        console.log('Accommodation updated successfully! '+data.automaticApproval );
+      },
+      (error: any) => {
+        // Handle error if the update fails
+        console.error('Error updating accommodation:', error);
+        // Revert the toggle if update fails
+        this.isAutomaticApproval = !this.isAutomaticApproval;
+      }
+    );;
+  }
+
+
 
   @Input()
   image_src: string = '/assets/external/accommodations/1/1.jpg'
@@ -79,4 +124,5 @@ export class AccommodationCardComponent {
 
   protected readonly environment = environment;
 
+  protected readonly event = event;
 }
