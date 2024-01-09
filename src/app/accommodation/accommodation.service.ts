@@ -54,7 +54,7 @@ export class AccommodationService {
     return this.httpClient.get<Availability[]>(url);
   }
 
-  searchAccommodations(guests?: number, location?: string, startDate?: string, endDate?: string): Observable<AccommodationWithAmenities[]> {
+  searchAccommodations(guests?: number, location?: string, startDate?: number, endDate?: number): Observable<AccommodationWithAmenities[]> {
     let params = new HttpParams();
 
     if (guests) {
@@ -75,12 +75,7 @@ export class AccommodationService {
   filter(maximumPrice: number, minimumPrice: number, selectedAccommodationType: AccommodationTypeCheckBox[], amenities: Amenity[], accommodations: AccommodationWithAmenities[]): AccommodationWithAmenities[] {
     let filteredAccommodations: AccommodationWithAmenities[] = [];
     for (let i = 0; i < accommodations.length; i++){
-      console.log("Petlja: "+i);
 
-      console.log("Unet minprice: "+minimumPrice+"max: "+maximumPrice);
-      console.log(amenities);
-      console.log(accommodations);
-      console.log(selectedAccommodationType);
 
 
       let validAccommodationType: boolean = false;
@@ -94,7 +89,6 @@ export class AccommodationService {
 
       if(!validAccommodationType) continue;
 
-      console.log("Prodje validaciju tipa");
 
       let validAmenities = true;
       for( let j = 0; j < amenities.length; j ++){
@@ -119,9 +113,6 @@ export class AccommodationService {
       if(!validAmenities) continue;
 
 
-
-      console.log("Da li je price izmedju rangea");
-      console.log(accommodations[i].defaultPrice > minimumPrice && accommodations[i].defaultPrice < maximumPrice);
       if(accommodations[i].defaultPrice > minimumPrice && accommodations[i].defaultPrice < maximumPrice){
         filteredAccommodations.push(accommodations[i]);
       }

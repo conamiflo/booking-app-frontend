@@ -11,7 +11,7 @@ export interface AccommodationDetails{
   photos: string[];
   minGuests: number;
   maxGuests: number;
-  created: Date;
+  created: number;
   type: string;
   priceType: PriceType;
   status: AccommodationStatus;

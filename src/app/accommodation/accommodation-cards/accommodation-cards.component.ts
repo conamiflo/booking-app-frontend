@@ -116,7 +116,7 @@ export class AccommodationCardsComponent {
 
   searchAccommodations() {
     console.log(this.numberOfGuests, this.location, this.checkInDate, this.checkOutDate)
-    this.service.searchAccommodations(this.numberOfGuests, this.location, this.checkInDate, this.checkOutDate).subscribe({
+    this.service.searchAccommodations(this.numberOfGuests, this.location,Math.floor(new Date(this.checkInDate).getTime() / 1000) , Math.floor(new Date(this.checkOutDate).getTime() / 1000)).subscribe({
       next: (data: AccommodationWithAmenities[]) => {
         this.accommodations = data;
         console.log(data);

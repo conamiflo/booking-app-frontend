@@ -31,13 +31,13 @@ export class AccommodationCreationService {
   }
 
   addPrice(pr: Price, id: string){
-    const ts: TimeSlot = {startDate: new Date(pr.from), endDate: new Date(pr.to)}
+    const ts: TimeSlot = {startEpochTime: new Date(pr.from).getTime() / 1000, endEpochTime: new Date(pr.to).getTime() / 1000}
     const p: PricePost = {timeSlot: ts, price: Number(pr.price)}
     return this.httpClient.post<Accommodation>(environment.apiHost + 'accommodations/' + id + '/price', p);
   }
 
   addAvailability(a: Availability, id: string){
-    const av : AvailabilityPost = {startDate: new Date(a.from), endDate: new Date(a.to), id: 0}
+    const av : AvailabilityPost = {startDate: new Date(a.from).getTime() / 1000, endDate: new Date(a.to).getTime() / 1000, id: 0}
     return this.httpClient.post<AvailabilityPost>(environment.apiHost + 'availabilities/accommodation/' + id, av);
   }
 

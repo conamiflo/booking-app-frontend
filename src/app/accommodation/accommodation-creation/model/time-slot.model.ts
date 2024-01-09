@@ -1,4 +1,4 @@
 export interface TimeSlot{
-  startDate: Date;
-  endDate: Date;
+  startEpochTime: number;
+  endEpochTime: number;
 }

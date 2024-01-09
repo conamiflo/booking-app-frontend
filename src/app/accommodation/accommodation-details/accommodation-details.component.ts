@@ -37,11 +37,11 @@ export class AccommodationDetailsComponent {
 
     this.reservation = new class implements ReservationBookingDtoModel {
       accommodation: number;
-      endDate: string;
+      endDate: number;
       guest: string;
       id: number;
       numberOfGuests: number;
-      startDate: string;
+      startDate: number;
     }
 
   }
@@ -75,44 +75,55 @@ export class AccommodationDetailsComponent {
     this.checkInString = this.dataPipe.transform(this.checkInDate, 'yyyy-MM-dd');
     this.checkOutString = this.dataPipe.transform(this.checkOutDate, 'yyyy-MM-dd');
 
-    if(this.numberOfGuests < this.accommodation.minGuests || this.numberOfGuests > this.accommodation.maxGuests){
-      alert("Reservation cannot be made for that number of guests! ");
-      return;
-    }
+    if (this.checkInString && this.checkOutString) {
+      const checkInDate = new Date(this.checkInString);
+      const checkOutDate = new Date(this.checkOutString);
 
-    if(this.authService.getRole() !== "Guest"){
-      alert("You are not authorized to make reservations, make guest account! ");
-      return;
+      if (!isNaN(checkInDate.getTime()) && !isNaN(checkOutDate.getTime())) {
+        // Strings are not null or empty and successfully parsed to valid Date objects
+        const checkInSeconds = Math.floor(checkInDate.getTime() / 1000);
+        const checkOutSeconds = Math.floor(checkOutDate.getTime() / 1000);
+        if(checkOutSeconds < checkInSeconds){
+          alert("Reservation cannot be made with those dates! ");
+          return;
+        }
+        this.reservation.id = 0;
+        this.reservation.accommodation = this.accommodation.id;
+        this.reservation.numberOfGuests = this.numberOfGuests;
+        this.reservation.guest = this.authService.getUsername();
 
-    }
+        if (this.checkInString != null) {
+          this.reservation.startDate = checkInSeconds;
+        }
+        if (this.checkOutString != null) {
+          this.reservation.endDate = checkOutSeconds;
+        }
+        if(this.numberOfGuests < this.accommodation.minGuests || this.numberOfGuests > this.accommodation.maxGuests){
+          alert("Reservation cannot be made for that number of guests! ");
+          return;
+        }
 
-    console.log(this.numberOfGuests);
-    console.log(this.checkInDate);
-    console.log(this.checkOutDate);
-    console.log(this.checkInString);
-    console.log(this.checkOutString);
-    this.reservation.id = 0;
-    this.reservation.accommodation = this.accommodation.id;
-    this.reservation.numberOfGuests = this.numberOfGuests;
-    this.reservation.guest = this.authService.getUsername();
+        if(this.authService.getRole() !== "Guest"){
+          alert("You are not authorized to make reservations, make guest account! ");
+          return;
 
-    if (this.checkInString != null) {
-      this.reservation.startDate = this.checkInString;
-    }
-    if (this.checkOutString != null) {
-      this.reservation.endDate = this.checkOutString;
-    }
+        }
 
-
-    this.accommodationService.createReservation(this.reservation).subscribe({
-      next: (data: ReservationBookingResultDTO) => {
-        alert(`Reservation: [Id: ${data.id}, \n Accommodation: ${data.accommodation}, \n Guest: ${data.guest},\n
+        this.accommodationService.createReservation(this.reservation).subscribe({
+          next: (data: ReservationBookingResultDTO) => {
+            alert(`Reservation: [Id: ${data.id}, \n Accommodation: ${data.accommodation}, \n Guest: ${data.guest},\n
         Start Date: ${data.startDate},\n End Date: ${data.endDate}, \n Number of Guests: ${data.numberOfGuests},\n
         Status: ${data.status},\n Price: ${data.price || 'N/A'}]`);
-      },error:(_) =>{
-        alert("You cannot book that reservation!")
+          },error:(_) =>{
+            alert("You cannot book that reservation!")
+          }
+        });
+      } else {
+        console.log('Invalid date format in strings.');
       }
-    })
+    } else {
+      console.log('One or both strings are null or empty.');
+    }
 
   }
 
@@ -122,8 +133,19 @@ export class AccommodationDetailsComponent {
 
         for(let i = 0; i < availabilities.length; i++){
 
-          const startDate = new Date(availabilities[i].timeSlot.startDate);
-          const endDate = new Date(availabilities[i].timeSlot.endDate);
+          const startDate = new Date(availabilities[i].timeSlot.startEpochTime*1000);
+          const endDate = new Date(availabilities[i].timeSlot.endEpochTime*1000);
+          startDate.setHours(0);
+          startDate.setMinutes(0);
+          startDate.setSeconds(0);
+          startDate.setMilliseconds(0); // Ensure milliseconds are also set to 0
+
+// Set hours, minutes, and seconds to 00:00:00 for endDate
+          endDate.setHours(0);
+          endDate.setMinutes(0);
+          endDate.setSeconds(0);
+          endDate.setMilliseconds(0);
+
           console.log(i+"start"+startDate);
 
           console.log(i+"end"+endDate);
