@@ -22,10 +22,10 @@
     </div>
     <div *ngIf="guestLoggedIn" class="favorite-accommodation-container">
       <div>
-        <mat-slide-toggle class="automatic-approval"
-                          [ngModel]="isAutomaticApproval"
-                          [checked]="isAutomaticApproval"
-                          (change)="toggleAutomaticApproval($event)">
+       <mat-slide-toggle class="automatic-approval"
+                          [ngModel]="isFavoriteAccommodation"
+                          [checked]="isFavoriteAccommodation"
+                          (change)="toggleFavoriteAccommodation($event)">
           Favorite
         </mat-slide-toggle>
       </div>

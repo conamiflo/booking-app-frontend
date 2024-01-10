@@ -9,6 +9,7 @@ import {AccommodationIsAutomaticApprovalDto} from "../model/accommodation-is-aut
 import {ReservationBookingDtoModel} from "../model/reservation-booking-dto.model";
 import {MatSlideToggleChange} from "@angular/material/slide-toggle";
 import {AuthService} from "../../authentication/auth.service";
+import {FavoriteAccommodationDTO} from "../model/favorite-accommodation-dto.model";
 
 
 @Component({
@@ -23,9 +24,9 @@ export class AccommodationCardComponent {
 
   isAutomaticApproval: boolean = false;
   guestLoggedIn: boolean = false;
+  isFavoriteAccommodation: boolean = false;
 
-
-
+  favoriteAccommodation: FavoriteAccommodationDTO;
   accommodationIsAutomaticApproval: AccommodationIsAutomaticApprovalDto;
 
   @Output()
@@ -37,6 +38,11 @@ export class AccommodationCardComponent {
       automaticApproval: boolean;
     }
 
+    this.favoriteAccommodation = new class implements FavoriteAccommodationDTO {
+      accommodationId: number;
+      isFavorite: boolean;
+    }
+
     if(authenticationService.getRole() === "Guest"){
       this.guestLoggedIn = true;
     }
@@ -46,6 +52,7 @@ export class AccommodationCardComponent {
     if (this.router.url.includes('owners-accommodations')) {
       this.showEditButton = true;
       this.loadAccommodationApproval();
+      this.loadIsFavoriteAccommodation();
     }
   }
   goToEditPage(){
@@ -56,15 +63,19 @@ export class AccommodationCardComponent {
     this.clicked.emit(this.accommodation)
   }
   loadAccommodationApproval() {
-    // Assuming you have a method in your service to get accommodation data
     this.accommodationService.getAccommodationIsAutomaticApprovalById(this.accommodation.id).subscribe((data) => {
-      // Assuming 'isAutomaticApproval' property is available in the received data
-      this.isAutomaticApproval = data.automaticApproval; // Assign the value to toggle
+      this.isAutomaticApproval = data.automaticApproval;
       this.accommodationIsAutomaticApproval.id = this.accommodation.id;
       this.accommodationIsAutomaticApproval.automaticApproval = this.isAutomaticApproval;
     });
   }
-
+  private loadIsFavoriteAccommodation() {
+    this.accommodationService.getIsFavoriteAccommodation(this.authenticationService.getUsername(),this.accommodation.id).subscribe((data) => {
+      this.isFavoriteAccommodation = data.isFavorite; // Assign the value to toggle
+      this.favoriteAccommodation.accommodationId = this.accommodation.id;
+      this.favoriteAccommodation.isFavorite = this.isFavoriteAccommodation;
+    });
+  }
   toggleAutomaticApproval(event: MatSlideToggleChange) {
     this.isAutomaticApproval = event.checked;
     this.accommodationIsAutomaticApproval.automaticApproval = this.isAutomaticApproval;
@@ -80,9 +91,25 @@ export class AccommodationCardComponent {
         // Revert the toggle if update fails
         this.isAutomaticApproval = !this.isAutomaticApproval;
       }
-    );;
+    );
   }
-
+  toggleFavoriteAccommodation(event: MatSlideToggleChange) {
+    this.isFavoriteAccommodation = event.checked;
+    this.favoriteAccommodation.isFavorite = this.isFavoriteAccommodation;
+    // Assuming you have a method in your service to update accommodation data
+    this.accommodationService.setFavoriteAccommodation(this.authenticationService.getUsername(),this.favoriteAccommodation).subscribe(
+      (data: FavoriteAccommodationDTO) => {
+        // Handle success response after updating data
+        console.log('Accommodation is favorite: '+data.isFavorite );
+      },
+      (error: any) => {
+        // Handle error if the update fails
+        console.error('Error updating favorite accommodation:', error);
+        // Revert the toggle if update fails
+        this.isFavoriteAccommodation = !this.isAutomaticApproval;
+      }
+    );
+  }
 
 
   @Input()
@@ -133,4 +160,7 @@ export class AccommodationCardComponent {
   protected readonly environment = environment;
 
   protected readonly event = event;
+
+
+
 }
