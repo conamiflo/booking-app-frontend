@@ -1,3 +1,3 @@
 export enum ReservationStatus{
-  Accepted,Declined,Waiting
+  Accepted,Declined,Waiting,Cancelled,Finished
 }

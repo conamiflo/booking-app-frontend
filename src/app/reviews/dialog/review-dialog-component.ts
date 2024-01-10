@@ -12,6 +12,7 @@ import {ReviewService} from "../review.service";
 import {Review} from "../review";
 import {AuthService} from "../../authentication/auth.service";
 import {Amenity} from "../../accommodation/accommodation-creation/model/amenity.model";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-owner-review-dialog',
@@ -56,14 +57,16 @@ export class ReviewDialogComponent {
     };
   }
   submitReview(): void {
-    console.log(this.createReview());
     this.reviewService.createReview(this.createReview()).subscribe({
       next: (data: Review) => {
         this.dialogRef.close();
         alert(`Successfully sent a ${this.reviewType} review request! `)
       },
-      error: (_) => {
-        console.log("Error!")
+      error: (err: HttpErrorResponse) => {
+        if (err && err.error) {
+          alert(err.error);
+          this.dialogRef.close();
+        }
       }
     })
   }

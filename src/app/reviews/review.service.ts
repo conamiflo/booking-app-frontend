@@ -31,7 +31,7 @@ export class ReviewService {
     return this.httpClient.put<Review>(environment.apiHost + 'reviews/' + id, reviewDTO);
   }
 
-  deleteReview(id: string): Observable<void> {
+  deleteReview(id: number): Observable<void> {
     return this.httpClient.delete<void>(environment.apiHost + 'reviews/' + id);
   }
 

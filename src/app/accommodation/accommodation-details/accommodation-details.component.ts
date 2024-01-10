@@ -37,6 +37,9 @@ export class AccommodationDetailsComponent {
   reservation :ReservationBookingDtoModel;
   ownerReviews: Review[];
   accommodationReviews: Review[];
+  averageOwnerScore: string;
+  averageAccommdoationScore: string;
+
   constructor(private authService: AuthService,private dataPipe: DatePipe,private route: ActivatedRoute,
               private accommodationService: AccommodationService, private mapService: MapService,
               private router : Router, public dialog: MatDialog, public reviewService : ReviewService) {
@@ -57,6 +60,7 @@ export class AccommodationDetailsComponent {
     this.reviewService.getReviewsByAccommodationId(id).subscribe({
       next: (data: Review[]) => {
         this.accommodationReviews = data;
+        this.averageAccommdoationScore = this.loadAccommodationScore(data).toFixed(1);
       }
     })
   }
@@ -65,8 +69,19 @@ export class AccommodationDetailsComponent {
     this.reviewService.getReviewsByOwnerEmail(owner).subscribe({
       next: (data: Review[]) => {
         this.ownerReviews = data;
+        this.averageOwnerScore = this.loadOwnerScore(data).toFixed(1);
       }
     })
+  }
+
+  loadOwnerScore(ownerReviews: Review[]){
+    return ownerReviews.length ? ownerReviews.reduce((acc, review) => acc + review.rating, 0) / ownerReviews.length
+        : 0;
+  }
+
+  loadAccommodationScore(accommodationReviews: Review[]){
+    return accommodationReviews.length ? accommodationReviews.reduce((acc, review) => acc + review.rating, 0) / accommodationReviews.length
+        : 0;
   }
 
   isAccommodationPreview(): boolean {
