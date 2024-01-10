@@ -1,5 +1,5 @@
-<div class="accommodation-card-container" [routerLink]="['/accommodation', accommodation.id]">
-  <div class="accommodation-card-park-lineapartmentin-miami-fl1">
+<div class="accommodation-card-container" >
+  <div class="accommodation-card-park-lineapartmentin-miami-fl1" [routerLink]="['/accommodation', accommodation.id]">
     <img
       [attr.src]="environment.apiImagesLocation+accommodation.photos.at(0)"
       [attr.alt]="accommodation.photos.at(0)"
@@ -9,7 +9,18 @@
   <div class="accommodation-card-matimg">
     <span class="accommodation-card-text"><span>{{ accommodation.name }}</span></span>
     <span class="accommodation-card-text02"><span>{{ accommodation.location }}</span></span>
-    <button *ngIf="showButton" class="edit-accommodation-btn" (click)="goToEditPage()">Edit accommodation</button>
+    <div *ngIf="showEditButton" class="edit-accommodation-container">
+      <button  class="edit-accommodation-btn" (click)="goToEditPage()">Edit accommodation</button>
+      <div>
+        <mat-slide-toggle class="automatic-approval"
+                          [ngModel]="isAutomaticApproval"
+                          [checked]="isAutomaticApproval"
+                          (change)="toggleAutomaticApproval($event)">
+          Automatic approval
+        </mat-slide-toggle>
+      </div>
+    </div>
+
     <div class="accommodation-card-starrate">
       <img
         [attr.alt]="Vector_alt5"
