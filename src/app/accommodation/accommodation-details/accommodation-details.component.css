@@ -39,6 +39,12 @@
   border-radius: 4px;
 }
 
+.review-choice{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
 .cards-uiwdate {
    width: 15px;
    height: 15px;
@@ -94,7 +100,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 32px;
-  font-style: Bold;
   text-align: left;
   font-family: Lato;
   font-weight: 700;
@@ -118,7 +123,6 @@
   height: auto;
   opacity: 0.75;
   font-size: 14px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -191,7 +195,6 @@
   color: rgb(236, 138, 108);
   height: auto;
   font-size: 24px;
-  font-style: Bold;
   text-align: right;
   font-family: Montserrat;
   font-weight: 700;
@@ -252,7 +255,6 @@
   background-color: rgba(241, 90, 42, 1);
 }
 .page-text3 {
-  color: var(--dl-color-default-blackishgreen);
   height: auto;
   text-align: left;
   line-height: normal;
@@ -291,7 +293,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 20px;
-  font-style: SemiBold;
   text-align: left;
   font-family: Lato;
   font-weight: 600;
@@ -305,7 +306,6 @@
   height: auto;
   opacity: 0.75;
   font-size: 16px;
-  font-style: Regular;
   text-align: left;
   font-family: Roboto;
   font-weight: 400;
@@ -317,7 +317,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 20px;
-  font-style: SemiBold;
   margin-top: var(--dl-space-space-oneandhalfunits);
   text-align: center;
   font-family: Lato;
@@ -330,7 +329,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 20px;
-  font-style: SemiBold;
   margin-top: var(--dl-space-space-oneandhalfunits);
   text-align: center;
   font-family: Lato;
@@ -399,7 +397,6 @@
   width: 67px;
   height: auto;
   font-size: 15.498372077941895px;
-  font-style: SemiBold;
   text-align: left;
   font-family: Lato;
   font-weight: 600;
@@ -412,7 +409,6 @@
   width: 60px;
   height: auto;
   font-size: 15.498372077941895px;
-  font-style: SemiBold;
   text-align: left;
   font-family: Lato;
   font-weight: 600;
@@ -466,7 +462,6 @@
   height: auto;
   flex-grow: 1;
   font-size: 15.498372077941895px;
-  font-style: SemiBold;
   text-align: center;
   font-family: Lato;
   font-weight: 600;
@@ -509,7 +504,6 @@
   width: 20px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -530,7 +524,6 @@
   width: 24px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -551,7 +544,6 @@
   width: 19px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -572,7 +564,6 @@
   width: 23px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -593,7 +584,6 @@
   width: 20px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -614,7 +604,6 @@
   width: 15px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -635,7 +624,6 @@
   width: 17px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -671,7 +659,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -694,7 +681,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -717,7 +703,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -740,7 +725,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -763,7 +747,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -786,7 +769,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -809,7 +791,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -839,7 +820,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -862,7 +842,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -885,7 +864,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -908,7 +886,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -931,7 +908,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -954,7 +930,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -979,7 +954,6 @@
   color: rgba(255, 255, 255, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1009,7 +983,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1034,7 +1007,6 @@
   color: rgba(255, 255, 255, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1057,7 +1029,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1080,7 +1051,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1103,7 +1073,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1126,7 +1095,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1149,7 +1117,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1251,7 +1218,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1274,7 +1240,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1297,7 +1262,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1320,7 +1284,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1343,7 +1306,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1366,7 +1328,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1389,7 +1350,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1420,7 +1380,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1443,7 +1402,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1466,7 +1424,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1490,7 +1447,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1514,7 +1470,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1538,7 +1493,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1562,7 +1516,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1601,7 +1554,6 @@
   height: auto;
   flex-grow: 1;
   font-size: 15.498372077941895px;
-  font-style: SemiBold;
   text-align: center;
   font-family: Lato;
   font-weight: 600;
@@ -1639,7 +1591,6 @@
   width: 20px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -1660,7 +1611,6 @@
   width: 24px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -1681,7 +1631,6 @@
   width: 19px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -1702,7 +1651,6 @@
   width: 23px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -1723,7 +1671,6 @@
   width: 20px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -1744,7 +1691,6 @@
   width: 15px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -1765,7 +1711,6 @@
   width: 17px;
   height: auto;
   font-size: 9.299023628234863px;
-  font-style: Medium;
   text-align: left;
   font-family: Lato;
   font-weight: 500;
@@ -1800,7 +1745,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1823,7 +1767,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1846,7 +1789,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1869,7 +1811,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1892,7 +1833,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1915,7 +1855,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1938,7 +1877,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1968,7 +1906,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -1991,7 +1928,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2014,7 +1950,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2037,7 +1972,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2060,7 +1994,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2083,7 +2016,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2108,7 +2040,6 @@
   color: rgba(255, 255, 255, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2138,7 +2069,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2163,7 +2093,6 @@
   color: rgba(255, 255, 255, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2186,7 +2115,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2209,7 +2137,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2232,7 +2159,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2255,7 +2181,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2278,7 +2203,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2308,7 +2232,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2331,7 +2254,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2354,7 +2276,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2377,7 +2298,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2400,7 +2320,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2423,7 +2342,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2446,7 +2364,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2477,7 +2394,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2500,7 +2416,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2523,7 +2438,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2547,7 +2461,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2571,7 +2484,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2595,7 +2507,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2619,7 +2530,6 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 13.948534965515137px;
-  font-style: Medium;
   text-align: center;
   font-family: Lato;
   font-weight: 500;
@@ -2630,14 +2540,11 @@
 .page-frame250 {
   gap: var(--dl-space-space-unit);
   width: 100%;
-  height: 456px;
   display: flex;
   overflow: hidden;
   margin-top: var(--dl-space-space-oneandhalfunits);
-  align-items: flex-start;
   flex-shrink: 0;
   flex-direction: column;
-  justify-content: flex-start;
   background-color: rgba(255, 255, 255, 1);
 }
 .page-frame168 {
@@ -2651,8 +2558,7 @@
 .page-text164 {
   color: rgba(52, 65, 87, 1);
   height: auto;
-  font-size: 46px;
-  font-style: Bold;
+  font-size: 40px;
   text-align: left;
   font-family: Lato;
   font-weight: 700;
@@ -2695,7 +2601,6 @@
   color: rgba(52, 65, 87, 1);
   height: auto;
   font-size: 19px;
-  font-style: SemiBold;
   text-align: left;
   font-family: Lato;
   font-weight: 600;
@@ -2707,7 +2612,6 @@
   color: rgba(52, 65, 87, 1);
   height: auto;
   font-size: 13px;
-  font-style: Regular;
   text-align: left;
   font-family: Montserrat;
   font-weight: 400;
@@ -2719,162 +2623,10 @@
   color: rgba(18, 61, 108, 1);
   height: auto;
   font-size: 20px;
-  font-style: SemiBold;
   text-align: left;
   font-family: Lato;
   font-weight: 600;
   line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.page-frame251 {
-  width: 100%;
-  height: 126px;
-  display: flex;
-  overflow: hidden;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-radius: 15px;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 1);
-}
-.page-frame249 {
-  width: 100%;
-  height: 59px;
-  display: flex;
-  overflow: hidden;
-  align-items: flex-start;
-  flex-shrink: 0;
-  flex-direction: column;
-  justify-content: center;
-}
-.page-text172 {
-  color: rgba(52, 65, 87, 1);
-  height: auto;
-  font-size: 16px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Lato;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.page-frame {
-  width: 78.0000228881836px;
-  height: 13.16603946685791px;
-  display: flex;
-  align-items: flex-start;
-  flex-shrink: 1;
-  flex-direction: row;
-}
-.page-vector {
-  width: 14px;
-  height: 13px;
-}
-.page-vector01 {
-  width: 14px;
-  height: 13px;
-}
-.page-vector02 {
-  width: 14px;
-  height: 13px;
-}
-.page-vector03 {
-  width: 14px;
-  height: 13px;
-}
-.page-vector04 {
-  width: 14px;
-  height: 13px;
-}
-.page-text174 {
-  color: rgba(52, 65, 87, 1);
-  width: 1174px;
-  height: auto;
-  font-size: 14px;
-  font-style: Regular;
-  text-align: left;
-  font-family: Lato;
-  font-weight: 400;
-  line-height: normal;
-  margin-left: var(--dl-space-space-fourunits);
-  font-stretch: normal;
-  text-decoration: none;
-}
-.page-frame252 {
-  width: 100%;
-  height: 126px;
-  display: flex;
-  overflow: hidden;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-radius: 15px;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 1);
-}
-.page-frame2491 {
-  width: 100%;
-  height: 59px;
-  display: flex;
-  overflow: hidden;
-  align-items: flex-start;
-  flex-shrink: 0;
-  flex-direction: column;
-  justify-content: center;
-}
-.page-text176 {
-  color: rgba(52, 65, 87, 1);
-  height: auto;
-  font-size: 16px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Lato;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.page-frame1 {
-  width: 78.0000228881836px;
-  height: 13.16603946685791px;
-  display: flex;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
-.page-vector05 {
-  width: 14px;
-  height: 13px;
-}
-.page-vector06 {
-  width: 14px;
-  height: 13px;
-}
-.page-vector07 {
-  width: 14px;
-  height: 13px;
-}
-.page-vector08 {
-  width: 14px;
-  height: 13px;
-}
-.page-vector09 {
-  width: 14px;
-  height: 13px;
-}
-.page-text178 {
-  color: rgba(52, 65, 87, 1);
-  width: 100%;
-  height: auto;
-  font-size: 14px;
-  font-style: Regular;
-  text-align: left;
-  font-family: Lato;
-  font-weight: 400;
-  line-height: normal;
-  margin-left: var(--dl-space-space-fourunits);
   font-stretch: normal;
   text-decoration: none;
 }

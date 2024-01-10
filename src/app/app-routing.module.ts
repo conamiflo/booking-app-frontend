@@ -23,8 +23,6 @@ import {
 } from "./accommodation/owners-accommodations/owners-accommodations-cards.component";
 import {OwnerReservationsComponent} from "./reservation/owner-reservation/owner-reservations/owner.reservations";
 
-
-
 const routes: Routes = [
   { path: '', redirectTo: '/accommodation', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },

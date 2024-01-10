@@ -3,6 +3,7 @@ import {Accommodation} from "../model/accommodation.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AccommodationService} from "../accommodation.service";
 import {MapService} from "../../shared/map/map.service";
+import {MatDialog} from "@angular/material/dialog";
 import * as L from "leaflet";
 import {MapComponent} from "../../shared/map/map.component";
 import {DatePipe} from "@angular/common";
@@ -14,6 +15,11 @@ import {Availability} from "../model/availability.model";
 import {environment} from "../../../env/env";
 import {NgbCarousel} from "@ng-bootstrap/ng-bootstrap";
 import {NgbSlide} from "@ng-bootstrap/ng-bootstrap";
+import {DialogAccommodationFilterComponent} from "../dialog-accommodation-filter/dialog-accommodation-filter.component";
+import {ReviewDialogComponent} from "../../reviews/dialog/review-dialog-component";
+import {ReviewService} from "../../reviews/review.service";
+import {AccommodationDetails} from "../accommodation-creation/model/accomodationDetails.model";
+import {Review} from "../../reviews/review";
 
 @Component({
   selector: 'app-accommodation-details',
@@ -21,7 +27,7 @@ import {NgbSlide} from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./accommodation-details.component.css']
 })
 export class AccommodationDetailsComponent {
-  accommodation: Accommodation;
+  accommodation: AccommodationDetails;
   numberOfGuests: number = 1;
   events: number[] = [];
   checkInDate: Date | null = null;
@@ -29,10 +35,14 @@ export class AccommodationDetailsComponent {
   checkInString: string | null;
   checkOutString: string | null;
   reservation :ReservationBookingDtoModel;
+  ownerReviews: Review[];
+  accommodationReviews: Review[];
+  averageOwnerScore: string;
+  averageAccommdoationScore: string;
 
   constructor(private authService: AuthService,private dataPipe: DatePipe,private route: ActivatedRoute,
               private accommodationService: AccommodationService, private mapService: MapService,
-              private router : Router) {
+              private router : Router, public dialog: MatDialog, public reviewService : ReviewService) {
 
 
     this.reservation = new class implements ReservationBookingDtoModel {
@@ -46,31 +56,60 @@ export class AccommodationDetailsComponent {
 
   }
 
+  loadAccommodationReviews(id : number){
+    this.reviewService.getReviewsByAccommodationId(id).subscribe({
+      next: (data: Review[]) => {
+        this.accommodationReviews = data;
+        this.averageAccommdoationScore = this.loadAccommodationScore(data).toFixed(1);
+      }
+    })
+  }
+
+  loadOwnerReviews(owner : string){
+    this.reviewService.getReviewsByOwnerEmail(owner).subscribe({
+      next: (data: Review[]) => {
+        this.ownerReviews = data;
+        this.averageOwnerScore = this.loadOwnerScore(data).toFixed(1);
+      }
+    })
+  }
+
+  loadOwnerScore(ownerReviews: Review[]){
+    return ownerReviews.length ? ownerReviews.reduce((acc, review) => acc + review.rating, 0) / ownerReviews.length
+        : 0;
+  }
+
+  loadAccommodationScore(accommodationReviews: Review[]){
+    return accommodationReviews.length ? accommodationReviews.reduce((acc, review) => acc + review.rating, 0) / accommodationReviews.length
+        : 0;
+  }
+
   isAccommodationPreview(): boolean {
     return this.router.url.includes('accommodationPreview');
   }
-
 
   filter = (date: Date | null): boolean => {
     return !date || this.events.includes(date.getTime());
   };
 
-
   ngOnInit():void{
 
+    let id = -5;
+
     this.route.params.subscribe((params) =>{
-      const id = +params['accommodationId']
-      this.accommodationService.getAccommodation(id).subscribe({
-        next: (data: Accommodation) => {
-          console.log(data.defaultPrice)
+      id = +params['accommodationId']
+      this.accommodationService.getAccommodationById(id).subscribe({
+        next: (data: AccommodationDetails) => {
           this.accommodation = data;
           this.loadAvailabilities();
+          this.loadAccommodationReviews(data.id);
+          this.loadOwnerReviews(data.ownerEmail);
         }
       })
     });
 
-
   }
+
   bookReservation($event: MouseEvent) {
     this.checkInString = this.dataPipe.transform(this.checkInDate, 'yyyy-MM-dd');
     this.checkOutString = this.dataPipe.transform(this.checkOutDate, 'yyyy-MM-dd');
@@ -138,21 +177,15 @@ export class AccommodationDetailsComponent {
           startDate.setHours(0);
           startDate.setMinutes(0);
           startDate.setSeconds(0);
-          startDate.setMilliseconds(0); // Ensure milliseconds are also set to 0
+          startDate.setMilliseconds(0);
 
-// Set hours, minutes, and seconds to 00:00:00 for endDate
           endDate.setHours(0);
           endDate.setMinutes(0);
           endDate.setSeconds(0);
           endDate.setMilliseconds(0);
 
-          console.log(i+"start"+startDate);
-
-          console.log(i+"end"+endDate);
-
-          // Iterate through dates within the time slot range
           for (let currentDate = startDate; currentDate <= endDate; currentDate.setDate(currentDate.getDate() + 1)) {
-            this.events.push((new Date(currentDate)).getTime()); // Add the current date to the events list
+            this.events.push((new Date(currentDate)).getTime());
           }
         }
         console.log(this.events);
@@ -163,5 +196,27 @@ export class AccommodationDetailsComponent {
     });
   }
 
-    protected readonly environment = environment;
+  openReviewOwnerDialog(): void {
+    const dialogRef = this.dialog.open(ReviewDialogComponent, {
+      width: '550px',
+      data: {
+        accommodationId: 0,
+        ownerEmail: this.accommodation.ownerEmail,
+        reviewType: "Owner"
+      }});
+  }
+
+  openReviewAccommodationDialog(): void{
+    const dialogRef = this.dialog.open(ReviewDialogComponent, {
+      width: '550px',
+      data: {
+        accommodationId: this.accommodation.id,
+        ownerEmail: "",
+        reviewType: "Accommodation"
+      }});
+  }
+
+
+  protected readonly environment = environment;
+
 }
