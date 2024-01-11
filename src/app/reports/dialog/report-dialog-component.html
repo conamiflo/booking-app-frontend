@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>{{reportType}} Report</h1>
+<div class="report-content">
+  <mat-form-field appearance="outline">
+    <mat-label>Choose {{reportType}}</mat-label>
+    <mat-select [(ngModel)]="selectedUser">
+      <mat-option *ngFor="let user of users" [value]="user">
+        {{ user }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Report: </mat-label>
+    <textarea matInput id="report-textarea"  [(ngModel)]="reportText"></textarea>
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button class="page-stylelayer1" id="cancel-report" (click)="onNoClick()">
+      <span class="page-text3 MontserratSemibold14px">
+        <span>Cancel</span>
+      </span>
+    </button>
+    <button mat-button class="page-stylelayer1" (click)="submitReport()">
+      <span class="page-text3 MontserratSemibold14px">
+        <span>Report {{reportType}}</span>
+      </span>
+    </button>
+  </div>
+</div>
+

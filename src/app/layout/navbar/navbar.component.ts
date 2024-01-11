@@ -1,6 +1,10 @@
 import {Component, ElementRef, HostListener} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../authentication/auth.service";
+import {ReviewDialogComponent} from "../../reviews/dialog/review-dialog-component";
+import {ReportDialogComponent} from "../../reports/dialog/report-dialog-component";
+import {MatDialog} from "@angular/material/dialog";
+import {ReportService} from "../../reports/report.service";
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +16,8 @@ export class NavbarComponent {
   username: string = "";
   showDialog = false;
 
-  constructor(private elementRef: ElementRef, private router: Router, private authService: AuthService) { }
+  constructor(private elementRef: ElementRef, private router: Router, private authService: AuthService,
+              public dialog: MatDialog, private reportService: ReportService) { }
 
   ngOnInit(): void {
     this.authService.userState.subscribe((role) => {
@@ -86,5 +91,22 @@ export class NavbarComponent {
     this.showDialog = false;
   }
 
+  openOwnerReportDialog(): void{
+    const dialogRef = this.dialog.open(ReportDialogComponent, {
+      width: '550px',
+      data: {
+        userEmail: this.authService.getUsername(),
+        reportType: "Guest"
+      }});
+  }
+
+  openGuestReportDialog(): void{
+    const dialogRef = this.dialog.open(ReportDialogComponent, {
+      width: '550px',
+      data: {
+        userEmail: this.authService.getUsername(),
+        reportType: "Owner"
+      }});
+  }
 
 }

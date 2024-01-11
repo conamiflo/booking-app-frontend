@@ -23,8 +23,9 @@
       alt="report-icon"
       src="/assets/external/report.svg"
       class="page-vector"
-      style="width: 20px; height: 19px; margin-left: 80%;"
+      style="width: 20px; height: 19px; margin-left: 80%; cursor: pointer;"
       *ngIf="showReportIcon"
+      (click) = "reportReview()"
     />
     <img
       alt="delete-icon"
