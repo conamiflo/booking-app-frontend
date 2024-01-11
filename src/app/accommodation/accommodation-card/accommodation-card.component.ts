@@ -40,7 +40,7 @@ export class AccommodationCardComponent {
 
     this.favoriteAccommodation = new class implements FavoriteAccommodationDTO {
       accommodationId: number;
-      isFavorite: boolean;
+      favorite: boolean;
     }
 
     if(authenticationService.getRole() === "Guest"){
@@ -52,6 +52,10 @@ export class AccommodationCardComponent {
     if (this.router.url.includes('owners-accommodations')) {
       this.showEditButton = true;
       this.loadAccommodationApproval();
+
+    }
+    if(this.authenticationService.getRole()=="Guest")
+    {
       this.loadIsFavoriteAccommodation();
     }
   }
@@ -71,9 +75,9 @@ export class AccommodationCardComponent {
   }
   private loadIsFavoriteAccommodation() {
     this.accommodationService.getIsFavoriteAccommodation(this.authenticationService.getUsername(),this.accommodation.id).subscribe((data) => {
-      this.isFavoriteAccommodation = data.isFavorite; // Assign the value to toggle
+      this.isFavoriteAccommodation = data.favorite; // Assign the value to toggle
       this.favoriteAccommodation.accommodationId = this.accommodation.id;
-      this.favoriteAccommodation.isFavorite = this.isFavoriteAccommodation;
+      this.favoriteAccommodation.favorite = this.isFavoriteAccommodation;
     });
   }
   toggleAutomaticApproval(event: MatSlideToggleChange) {
@@ -95,12 +99,13 @@ export class AccommodationCardComponent {
   }
   toggleFavoriteAccommodation(event: MatSlideToggleChange) {
     this.isFavoriteAccommodation = event.checked;
-    this.favoriteAccommodation.isFavorite = this.isFavoriteAccommodation;
+    this.favoriteAccommodation.favorite = this.isFavoriteAccommodation;
+
     // Assuming you have a method in your service to update accommodation data
     this.accommodationService.setFavoriteAccommodation(this.authenticationService.getUsername(),this.favoriteAccommodation).subscribe(
       (data: FavoriteAccommodationDTO) => {
         // Handle success response after updating data
-        console.log('Accommodation is favorite: '+data.isFavorite );
+        console.log('Accommodation is favorite: '+data.favorite );
       },
       (error: any) => {
         // Handle error if the update fails

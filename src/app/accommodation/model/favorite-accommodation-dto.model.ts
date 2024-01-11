@@ -1,4 +1,4 @@
 export interface FavoriteAccommodationDTO {
   accommodationId: number;
-  isFavorite: boolean;
+  favorite: boolean;
 }
