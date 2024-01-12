@@ -1,0 +1,38 @@
+<div *ngIf="review" class="page-frame251">
+  <div class="page-frame249">
+    <span class="page-text172"><span>{{review.guestEmail}}</span></span>
+    <div class="page-frame">
+      <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+        <img
+                alt="Vector2032"
+                src="/assets/external/vector2032-nc2m.svg"
+                class="page-vector"
+                *ngIf="star <= review.rating"
+        />
+      </ng-container>
+    </div>
+  </div>
+  <span class="page-text174">
+    <span>
+      {{review.description}}
+    </span>
+  </span>
+  <div class="date-report">
+    <span class="review-date">Reviewed on: {{creationDate.toString()}}</span>
+    <img
+      alt="report-icon"
+      src="/assets/external/report.svg"
+      class="page-vector"
+      style="width: 20px; height: 19px; margin-left: 80%;"
+      *ngIf="showReportIcon"
+    />
+    <img
+      alt="delete-icon"
+      src="/assets/external/trashcan-svgrepo-com.svg"
+      class="page-vector"
+      style="width: 25px; height: 24px; padding-bottom: 4px; margin-left: 80%; cursor: pointer;"
+      *ngIf="showDeleteIcon"
+      (click)="deleteReview()"
+    />
+  </div>
+</div>

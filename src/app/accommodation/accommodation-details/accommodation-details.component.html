@@ -16,6 +16,16 @@
               <span>{{accommodation.location}}</span>
             </span>
           </div>
+          <div class="page-frame54">
+            <img
+              alt="owner_icon"
+              src="/assets/external/vector1246-yfdf.svg"
+              class="cards-vector1"
+            />
+            <span class="page-accommodation-location">
+              <span>{{accommodation.ownerEmail}}</span>
+            </span>
+          </div>
         </div>
         <div class="page-container1">
           <div class="page-frame52">
@@ -177,129 +187,66 @@
       <app-map [locationToSearch]="accommodation.location"></app-map>
     </div>
 
+    <div class="page-frame250">
+      <div class="page-frame168">
+        <span class="page-text164">
+          <img
+                  alt="Vector2032"
+                  src="/assets/external/vector2032-6ulc.svg"
+                  class="page-vector"
+                  style="vertical-align: middle; margin-right: 5px; width: 35px; height: 34px; margin-bottom: 5px"
+          />
+          <span>{{averageAccommdoationScore}}/5</span>
+        </span>
+        <span class="page-text170"><span>Accommodation reviews</span></span>
+      </div>
+
+      <div class="review-choice">
+        <button class="page-button-upper" (click)="openReviewAccommodationDialog()">
+          <div class="page-stylelayer1">
+              <span class="page-text3 MontserratSemibold14px">
+                <span>Review accommodation</span>
+              </span>
+          </div>
+        </button>
+      </div>
+
+      <div *ngFor="let review of accommodationReviews">
+        <app-review-card [review]="review" [ownerOfAccommodation]="accommodation.ownerEmail"></app-review-card>
+      </div>
+
+    </div>
+
 
     <div class="page-frame250">
       <div class="page-frame168">
-        <span class="page-text164"><span>4.5/5</span></span>
-        <div class="page-frame521">
+        <span class="page-text164">
           <img
-            alt="Star2032"
-            src="/assets/external/star2032-172d.svg"
-            class="page-star05"
+            alt="Vector2032"
+            src="/assets/external/vector2032-6ulc.svg"
+            class="page-vector"
+            style="vertical-align: middle; margin-right: 5px; width: 35px; height: 34px; margin-bottom: 5px"
           />
-          <img
-            alt="Star2032"
-            src="/assets/external/star2032-oegf.svg"
-            class="page-star06"
-          />
-          <img
-            alt="Star2032"
-            src="/assets/external/star2032-d4m.svg"
-            class="page-star07"
-          />
-          <img
-            alt="Star2032"
-            src="/assets/external/star2032-zaoa.svg"
-            class="page-star08"
-          />
-          <img
-            alt="Star2032"
-            src="/assets/external/star2032-otq6.svg"
-            class="page-star09"
-          />
-        </div>
-        <div class="page-frame169">
-          <span class="page-text166"><span>Very good</span></span>
-          <span class="page-text168"><span>2 reviews</span></span>
-        </div>
-        <span class="page-text170"><span>Ratings &amp; Reviews</span></span>
-      </div>
-      <div class="page-frame251">
-        <div class="page-frame249">
-          <span class="page-text172"><span>Erin Septimus</span></span>
-          <div class="page-frame">
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-nc2m.svg"
-              class="page-vector"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-6ulc.svg"
-              class="page-vector01"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-0rp.svg"
-              class="page-vector02"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-iqap.svg"
-              class="page-vector03"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-nc2m.svg"
-              class="page-vector04"
-            />
-          </div>
-        </div>
-        <span class="page-text174">
-          <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-            mattis molestie eros in commodo. Quisque non ullamcorper ligula. Sed
-            a leo maximus, sodales lectus at, laoreet nibh. Praesent vitae massa
-            eu lacus consequat scelerisque in vel dolor. Fusce dictum neque at
-            dignissim euismod. Duis ac gravida risus. Nullam vestibulum
-            consectetur porttitor. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
-          </span>
+          <span>{{averageOwnerScore}}/5</span>
         </span>
+        <span class="page-text170"><span>Owner reviews</span></span>
       </div>
-      <div class="page-frame252">
-        <div class="page-frame2491">
-          <span class="page-text176"><span>Kaiya Lubin</span></span>
-          <div class="page-frame1">
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-b57m.svg"
-              class="page-vector05"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-8htb.svg"
-              class="page-vector06"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-mege.svg"
-              class="page-vector07"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-opbr.svg"
-              class="page-vector08"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-b57m.svg"
-              class="page-vector09"
-            />
+
+      <div class="review-choice">
+        <button class="page-button-upper" (click)="openReviewOwnerDialog()">
+          <div class="page-stylelayer1">
+              <span class="page-text3 MontserratSemibold14px">
+                <span>Review owner</span>
+              </span>
           </div>
-        </div>
-        <span class="page-text178">
-          <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-            mattis molestie eros in commodo. Quisque non ullamcorper ligula. Sed
-            a leo maximus, sodales lectus at, laoreet nibh. Praesent vitae massa
-            eu lacus consequat scelerisque in vel dolor. Fusce dictum neque at
-            dignissim euismod. Duis ac gravida risus. Nullam vestibulum
-            consectetur porttitor. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
-          </span>
-        </span>
+        </button>
       </div>
+
+      <div *ngFor="let review of ownerReviews">
+        <app-review-card [review]="review" [ownerOfAccommodation]="accommodation.ownerEmail"></app-review-card>
+      </div>
+
     </div>
+
   </div>
 </div>

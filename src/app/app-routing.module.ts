@@ -26,8 +26,6 @@ import {
   FavoriteAccommodationsComponent
 } from "./accommodation/favorite-accommodations/favorite-accommodations.component";
 
-
-
 const routes: Routes = [
   { path: '', redirectTo: '/accommodation', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
