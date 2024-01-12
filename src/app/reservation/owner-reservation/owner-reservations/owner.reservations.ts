@@ -1,8 +1,8 @@
-import { Component } from '@angular/core'
-import {GuestReservation} from "../../guest-reservation/model/reservation.model";
+import {Component} from '@angular/core'
 import {ReservationService} from "../../reservation.service";
 import {AuthService} from "../../../authentication/auth.service";
 import {OwnerReservation} from "../owner.reservation";
+import {ReservationStatus} from "../../reservation.status";
 
 @Component({
   selector: 'app-accommodation-request',
@@ -19,7 +19,9 @@ export class OwnerReservationsComponent {
     this.reservationService.getOwnerReservations(this.authService.getUsername()).subscribe({
       next: (data: OwnerReservation[]) =>{
         if (data && data.length > 0) {
-          this.ownerReservations = data;
+          console.log("Afsefaegae");
+          console.log(data);
+          this.ownerReservations = data.filter(reservation => reservation.status == ReservationStatus.Waiting);
         } else {
           console.log("Error.");
         }
