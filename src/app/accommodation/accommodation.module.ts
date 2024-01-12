@@ -30,6 +30,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {NgbCarousel, NgbCarouselModule, NgbSlide} from "@ng-bootstrap/ng-bootstrap";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { FavoriteAccommodationsComponent } from './favorite-accommodations/favorite-accommodations.component';
 
 
 
@@ -42,7 +43,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     AccommodationRequestCardComponent,
     AccommodationCreationComponent,
     AccommodationEditComponent,
-    OwnersAccommodationsCardsComponent
+    OwnersAccommodationsCardsComponent,
+    FavoriteAccommodationsComponent
   ],
   exports: [
     AccommodationCardsComponent,

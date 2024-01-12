@@ -149,4 +149,8 @@ export class AccommodationService {
   setFavoriteAccommodation(username: string, param: FavoriteAccommodationDTO): Observable<FavoriteAccommodationDTO>  {
     return this.httpClient.put<FavoriteAccommodationDTO>(environment.apiHost+'users/'+username+'/favorite_accommodation',param);
   }
+
+  getFavoriteAccommodationsForGuest(username: string): Observable<AccommodationWithAmenities[]>{
+  return this.httpClient.get<AccommodationWithAmenities[]>(environment.apiHost + 'users/' + username + "/favorite_accommodation");
+}
 }
