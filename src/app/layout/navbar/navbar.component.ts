@@ -51,7 +51,9 @@ export class NavbarComponent {
   redirectToReservations() {
     this.router.navigate(['/guest/reservations']);
   }
-
+  redirectToFavoriteAccommodations() {
+    this.router.navigate(['/guest/favorite-accommodations']);
+  }
   redirectToHome() {
     this.router.navigate(['']);
   }

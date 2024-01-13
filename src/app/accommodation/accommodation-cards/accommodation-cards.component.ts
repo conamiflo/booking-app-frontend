@@ -93,18 +93,18 @@ export class AccommodationCardsComponent {
   }
 
 
-  showPreviewImage(event: Event) {
-    const target = <HTMLInputElement>event.target
-    if (!target) return;
-    if (target.files && target.files[0]) {
-      var reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.localUrl = e.target.result;
-        console.log(this.localUrl);
-      }
-      reader.readAsDataURL(target.files[0]);
-    }
-  }
+  // showPreviewImage(event: Event) {
+  //   const target = <HTMLInputElement>event.target
+  //   if (!target) return;
+  //   if (target.files && target.files[0]) {
+  //     var reader = new FileReader();
+  //     reader.onload = (e: any) => {
+  //       this.localUrl = e.target.result;
+  //       console.log(this.localUrl);
+  //     }
+  //     reader.readAsDataURL(target.files[0]);
+  //   }
+  // }
 
   onNumberOfGuestChanged() {
     console.log(this.numberOfGuests);
