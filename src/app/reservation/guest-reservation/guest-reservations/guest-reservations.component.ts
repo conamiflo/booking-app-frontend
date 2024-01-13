@@ -29,4 +29,23 @@ export class GuestReservationsComponent {
     })
   }
 
+  onDeleteReservation(reservation: GuestReservation) {
+    // Handle the deletion here
+    // Update the reservations list by removing the deleted reservation
+    const index = this.guestReservations.indexOf(reservation);
+    if (index !== -1) {
+      this.guestReservations.splice(index, 1);
+    }
+
+    // Send a request to the backend to delete the reservation
+    this.reservationService.deleteReservation(reservation.id).subscribe({
+      next: (response) => {
+        console.log("Reservation deleted successfully:", response);
+      },
+      error: (error) => {
+        console.log("Error deleting reservation:", error);
+      }
+    });
+  }
+
 }

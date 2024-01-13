@@ -29,4 +29,7 @@ export class ReservationService {
     return this.httpClient.put<OwnerReservation>(environment.apiHost + 'reservations/decline/' + id, {})
   }
 
+  deleteReservation(id: number): Observable<void> {
+    return this.httpClient.delete<void>(environment.apiHost +"reservations/"+id);
+  }
 }

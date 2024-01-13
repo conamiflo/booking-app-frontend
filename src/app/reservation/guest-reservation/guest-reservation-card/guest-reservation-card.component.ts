@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
 import {GuestReservation} from "../model/reservation.model";
 
 @Component({
@@ -10,5 +10,11 @@ export class GuestReservationComponent {
 
   @Input()
   guestReservation: GuestReservation;
+  @Output() deleteReservation: EventEmitter<GuestReservation> = new EventEmitter<GuestReservation>();
   constructor() {}
+
+  onDeleteReservation() {
+    // Emit the deleteReservation event with the reservation to be deleted
+    this.deleteReservation.emit(this.guestReservation);
+  }
 }
