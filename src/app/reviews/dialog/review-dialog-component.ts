@@ -44,6 +44,9 @@ export class ReviewDialogComponent {
   }
 
   createReview() : Review{
+    if (this.rating === undefined || this.rating === null) {
+      this.rating = 0;
+    }
     return  {
       id: 0,
       guestEmail: this.authService.getUsername(),

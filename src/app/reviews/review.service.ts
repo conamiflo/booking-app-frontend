@@ -27,7 +27,7 @@ export class ReviewService {
     return this.httpClient.post<Review>(environment.apiHost + 'reviews', reviewDTO);
   }
 
-  updateReview(id: string, reviewDTO: Review): Observable<Review> {
+  updateReview(id: number, reviewDTO: Review): Observable<Review> {
     return this.httpClient.put<Review>(environment.apiHost + 'reviews/' + id, reviewDTO);
   }
 

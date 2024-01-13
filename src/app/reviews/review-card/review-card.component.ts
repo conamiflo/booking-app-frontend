@@ -52,6 +52,24 @@ export class ReviewCardComponent {
       );
     }
   }
+
+  reportReview() {
+    if(this.review && this.review.reported){
+      alert("This review has already been reported! ");
+      return;
+    }
+    const confirmed = confirm('Are you sure that you want to report this review? ');
+    if (confirmed && this.review) {
+      this.review.reported = true;
+      this.reviewService.updateReview(this.review.id,this.review).subscribe(
+        () => {
+          alert(`Successfully reported review.`);
+        },
+        (error) => {
+        }
+      );
+    }
+  }
   protected readonly environment = environment;
 }
 

@@ -76,4 +76,9 @@ export class AuthService {
   setUser(): void {
     this.user$.next(this.getRole());
   }
+
+  isGuest(): boolean{
+    return this.getRole() === "Guest";
+  }
+
 }

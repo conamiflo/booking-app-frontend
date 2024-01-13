@@ -40,7 +40,7 @@ export class AccommodationDetailsComponent {
   averageOwnerScore: string;
   averageAccommdoationScore: string;
 
-  constructor(private authService: AuthService,private dataPipe: DatePipe,private route: ActivatedRoute,
+  constructor(public authService: AuthService,private dataPipe: DatePipe,private route: ActivatedRoute,
               private accommodationService: AccommodationService, private mapService: MapService,
               private router : Router, public dialog: MatDialog, public reviewService : ReviewService) {
 
@@ -75,13 +75,15 @@ export class AccommodationDetailsComponent {
   }
 
   loadOwnerScore(ownerReviews: Review[]){
-    return ownerReviews.length ? ownerReviews.reduce((acc, review) => acc + review.rating, 0) / ownerReviews.length
-        : 0;
+    const filteredReviews = ownerReviews.filter(review => review.rating !== 0);
+    return filteredReviews.length ? filteredReviews.reduce((acc, review) => acc + review.rating, 0) / filteredReviews.length
+      : 0;
   }
 
   loadAccommodationScore(accommodationReviews: Review[]){
-    return accommodationReviews.length ? accommodationReviews.reduce((acc, review) => acc + review.rating, 0) / accommodationReviews.length
-        : 0;
+    const filteredReviews = accommodationReviews.filter(review => review.rating !== 0);
+    return filteredReviews.length ? filteredReviews.reduce((acc, review) => acc + review.rating, 0) / filteredReviews.length
+      : 0;
   }
 
   isAccommodationPreview(): boolean {
@@ -215,7 +217,6 @@ export class AccommodationDetailsComponent {
         reviewType: "Accommodation"
       }});
   }
-
 
   protected readonly environment = environment;
 
