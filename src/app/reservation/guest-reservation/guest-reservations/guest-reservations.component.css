@@ -285,13 +285,21 @@
   text-align: center;
   line-height: 100%;
 }
+.arrow-down-image{
+  width: 80%;
+  height: 80%;
+}
 .guest-reservations-vector {
   top: 23px;
-  left: 1151px;
-  width: 14px;
+  left: 1144px;
+  width: 24px;
   height: 14px;
   position: absolute;
 }
+.guest-reservations-vector:hover {
+  cursor: pointer;
+}
+
 .guest-reservations-guest-reservations {
   gap: 16px;
   height: auto;

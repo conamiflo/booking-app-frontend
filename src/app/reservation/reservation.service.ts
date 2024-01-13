@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../env/env";
 import {GuestReservation} from "./guest-reservation/model/reservation.model";
@@ -32,4 +32,33 @@ export class ReservationService {
   deleteReservation(id: number): Observable<void> {
     return this.httpClient.delete<void>(environment.apiHost +"reservations/"+id);
   }
+
+  searchOwnerReservations(
+    startDate: number | undefined,
+    endDate: number | undefined,
+    accommodationName: string | undefined,
+    email: string
+  ): Observable<GuestReservation[]> {
+    // Build the query parameters
+    let params = new HttpParams();
+    if (startDate) {
+      params = params.set('startDate', startDate.toString());
+    }
+    if (endDate) {
+      params = params.set('endDate', endDate.toString());
+    }
+    if (accommodationName) {
+      params = params.set('accommodationName', accommodationName);
+    }
+
+    // Add the 'email' parameter to the request
+    params = params.set('email', email);
+
+    // Make the HTTP GET request
+    return this.httpClient.get<GuestReservation[]>(
+      environment.apiHost + 'reservations/guest/search',
+      { params: params }
+    );
+  }
+
 }
