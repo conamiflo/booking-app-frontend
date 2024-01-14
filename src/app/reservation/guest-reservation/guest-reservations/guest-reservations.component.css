@@ -12,6 +12,7 @@
   margin-top: 80px;
 }
 .guest-reservations-desktop41 {
+  margin-top:20px;
   width: 100%;
   height: 1080px;
   display: flex;
@@ -20,6 +21,9 @@
   align-items: flex-start;
   flex-shrink: 0;
   background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+
 }
 .guest-reservations-rectangle5 {
   top: 154px;
@@ -31,10 +35,7 @@
 }
 .guest-reservations-reservations {
   gap: 32px;
-  top: 222px;
-  left: 344px;
-  width: 1232px;
-  height: 364px;
+  width: 70%;
   display: flex;
   position: absolute;
   align-items: flex-start;
@@ -284,13 +285,21 @@
   text-align: center;
   line-height: 100%;
 }
+.arrow-down-image{
+  width: 20px;
+  height: 18px;
+}
 .guest-reservations-vector {
   top: 23px;
-  left: 1151px;
-  width: 14px;
+  left: 1144px;
+  width: 24px;
   height: 14px;
   position: absolute;
 }
+.guest-reservations-vector:hover {
+  cursor: pointer;
+}
+
 .guest-reservations-guest-reservations {
   gap: 16px;
   height: auto;

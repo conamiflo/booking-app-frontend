@@ -5,11 +5,12 @@
       class="owner-reservation-component-rectangle18"/>
     <!--      [attr.src]="environment.apiImagesLocation+accommodation.photos.at(0)"-->
     <span class="owner-reservation-component-accommodation-name">
-      Accommodation ID : {{ ownerReservation.accommodation}}
+      Accommodation ID : {{ ownerReservation.accommodation}}<br>
+      Status: {{ownerReservation.status}}
     </span>
   </div>
   <div class="owner-reservation-component-guest-info">
-    <span class="owner-reservation-component-text">{{ ownerReservation.guest }}</span>
+    <span class="owner-reservation-component-text">{{ ownerReservation.guest }}<br>(Cancellations:{{numberOfCancellations.numberOfCancellations}})</span>
     <img
       src="/assets/external/person.svg"
       class="owner-reservation-component-person-logo"

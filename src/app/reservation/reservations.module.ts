@@ -1,5 +1,5 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {RouterModule, Route} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {GuestReservationComponent} from "./guest-reservation/guest-reservation-card/guest-reservation-card.component";
@@ -14,11 +14,12 @@ import {OwnerReservationsComponent} from "./owner-reservation/owner-reservations
     OwnerReservationCardComponent,
     OwnerReservationsComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        FormsModule,
+        NgOptimizedImage
+    ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ReservationsModule { }

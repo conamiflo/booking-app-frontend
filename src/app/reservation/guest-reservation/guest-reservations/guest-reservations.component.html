@@ -8,11 +8,10 @@
       <div class="guest-reservations-search-bar">
         <div class="guest-reservations-matselectslot">
           <div class="guest-reservations-maticon">
-            <span class="guest-reservations-text2 vIconmedium">
-            </span>
+            <img class="arrow-down-image" src="assets/external/arrow_down.jpg" alt="arrow" >
           </div>
-          <select class="form-control" id="guest-reservations-matinputslot">
-            <option disabled selected hidden>Filter by:</option>
+          <select class="form-control" id="guest-reservations-matinputslot" [(ngModel)]="selectedFilter">
+            <option selected>Status (default)</option>
             <option>Accepted</option>
             <option>Declined</option>
             <option>Waiting</option>
@@ -23,6 +22,7 @@
             type="date"
             placeholder="Check in"
             class="guest-reservations-start-date-input"
+            [(ngModel)]="checkInDate"
             onFocus="(this.type='date')"
             onBlur="(this.type='text')"
           />
@@ -42,6 +42,7 @@
               type="date"
               placeholder="Check out"
               class="guest-reservations-end-date-input"
+              [(ngModel)]="checkOutDate"
               onFocus="(this.type='date')"
               onBlur="(this.type='text')"
             />
@@ -49,7 +50,8 @@
         <div class="guest-reservations-search-name input">
           <input
             type="text"
-            placeholder=" Search"
+            placeholder="Accommodation Name"
+            [(ngModel)]="accommodationName"
             class="guest-reservations-search-name-input"
           />
           <img
@@ -58,11 +60,7 @@
             class="guest-reservations-search-icon"
           />
         </div>
-        <img
-          src="/assets/external/person2.svg"
-          alt="Vector5361"
-          class="guest-reservations-person-icon"
-        />
+
         <div class="guest-reservations-search-btn">
           <span class="guest-reservations-text4 vIconmedium">
           </span>
@@ -71,11 +69,12 @@
           src="/assets/external/vector1328-34x.svg"
           alt="Vector5371"
           class="guest-reservations-vector"
+          (click)="filterReservations()"
         />
       </div>
       <div class="guest-reservations-guest-reservations">
         <div *ngFor="let guestReservation of guestReservations">
-          <app-guest-reservation-card [guestReservation]="guestReservation"></app-guest-reservation-card>
+          <app-guest-reservation-card [guestReservation]="guestReservation" (deleteReservation)="onDeleteReservation($event)"></app-guest-reservation-card>
         </div>
       </div>
     </div>
