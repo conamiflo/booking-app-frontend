@@ -53,7 +53,7 @@ export class GuestReservationsComponent {
   }
 
   filterReservations() {
-    this.reservationService.searchOwnerReservations(
+    this.reservationService.searchGuestsReservations(
       this.convertToEpochSeconds(this.checkInDate),
       this.convertToEpochSeconds(this.checkOutDate),
       this.accommodationName,
