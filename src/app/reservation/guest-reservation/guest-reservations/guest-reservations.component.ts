@@ -75,13 +75,13 @@ export class GuestReservationsComponent {
     if(this.selectedFilter === "Status (default)"){
       this.guestReservations = filteredReservations;
     }else if (this.selectedFilter === "Waiting"){
-      this.guestReservations = filteredReservations.filter(reservation => reservation.status === "Waiting");
+      this.guestReservations = filteredReservations.filter(reservation => reservation.status.toString() === "Waiting");
 
     }else if (this.selectedFilter === "Accepted"){
-      this.guestReservations = filteredReservations.filter(reservation => reservation.status === "Accepted");
+      this.guestReservations = filteredReservations.filter(reservation => reservation.status.toString() === "Accepted");
 
     }else if (this.selectedFilter === "Declined"){
-      this.guestReservations = filteredReservations.filter(reservation => reservation.status === "Declined");
+      this.guestReservations = filteredReservations.filter(reservation => reservation.status.toString() === "Declined");
     }
   }
 

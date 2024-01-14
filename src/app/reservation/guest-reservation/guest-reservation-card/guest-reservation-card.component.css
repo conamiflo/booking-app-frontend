@@ -179,3 +179,6 @@
   cursor: not-allowed;
   /* Add other styles as needed */
 }
+.price-container{
+  width: 70px;
+}
