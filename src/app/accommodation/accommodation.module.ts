@@ -32,6 +32,7 @@ import {NgbCarousel, NgbCarouselModule, NgbSlide} from "@ng-bootstrap/ng-bootstr
 
 import {ReviewCardComponent} from "../reviews/review-card/review-card.component";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { FavoriteAccommodationsComponent } from './favorite-accommodations/favorite-accommodations.component';
 
 
 
@@ -46,6 +47,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     AccommodationCreationComponent,
     AccommodationEditComponent,
     OwnersAccommodationsCardsComponent,
+    FavoriteAccommodationsComponent,
     ReviewCardComponent
   ],
   exports: [

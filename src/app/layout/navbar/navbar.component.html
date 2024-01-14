@@ -53,6 +53,15 @@
 
           </div>
         </ng-container>
+
+        <ng-container *ngIf="isLoggedInGuest()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToFavoriteAccommodations()">FAVORITE ACCOMMODATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+
         <ng-container *ngIf="isLoggedInOwner()">
           <div class="links">
             <span class="reservations-link" (click)="redirectToCreateAccommodation()">CREATE ACCOMMODATIONS</span>
@@ -79,6 +88,18 @@
             <span class="reservations-link" (click)="redirectToOwnerReservations()">RESERVATIONS</span>
             <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
 
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInOwner()">
+          <div class="links">
+            <span class="reservations-link" (click)="openOwnerReportDialog()">REPORT GUESTS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInGuest()">
+          <div class="links">
+            <span class="reservations-link" (click)="openGuestReportDialog()">REPORT OWNERS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
           </div>
         </ng-container>
       </div>

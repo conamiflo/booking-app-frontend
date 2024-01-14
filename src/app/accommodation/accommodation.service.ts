@@ -14,6 +14,7 @@ import {ReservationBookingDtoModel} from "./model/reservation-booking-dto.model"
 import {ReservationBookingResultDTO} from "./model/reservation-booking-result-dto.model";
 import {Availability} from "./model/availability.model";
 import {AccommodationIsAutomaticApprovalDto} from "./model/accommodation-is-automatic-approval-dto.model";
+import {FavoriteAccommodationDTO} from "./model/favorite-accommodation-dto.model";
 
 @Injectable({
   providedIn: 'root'
@@ -143,4 +144,15 @@ export class AccommodationService {
   getAccommodationIsAutomaticApprovalById(id: number) {
     return this.httpClient.get<AccommodationIsAutomaticApprovalDto>(environment.apiHost + 'accommodations/'+id+'/approval');
   }
+  getIsFavoriteAccommodation(email: string, accommodationId: number): Observable<FavoriteAccommodationDTO> {
+    return this.httpClient.get<FavoriteAccommodationDTO>(environment.apiHost +'users/'+email+'/favorite_accommodation/'+accommodationId);
+  }
+
+  setFavoriteAccommodation(username: string, param: FavoriteAccommodationDTO): Observable<FavoriteAccommodationDTO>  {
+    return this.httpClient.put<FavoriteAccommodationDTO>(environment.apiHost+'users/'+username+'/favorite_accommodation',param);
+  }
+
+  getFavoriteAccommodationsForGuest(username: string): Observable<AccommodationWithAmenities[]>{
+  return this.httpClient.get<AccommodationWithAmenities[]>(environment.apiHost + 'users/' + username + "/favorite_accommodation");
+}
 }

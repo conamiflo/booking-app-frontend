@@ -1,13 +1,13 @@
 import {ReservationStatus} from "../reservation.status";
 
-export interface OwnerReservation {
+export interface OwnerReservationModel {
   id : number,
   accommodation : number,
   guest : string,
   startDate : string,
   endDate : string,
   numberOfGuests : number,
-  status: ReservationStatus,
+  status: string,
   price : number,
   cancelledReservations : number
 }

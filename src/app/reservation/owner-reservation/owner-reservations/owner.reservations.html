@@ -5,6 +5,73 @@
       <span class="owner-reservations-text">
         <span>Reservations for your accommodation</span>
       </span>
+      <div class="guest-reservations-search-bar">
+        <div class="guest-reservations-matselectslot">
+          <div class="guest-reservations-maticon">
+            <img class="arrow-down-image" src="assets/external/arrow_down.jpg" alt="arrow" >
+          </div>
+          <select class="form-control" id="guest-reservations-matinputslot" [(ngModel)]="selectedFilter">
+            <option selected>Status (default)</option>
+            <option>Accepted</option>
+            <option>Declined</option>
+            <option>Waiting</option>
+          </select>
+        </div>
+        <div class="guest-reservations-start-date input">
+          <input
+            type="date"
+            placeholder="Check in"
+            class="guest-reservations-start-date-input"
+            [(ngModel)]="checkInDate"
+            onFocus="(this.type='date')"
+            onBlur="(this.type='text')"
+          />
+        </div>
+        <img
+          src="/assets/external/uiwdate1246-3quh.svg"
+          alt="uiwdate5361"
+          class="guest-reservations-start-date-icon"
+        />
+        <div class="guest-reservations-end-date input">
+          <img
+            alt="uiwdate1328"
+            src="/assets/external/uiwdate1328-rwmf.svg"
+            class="cards-uiwdate1"
+          />
+          <input
+            type="date"
+            placeholder="Check out"
+            class="guest-reservations-end-date-input"
+            [(ngModel)]="checkOutDate"
+            onFocus="(this.type='date')"
+            onBlur="(this.type='text')"
+          />
+        </div>
+        <div class="guest-reservations-search-name input">
+          <input
+            type="text"
+            placeholder="Accommodation Name"
+            [(ngModel)]="accommodationName"
+            class="guest-reservations-search-name-input"
+          />
+          <img
+            src="/assets/external/searchicon.svg"
+            alt="Vector5371"
+            class="guest-reservations-search-icon"
+          />
+        </div>
+
+        <div class="guest-reservations-search-btn">
+          <span class="guest-reservations-text4 vIconmedium">
+          </span>
+        </div>
+        <img
+          src="/assets/external/vector1328-34x.svg"
+          alt="Vector5371"
+          class="guest-reservations-vector"
+          (click)="filterReservations()"
+        />
+      </div>
       <div class="owner-reservations-owner-reservations">
         <div *ngFor="let reservation of ownerReservations">
           <app-owner-reservation-card-request [ownerReservation]="reservation"></app-owner-reservation-card-request>

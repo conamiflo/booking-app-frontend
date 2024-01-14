@@ -1,4 +1,5 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core'
+import {Component, EventEmitter, Input, Output, OnChanges, SimpleChanges} from '@angular/core'
+
 import {GuestReservation} from "../model/reservation.model";
 import {ReservationStatus} from "../../reservation.status";
 import {ReservationService} from "../../reservation.service";
@@ -57,5 +58,11 @@ export class GuestReservationComponent implements OnChanges{
         console.log("Error!")
       }
     })
+  @Output() deleteReservation: EventEmitter<GuestReservation> = new EventEmitter<GuestReservation>();
+  constructor() {}
+
+  onDeleteReservation() {
+    // Emit the deleteReservation event with the reservation to be deleted
+    this.deleteReservation.emit(this.guestReservation);
   }
 }

@@ -202,7 +202,7 @@
       </div>
 
       <div class="review-choice">
-        <button class="page-button-upper" (click)="openReviewAccommodationDialog()">
+        <button class="page-button-upper" *ngIf="authService.isGuest()" (click)="openReviewAccommodationDialog()">
           <div class="page-stylelayer1">
               <span class="page-text3 MontserratSemibold14px">
                 <span>Review accommodation</span>
@@ -233,7 +233,7 @@
       </div>
 
       <div class="review-choice">
-        <button class="page-button-upper" (click)="openReviewOwnerDialog()">
+        <button class="page-button-upper" *ngIf="authService.isGuest()" (click)="openReviewOwnerDialog()">
           <div class="page-stylelayer1">
               <span class="page-text3 MontserratSemibold14px">
                 <span>Review owner</span>

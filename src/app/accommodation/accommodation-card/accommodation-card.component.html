@@ -20,7 +20,16 @@
         </mat-slide-toggle>
       </div>
     </div>
-
+    <div *ngIf="guestLoggedIn" class="favorite-accommodation-container">
+      <div>
+       <mat-slide-toggle class="automatic-approval"
+                          [ngModel]="isFavoriteAccommodation"
+                          [checked]="isFavoriteAccommodation"
+                          (change)="toggleFavoriteAccommodation($event)">
+          Favorite
+        </mat-slide-toggle>
+      </div>
+    </div>
     <div class="accommodation-card-starrate">
       <img
         [attr.alt]="Vector_alt5"
