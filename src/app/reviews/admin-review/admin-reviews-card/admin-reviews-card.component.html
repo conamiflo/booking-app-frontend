@@ -1,0 +1,33 @@
+<div  class="owner-reservation-component-frame150">
+  <div class="owner-reservation-component-accommodation-info">
+    <span class="owner-reservation-component-accommodation-name">
+      Review ID : {{ review.id}}
+    </span>
+  </div>
+  <div class="owner-reservation-component-guest-info">
+    <span class="owner-reservation-component-text">{{ reviewType}}</span>
+  </div>
+  <div class="owner-reservation-component-date-info">
+    <span class="owner-reservation-component-start-date">
+      <span>Rating: </span>
+      <span>{{review.rating}}</span>
+    </span>
+
+  </div>
+  <div class="owner-reservation-component-date-info1">
+    <div class="description-div">
+      <span>Description: </span>
+      <textarea readonly>{{review.description}}</textarea>
+    </div>
+  </div>
+  <div class="owner-reservation-component-status-info">
+    <div class="owner-reservation-component-stylelayer button" (click)="approveReview()">
+      <span class="owner-reservation-component-text5">Approve</span>
+    </div>
+    <div *ngIf="review.reported" class="owner-reservation-component-stylelayer button" (click)="deleteReview()">
+        <span class="owner-reservation-component-text5">
+          <span class="owner-reservation-component-text5">Delete</span>
+        </span>
+    </div>
+  </div>
+</div>

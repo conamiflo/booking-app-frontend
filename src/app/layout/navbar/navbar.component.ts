@@ -83,6 +83,10 @@ export class NavbarComponent {
     this.router.navigate(['owner/reservations']);
   }
 
+  redirectToAdminReviews() {
+    this.router.navigate(['admin/reviews']);
+  }
+
 
 
   openDialog(): void {
