@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {environment} from "../../env/env";
 import {GuestReservation} from "./guest-reservation/model/reservation.model";
 import {OwnerReservationModel} from "./owner-reservation/owner-reservation.model";
+import {NumberOfCancellationsModel} from "./owner-reservation/number-of-cancelations.model";
 @Injectable({
   providedIn: 'root'
 })
@@ -88,5 +89,8 @@ export class ReservationService {
       { params: params }
     );
   }
+  getNumberOfCancellations(guestId: string): Observable<NumberOfCancellationsModel> {
 
+    return this.httpClient.get<NumberOfCancellationsModel>(environment.apiHost+'reservations/guest/'+guestId+'/cancellations', );
+  }
 }
