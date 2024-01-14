@@ -152,6 +152,9 @@ export class AccommodationDetailsComponent {
 
         this.accommodationService.createReservation(this.reservation).subscribe({
           next: (data: ReservationBookingResultDTO) => {
+            this.checkInDate=null;
+            this.checkOutDate=null;
+            this.loadAvailabilities();
             alert(`Reservation: [Id: ${data.id}, \n Accommodation: ${data.accommodation}, \n Guest: ${data.guest},\n
         Start Date: ${data.startDate},\n End Date: ${data.endDate}, \n Number of Guests: ${data.numberOfGuests},\n
         Status: ${data.status},\n Price: ${data.price || 'N/A'}]`);
@@ -169,6 +172,7 @@ export class AccommodationDetailsComponent {
   }
 
   private loadAvailabilities() {
+    this.events = [];
     this.accommodationService.getAccommodationAvailability(this.accommodation.id).subscribe({
       next: (availabilities: Availability[]) => {
 
