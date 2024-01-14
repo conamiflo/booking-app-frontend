@@ -45,6 +45,7 @@ export class AccommodationCreationComponent {
     priceFrom: new FormControl(),
     priceTo: new FormControl(),
     priceType: new FormControl(),
+    cancellationDays: new FormControl(),
   });
 
   allAmenities: Amenity[] = [];
@@ -88,7 +89,8 @@ export class AccommodationCreationComponent {
       created: Math.round( (new Date()).getTime() / 1000),
       type: this.accommodationCreationForm.controls.type.value,
       priceType : priceType,
-      status : AccommodationStatus.Pending
+      status : AccommodationStatus.Pending,
+      cancellationDays: Number(this.accommodationCreationForm.controls.cancellationDays.value)
     }
     return a;
   }

@@ -31,11 +31,16 @@
     </span>
     <span class="guest-reservation-component-text3"> - </span>
   </div>
+  <div>
+    <span class="guest-reservation-component-price MontserratSemibold24px">
+      <span>{{guestReservation.status.toString()}}</span>
+    </span>
+  </div>
   <div class="guest-reservation-component-status-info">
     <span class="guest-reservation-component-price MontserratSemibold24px">
       <span>${{guestReservation.price.toString()}}</span>
     </span>
-    <button class="guest-reservation-component-status-button button">
+    <button *ngIf="cancelable" [disabled]="!cancelable"  class="guest-reservation-component-status-button button" (click)="cancelReservation()">
       <div class="guest-reservation-component-stylelayer button">
         <span class="guest-reservation-component-text5 MontserratSemibold14px">
           <span class="guest-reservation-component-text5" (click)="onDeleteReservation()" >Delete</span>

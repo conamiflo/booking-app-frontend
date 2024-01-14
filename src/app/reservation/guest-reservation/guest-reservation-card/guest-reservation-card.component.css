@@ -173,3 +173,9 @@
   text-align: left;
   line-height: normal;
 }
+.disabled-button {
+  background-color: #ccc; /* Set your disabled button color */
+  color: #888;
+  cursor: not-allowed;
+  /* Add other styles as needed */
+}

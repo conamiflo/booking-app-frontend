@@ -30,6 +30,12 @@ export class ReservationService {
     return this.httpClient.put<OwnerReservationModel>(environment.apiHost + 'reservations/decline/' + id, {})
   }
 
+
+  cancelReservation(id:number): Observable<GuestReservation>{
+    return this.httpClient.put<GuestReservation>(environment.apiHost + 'reservations/cancel/' + id, {})
+  }
+
+
   deleteReservation(id: number): Observable<void> {
     return this.httpClient.delete<void>(environment.apiHost +"reservations/"+id);
   }
@@ -93,4 +99,5 @@ export class ReservationService {
 
     return this.httpClient.get<NumberOfCancellationsModel>(environment.apiHost+'reservations/guest/'+guestId+'/cancellations', );
   }
+
 }
