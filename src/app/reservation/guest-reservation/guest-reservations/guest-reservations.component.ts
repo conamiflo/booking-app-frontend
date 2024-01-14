@@ -19,6 +19,7 @@ export class GuestReservationsComponent {
       next: (data: GuestReservation[]) =>{
         if (data && data.length > 0) {
           this.guestReservations = data;
+          console.log(data);
         } else {
           console.log("Error.");
         }

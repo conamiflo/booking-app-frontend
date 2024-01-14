@@ -15,4 +15,5 @@ export interface AccommodationDetails{
   type: string;
   priceType: PriceType;
   status: AccommodationStatus;
+  cancellationDays: number;
 }

@@ -1,10 +1,12 @@
+import {ReservationStatus} from "../../reservation.status";
+
 export interface GuestReservation {
   id: number;
-  accommodation: string;
+  accommodation: number;
   startDate: string;
   endDate: string;
   numberOfGuests: number;
-  status: string;
+  status: ReservationStatus;
   price: number;
   photos: string[];
 }

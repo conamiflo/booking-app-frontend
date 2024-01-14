@@ -29,4 +29,8 @@ export class ReservationService {
     return this.httpClient.put<OwnerReservation>(environment.apiHost + 'reservations/decline/' + id, {})
   }
 
+  cancelReservation(id:number): Observable<GuestReservation>{
+    return this.httpClient.put<GuestReservation>(environment.apiHost + 'reservations/cancel/' + id, {})
+  }
+
 }

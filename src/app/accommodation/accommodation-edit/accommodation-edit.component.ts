@@ -23,7 +23,7 @@ import {AccommodationStatus} from "../accommodation-creation/model/accommodation
 export class AccommodationEditComponent {
 
   accommodationId : number;
-  accommodation : Observable<Accommodation>;
+  accommodation : Observable<AccommodationDetails>;
   constructor(private route: ActivatedRoute,private router: Router, private fb: FormBuilder,
               private accommodationCreationService: AccommodationCreationService,
               private authService: AuthService,private accommodationService: AccommodationService,
@@ -45,6 +45,7 @@ export class AccommodationEditComponent {
     priceFrom: new FormControl(),
     priceTo: new FormControl(),
     priceType: new FormControl(),
+    cancellationDays: new FormControl(),
   });
 
   allAmenities: Amenity[] = [];
@@ -60,7 +61,7 @@ export class AccommodationEditComponent {
       this.accommodationId = params['id'] || -999;
     });
 
-    this.accommodation = this.accommodationService.getAccommodation(this.accommodationId);
+    this.accommodation = this.accommodationService.getAccommodationById(this.accommodationId);
     this.loadAccommodationData(this.accommodation);
     this.loadFields();
     this.loadAmenities(this.accommodationId);
@@ -68,9 +69,9 @@ export class AccommodationEditComponent {
     this.loadPrices(this.accommodationId);
     this.loadPriceType(this.accommodationId);
   }
-  loadAccommodationData(accommodation: Observable<Accommodation>): void {
+  loadAccommodationData(accommodation: Observable<AccommodationDetails>): void {
     accommodation.subscribe({
-      next: (data: Accommodation) => {
+      next: (data: AccommodationDetails) => {
         this.accommodationCreationForm.patchValue({
           appartmentName: data.name,
           description: data.description,
@@ -78,7 +79,8 @@ export class AccommodationEditComponent {
           defaultPrice: data.defaultPrice,
           maxGuests: data.maxGuests,
           minGuests: data.minGuests,
-          type: data.type
+          type: data.type,
+          cancellationDays: data.cancellationDays
         });
       }
     });
@@ -142,7 +144,8 @@ export class AccommodationEditComponent {
       created: Math.round( (new Date()).getTime() / 1000),
       type: this.accommodationCreationForm.controls.type.value,
       priceType : priceType,
-      status : AccommodationStatus.Pending
+      status : AccommodationStatus.Pending,
+      cancellationDays: Number(this.accommodationCreationForm.controls.cancellationDays.value)
     }
     return a;
   }

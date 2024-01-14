@@ -19,9 +19,7 @@ export class OwnerReservationsComponent {
     this.reservationService.getOwnerReservations(this.authService.getUsername()).subscribe({
       next: (data: OwnerReservation[]) =>{
         if (data && data.length > 0) {
-          console.log("Afsefaegae");
-          console.log(data);
-          this.ownerReservations = data.filter(reservation => reservation.status == ReservationStatus.Waiting);
+          this.ownerReservations = data.filter(reservation => reservation.status.toString() === "Waiting");
         } else {
           console.log("Error.");
         }
