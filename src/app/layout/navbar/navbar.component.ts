@@ -115,4 +115,7 @@ export class NavbarComponent {
       }});
   }
 
+  redirectToAdminReports() {
+    this.router.navigate(['admin/reports']);
+  }
 }

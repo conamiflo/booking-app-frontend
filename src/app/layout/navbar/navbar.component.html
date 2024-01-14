@@ -108,6 +108,12 @@
             <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
           </div>
         </ng-container>
+        <ng-container *ngIf="isLoggedInAdmin()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToAdminReports()">REPORTS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+          </div>
+        </ng-container>
       </div>
 
       <div class="logout-container">

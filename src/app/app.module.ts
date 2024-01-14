@@ -19,6 +19,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {CommonModule, DatePipe} from "@angular/common";
 import {NgbCarousel, NgbCarouselModule, NgbModule, NgbSlide} from '@ng-bootstrap/ng-bootstrap';
 import {ReviewsModule} from "./reviews/reviews.module";
+import {ReportsModule} from "./reports/reports.module";
 
 
 
@@ -43,7 +44,8 @@ import {ReviewsModule} from "./reviews/reviews.module";
     MapsModule,
     ReservationsModule,
     NgbModule,
-    ReviewsModule
+    ReviewsModule,
+    ReportsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
