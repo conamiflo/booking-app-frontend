@@ -1,0 +1,6 @@
+<div class="year-picker">
+    <label for="year">Select Year:</label>
+    <mat-select id="year" (selectionChange)="onYearSelected($event.value)">
+        <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+    </mat-select>
+</div>

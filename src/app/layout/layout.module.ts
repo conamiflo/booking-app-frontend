@@ -3,20 +3,25 @@ import { CommonModule } from '@angular/common';
 import {NavigationEnd, Router, RouterModule} from "@angular/router";
 import {FooterComponent} from "./footer/footer.component";
 import {NavbarComponent} from "./navbar/navbar.component";
+import { YearPickerComponent } from './year-picker/year-picker.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    YearPickerComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    RouterModule
+    RouterModule,
+    YearPickerComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatSelectModule
   ]
 })
 export class LayoutModule {
