@@ -25,6 +25,7 @@ import {OwnerReservationsComponent} from "./reservation/owner-reservation/owner-
 import {
   FavoriteAccommodationsComponent
 } from "./accommodation/favorite-accommodations/favorite-accommodations.component";
+import {AdminReviewsComponent} from "./reviews/admin-review/admin-reviews/admin-reviews.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/accommodation', pathMatch: 'full' },
@@ -42,7 +43,8 @@ const routes: Routes = [
   { path: 'accommodationEdit/:id', component: AccommodationEditComponent},
   { path: 'accommodation-creation', component: AccommodationCreationComponent},
   { path: 'owners-accommodations', component: OwnersAccommodationsCardsComponent},
-  { path: 'accommodationPreview/:accommodationId', component:AccommodationDetailsComponent}
+  { path: 'accommodationPreview/:accommodationId', component:AccommodationDetailsComponent},
+  { path: 'admin/reviews', component:AdminReviewsComponent}
 
 ];
 
