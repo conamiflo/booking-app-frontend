@@ -5,6 +5,7 @@ import {environment} from "../../env/env";
 import {GuestReservation} from "./guest-reservation/model/reservation.model";
 import {OwnerReservationModel} from "./owner-reservation/owner-reservation.model";
 import {NumberOfCancellationsModel} from "./owner-reservation/number-of-cancelations.model";
+import {AccommodationNumberReservations} from "./profit-statistics/models/accommodation-number-reservations.model";
 @Injectable({
   providedIn: 'root'
 })
@@ -100,4 +101,23 @@ export class ReservationService {
     return this.httpClient.get<NumberOfCancellationsModel>(environment.apiHost+'reservations/guest/'+guestId+'/cancellations', );
   }
 
+  getNumberOfReservations(startDate: number, endDate: number, username: string): Observable<AccommodationNumberReservations[]> {
+    let params = new HttpParams();
+
+    if (startDate) {
+      params = params.set('startDate', startDate.toString());
+    }
+    if (endDate) {
+      params = params.set('endDate', endDate.toString());
+    }
+    if (username) {
+      params = params.set('username', username);
+    }
+
+    // Specify the URL and include the params in the options object
+
+    const options = { params: params };
+
+    return this.httpClient.get<AccommodationNumberReservations[]>(environment.apiHost+"reservations/statistics/number_of_reservations", options);
+  }
 }

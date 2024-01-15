@@ -52,4 +52,32 @@
     </div>
 
   </div>
+  <div class="chart-container">
+    <div>
+      <span class="guest-reservations-text">
+        <span>Number Of Reservations in Time-span</span>
+      </span>
+    </div>
+    <app-chart #reservationsChart [barChartData]="barChartDataNumberOfReservations"></app-chart>
+    <div>
+      <span class="guest-reservations-text">
+        <span>Profit in Time-span</span>
+      </span>
+    </div>
+    <app-chart #profitChart [barChartData]="barChartDataProfit"></app-chart>
+    <div>
+      <span class="guest-reservations-text">
+        <span>Yearly Numbers Of Reservations</span>
+      </span>
+    </div>
+    <app-chart #yearlyReservationsChart [barChartData]="barChartDataYearlyReservations"></app-chart>
+    <div class="chart-title-container">
+      <span class="guest-reservations-text">
+        <span>Yearly Profit</span>
+      </span>
+    </div>
+    <app-chart #yearlyProfitChart [barChartData]="barChartDataYearlyProfit"></app-chart>
+
+
+  </div>
 </div>

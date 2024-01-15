@@ -347,7 +347,21 @@
   font-stretch: normal;
   text-decoration: none;
   margin-top:40px;
+
+
 }
+
+.chart-title-container{
+  margin-bottom: 50px;
+}
+
+.chart-container{
+  display:flex;
+  width: 70%;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .loginBtn{
   color: var(--dl-color-shades-white);
   text-align: center;
