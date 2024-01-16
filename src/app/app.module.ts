@@ -22,7 +22,6 @@ import {ReviewsModule} from "./reviews/reviews.module";
 import { NgChartsModule } from 'ng2-charts';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

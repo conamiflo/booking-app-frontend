@@ -7,7 +7,7 @@ import {ChartComponent} from "../../layout/chart/chart.component";
 import {AccommodationProfit} from "./models/accommodation-profit.model";
 import {AccommodationYearlyReservations} from "./models/accommodation-yearly-reservations.model";
 import {AccommodationYearlyProfit} from "./models/accommodation-yearly-profit.model";
-
+import * as FileSaver from 'file-saver';
 @Component({
   selector: 'app-profit-statistics',
   templateUrl: './profit-statistics.component.html',
@@ -119,15 +119,32 @@ export class ProfitStatisticsComponent {
     // You can perform additional actions with the selected year
   }
 
-  downloadPdf() {
-
-  }
-
   private convertToEpochSeconds(dateString: string): number{
     const epochMilliseconds = Date.parse(dateString);
     if (!isNaN(epochMilliseconds)) {
       return epochMilliseconds / 1000; // Convert milliseconds to seconds
     }
     return 0;
+  }
+
+
+  downloadPdf(): void {
+    if (this.startDate && this.endDate && this.selectedYear) {
+
+      const startDateInSeconds = this.convertToEpochSeconds(this.startDate);
+      const endDateInSeconds = this.convertToEpochSeconds(this.endDate);
+
+      this.reservationService.downloadPdf(startDateInSeconds, endDateInSeconds, this.selectedYear, this.authService.getUsername()).subscribe(
+        (pdfBlob: Blob) => {
+          // Use FileSaver.js to save the Blob as a file
+          FileSaver.saveAs(pdfBlob, 'statistics.pdf');
+        },
+        (error) => {
+          console.error('Error downloading PDF:', error);
+        }
+      );
+    }else{
+      alert("You have to select year, start date and end date to get PDF version.")
+    }
   }
 }

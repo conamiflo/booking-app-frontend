@@ -169,4 +169,25 @@ export class ReservationService {
 
     return this.httpClient.get<AccommodationYearlyProfit[]>(environment.apiHost+"reservations/statistics/yearly_profit", options);
   }
+
+  downloadPdf(startDate: number, endDate: number, selectedYear: number | null, username: string): Observable<Blob> {
+    let params = new HttpParams();
+
+    if (startDate) {
+      params = params.set('startDate', startDate.toString());
+    }
+    if (endDate) {
+      params = params.set('endDate', endDate.toString());
+    }
+    if (selectedYear) {
+      params = params.set('year', selectedYear.toString());
+    }
+    if (username) {
+      params = params.set('username', username);
+    }
+
+    const options = { params: params, responseType: 'blob' as 'json' };
+
+    return this.httpClient.get<Blob>(environment.apiHost + 'reservations/statistics/pdf', options);
+  }
 }
