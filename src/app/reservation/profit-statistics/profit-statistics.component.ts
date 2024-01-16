@@ -57,26 +57,26 @@ export class ProfitStatisticsComponent {
 
       this.reservationService.getNumberOfReservations(startDateInSeconds, endDateInSeconds, this.authService.getUsername()).subscribe({
         next: (data: AccommodationNumberReservations[]) => {
-          // Handle the data returned from the service
-          this.accommodationsNumberOfReservations = data;
-
-          // You may need to update your chart data here based on the received data
-          // For example, assuming each element in data corresponds to a dataset in your chart
           this.barChartDataNumberOfReservations.datasets = data.map(item => {
             return { data: [item.numberOfReservations], label: item.accommodationName };
           });
-
           this.reservationsChart?.update();
-          // Update your chart after modifying the data
-          // You might want to put this logic in a separate method to avoid redundancy
-          // For example, create a method called updateChartData() and call it here and wherever needed
-          // this.updateChartData();
         },
         error: (error) => {
           console.error('Error fetching data:', error);
         }
       });
-
+      this.reservationService.getStatisticsProfit(startDateInSeconds, endDateInSeconds, this.authService.getUsername()).subscribe({
+        next: (data: AccommodationNumberReservations[]) => {
+          this.barChartDataProfit.datasets = data.map(item => {
+            return { data: [item.numberOfReservations], label: item.accommodationName };
+          });
+          this.reservationsChart?.update();
+        },
+        error: (error) => {
+          console.error('Error fetching data:', error);
+        }
+      });
     } else {
       console.log('Start date and end date must be selected.');
     }

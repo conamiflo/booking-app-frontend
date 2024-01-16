@@ -114,10 +114,26 @@ export class ReservationService {
       params = params.set('username', username);
     }
 
-    // Specify the URL and include the params in the options object
-
     const options = { params: params };
 
     return this.httpClient.get<AccommodationNumberReservations[]>(environment.apiHost+"reservations/statistics/number_of_reservations", options);
+  }
+
+  getStatisticsProfit(startDate: number, endDate: number, username: string): Observable<AccommodationNumberReservations[]> {
+    let params = new HttpParams();
+
+    if (startDate) {
+      params = params.set('startDate', startDate.toString());
+    }
+    if (endDate) {
+      params = params.set('endDate', endDate.toString());
+    }
+    if (username) {
+      params = params.set('username', username);
+    }
+
+    const options = { params: params };
+
+    return this.httpClient.get<AccommodationNumberReservations[]>(environment.apiHost+"reservations/statistics/profit", options);
   }
 }
