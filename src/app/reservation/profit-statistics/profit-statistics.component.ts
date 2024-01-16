@@ -5,6 +5,8 @@ import {AuthService} from "../../authentication/auth.service";
 import {AccommodationNumberReservations} from "./models/accommodation-number-reservations.model";
 import {ChartComponent} from "../../layout/chart/chart.component";
 import {AccommodationProfit} from "./models/accommodation-profit.model";
+import {AccommodationYearlyReservations} from "./models/accommodation-yearly-reservations.model";
+import {AccommodationYearlyProfit} from "./models/accommodation-yearly-profit.model";
 
 @Component({
   selector: 'app-profit-statistics',
@@ -56,6 +58,8 @@ export class ProfitStatisticsComponent {
       const startDateInSeconds = this.convertToEpochSeconds(this.startDate);
       const endDateInSeconds = this.convertToEpochSeconds(this.endDate);
 
+
+
       this.reservationService.getNumberOfReservations(startDateInSeconds, endDateInSeconds, this.authService.getUsername()).subscribe({
         next: (data: AccommodationNumberReservations[]) => {
           this.barChartDataNumberOfReservations.datasets = data.map(item => {
@@ -79,9 +83,35 @@ export class ProfitStatisticsComponent {
         }
       });
     } else {
-      console.log('Start date and end date must be selected.');
+      alert('Start date and end date must be selected.');
     }
+    if (this.selectedYear) {
+      this.reservationService.getYearlyNumberOfReservations(this.selectedYear, this.authService.getUsername()).subscribe({
+        next: (data: AccommodationYearlyReservations[]) => {
+          this.barChartDataYearlyReservations.datasets = data.map(item => {
+            return { data: item.monthlyNumberOfReservations, label: item.accommodationName };
+          });
+          this.yearlyReservationsChart?.update();
+        },
+        error: (error) => {
+          console.error('Error fetching data:', error);
+        }
+      });
 
+      this.reservationService.getYearlyProfit(this.selectedYear, this.authService.getUsername()).subscribe({
+        next: (data: AccommodationYearlyProfit[]) => {
+          this.barChartDataYearlyProfit.datasets = data.map(item => {
+            return { data: item.monthlyProfits, label: item.accommodationName };
+          });
+          this.yearlyProfitChart?.update();
+        },
+        error: (error) => {
+          console.error('Error fetching data:', error);
+        }
+      });
+    } else {
+      alert('Year has to be selected for yearly statistics.');
+    }
   }
 
   onYearSelected(year: number): void {
