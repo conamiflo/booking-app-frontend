@@ -115,4 +115,8 @@ export class NavbarComponent {
       }});
   }
 
+  redirectToProfitStatistics() {
+
+    this.router.navigate(['owner/statistics']);
+  }
 }

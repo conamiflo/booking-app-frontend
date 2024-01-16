@@ -1,0 +1,83 @@
+<div class="cards-container">
+  <span class="guest-reservations-text">
+        <span>Statistics</span>
+  </span>
+  <div class="cards-desktop11">
+
+    <div class="cards-matfiltertoolbarcontent" >
+
+
+      <div class="cards-checkinmatinputslot">
+        <app-year-picker  (yearSelected)="onYearSelected($event)"></app-year-picker>
+      </div>
+
+      <div class="cards-checkinmatinputslot">
+        <img
+          alt="uiwdate1246"
+          src="/assets/external/uiwdate1246-3quh.svg"
+          class="cards-uiwdate"
+        />
+        <input
+          type="date"
+          [(ngModel)]="startDate"
+          placeholder="      Check in"
+          class="cards-matinputslot3"
+        />
+      </div>
+      -
+      <div class="cards-checkoutmatinputslot">
+        <img
+          alt="uiwdate1328"
+          src="/assets/external/uiwdate1328-rwmf.svg"
+          class="cards-uiwdate1"
+        />
+        <input
+          type="date"
+          [(ngModel)]="endDate"
+          placeholder="      Check out"
+          class="cards-matinputslot4"
+        />
+      </div>
+      <div class="cards-matbtn2" (click)="getStatistics()">
+        <img
+          alt="Vector1328"
+          src="/assets/external/vector1328-34x.svg"
+          class="cards-vector3"
+        />
+      </div>
+
+      <div class="logout-container">
+        <button class="loginBtn" (click)="downloadPdf()">Download PDF</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="chart-container">
+    <div>
+      <span class="guest-reservations-text">
+        <span>Number Of Reservations in Time-span</span>
+      </span>
+    </div>
+    <app-chart #reservationsChart [barChartData]="barChartDataNumberOfReservations"></app-chart>
+    <div>
+      <span class="guest-reservations-text">
+        <span>Profit in Time-span</span>
+      </span>
+    </div>
+    <app-chart #profitChart [barChartData]="barChartDataProfit"></app-chart>
+    <div>
+      <span class="guest-reservations-text">
+        <span>Yearly Numbers Of Reservations</span>
+      </span>
+    </div>
+    <app-chart #yearlyReservationsChart [barChartData]="barChartDataYearlyReservations"></app-chart>
+    <div class="chart-title-container">
+      <span class="guest-reservations-text">
+        <span>Yearly Profit</span>
+      </span>
+    </div>
+    <app-chart #yearlyProfitChart [barChartData]="barChartDataYearlyProfit"></app-chart>
+
+
+  </div>
+</div>

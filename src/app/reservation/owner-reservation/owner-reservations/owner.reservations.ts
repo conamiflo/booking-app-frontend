@@ -20,18 +20,33 @@ export class OwnerReservationsComponent {
   constructor(private  reservationService: ReservationService, private authService: AuthService) {
   }
   ngOnInit(): void {
-    this.reservationService.getOwnerReservations(this.authService.getUsername()).subscribe({
-      next: (data: OwnerReservationModel[]) =>{
-        if (data && data.length > 0) {
-          this.ownerReservations = data.filter(reservation => reservation.status.toString() === "Waiting");
-        } else {
-          console.log("Error.");
-        }
+
+    this.reservationService.searchOwnersReservations(
+      undefined,
+      undefined,
+      undefined,
+      this.authService.getUsername()
+    ).subscribe({
+      next: (filteredReservations: OwnerReservationModel[]) => {
+        this.filterReservationByStatus(filteredReservations);
       },
-      error: (error: any) => {
-        console.log("Error:", error);
+      error: () => {
+        console.log("Error filtering reservations:");
       }
-    })
+    });
+
+    // this.reservationService.getOwnerReservations(this.authService.getUsername()).subscribe({
+    //   next: (data: OwnerReservationModel[]) =>{
+    //     if (data && data.length > 0) {
+    //       this.ownerReservations = data.filter(reservation => reservation.status.toString() === "Waiting");
+    //     } else {
+    //       console.log("Error.");
+    //     }
+    //   },
+    //   error: (error: any) => {
+    //     console.log("Error:", error);
+    //   }
+    // });
   }
 
   filterReservations() {
