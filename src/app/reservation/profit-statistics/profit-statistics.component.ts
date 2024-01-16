@@ -4,6 +4,7 @@ import {ReservationService} from "../reservation.service";
 import {AuthService} from "../../authentication/auth.service";
 import {AccommodationNumberReservations} from "./models/accommodation-number-reservations.model";
 import {ChartComponent} from "../../layout/chart/chart.component";
+import {AccommodationProfit} from "./models/accommodation-profit.model";
 
 @Component({
   selector: 'app-profit-statistics',
@@ -67,11 +68,11 @@ export class ProfitStatisticsComponent {
         }
       });
       this.reservationService.getStatisticsProfit(startDateInSeconds, endDateInSeconds, this.authService.getUsername()).subscribe({
-        next: (data: AccommodationNumberReservations[]) => {
+        next: (data: AccommodationProfit[]) => {
           this.barChartDataProfit.datasets = data.map(item => {
-            return { data: [item.numberOfReservations], label: item.accommodationName };
+            return { data: [item.profit], label: item.accommodationName };
           });
-          this.reservationsChart?.update();
+          this.profitChart?.update();
         },
         error: (error) => {
           console.error('Error fetching data:', error);

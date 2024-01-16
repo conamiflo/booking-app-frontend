@@ -6,6 +6,7 @@ import {GuestReservation} from "./guest-reservation/model/reservation.model";
 import {OwnerReservationModel} from "./owner-reservation/owner-reservation.model";
 import {NumberOfCancellationsModel} from "./owner-reservation/number-of-cancelations.model";
 import {AccommodationNumberReservations} from "./profit-statistics/models/accommodation-number-reservations.model";
+import {AccommodationProfit} from "./profit-statistics/models/accommodation-profit.model";
 @Injectable({
   providedIn: 'root'
 })
@@ -119,7 +120,7 @@ export class ReservationService {
     return this.httpClient.get<AccommodationNumberReservations[]>(environment.apiHost+"reservations/statistics/number_of_reservations", options);
   }
 
-  getStatisticsProfit(startDate: number, endDate: number, username: string): Observable<AccommodationNumberReservations[]> {
+  getStatisticsProfit(startDate: number, endDate: number, username: string): Observable<AccommodationProfit[]> {
     let params = new HttpParams();
 
     if (startDate) {
@@ -134,6 +135,6 @@ export class ReservationService {
 
     const options = { params: params };
 
-    return this.httpClient.get<AccommodationNumberReservations[]>(environment.apiHost+"reservations/statistics/profit", options);
+    return this.httpClient.get<AccommodationProfit[]>(environment.apiHost+"reservations/statistics/profit", options);
   }
 }
