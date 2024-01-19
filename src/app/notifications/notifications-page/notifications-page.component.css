@@ -1,7 +1,7 @@
 :host {
   display: contents;
 }
-.notifications-container {
+.guest-reservations-container {
   width: 100%;
   display: flex;
   overflow: auto;
@@ -11,7 +11,7 @@
   justify-content: center;
   margin-top: 80px;
 }
-.notifications-desktop41 {
+.guest-reservations-desktop41 {
   margin-top:20px;
   width: 100%;
   height: 1080px;
@@ -25,7 +25,7 @@
   justify-content: center;
 
 }
-.notifications-rectangle5 {
+.guest-reservations-rectangle5 {
   top: 154px;
   left: 344px;
   width: 1232px;
@@ -33,7 +33,7 @@
   opacity: 0.25;
   position: absolute;
 }
-.notifications-reservations {
+.guest-reservations-reservations {
   gap: 32px;
   width: 70%;
   display: flex;
@@ -42,10 +42,10 @@
   flex-shrink: 0;
   flex-direction: column;
 }
-.notifications-reservations:focus {
+.guest-reservations-reservations:focus {
   outline: unset;
 }
-.notifications-text {
+.guest-reservations-text {
   color: rgba(18, 61, 108, 0.8700000047683716);
   height: auto;
   font-size: 32px;
@@ -56,7 +56,7 @@
   font-stretch: normal;
   text-decoration: none;
 }
-.notifications-search-bar {
+.guest-reservations-search-bar {
   gap:10px;
   width: 1232px;
   height: 60px;
@@ -66,7 +66,7 @@
   align-items: flex-start;
   flex-shrink: 0;
 }
-.notifications-matselectslot {
+.guest-reservations-matselectslot {
   gap: 10px;
   top: 10px;
   left: 0px;
@@ -84,10 +84,10 @@
   border-width: 1px;
   border-radius: 4px;
 }
-.notifications-matselectslot:focus {
+.guest-reservations-matselectslot:focus {
   outline: unset;
 }
-#notifications-matinputslot {
+#guest-reservations-matinputslot {
   gap: 10px;
   color: rgba(18, 61, 108, 0.8700000047683716);
   width: 80%;
@@ -102,10 +102,10 @@
   border: unset;
   outline: unset;
 }
-.notifications-matinputslot:focus {
+.guest-reservations-matinputslot:focus {
   outline: unset;
 }
-.notifications-maticon {
+.guest-reservations-maticon {
   width: 24px;
   height: 24px;
   display: flex;
@@ -113,14 +113,14 @@
   align-items: flex-start;
   flex-shrink: 0;
 }
-.notifications-text2 {
+.guest-reservations-text2 {
   color: var(--dl-color-black-054);
   height: auto;
   position: absolute;
   text-align: center;
   line-height: 100%;
 }
-.notifications-start-date {
+.guest-reservations-start-date {
   gap: 10px;
   top: 10px;
   left: 262px;
@@ -138,10 +138,10 @@
   border-width: 1px;
   border-radius: 4px;
 }
-.notifications-start-date:focus {
+.guest-reservations-start-date:focus {
   outline: unset;
 }
-.notifications-start-date-input {
+.guest-reservations-start-date-input {
   gap: 10px;
   color: rgba(18, 61, 108, 0.8700000047683716);
   display: flex;
@@ -156,24 +156,24 @@
   padding-left: 25px;
   border: unset;
 }
-.notifications-start-date-input:focus {
+.guest-reservations-start-date-input:focus {
   outline: unset;
 }
-.notifications-start-date-icon {
+.guest-reservations-start-date-icon {
   top: 22px;
   left: 273px;
   width: 15px;
   height: 15px;
   position: absolute;
 }
-.notifications-end-date-icon {
+.guest-reservations-end-date-icon {
   top: 21px;
   left: 535px;
   width: 15px;
   height: 15px;
   position: absolute;
 }
-.notifications-end-date {
+.guest-reservations-end-date {
   gap: 10px;
   top: 10px;
   left: 525px;
@@ -192,10 +192,10 @@
   border-radius: 4px;
 }
 
-.notifications-end-date:focus {
+.guest-reservations-end-date:focus {
   outline: unset;
 }
-.notifications-end-date-input {
+.guest-reservations-end-date-input {
   gap: 10px;
   color: rgba(18, 61, 108, 0.8700000047683716);
   width: 100%;
@@ -209,10 +209,10 @@
   font-weight: 400;
   border: unset;
 }
-.notifications-end-date-input:focus {
+.guest-reservations-end-date-input:focus {
   outline: unset;
 }
-.notifications-search-name {
+.guest-reservations-search-name {
   gap: 10px;
   top: 10px;
   left: 788px;
@@ -231,10 +231,10 @@
   border-width: 1px;
   border-radius: 4px;
 }
-.notifications-search-name:focus {
+.guest-reservations-search-name:focus {
   outline: unset;
 }
-.notifications-search-name-input {
+.guest-reservations-search-name-input {
   gap: 10px;
   color: rgba(18, 61, 108, 0.8700000047683716);
   display: flex;
@@ -249,23 +249,23 @@
   padding-left: 25px;
   border: unset;
 }
-.notifications-search-name-input:focus {
+.guest-reservations-search-name-input:focus {
   outline: unset;
 }
-.notifications-search-icon {
+.guest-reservations-search-icon {
   width: 14px;
   height: 14px;
   position: absolute;
   padding-right: 20px;
 }
-.notifications-person-icon {
+.guest-reservations-person-icon {
   top: 22px;
   left: 12px;
   width: 15px;
   height: 15px;
   position: absolute;
 }
-.notifications-search-btn {
+.guest-reservations-search-btn {
   top: 10px;
   left: 1139px;
   width: 6px;
@@ -279,7 +279,7 @@
   justify-content: center;
   background-color: rgba(241, 90, 42, 1);
 }
-.notifications-text4 {
+.guest-reservations-text4 {
   color: var(--dl-color-shades-white);
   height: auto;
   text-align: center;
@@ -289,18 +289,18 @@
   width: 20px;
   height: 18px;
 }
-.notifications-vector {
+.guest-reservations-vector {
   top: 23px;
   left: 1144px;
   width: 24px;
   height: 14px;
   position: absolute;
 }
-.notifications-vector:hover {
+.guest-reservations-vector:hover {
   cursor: pointer;
 }
 
-.notifications-notifications {
+.guest-reservations-guest-reservations {
   gap: 16px;
   height: auto;
   width: 100%;
@@ -309,12 +309,12 @@
   flex-shrink: 0;
   flex-direction: column;
 }
-.notifications-line {
+.guest-reservations-line {
   width: 1232px;
   height: 0px;
   opacity: 0.25;
 }
-.notifications-line1 {
+.guest-reservations-line1 {
   width: 1232px;
   height: 0px;
   opacity: 0.25;

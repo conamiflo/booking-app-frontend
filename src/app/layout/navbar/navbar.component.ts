@@ -116,7 +116,11 @@ export class NavbarComponent {
   }
 
   redirectToProfitStatistics() {
-
     this.router.navigate(['owner/statistics']);
   }
+
+  redirectToNotifications(){
+    this.router.navigate(['notifications/' + this.authService.getUsername()]);
+  }
+
 }

@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {NotificationService} from "../notification.service";
 import {AuthService} from "../../authentication/auth.service";
+import {Notification} from "../notification";
 
 @Component({
   selector: 'app-notifications-page',

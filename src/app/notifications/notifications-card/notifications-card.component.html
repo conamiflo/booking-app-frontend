@@ -1,32 +1,13 @@
-<div  class="notification-card-component-frame150">
-  <div class="notification-card-component-accommodation-info">
-    <span class="notification-card-component-accommodation-name">
-      Review ID : {{ review.id}}
-    </span>
-  </div>
-  <div class="notification-card-component-guest-info">
-    <span class="notification-card-component-text">{{ reviewType}}</span>
-  </div>
-  <div class="notification-card-component-date-info">
-    <span class="notification-card-component-start-date">
-      <span>Rating: </span>
-      <span>{{review.rating}}</span>
-    </span>
-
-  </div>
-  <div class="notification-card-component-date-info1">
+<div  class="owner-reservation-component-frame150">
+  <div class="owner-reservation-component-date-info1">
     <div class="description-div">
-      <span>Description: </span>
-      <textarea readonly>{{review.description}}</textarea>
+      <span>guest@gmail.com created a request for your apartment 5. </span>
     </div>
   </div>
-  <div class="notification-card-component-status-info">
-    <div class="notification-card-component-stylelayer button" (click)="approveReview()">
-      <span class="notification-card-component-text5">Approve</span>
-    </div>
-    <div *ngIf="review.reported" class="notification-card-component-stylelayer button" (click)="deleteReview()">
-        <span class="notification-card-component-text5">
-          <span class="notification-card-component-text5">Delete</span>
+  <div class="owner-reservation-component-status-info">
+    <div class="owner-reservation-component-stylelayer button" (click)="deleteNotification()">
+        <span class="owner-reservation-component-text5">
+          <span class="owner-reservation-component-text5">Delete</span>
         </span>
     </div>
   </div>

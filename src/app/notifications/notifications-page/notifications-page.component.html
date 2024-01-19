@@ -1,15 +1,18 @@
-<div class="notifications-container">
-  <div class="notifications-desktop41">
-    <img src alt="Rectangle55261" class="notifications-rectangle5" />
-    <div class="notifications-reservations">
-      <span class="notifications-text">
+<div class="guest-reservations-container">
+  <div class="guest-reservations-desktop41">
+    <img src alt="Rectangle55261" class="guest-reservations-rectangle5" />
+    <div class="guest-reservations-reservations">
+      <span class="guest-reservations-text">
         <span>Notifications</span>
       </span>
 
-      <div class="notifications-notifications">
-        <div *ngFor="let review of reviews">
-          <app-admin-reviews-card [review]="review"></app-admin-reviews-card>
+      <div class="guest-reservations-guest-reservations">
+        <div *ngFor="let notification of notifications">
+          <app-notifications-page-card [notification]="notification"></app-notifications-page-card>
         </div>
+        <app-notifications-page-card></app-notifications-page-card>
+        <app-notifications-page-card></app-notifications-page-card>
+        <app-notifications-page-card></app-notifications-page-card>
       </div>
     </div>
   </div>
