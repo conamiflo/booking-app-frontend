@@ -16,18 +16,18 @@ export class NotificationsPageComponent {
   }
 
   ngOnInit(): void {
-    //   this.reviewService.getReviews().subscribe({
-    //     next: (data: Review[]) =>{
-    //       if (data && data.length > 0) {
-    //         this.reviews = data.filter(review => review.reported || !review.approved);
-    //       } else {
-    //         console.log("Error.");
-    //       }
-    //     },
-    //     error: (error: any) => {
-    //       console.log("Error:", error);
-    //     }
-    //   })
-    // }
-  }
+      this.notificationService.getUsersNotifications(this.authService.getUsername()).subscribe({
+        next: (data: Notification[]) =>{
+          if (data && data.length > 0) {
+            this.notifications = data;
+          } else {
+            console.log("Error.");
+          }
+        },
+        error: (error: any) => {
+          console.log("Error:", error);
+        }
+      });
+    }
+
 }

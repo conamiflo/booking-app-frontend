@@ -13,6 +13,10 @@ export class NotificationService {
     return this.httpClient.get<Notification[]>(`${environment.apiHost}notifications`);
   }
 
+  getUsersNotifications(email: String): Observable<Notification[]> {
+    return this.httpClient.get<Notification[]>(`${environment.apiHost}notifications/user/`+email);
+  }
+
   getNotificationById(id: number): Observable<Notification> {
     return this.httpClient.get<Notification>(`${environment.apiHost}notifications/${id}`);
   }
