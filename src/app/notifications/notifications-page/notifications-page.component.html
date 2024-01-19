@@ -5,14 +5,10 @@
       <span class="guest-reservations-text">
         <span>Notifications</span>
       </span>
-
       <div class="guest-reservations-guest-reservations">
         <div *ngFor="let notification of notifications">
           <app-notifications-page-card [notification]="notification"></app-notifications-page-card>
         </div>
-        <app-notifications-page-card></app-notifications-page-card>
-        <app-notifications-page-card></app-notifications-page-card>
-        <app-notifications-page-card></app-notifications-page-card>
       </div>
     </div>
   </div>
