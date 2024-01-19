@@ -20,6 +20,7 @@ import {CommonModule, DatePipe} from "@angular/common";
 import {NgbCarousel, NgbCarouselModule, NgbModule, NgbSlide} from '@ng-bootstrap/ng-bootstrap';
 import {ReviewsModule} from "./reviews/reviews.module";
 import { NgChartsModule } from 'ng2-charts';
+import {NotificationsModule} from "./notifications/notifications.module";
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { NgChartsModule } from 'ng2-charts';
     ReservationsModule,
     NgbModule,
     ReviewsModule,
-    NgChartsModule
+    NgChartsModule,
+    NotificationsModule
 
   ],
   providers: [{

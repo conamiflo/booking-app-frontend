@@ -27,6 +27,7 @@ import {
 } from "./accommodation/favorite-accommodations/favorite-accommodations.component";
 import {AdminReviewsComponent} from "./reviews/admin-review/admin-reviews/admin-reviews.component";
 import {ProfitStatisticsComponent} from "./reservation/profit-statistics/profit-statistics.component";
+import {NotificationsPageComponent} from "./notifications/notifications-page/notifications-page.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/accommodation', pathMatch: 'full' },
@@ -46,7 +47,8 @@ const routes: Routes = [
   { path: 'owners-accommodations', component: OwnersAccommodationsCardsComponent},
   { path: 'accommodationPreview/:accommodationId', component:AccommodationDetailsComponent},
   { path: 'admin/reviews', component:AdminReviewsComponent},
-  { path: 'owner/statistics', component:ProfitStatisticsComponent}
+  { path: 'owner/statistics', component:ProfitStatisticsComponent},
+  { path: 'notifications/:email', component:NotificationsPageComponent}
 
 ];
 
