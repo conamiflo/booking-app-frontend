@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 import {ReviewService} from "../../review.service";
 
 @Component({
-  selector: 'app-admin-reviews-card',
+  selector: 'app-notifications-page-card',
   templateUrl: './admin-reviews-card.component.html',
   styleUrls: ['./admin-reviews-card.component.css'],
 })

@@ -1,0 +1,16 @@
+<div class="notifications-container">
+  <div class="notifications-desktop41">
+    <img src alt="Rectangle55261" class="notifications-rectangle5" />
+    <div class="notifications-reservations">
+      <span class="notifications-text">
+        <span>Notifications</span>
+      </span>
+
+      <div class="notifications-notifications">
+        <div *ngFor="let review of reviews">
+          <app-admin-reviews-card [review]="review"></app-admin-reviews-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

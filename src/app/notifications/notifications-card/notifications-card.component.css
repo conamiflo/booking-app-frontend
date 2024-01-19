@@ -1,0 +1,370 @@
+:host {
+  display: contents;
+}
+.notification-card-component-frame150 {
+  gap: 10px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.notification-card-component-accommodation-info {
+
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+.notification-card-component-rectangle18 {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+}
+.notification-card-component-accommodation-name {
+  color: black;
+  height: auto;
+  text-align: left;
+  line-height: normal;
+  font-size: 16px;
+  font-style: normal;
+  font-family: Lato;
+  cursor: pointer;
+}
+.notification-card-component-guest-info {
+  width: 300px;
+  height: 70px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.notification-card-component-text {
+  top: 10px;
+  left: 42.5px;
+  color: rgba(0, 0, 0, 1);
+  width: 21px;
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.notification-card-component-person-logo {
+  top: 12px;
+  left: 9.5px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+.notification-card-component-date-info {
+  width: 249px;
+  height: 80px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.description-div{
+  display: flex;
+  flex-direction: column;
+}
+
+.description-div textarea{
+  width: 20vw;
+  resize: vertical;
+  border: 1px solid rgba(241, 90, 42, 1);
+  max-height: 100%;
+}
+.notification-card-component-date-info1 {
+  width: 400px;
+  height: 80px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.notification-card-component-date-logo {
+  top: 12px;
+  left: 11.33349609375px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+.notification-card-component-start-date {
+  top: 10px;
+  color: rgba(0, 0, 0, 1);
+  width: 92px;
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+
+
+.notification-card-component-end-date {
+  top: 10px;
+  color: rgba(0, 0, 0, 1);
+  width: 99px;
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.notification-card-component-text3 {
+  top: 10px;
+  left: 132.5px;
+  color: rgba(0, 0, 0, 1);
+  width: 11px;
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: normal;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.notification-card-component-status-info {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+}
+.notification-card-component-price {
+  color: black;
+  height: auto;
+  text-align: left;
+  line-height: normal;
+}
+.notification-card-component-status-button {
+  gap: 10px;
+  width: 150px;
+  border: unset;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.notification-card-component-stylelayer {
+  gap: 4px;
+  border: unset;
+  display: flex;
+  outline: unset;
+  padding: 8px 16px;
+  align-self: stretch;
+  transition: 0.3s;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 4px;
+  justify-content: center;
+  background-color: rgba(241, 90, 42, 1);
+  cursor: pointer;
+}
+.notification-card-component-stylelayer:hover {
+  background-color: #f5a58c;
+}
+.notification-card-component-text5 {
+  color: white;
+  height: auto;
+  text-align: left;
+  line-height: normal;
+  font-weight: 550;
+  font-family: Lato;
+}
+:host {
+  display: contents;
+}
+.guest-reservation-component-frame150 {
+  gap: 80px;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+.guest-reservation-component-accommodation-info {
+  gap: 16px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+}
+.guest-reservation-component-rectangle18 {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+}
+.guest-reservation-component-accommodation-name {
+  color: black;
+  height: auto;
+  text-align: left;
+  line-height: normal;
+  font-size: 16px;
+  font-style: normal;
+  font-family: Lato;
+}
+.guest-reservation-component-guest-info {
+  width: 73px;
+  height: 40px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.guest-reservation-component-text {
+  top: 10px;
+  left: 42.5px;
+  color: rgba(0, 0, 0, 1);
+  width: 21px;
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.guest-reservation-component-person-logo {
+  top: 12px;
+  left: 9.5px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+.guest-reservation-component-date-info {
+  width: 249px;
+  height: 40px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.guest-reservation-component-date-logo {
+  top: 12px;
+  left: 11.33349609375px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+.guest-reservation-component-start-date {
+  top: 10px;
+  left: 40.5px;
+  color: rgba(0, 0, 0, 1);
+  width: 92px;
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.guest-reservation-component-end-date {
+  top: 10px;
+  left: 150.5px;
+  color: rgba(0, 0, 0, 1);
+  width: 99px;
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-family: Lato;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.guest-reservation-component-text3 {
+  top: 10px;
+  left: 132.5px;
+  color: rgba(0, 0, 0, 1);
+  width: 11px;
+  height: auto;
+  position: absolute;
+  font-size: 16px;
+  font-style: normal;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.guest-reservation-component-status-info {
+  gap: 64px;
+  display: flex;
+  align-items: center;
+}
+.guest-reservation-component-price {
+  color: black;
+  height: auto;
+  text-align: left;
+  line-height: normal;
+}
+.guest-reservation-component-status-button {
+  gap: 10px;
+  width: 150px;
+  border: unset;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.guest-reservation-component-stylelayer {
+  gap: 4px;
+  border: unset;
+  display: flex;
+  outline: unset;
+  padding: 8px 16px;
+  align-self: stretch;
+  transition: 0.3s;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 4px;
+  justify-content: center;
+  background-color: rgba(241, 90, 42, 1);
+}
+.guest-reservation-component-stylelayer:hover {
+  background-color: #f5a58c;
+}
+.guest-reservation-component-text5 {
+  color: white;
+  height: auto;
+  text-align: left;
+  line-height: normal;
+}
