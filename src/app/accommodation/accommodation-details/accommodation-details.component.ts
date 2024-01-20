@@ -7,7 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {DatePipe} from "@angular/common";
 import {ReservationBookingDtoModel} from "../model/reservation-booking-dto.model";
 import {AuthService} from "../../authentication/auth.service";
-import {ReservationBookingResultDTO} from "../model/reservation-booking-result-dto.model";
+import {ReservationBookingResultDTO, ReservationStatus} from "../model/reservation-booking-result-dto.model";
 import {Availability} from "../model/availability.model";
 import {environment} from "../../../env/env";
 import {ReviewDialogComponent} from "../../reviews/dialog/review-dialog-component";
@@ -185,13 +185,16 @@ export class AccommodationDetailsComponent {
                 alert("You cannot book that reservation!")
               }
             });
-            this.notificationService.createNotification(notificationForGuest).subscribe({
-              next: (data: Notification) => {
-                alert("You have new notification!")
-              },error:(_) =>{
-                alert("You cannot book that reservation!")
-              }
-            });
+            if(data.status == ReservationStatus.Accepted){
+              this.notificationService.createNotification(notificationForGuest).subscribe({
+                next: (data: Notification) => {
+                  alert("You have new notification!")
+                },error:(_) =>{
+                  alert("You cannot book that reservation!")
+                }
+              });
+            }
+
 
 
           },error:(_) =>{
