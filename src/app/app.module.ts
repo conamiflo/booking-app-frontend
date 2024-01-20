@@ -21,6 +21,8 @@ import {NgbCarousel, NgbCarouselModule, NgbModule, NgbSlide} from '@ng-bootstrap
 import {ReviewsModule} from "./reviews/reviews.module";
 import { NgChartsModule } from 'ng2-charts';
 import {NotificationsModule} from "./notifications/notifications.module";
+import * as Stomp from 'stompjs';
+import * as SockJS from 'sockjs-client';
 
 
 @NgModule({
@@ -54,7 +56,16 @@ import {NotificationsModule} from "./notifications/notifications.module";
     useClass: Interceptor,
     multi: true,
   },
-  DatePipe],
+  DatePipe,
+    {
+      provide: Stomp,
+      useValue: Stomp,
+    },
+    {
+      provide: SockJS,
+      useValue: SockJS,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

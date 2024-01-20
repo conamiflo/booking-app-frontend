@@ -5,6 +5,7 @@ import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {NotificationsCardComponent} from "./notifications-card/notifications-card.component";
 import {NotificationsPageComponent} from "./notifications-page/notifications-page.component";
+import * as SockJS from "sockjs-client";
 
 @NgModule({
   declarations: [

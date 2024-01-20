@@ -2,6 +2,9 @@ import {Component} from "@angular/core";
 import {NotificationService} from "../notification.service";
 import {AuthService} from "../../authentication/auth.service";
 import {Notification} from "../notification";
+import {environment} from "../../../env/env";
+import { Client, Message } from 'stompjs';
+import * as SockJS from 'sockjs-client';
 
 @Component({
   selector: 'app-notifications-page',
@@ -11,6 +14,10 @@ import {Notification} from "../notification";
 export class NotificationsPageComponent {
 
   notifications: Notification[] = [];
+
+  private servarUrl = "http://localhost:8080/"+'socket'
+  private stompClient: Client;
+
 
   constructor(private notificationService: NotificationService, private authService: AuthService) {
   }
@@ -28,6 +35,15 @@ export class NotificationsPageComponent {
           console.log("Error:", error);
         }
       });
-    }
 
+    this.stompClient.subscribe("/socket-publisher/" + this.authService.getUsername(), (message: { body: string; }) => {
+      this.handleResult(message);
+    });
+    }
+  handleResult(message: { body: string; }) {
+    if (message.body) {
+      let messageResult: Notification = JSON.parse(message.body);
+      this.notifications.push(messageResult);
+    }
+  }
 }
