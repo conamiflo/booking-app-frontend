@@ -52,7 +52,7 @@ const routes: Routes = [
   { path: 'accommodationPreview/:accommodationId', component:AccommodationDetailsComponent},
   { path: 'admin/reviews', component:AdminReviewsComponent},
 
-  { path: 'admin/reports', component:AdminReportsComponent}
+  { path: 'admin/reports', component:AdminReportsComponent},
 
   { path: 'owner/statistics', component:ProfitStatisticsComponent},
   { path: 'notifications/:email', component:NotificationsPageComponent}
