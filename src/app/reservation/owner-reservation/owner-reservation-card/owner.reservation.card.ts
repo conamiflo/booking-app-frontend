@@ -9,6 +9,10 @@ import {Observable} from "rxjs";
 import {ReservationStatus} from "../../reservation.status";
 import {ReservationService} from "../../reservation.service";
 import {NumberOfCancellationsModel} from "../number-of-cancelations.model";
+import {Notification} from "../../../notifications/notification";
+import {NotificationType} from "../../../notifications/notification.type";
+import {AuthService} from "../../../authentication/auth.service";
+import {NotificationService} from "../../../notifications/notification.service";
 
 @Component({
   selector: 'app-owner-reservation-card-request',
@@ -21,7 +25,8 @@ export class OwnerReservationCardComponent {
   ownerReservation:OwnerReservationModel;
   showCard: boolean = true;
   numberOfCancellations: NumberOfCancellationsModel;
-  constructor(private router: Router,private reservationService: ReservationService) {
+  constructor(private router: Router,private reservationService: ReservationService, private authService: AuthService,
+              private notificationService: NotificationService) {
 
   }
   ngOnInit(){
@@ -32,7 +37,25 @@ export class OwnerReservationCardComponent {
     this.ownerReservation.status = "Accepted";
     this.reservationService.acceptReservation(this.ownerReservation.id).subscribe({
       next: () => {
+        const notificationForGuest : Notification = new class implements Notification {
+          id: number;
+          message: string;
+          receiverEmail: string;
+          type: NotificationType;
+        };
 
+        notificationForGuest.message = this.authService.getUsername() + " accepted reservation with id: "+ this.ownerReservation.id;
+        notificationForGuest.id = 0;
+        notificationForGuest.type = NotificationType.RESERVATION_RESPONSE;
+        notificationForGuest.receiverEmail = this.ownerReservation.guest;
+        this.notificationService.createNotification(notificationForGuest).subscribe({
+          next: (data: Notification) => {
+            alert("Guest notified!")
+          },error:(_) =>{
+            alert("You cannot accept that reservation!")
+          }
+        });
+        window.location.reload();
       },
       error: (_) => {
         console.log("Error!")
@@ -44,7 +67,25 @@ export class OwnerReservationCardComponent {
     this.ownerReservation.status = "Declined";
     this.reservationService.declineReservation(this.ownerReservation.id).subscribe({
       next: () => {
+        const notificationForGuest : Notification = new class implements Notification {
+          id: number;
+          message: string;
+          receiverEmail: string;
+          type: NotificationType;
+        };
 
+        notificationForGuest.message = this.authService.getUsername() + " declined reservation with id: " + this.ownerReservation.id;
+        notificationForGuest.id = 0;
+        notificationForGuest.type = NotificationType.RESERVATION_RESPONSE;
+        notificationForGuest.receiverEmail = this.ownerReservation.guest;
+        this.notificationService.createNotification(notificationForGuest).subscribe({
+          next: (data: Notification) => {
+            alert("Guest notified!")
+          },error:(_) =>{
+            alert("You cannot decline that reservation!")
+          }
+        });
+        window.location.reload();
       },
       error: (_) => {
         console.log("Error!")
@@ -66,4 +107,5 @@ export class OwnerReservationCardComponent {
   }
 
   protected readonly environment = environment;
+  protected readonly ReservationStatus = ReservationStatus;
 }
