@@ -125,14 +125,102 @@ export class AccommodationCreationComponent {
     this.prices.splice(i, 1);
   }
 
+  validateEmptyFields(firstDate: string, secondDate: string): boolean {
+    console.log(firstDate);
+    if (firstDate === null || secondDate === null) {
+      alert("Date cant be empty!");
+      return true;
+    } else {
+      return false;
+    }
+  }
   addPrice(): void {
+    const firstDate = this.accommodationCreationForm.controls.priceFrom.value;
+    const secondDate = this.accommodationCreationForm.controls.priceTo.value;
+    const startEpochTime: number = Date.parse(firstDate);
+    const endEpochTime: number = Date.parse(secondDate);
+
+    if(this.validateEmptyFields(firstDate,secondDate) || !this.validateAddPrice(startEpochTime,endEpochTime,this.accommodationCreationForm.controls.price.value)){
+      return;
+    }
     const p: Price = {
       price: this.accommodationCreationForm.controls.price.value,
       from: this.accommodationCreationForm.controls.priceFrom.value,
       to: this.accommodationCreationForm.controls.priceTo.value
     }
     this.prices.push(p);
+    alert("Successfully added new price!");
 
+  }
+
+
+  validateAddAvailability(startEpochTime: number,endEpochTime: number): boolean{
+    if (endEpochTime <= startEpochTime) {
+      alert('Second date cant be before first!');
+      return false;
+    }
+    const todayEpochTime: number = new Date().getTime();
+    if (startEpochTime < todayEpochTime) {
+      alert('Date cant be before today!');
+      return false;
+    }
+    if (this.isOverlapAvailability(startEpochTime, endEpochTime, this.availability)) {
+      alert('Availability is overlapping with existing availabilities!');
+      return false;
+    }
+    return true;
+  }
+
+  isOverlapAvailability(startEpochTime: number, endEpochTime: number, existingAvailabilities: Availability[]): boolean {
+    for (const existingAvailability of existingAvailabilities) {
+      const existingStartEpochTime: number = Date.parse(existingAvailability.from);
+      const existingEndEpochTime: number = Date.parse(existingAvailability.to);
+
+      if (
+        (startEpochTime >= existingStartEpochTime && startEpochTime <= existingEndEpochTime) ||
+        (endEpochTime >= existingStartEpochTime && endEpochTime <= existingEndEpochTime) ||
+        (startEpochTime <= existingStartEpochTime && endEpochTime >= existingEndEpochTime)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  isOverlapPrice(newStartEpochTime: number, newEndEpochTime: number, existingPrices: Price[]): boolean {
+    for (const existingPrice of existingPrices) {
+      const existingStartEpochTime: number = Date.parse(existingPrice.from);
+      const existingEndEpochTime: number = Date.parse(existingPrice.to);
+      if (
+        (newStartEpochTime >= existingStartEpochTime && newStartEpochTime <= existingEndEpochTime) ||
+        (newEndEpochTime >= existingStartEpochTime && newEndEpochTime <= existingEndEpochTime) ||
+        (newStartEpochTime <= existingStartEpochTime && newEndEpochTime >= existingEndEpochTime)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  validateAddPrice(startEpochTime: number, endEpochTime: number, price: number): boolean{
+    if (isNaN(price) || price <= 0) {
+      alert('Price must be greater than 0!');
+      return false;
+    }
+    if (endEpochTime <= startEpochTime) {
+      alert('Second date cant be before first!');
+      return false;
+    }
+    const todayEpochTime: number = new Date().getTime();
+    if (startEpochTime < todayEpochTime) {
+      alert('Date cant be before today!');
+      return false;
+    }
+    if (this.isOverlapPrice(startEpochTime, endEpochTime, this.prices)) {
+      alert('Price date is overlapping with existing price dates! ');
+      return false;
+    }
+    return true;
   }
 
   addAmenities(id: number){
@@ -202,12 +290,21 @@ export class AccommodationCreationComponent {
   }
 
   addAvailability() {
+    const firstDate = this.accommodationCreationForm.controls.availableFrom.value;
+    const secondDate = this.accommodationCreationForm.controls.availableTo.value;
+    const startEpochTime: number = Date.parse(firstDate);
+    const endEpochTime: number = Date.parse(secondDate);
+
+    if(this.validateEmptyFields(firstDate,secondDate) || !this.validateAddAvailability(startEpochTime,endEpochTime)){
+      return;
+    }
+
     const a: Availability = {
       from: this.accommodationCreationForm.controls.availableFrom.value,
       to: this.accommodationCreationForm.controls.availableTo.value
     }
     this.availability.push(a);
-
+    alert("Successfully added new availability!");
   }
 
   private addPictures(uploadedPictures: File[]) {
