@@ -37,4 +37,8 @@ export class ReportService {
     return this.httpClient.get<string[]>(`${environment.apiHost}users/guests/${ownerEmail}`);
   }
 
+  blockUser(userEmail: string): Observable<void>{
+    return this.httpClient.put<void>(`${environment.apiHost}users/${userEmail}/block`, {});
+  }
+
 }

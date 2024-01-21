@@ -1,0 +1,16 @@
+<div class="guest-reservations-container">
+  <div class="guest-reservations-desktop41">
+    <img src alt="Rectangle55261" class="guest-reservations-rectangle5" />
+    <div class="guest-reservations-reservations">
+      <span class="guest-reservations-text">
+        <span>Reports</span>
+      </span>
+
+      <div class="guest-reservations-guest-reservations">
+        <div *ngFor="let report of reports">
+          <app-admin-reports-card [report]="report"></app-admin-reports-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
