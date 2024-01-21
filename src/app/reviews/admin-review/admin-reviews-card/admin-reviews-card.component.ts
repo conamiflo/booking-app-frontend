@@ -35,8 +35,8 @@ export class AdminReviewsCardComponent {
     this.review.approved = true;
     this.reviewService.updateReview(this.review.id, this.review).subscribe({
       next: () => {
-        window.location.reload();
         this.sendNotification(this.review);
+        window.location.reload();
       },
       error: (_) => {
         console.log("Error!")
@@ -56,7 +56,7 @@ export class AdminReviewsCardComponent {
   }
 
   sendNotification(review : Review){
-    if(review.ownerEmail = ""){
+    if(review.ownerEmail == null){
       this.accommodationService.getAccommodationById(review.accommodationId).subscribe({
         next: (data: AccommodationDetails) => {
           this.createAccommodationReviewNotification(review,data.ownerEmail)
