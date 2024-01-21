@@ -9,7 +9,7 @@ import {NotificationType} from "../../../notifications/notification.type";
 import {NotificationService} from "../../../notifications/notification.service";
 
 @Component({
-  selector: 'app-notifications-page-card',
+  selector: 'app-admin-reviews-card',
   templateUrl: './admin-reviews-card.component.html',
   styleUrls: ['./admin-reviews-card.component.css'],
 })
