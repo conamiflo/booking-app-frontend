@@ -34,8 +34,12 @@ export class GuestReservationComponent implements OnChanges{
         const [day, month, year] = this.guestReservation.startDate.split('-').map(Number);
         const parsedDate = new Date(year, month - 1, day);
 
-        this.cancelable = (this.guestReservation.status.toString() === "Accepted" && Math.floor((Math.floor(parsedDate.getTime() / 1000) - new Date().getTime()/1000) / (24 * 60 * 60)) > data.cancellationDays);
-
+        this.cancelable =  (
+          this.guestReservation.status.toString() === "Accepted" &&
+          Math.floor(
+            Math.floor(parsedDate.getTime() / 1000) - (data.cancellationDays * (24 * 60 * 60))
+          ) > Math.floor(new Date().getTime() / 1000)
+        );
         this.deletable = this.guestReservation.status.toString() === "Waiting";
 
         },
