@@ -5,6 +5,10 @@ import {ReservationStatus} from "../../reservation.status";
 import {ReservationService} from "../../reservation.service";
 import {AccommodationService} from "../../../accommodation/accommodation.service";
 import {AccommodationDetails} from "../../../accommodation/accommodation-creation/model/accomodationDetails.model";
+import {Notification} from "../../../notifications/notification";
+import {NotificationType} from "../../../notifications/notification.type";
+import {AuthService} from "../../../authentication/auth.service";
+import {NotificationService} from "../../../notifications/notification.service";
 
 @Component({
   selector: 'app-guest-reservation-card',
@@ -17,8 +21,10 @@ export class GuestReservationComponent implements OnChanges{
   guestReservation: GuestReservation;
   cancelable: boolean = false;
   deletable: boolean = false;
+  accommodation: AccommodationDetails;
 
-  constructor(private reservationService: ReservationService, private accommodationService: AccommodationService) {
+  constructor(private reservationService: ReservationService, private accommodationService: AccommodationService,
+                private authService: AuthService, private notificationService: NotificationService) {
   }
   ngOnChanges(changes: SimpleChanges): void {
 
@@ -31,6 +37,7 @@ export class GuestReservationComponent implements OnChanges{
 
     this.accommodationService.getAccommodationById(Number(this.guestReservation.accommodation)).subscribe({
       next: (data: AccommodationDetails ) => {
+        this.accommodation = data;
         const [day, month, year] = this.guestReservation.startDate.split('-').map(Number);
         const parsedDate = new Date(year, month - 1, day);
 
@@ -50,6 +57,24 @@ export class GuestReservationComponent implements OnChanges{
     this.guestReservation.status = ReservationStatus.Cancelled;
     this.reservationService.cancelReservation(this.guestReservation.id).subscribe({
       next: () => {
+        const notificationForOwner : Notification = new class implements Notification {
+          id: number;
+          message: string;
+          receiverEmail: string;
+          type: NotificationType;
+        };
+
+        notificationForOwner.message = this.authService.getUsername() + " cancelled reservation with id: "+ this.guestReservation.id;
+        notificationForOwner.id = 0;
+        notificationForOwner.type = NotificationType.CANCEL_RESERVATIONS;
+        notificationForOwner.receiverEmail = this.accommodation.ownerEmail;
+        this.notificationService.createNotification(notificationForOwner).subscribe({
+          next: (data: Notification) => {
+            alert("Owner notified!")
+          },error:(_) =>{
+            alert("You cannot cancel that reservation!")
+          }
+        });
         window.location.reload();
       },
       error: (_) => {

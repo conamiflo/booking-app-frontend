@@ -29,7 +29,7 @@
     </span>
     <span class="owner-reservation-component-text3"> - </span>
   </div>
-  <div class="owner-reservation-component-status-info">
+  <div class="owner-reservation-component-status-info" *ngIf="ownerReservation.status == 'Waiting'">
       <div class="owner-reservation-component-stylelayer button" (click)="acceptRequest()">
         <span class="owner-reservation-component-text5">Accept</span>
       </div>
