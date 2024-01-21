@@ -4,6 +4,7 @@ import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
 import {AuthResponse} from "../model/auth-response.model";
 import {Login} from "../model/login.model";
+import {WebSocketService} from "../../notifications/websocket.service";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import {Login} from "../model/login.model";
 
 export class LoginComponent {
   constructor(private authService: AuthService,
-              private router: Router) {
+              private router: Router, private webSocketService: WebSocketService) {
 
   }
   loginForm = new FormGroup({
@@ -30,6 +31,7 @@ export class LoginComponent {
         next: (response: AuthResponse) => {
           localStorage.setItem('user', response.token);
           this.authService.setUser()
+          this.webSocketService.openSocket();
           this.router.navigate([''])
         },
         error: (error: any) => {
