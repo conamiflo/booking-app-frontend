@@ -13,7 +13,7 @@
       <div class="profile-nav-container">
 
           <div class="profile-image-container">
-            <img class="profile-image" src="/assets/external/person.svg" (click)="openDialog()" alt="profile-pic">
+            <img class="profile-image" id="profile-image-home" src="/assets/external/person.svg" (click)="openDialog()" alt="profile-pic">
 
           </div>
 
@@ -71,7 +71,7 @@
         </ng-container>
         <ng-container *ngIf="isLoggedInOwner()">
           <div class="links">
-            <span class="reservations-link" (click)="redirectToOwnersAccommodations()">MY ACCOMMODATIONS</span>
+            <span class="reservations-link" id="my-accommodations" (click)="redirectToOwnersAccommodations()">MY ACCOMMODATIONS</span>
             <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
 
           </div>

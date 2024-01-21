@@ -137,6 +137,7 @@
               type="text"
               class="page1-matinputslot08"
               formControlName="cancellationDays"
+              id = "cancellation-days-input"
             />
           </div>
         </div>
@@ -180,6 +181,7 @@
               type="date"
               placeholder="From"
               class="available-start-input"
+              id="availability-from"
               onFocus="(this.type='date')"
               onBlur="(this.type='text')"
               formControlName="availableFrom"
@@ -190,6 +192,7 @@
               type="date"
               placeholder="To"
               class="available-end-input"
+              id="availability-to"
               onFocus="(this.type='date')"
               onBlur="(this.type='text')"
               formControlName="availableTo"
@@ -197,12 +200,12 @@
           </div>
 
         </div>
-        <button class="page1-add-pricematbtn1"  (click)="addAvailability()">
+        <button class="page1-add-pricematbtn1" id="add-availability-btn" (click)="addAvailability()">
           <div class="page1-content4">
             <span class="page1-text33 vTextbutton"><span>Add</span></span>
           </div>
         </button>
-        <div class="page1-images-tablematbody">
+        <div class="page1-images-tablematbody" id="availability-table">
           <table class="tableDiv">
             <thead>
             <tr>
@@ -216,7 +219,7 @@
               <td>{{ a.from}}</td>
               <td>{{ a.to }}</td>
               <td>
-                <button class="page1-remove-amenitymatbtn1" (click)="removeAvailability(i)">Remove</button>
+                <button class="page1-remove-amenitymatbtn1" id="remove-availability" (click)="removeAvailability(i)">Remove</button>
               </td>
             </tr>
             </tbody>
@@ -230,6 +233,7 @@
             <input
               type="text"
               class="page1-matinputslot08"
+              id="price-list-input"
               formControlName="price"
             />
           </div>
@@ -246,6 +250,7 @@
               type="date"
               placeholder="From"
               class="available-start-input"
+              id="price-from"
               onFocus="(this.type='date')"
               onBlur="(this.type='text')"
               formControlName="priceFrom"
@@ -256,18 +261,19 @@
               type="date"
               placeholder="To"
               class="available-end-input"
+              id="price-to"
               onFocus="(this.type='date')"
               onBlur="(this.type='text')"
               formControlName="priceTo"
             />
           </div>
         </div>
-        <button class="page1-add-pricematbtn1"  (click)="addPrice()">
+        <button class="page1-add-pricematbtn1" id="add-price-btn" (click)="addPrice()">
           <div class="page1-content4">
             <span class="page1-text33 vTextbutton"><span>Add</span></span>
           </div>
         </button>
-        <div class="page1-images-tablematbody">
+        <div class="page1-images-tablematbody" id="price-table">
           <table class="tableDiv">
             <thead>
               <tr>
@@ -283,7 +289,7 @@
               <td>{{ price.from}}</td>
               <td>{{ price.to }}</td>
               <td>
-                <button class="page1-remove-amenitymatbtn1" (click)="removePrice(i)">Remove</button>
+                <button class="page1-remove-amenitymatbtn1" id="remove-price" (click)="removePrice(i)">Remove</button>
               </td>
             </tr>
             </tbody>
