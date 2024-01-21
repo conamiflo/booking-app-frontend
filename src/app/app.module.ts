@@ -21,6 +21,7 @@ import {NgbCarousel, NgbCarouselModule, NgbModule, NgbSlide} from '@ng-bootstrap
 import {ReviewsModule} from "./reviews/reviews.module";
 import { NgChartsModule } from 'ng2-charts';
 import {NotificationsModule} from "./notifications/notifications.module";
+import {SocketService} from "./notifications/socket.service";
 
 
 @NgModule({

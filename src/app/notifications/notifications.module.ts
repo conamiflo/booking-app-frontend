@@ -5,11 +5,12 @@ import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {NotificationsCardComponent} from "./notifications-card/notifications-card.component";
 import {NotificationsPageComponent} from "./notifications-page/notifications-page.component";
+import {WebSocketService} from "./websocket.service";
 
 @NgModule({
   declarations: [
     NotificationsCardComponent,
-    NotificationsPageComponent
+    NotificationsPageComponent,
   ],
   imports: [
     CommonModule,
