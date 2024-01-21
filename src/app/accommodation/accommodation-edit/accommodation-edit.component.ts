@@ -14,6 +14,9 @@ import {AccommodationService} from "../accommodation.service";
 import {Observable} from "rxjs";
 import {AccommodationCreationService} from "../accommodation-creation/accommodation-creation.service";
 import {AccommodationStatus} from "../accommodation-creation/model/accommodation.status";
+import {ReservationService} from "../../reservation/reservation.service";
+import {GuestReservation} from "../../reservation/guest-reservation/model/reservation.model";
+import {ReservationStatus} from "../../reservation/reservation.status";
 
 @Component({
   selector: 'app-accommodation-creation',
@@ -27,7 +30,7 @@ export class AccommodationEditComponent {
   constructor(private route: ActivatedRoute,private router: Router, private fb: FormBuilder,
               private accommodationCreationService: AccommodationCreationService,
               private authService: AuthService,private accommodationService: AccommodationService,
-              private accommodationEditService: AccommodationEditService) {
+              private accommodationEditService: AccommodationEditService, private reservationService: ReservationService) {
   }
 
   accommodationCreationForm = new FormGroup({
@@ -54,6 +57,7 @@ export class AccommodationEditComponent {
   newAccId: number;
   availability: Availability[] = [];
   uploadedPictures: File[] = [];
+  reservations: GuestReservation[] = [];
 
 
   ngOnInit(): void {
@@ -68,6 +72,7 @@ export class AccommodationEditComponent {
     this.loadAvailabilities(this.accommodationId);
     this.loadPrices(this.accommodationId);
     this.loadPriceType(this.accommodationId);
+    this.loadReservations(this.accommodationId);
   }
   loadAccommodationData(accommodation: Observable<AccommodationDetails>): void {
     accommodation.subscribe({
@@ -105,7 +110,6 @@ export class AccommodationEditComponent {
   loadPrices(accommodationId : number): void{
     this.accommodationEditService.getPricesByAccommodationId(accommodationId).subscribe( {
       next: (data: Price[]) => {
-        console.log(data);
         this.prices = data;
       }
     })
@@ -124,6 +128,13 @@ export class AccommodationEditComponent {
     })
   }
 
+  loadReservations(id: number){
+    this.reservationService.getReservationsByAccommodationId(id).subscribe({
+      next: (data: GuestReservation[]) => {
+        this.reservations = data;
+      }
+    })
+  }
   collectAccommodationData(){
     let priceType : PriceType;
     if (this.accommodationCreationForm.controls.priceType.value == "PER_GUEST") {
@@ -180,13 +191,75 @@ export class AccommodationEditComponent {
   }
 
   addPrice(): void {
+
+    const firstDate = this.accommodationCreationForm.controls.priceFrom.value;
+    const secondDate = this.accommodationCreationForm.controls.priceTo.value;
+    const startEpochTime: number = Date.parse(firstDate);
+    const endEpochTime: number = Date.parse(secondDate);
+
+    if(this.validateEmptyFields(firstDate,secondDate) || !this.validateAddPrice(startEpochTime,endEpochTime,this.accommodationCreationForm.controls.price.value)){
+      return;
+    }
     const p: Price = {
       price: this.accommodationCreationForm.controls.price.value,
       from: this.accommodationCreationForm.controls.priceFrom.value,
       to: this.accommodationCreationForm.controls.priceTo.value
     }
     this.prices.push(p);
+    alert("Successfully added new price!");
+  }
+  isOverlapPrice(newStartEpochTime: number, newEndEpochTime: number, existingPrices: Price[]): boolean {
+    for (const existingPrice of existingPrices) {
+      const existingStartEpochTime: number = Date.parse(existingPrice.from);
+      const existingEndEpochTime: number = Date.parse(existingPrice.to);
+      if (
+        (newStartEpochTime >= existingStartEpochTime && newStartEpochTime <= existingEndEpochTime) ||
+        (newEndEpochTime >= existingStartEpochTime && newEndEpochTime <= existingEndEpochTime) ||
+        (newStartEpochTime <= existingStartEpochTime && newEndEpochTime >= existingEndEpochTime)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
 
+  isOverlapWithAcceptedReservations(startEpochTime: number, endEpochTime: number, reservations: GuestReservation[]): boolean {
+    const acceptedReservations = reservations.filter(reservation => reservation.status.toString() === "Accepted");
+
+    for (const reservation of acceptedReservations) {
+      const reservationStart: number = Date.parse(reservation.startDate.replace(/(\d{2})-(\d{2})-(\d{4})/, '$3-$2-$1'));
+      const reservationEnd: number = Date.parse(reservation.endDate.replace(/(\d{2})-(\d{2})-(\d{4})/, '$3-$2-$1'));
+      if (
+        (startEpochTime >= reservationStart && startEpochTime <= reservationEnd) ||
+        (endEpochTime >= reservationStart && endEpochTime <= reservationEnd) ||
+        (startEpochTime <= reservationStart && endEpochTime >= reservationEnd)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
+  validateAddPrice(startEpochTime: number, endEpochTime: number, price: number): boolean{
+      if (isNaN(price) || price <= 0) {
+        alert('Price must be greater than 0!');
+        return false;
+      }
+      if (endEpochTime <= startEpochTime) {
+        alert('Second date cant be before first!');
+        return false;
+      }
+      const todayEpochTime: number = new Date().getTime();
+      if (startEpochTime < todayEpochTime) {
+        alert('Date cant be before today!');
+        return false;
+      }
+      if (this.isOverlapPrice(startEpochTime, endEpochTime, this.prices)) {
+        alert('Price date is overlapping with existing price dates! ');
+        return false;
+      }
+      return true;
   }
 
   addAmenities(id: number){
@@ -215,6 +288,21 @@ export class AccommodationEditComponent {
     }
   }
 
+  isValidCancellationDays(value: string): boolean {
+    const numericValue = Number(value);
+    return !isNaN(numericValue) && numericValue > 0 && value !== '';
+  }
+
+
+  isFormValid(): boolean {
+    if(!this.isValidCancellationDays(this.accommodationCreationForm.controls.cancellationDays.value)){
+      alert("Cancellation days should be greater than 0!");
+      return false;
+    }
+    return true;
+  }
+
+
   addAvailabilities(id: number){
     for(let a of this.availability){
       this.accommodationCreationService.addAvailability(a, id.toString()).subscribe({
@@ -229,35 +317,98 @@ export class AccommodationEditComponent {
   }
 
   createAccommodation() {
-    this.accommodationEditService.updateAccommodation(this.collectAccommodationData(),this.accommodationId).subscribe({
-      next: (data: Accommodation) => {
-        console.log(data);
-        this.newAccId = data.id;
-        this.addAmenities(this.newAccId);
-        this.addPrices(this.newAccId);
-        this.addAvailabilities(this.newAccId);
-        this.addPictures(this.uploadedPictures);
 
-        this.router.navigate(['']);
-      },
-      error: (_) => {
-        console.log("Error!")
-      }
-    })
+    if(this.isFormValid()){
+      this.accommodationEditService.updateAccommodation(this.collectAccommodationData(),this.accommodationId).subscribe({
+        next: (data: Accommodation) => {
+          console.log(data);
+          this.newAccId = data.id;
+          this.addAmenities(this.newAccId);
+          this.addPrices(this.newAccId);
+          this.addAvailabilities(this.newAccId);
+          this.addPictures(this.uploadedPictures);
 
+          // this.router.navigate(['']);
+          alert("Successfully edited accommodation!");
+        },
+        error: (_) => {
+          console.log("Error!")
+        }
+      })
+
+    }
   }
 
   removeAvailability(i: number) {
     this.availability.splice(i, 1);
   }
 
+
+  isOverlapAvailability(startEpochTime: number, endEpochTime: number, existingAvailabilities: Availability[]): boolean {
+    for (const existingAvailability of existingAvailabilities) {
+      const existingStartEpochTime: number = Date.parse(existingAvailability.from);
+      const existingEndEpochTime: number = Date.parse(existingAvailability.to);
+
+      if (
+        (startEpochTime >= existingStartEpochTime && startEpochTime <= existingEndEpochTime) ||
+        (endEpochTime >= existingStartEpochTime && endEpochTime <= existingEndEpochTime) ||
+        (startEpochTime <= existingStartEpochTime && endEpochTime >= existingEndEpochTime)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  validateEmptyFields(firstDate: string, secondDate: string): boolean {
+    console.log(firstDate);
+    if (firstDate === null || secondDate === null) {
+      alert("Date cant be empty!");
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  validateAddAvailability(startEpochTime: number,endEpochTime: number): boolean{
+    if (endEpochTime <= startEpochTime) {
+      alert('Second date cant be before first!');
+      return false;
+    }
+    const todayEpochTime: number = new Date().getTime();
+    if (startEpochTime < todayEpochTime) {
+      alert('Date cant be before today!');
+      return false;
+    }
+    if (this.isOverlapAvailability(startEpochTime, endEpochTime, this.availability)) {
+      alert('Availability is overlapping with existing availabilities!');
+      return false;
+    }
+
+    if(this.isOverlapWithAcceptedReservations(startEpochTime,endEpochTime,this.reservations)){
+      alert('There is a reservation in that period!');
+      return false;
+    }
+    return true;
+  }
+
+
   addAvailability() {
+    const firstDate = this.accommodationCreationForm.controls.availableFrom.value;
+    const secondDate = this.accommodationCreationForm.controls.availableTo.value;
+    const startEpochTime: number = Date.parse(firstDate);
+    const endEpochTime: number = Date.parse(secondDate);
+
+    if(this.validateEmptyFields(firstDate,secondDate) || !this.validateAddAvailability(startEpochTime,endEpochTime)){
+      return;
+    }
+
     const a: Availability = {
       from: this.accommodationCreationForm.controls.availableFrom.value,
       to: this.accommodationCreationForm.controls.availableTo.value
     }
     this.availability.push(a);
-
+    alert("Successfully added new availability!");
   }
   private getPhotoNames() {
     let pictures : string[] = [];
