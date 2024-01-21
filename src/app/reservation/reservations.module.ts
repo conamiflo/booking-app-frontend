@@ -6,19 +6,23 @@ import {GuestReservationComponent} from "./guest-reservation/guest-reservation-c
 import {GuestReservationsComponent} from "./guest-reservation/guest-reservations/guest-reservations.component";
 import {OwnerReservationCardComponent} from "./owner-reservation/owner-reservation-card/owner.reservation.card";
 import {OwnerReservationsComponent} from "./owner-reservation/owner-reservations/owner.reservations";
+import { ProfitStatisticsComponent } from './profit-statistics/profit-statistics.component';
+import {LayoutModule} from "../layout/layout.module";
 
 @NgModule({
   declarations: [
     GuestReservationComponent,
     GuestReservationsComponent,
     OwnerReservationCardComponent,
-    OwnerReservationsComponent
+    OwnerReservationsComponent,
+    ProfitStatisticsComponent
   ],
     imports: [
         CommonModule,
         RouterModule,
         FormsModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        LayoutModule
     ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

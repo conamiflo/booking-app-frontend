@@ -1,25 +1,22 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Accommodation} from "../model/accommodation.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AccommodationService} from "../accommodation.service";
 import {MapService} from "../../shared/map/map.service";
 import {MatDialog} from "@angular/material/dialog";
-import * as L from "leaflet";
-import {MapComponent} from "../../shared/map/map.component";
 import {DatePipe} from "@angular/common";
 import {ReservationBookingDtoModel} from "../model/reservation-booking-dto.model";
 import {AuthService} from "../../authentication/auth.service";
-import {ReservationBookingResultDTO} from "../model/reservation-booking-result-dto.model";
-import {AccommodationWithAmenities} from "../model/accommodation-with-amenities.model";
+import {ReservationBookingResultDTO, ReservationStatus} from "../model/reservation-booking-result-dto.model";
 import {Availability} from "../model/availability.model";
 import {environment} from "../../../env/env";
-import {NgbCarousel} from "@ng-bootstrap/ng-bootstrap";
-import {NgbSlide} from "@ng-bootstrap/ng-bootstrap";
-import {DialogAccommodationFilterComponent} from "../dialog-accommodation-filter/dialog-accommodation-filter.component";
 import {ReviewDialogComponent} from "../../reviews/dialog/review-dialog-component";
 import {ReviewService} from "../../reviews/review.service";
 import {AccommodationDetails} from "../accommodation-creation/model/accomodationDetails.model";
 import {Review} from "../../reviews/review";
+import {NotificationService} from "../../notifications/notification.service";
+import {Notification} from "../../notifications/notification";
+import {NotificationType} from "../../notifications/notification.type";
 
 @Component({
   selector: 'app-accommodation-details',
@@ -42,7 +39,8 @@ export class AccommodationDetailsComponent {
 
   constructor(public authService: AuthService,private dataPipe: DatePipe,private route: ActivatedRoute,
               private accommodationService: AccommodationService, private mapService: MapService,
-              private router : Router, public dialog: MatDialog, public reviewService : ReviewService) {
+              private router : Router, public dialog: MatDialog, public reviewService : ReviewService
+              ,private notificationService : NotificationService) {
 
 
     this.reservation = new class implements ReservationBookingDtoModel {
@@ -152,9 +150,53 @@ export class AccommodationDetailsComponent {
 
         this.accommodationService.createReservation(this.reservation).subscribe({
           next: (data: ReservationBookingResultDTO) => {
+            this.checkInDate=null;
+            this.checkOutDate=null;
+            this.loadAvailabilities();
             alert(`Reservation: [Id: ${data.id}, \n Accommodation: ${data.accommodation}, \n Guest: ${data.guest},\n
         Start Date: ${data.startDate},\n End Date: ${data.endDate}, \n Number of Guests: ${data.numberOfGuests},\n
         Status: ${data.status},\n Price: ${data.price || 'N/A'}]`);
+            const notificationForOwner : Notification = new class implements Notification {
+              id: number;
+              message: string;
+              receiverEmail: string;
+              type: NotificationType;
+            };
+            notificationForOwner.message = data.guest + " created reservation of reservation with id: "+ data.id;
+            notificationForOwner.id = 0;
+            notificationForOwner.type = NotificationType.CREATE_RESERVATIONS;
+            notificationForOwner.receiverEmail = this.accommodation.ownerEmail;
+
+            const notificationForGuest : Notification = new class implements Notification {
+              id: number;
+              message: string;
+              receiverEmail: string;
+              type: NotificationType;
+            };
+            notificationForGuest.message = this.accommodation.ownerEmail + " accepted your reservation with id: "+ data.id;
+            notificationForGuest.id = 0;
+            notificationForGuest.type = NotificationType.CREATE_RESERVATIONS;
+            notificationForGuest.receiverEmail = this.authService.getUsername();
+
+            this.notificationService.createNotification(notificationForOwner).subscribe({
+              next: (data: Notification) => {
+                alert("Owner notified!")
+              },error:(_) =>{
+                alert("You cannot book that reservation!")
+              }
+            });
+            if(data.status == ReservationStatus.Accepted){
+              this.notificationService.createNotification(notificationForGuest).subscribe({
+                next: (data: Notification) => {
+                  alert("You have new notification!")
+                },error:(_) =>{
+                  alert("You cannot book that reservation!")
+                }
+              });
+            }
+
+
+
           },error:(_) =>{
             alert("You cannot book that reservation!")
           }
@@ -169,6 +211,7 @@ export class AccommodationDetailsComponent {
   }
 
   private loadAvailabilities() {
+    this.events = [];
     this.accommodationService.getAccommodationAvailability(this.accommodation.id).subscribe({
       next: (availabilities: Availability[]) => {
 

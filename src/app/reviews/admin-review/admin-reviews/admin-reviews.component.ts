@@ -6,7 +6,7 @@ import {GuestReservation} from "../../../reservation/guest-reservation/model/res
 import {Review} from "../../review";
 
 @Component({
-  selector: 'app-admin-reviews',
+  selector: 'app-notifications-page',
   templateUrl: './admin-reviews.component.html',
   styleUrls: ['./admin-reviews.component.css'],
 })

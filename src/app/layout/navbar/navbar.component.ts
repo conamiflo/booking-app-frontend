@@ -115,7 +115,18 @@ export class NavbarComponent {
       }});
   }
 
+
   redirectToAdminReports() {
     this.router.navigate(['admin/reports']);
   }
+
+  redirectToProfitStatistics() {
+    this.router.navigate(['owner/statistics']);
+  }
+
+  redirectToNotifications(){
+    this.router.navigate(['notifications/' + this.authService.getUsername()]);
+  }
+
+
 }
