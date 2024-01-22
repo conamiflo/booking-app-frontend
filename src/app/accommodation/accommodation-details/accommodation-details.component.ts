@@ -210,7 +210,7 @@ export class AccommodationDetailsComponent {
 
   }
 
-  private loadAvailabilities() {
+  public loadAvailabilities() {
     this.events = [];
     this.accommodationService.getAccommodationAvailability(this.accommodation.id).subscribe({
       next: (availabilities: Availability[]) => {
