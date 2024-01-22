@@ -1,283 +1,283 @@
-<div class="page-container">
-  <div class="page-page-container">
-    <div class="page-location-and-price">
-      <div class="page-frame124">
-        <div class="page-frame123">
-          <span class="page-accommodation-name"><span>{{accommodation.name}}</span></span>
-        </div>
-        <div class="page-frame129">
-          <div class="page-frame54">
-            <img
-              alt="Vector1226"
-              src="/assets/external/vector1226-jooip.svg"
-              class="cards-vector1"
-            />
-            <span class="page-accommodation-location">
-              <span>{{accommodation.location}}</span>
-            </span>
-          </div>
-        </div>
-        <div class="page-container1">
-          <div class="page-frame52">
-            <img
-              src="/assets/external/star2032-172d.svg"
-              alt="Star2057"
-              class="page-star"
-            />
-            <img
-              src="/assets/external/star2032-172d.svg"
-              alt="Star2057"
-              class="page-star1"
-            />
-            <img
-              src="/assets/external/star2032-172d.svg"
-              alt="Star2057"
-              class="page-star2"
-            />
-            <img
-              src="/assets/external/star2032-172d.svg"
-              alt="Star2057"
-              class="page-star3"
-            />
-            <img
-              src="/assets/external/star2032-172d.svg"
-              alt="Star2057"
-              class="page-star4"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="page-frame135">
-        <span class="page-accommodation-price"><span>${{accommodation.defaultPrice}}/night</span></span>
-        <div class="page-frame134">
-          <div class="page-stylelayer">
-            <img
-              src="/assets/external/heart-ico.png"
-              alt="heartI205"
-              class="page-heart"
-            />
-          </div>
-          <button class="page-button-upper">
-            <div class="page-stylelayer1">
-              <span class="page-text3 MontserratSemibold14px">
-                <span>Book now</span>
-              </span>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="page-photos">
-      <img [attr.alt]="accommodation.photos.at(0)"
-           [attr.src]="accommodation.photos.at(0)"
-           class="page-accommodation-image" />
-    </div>
+<!--<div class="page-container">-->
+<!--  <div class="page-page-container">-->
+<!--    <div class="page-location-and-price">-->
+<!--      <div class="page-frame124">-->
+<!--        <div class="page-frame123">-->
+<!--          <span class="page-accommodation-name"><span>{{accommodation.name}}</span></span>-->
+<!--        </div>-->
+<!--        <div class="page-frame129">-->
+<!--          <div class="page-frame54">-->
+<!--            <img-->
+<!--              alt="Vector1226"-->
+<!--              src="/assets/external/vector1226-jooip.svg"-->
+<!--              class="cards-vector1"-->
+<!--            />-->
+<!--            <span class="page-accommodation-location">-->
+<!--              <span>{{accommodation.location}}</span>-->
+<!--            </span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="page-container1">-->
+<!--          <div class="page-frame52">-->
+<!--            <img-->
+<!--              src="/assets/external/star2032-172d.svg"-->
+<!--              alt="Star2057"-->
+<!--              class="page-star"-->
+<!--            />-->
+<!--            <img-->
+<!--              src="/assets/external/star2032-172d.svg"-->
+<!--              alt="Star2057"-->
+<!--              class="page-star1"-->
+<!--            />-->
+<!--            <img-->
+<!--              src="/assets/external/star2032-172d.svg"-->
+<!--              alt="Star2057"-->
+<!--              class="page-star2"-->
+<!--            />-->
+<!--            <img-->
+<!--              src="/assets/external/star2032-172d.svg"-->
+<!--              alt="Star2057"-->
+<!--              class="page-star3"-->
+<!--            />-->
+<!--            <img-->
+<!--              src="/assets/external/star2032-172d.svg"-->
+<!--              alt="Star2057"-->
+<!--              class="page-star4"-->
+<!--            />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="page-frame135">-->
+<!--        <span class="page-accommodation-price"><span>${{accommodation.defaultPrice}}/night</span></span>-->
+<!--        <div class="page-frame134">-->
+<!--          <div class="page-stylelayer">-->
+<!--            <img-->
+<!--              src="/assets/external/heart-ico.png"-->
+<!--              alt="heartI205"-->
+<!--              class="page-heart"-->
+<!--            />-->
+<!--          </div>-->
+<!--          <button class="page-button-upper">-->
+<!--            <div class="page-stylelayer1">-->
+<!--              <span class="page-text3 MontserratSemibold14px">-->
+<!--                <span>Book now</span>-->
+<!--              </span>-->
+<!--            </div>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="page-photos">-->
+<!--      <img [attr.alt]="accommodation.photos.at(0)"-->
+<!--           [attr.src]="accommodation.photos.at(0)"-->
+<!--           class="page-accommodation-image" />-->
+<!--    </div>-->
 
-<div class="description-booking-container">
-  <div class="page-desctiption-frame">
-    <span class="page-text5"><span>About this apartment</span></span>
-    <span class="page-accommodation-description">
-        <span><p></p>
-          <b>Minimum guests: {{accommodation.minGuests}}</b><p></p>
-          <b>Maximum guests: {{accommodation.maxGuests}}</b>
-          <p></p>
-          <p></p>
-          {{accommodation.description}}
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-          mattis molestie eros in commodo. Quisque non ullamcorper ligula. Sed a
-          leo maximus, sodales lectus at, laoreet nibh. Praesent vitae massa eu
-          lacus consequat scelerisque in vel dolor. Fusce dictum neque at
-          dignissim euismod. Duis ac gravida risus. Nullam vestibulum
-          consectetur porttitor. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Aliquam mattis molestie eros in commodo. Quisque non
-          ullamcorper ligula. Sed a leo maximus, sodales lectus at, laoreet
-          nibh. Praesent vitae massa eu lacus consequat scelerisque in vel
-          dolor. Fusce dictum neque at dignissim euismod. Duis ac gravida risus.
-          Nullam vestibulum consectetur porttitor.
-          <span></span>
-          <p></p><p></p>
-        </span>
-      </span>
-  </div>
+<!--<div class="description-booking-container">-->
+<!--  <div class="page-desctiption-frame">-->
+<!--    <span class="page-text5"><span>About this apartment</span></span>-->
+<!--    <span class="page-accommodation-description">-->
+<!--        <span><p></p>-->
+<!--          <b>Minimum guests: {{accommodation.minGuests}}</b><p></p>-->
+<!--          <b>Maximum guests: {{accommodation.maxGuests}}</b>-->
+<!--          <p></p>-->
+<!--          <p></p>-->
+<!--          {{accommodation.description}}-->
+<!--          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam-->
+<!--          mattis molestie eros in commodo. Quisque non ullamcorper ligula. Sed a-->
+<!--          leo maximus, sodales lectus at, laoreet nibh. Praesent vitae massa eu-->
+<!--          lacus consequat scelerisque in vel dolor. Fusce dictum neque at-->
+<!--          dignissim euismod. Duis ac gravida risus. Nullam vestibulum-->
+<!--          consectetur porttitor. Lorem ipsum dolor sit amet, consectetur-->
+<!--          adipiscing elit. Aliquam mattis molestie eros in commodo. Quisque non-->
+<!--          ullamcorper ligula. Sed a leo maximus, sodales lectus at, laoreet-->
+<!--          nibh. Praesent vitae massa eu lacus consequat scelerisque in vel-->
+<!--          dolor. Fusce dictum neque at dignissim euismod. Duis ac gravida risus.-->
+<!--          Nullam vestibulum consectetur porttitor.-->
+<!--          <span></span>-->
+<!--          <p></p><p></p>-->
+<!--        </span>-->
+<!--      </span>-->
+<!--  </div>-->
 
-  <div class="booking-form-container">
-    <div class="booking-form">
-      <span class="page-text008"><span>Check In</span></span>
+<!--  <div class="booking-form-container">-->
+<!--    <div class="booking-form">-->
+<!--      <span class="page-text008"><span>Check In</span></span>-->
 
-      <mat-form-field>
-        <input matInput [matDatepickerFilter]="filter" [matDatepicker]="checkInPicker" [(ngModel)]="checkInDate" placeholder="Choose a check in date">
-        <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>
-        <mat-datepicker #checkInPicker></mat-datepicker>
-      </mat-form-field>
+<!--      <mat-form-field>-->
+<!--        <input matInput [matDatepickerFilter]="filter" [matDatepicker]="checkInPicker" [(ngModel)]="checkInDate" placeholder="Choose a check in date">-->
+<!--        <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>-->
+<!--        <mat-datepicker #checkInPicker></mat-datepicker>-->
+<!--      </mat-form-field>-->
 
-      <span class="page-text008"><span>Check Out</span></span>
+<!--      <span class="page-text008"><span>Check Out</span></span>-->
 
-      <mat-form-field>
-        <input matInput [matDatepickerFilter]="filter" [matDatepicker]="checkOutPicker" [(ngModel)]="checkOutDate" placeholder="Choose a check out date">
-        <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
-        <mat-datepicker #checkOutPicker></mat-datepicker>
-      </mat-form-field>
-
-
-      <span class="page-text008"><span>Number of Guests</span></span>
-
-      <div class="cards-guestsdropdown">
-        <img
-          alt="Vector1246"
-          src="/assets/external/vector1246-yfdf.svg"
-          class="cards-vector"
-        />
-        <input type="range" min="1" max="12"
-               class="cards-matinputslot"
-               [(ngModel)]="numberOfGuests"
-        >
-        <div class="cards-maticon">{{numberOfGuests}}
-        </div>
-      </div>
+<!--      <mat-form-field>-->
+<!--        <input matInput [matDatepickerFilter]="filter" [matDatepicker]="checkOutPicker" [(ngModel)]="checkOutDate" placeholder="Choose a check out date">-->
+<!--        <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>-->
+<!--        <mat-datepicker #checkOutPicker></mat-datepicker>-->
+<!--      </mat-form-field>-->
 
 
-      <button class="page-button" (click)="bookReservation($event)">
-        <div class="page-stylelayer1">
-                  <span class="page-text3 MontserratSemibold14px">
-                    <span>Book now</span>
-                  </span>
-        </div>
-      </button>
+<!--      <span class="page-text008"><span>Number of Guests</span></span>-->
 
-    </div>
-  </div>
-</div>
-
-
-    <span class="page-text008"><span>Location</span></span>
-
-    <div class="location-maps">
-      <app-map [locationToSearch]="accommodation.location"></app-map>
-    </div>
+<!--      <div class="cards-guestsdropdown">-->
+<!--        <img-->
+<!--          alt="Vector1246"-->
+<!--          src="/assets/external/vector1246-yfdf.svg"-->
+<!--          class="cards-vector"-->
+<!--        />-->
+<!--        <input type="range" min="1" max="12"-->
+<!--               class="cards-matinputslot"-->
+<!--               [(ngModel)]="numberOfGuests"-->
+<!--        >-->
+<!--        <div class="cards-maticon">{{numberOfGuests}}-->
+<!--        </div>-->
+<!--      </div>-->
 
 
-    <div class="page-frame250">
-      <div class="page-frame168">
-        <span class="page-text164"><span>4.5/5</span></span>
-        <div class="page-frame521">
-          <img
-            alt="Star2032"
-            src="/assets/external/star2032-172d.svg"
-            class="page-star05"
-          />
-          <img
-            alt="Star2032"
-            src="/assets/external/star2032-oegf.svg"
-            class="page-star06"
-          />
-          <img
-            alt="Star2032"
-            src="/assets/external/star2032-d4m.svg"
-            class="page-star07"
-          />
-          <img
-            alt="Star2032"
-            src="/assets/external/star2032-zaoa.svg"
-            class="page-star08"
-          />
-          <img
-            alt="Star2032"
-            src="/assets/external/star2032-otq6.svg"
-            class="page-star09"
-          />
-        </div>
-        <div class="page-frame169">
-          <span class="page-text166"><span>Very good</span></span>
-          <span class="page-text168"><span>2 reviews</span></span>
-        </div>
-        <span class="page-text170"><span>Ratings &amp; Reviews</span></span>
-      </div>
-      <div class="page-frame251">
-        <div class="page-frame249">
-          <span class="page-text172"><span>Erin Septimus</span></span>
-          <div class="page-frame">
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-nc2m.svg"
-              class="page-vector"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-6ulc.svg"
-              class="page-vector01"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-0rp.svg"
-              class="page-vector02"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-iqap.svg"
-              class="page-vector03"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-nc2m.svg"
-              class="page-vector04"
-            />
-          </div>
-        </div>
-        <span class="page-text174">
-          <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-            mattis molestie eros in commodo. Quisque non ullamcorper ligula. Sed
-            a leo maximus, sodales lectus at, laoreet nibh. Praesent vitae massa
-            eu lacus consequat scelerisque in vel dolor. Fusce dictum neque at
-            dignissim euismod. Duis ac gravida risus. Nullam vestibulum
-            consectetur porttitor. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
-          </span>
-        </span>
-      </div>
-      <div class="page-frame252">
-        <div class="page-frame2491">
-          <span class="page-text176"><span>Kaiya Lubin</span></span>
-          <div class="page-frame1">
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-b57m.svg"
-              class="page-vector05"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-8htb.svg"
-              class="page-vector06"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-mege.svg"
-              class="page-vector07"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-opbr.svg"
-              class="page-vector08"
-            />
-            <img
-              alt="Vector2032"
-              src="/assets/external/vector2032-b57m.svg"
-              class="page-vector09"
-            />
-          </div>
-        </div>
-        <span class="page-text178">
-          <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-            mattis molestie eros in commodo. Quisque non ullamcorper ligula. Sed
-            a leo maximus, sodales lectus at, laoreet nibh. Praesent vitae massa
-            eu lacus consequat scelerisque in vel dolor. Fusce dictum neque at
-            dignissim euismod. Duis ac gravida risus. Nullam vestibulum
-            consectetur porttitor. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
-          </span>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
+<!--      <button class="page-button" (click)="bookReservation($event)">-->
+<!--        <div class="page-stylelayer1">-->
+<!--                  <span class="page-text3 MontserratSemibold14px">-->
+<!--                    <span>Book now</span>-->
+<!--                  </span>-->
+<!--        </div>-->
+<!--      </button>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<!--    <span class="page-text008"><span>Location</span></span>-->
+
+<!--    <div class="location-maps">-->
+<!--      <app-map [locationToSearch]="accommodation.location"></app-map>-->
+<!--    </div>-->
+
+
+<!--    <div class="page-frame250">-->
+<!--      <div class="page-frame168">-->
+<!--        <span class="page-text164"><span>4.5/5</span></span>-->
+<!--        <div class="page-frame521">-->
+<!--          <img-->
+<!--            alt="Star2032"-->
+<!--            src="/assets/external/star2032-172d.svg"-->
+<!--            class="page-star05"-->
+<!--          />-->
+<!--          <img-->
+<!--            alt="Star2032"-->
+<!--            src="/assets/external/star2032-oegf.svg"-->
+<!--            class="page-star06"-->
+<!--          />-->
+<!--          <img-->
+<!--            alt="Star2032"-->
+<!--            src="/assets/external/star2032-d4m.svg"-->
+<!--            class="page-star07"-->
+<!--          />-->
+<!--          <img-->
+<!--            alt="Star2032"-->
+<!--            src="/assets/external/star2032-zaoa.svg"-->
+<!--            class="page-star08"-->
+<!--          />-->
+<!--          <img-->
+<!--            alt="Star2032"-->
+<!--            src="/assets/external/star2032-otq6.svg"-->
+<!--            class="page-star09"-->
+<!--          />-->
+<!--        </div>-->
+<!--        <div class="page-frame169">-->
+<!--          <span class="page-text166"><span>Very good</span></span>-->
+<!--          <span class="page-text168"><span>2 reviews</span></span>-->
+<!--        </div>-->
+<!--        <span class="page-text170"><span>Ratings &amp; Reviews</span></span>-->
+<!--      </div>-->
+<!--      <div class="page-frame251">-->
+<!--        <div class="page-frame249">-->
+<!--          <span class="page-text172"><span>Erin Septimus</span></span>-->
+<!--          <div class="page-frame">-->
+<!--            <img-->
+<!--              alt="Vector2032"-->
+<!--              src="/assets/external/vector2032-nc2m.svg"-->
+<!--              class="page-vector"-->
+<!--            />-->
+<!--            <img-->
+<!--              alt="Vector2032"-->
+<!--              src="/assets/external/vector2032-6ulc.svg"-->
+<!--              class="page-vector01"-->
+<!--            />-->
+<!--            <img-->
+<!--              alt="Vector2032"-->
+<!--              src="/assets/external/vector2032-0rp.svg"-->
+<!--              class="page-vector02"-->
+<!--            />-->
+<!--            <img-->
+<!--              alt="Vector2032"-->
+<!--              src="/assets/external/vector2032-iqap.svg"-->
+<!--              class="page-vector03"-->
+<!--            />-->
+<!--            <img-->
+<!--              alt="Vector2032"-->
+<!--              src="/assets/external/vector2032-nc2m.svg"-->
+<!--              class="page-vector04"-->
+<!--            />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <span class="page-text174">-->
+<!--          <span>-->
+<!--            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam-->
+<!--            mattis molestie eros in commodo. Quisque non ullamcorper ligula. Sed-->
+<!--            a leo maximus, sodales lectus at, laoreet nibh. Praesent vitae massa-->
+<!--            eu lacus consequat scelerisque in vel dolor. Fusce dictum neque at-->
+<!--            dignissim euismod. Duis ac gravida risus. Nullam vestibulum-->
+<!--            consectetur porttitor. Lorem ipsum dolor sit amet, consectetur-->
+<!--            adipiscing elit.-->
+<!--          </span>-->
+<!--        </span>-->
+<!--      </div>-->
+<!--      <div class="page-frame252">-->
+<!--        <div class="page-frame2491">-->
+<!--          <span class="page-text176"><span>Kaiya Lubin</span></span>-->
+<!--          <div class="page-frame1">-->
+<!--            <img-->
+<!--              alt="Vector2032"-->
+<!--              src="/assets/external/vector2032-b57m.svg"-->
+<!--              class="page-vector05"-->
+<!--            />-->
+<!--            <img-->
+<!--              alt="Vector2032"-->
+<!--              src="/assets/external/vector2032-8htb.svg"-->
+<!--              class="page-vector06"-->
+<!--            />-->
+<!--            <img-->
+<!--              alt="Vector2032"-->
+<!--              src="/assets/external/vector2032-mege.svg"-->
+<!--              class="page-vector07"-->
+<!--            />-->
+<!--            <img-->
+<!--              alt="Vector2032"-->
+<!--              src="/assets/external/vector2032-opbr.svg"-->
+<!--              class="page-vector08"-->
+<!--            />-->
+<!--            <img-->
+<!--              alt="Vector2032"-->
+<!--              src="/assets/external/vector2032-b57m.svg"-->
+<!--              class="page-vector09"-->
+<!--            />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <span class="page-text178">-->
+<!--          <span>-->
+<!--            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam-->
+<!--            mattis molestie eros in commodo. Quisque non ullamcorper ligula. Sed-->
+<!--            a leo maximus, sodales lectus at, laoreet nibh. Praesent vitae massa-->
+<!--            eu lacus consequat scelerisque in vel dolor. Fusce dictum neque at-->
+<!--            dignissim euismod. Duis ac gravida risus. Nullam vestibulum-->
+<!--            consectetur porttitor. Lorem ipsum dolor sit amet, consectetur-->
+<!--            adipiscing elit.-->
+<!--          </span>-->
+<!--        </span>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
