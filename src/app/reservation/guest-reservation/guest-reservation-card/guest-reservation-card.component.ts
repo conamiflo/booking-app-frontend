@@ -74,7 +74,6 @@ export class GuestReservationComponent implements OnChanges{
         notificationForOwner.receiverEmail = this.accommodation.ownerEmail;
         this.notificationService.createNotification(notificationForOwner).subscribe({
           next: (data: Notification) => {
-            alert("Owner notified!")
           },error:(_) =>{
             alert("You cannot cancel that reservation!")
           }

@@ -48,7 +48,7 @@
         </ng-container>
         <ng-container *ngIf="isLoggedInGuest()">
           <div class="links">
-            <span class="reservations-link" (click)="redirectToReservations()">RESERVATIONS</span>
+            <span class="reservations-link" id="my-reservations" (click)="redirectToReservations()">RESERVATIONS</span>
             <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
 
           </div>
@@ -134,7 +134,7 @@
       </div>
 
       <div class="logout-container">
-        <button class="loginBtn" (click)="logout()">Log out</button>
+        <button class="loginBtn" (click)="logout()" id="log-out-button">Log out</button>
       </div>
 
 

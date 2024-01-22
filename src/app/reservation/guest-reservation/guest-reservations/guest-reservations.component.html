@@ -74,7 +74,7 @@
       </div>
       <div class="guest-reservations-guest-reservations">
         <div *ngFor="let guestReservation of guestReservations">
-          <app-guest-reservation-card [guestReservation]="guestReservation" (deleteReservation)="onDeleteReservation($event)"></app-guest-reservation-card>
+          <app-guest-reservation-card [guestReservation]="guestReservation" (deleteReservation)="onDeleteReservation($event)" id="guest-reservation-card"></app-guest-reservation-card>
         </div>
       </div>
     </div>
