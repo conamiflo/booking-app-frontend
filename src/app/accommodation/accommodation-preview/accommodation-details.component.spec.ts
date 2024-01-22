@@ -1,21 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AccommodationDetailsComponent } from './accommodation-details.component';
 
 describe('AccommodationDetailsComponent', () => {
-  let component: AccommodationDetailsComponent;
-  let fixture: ComponentFixture<AccommodationDetailsComponent>;
-
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AccommodationDetailsComponent]
+      declarations: [AccommodationDetailsComponent],
+      imports: [HttpClientTestingModule]  // Use HttpClientTestingModule instead of HttpClientModule
     });
-    fixture = TestBed.createComponent(AccommodationDetailsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    const fixture = TestBed.createComponent(AccommodationDetailsComponent);
+    const component = fixture.componentInstance;
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

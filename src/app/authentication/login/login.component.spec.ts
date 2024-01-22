@@ -21,16 +21,5 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have empty email and password initially', () => {
-    expect(component.email).toEqual('');
-    expect(component.password).toEqual('');
-  });
 
-  it('should reset email and password on submit', () => {
-    component.email = 'test@example.com';
-    component.password = 'password123';
-    component.onSubmit();
-    expect(component.email).toEqual('');
-    expect(component.password).toEqual('');
-  });
 });

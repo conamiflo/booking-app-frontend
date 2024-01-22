@@ -15,6 +15,7 @@ import {Availability} from "../model/availability.model";
 @Component({
   selector: 'app-accommodation-details',
   templateUrl: './accommodation-details.component.html',
+  standalone: true,
   styleUrls: ['./accommodation-preview.component.css']
 })
 export class AccommodationDetailsComponent {
@@ -32,11 +33,11 @@ export class AccommodationDetailsComponent {
 
     this.reservation = new class implements ReservationBookingDtoModel {
       accommodation: number;
-      endDate: string;
+      endDate: number;
       guest: string;
       id: number;
       numberOfGuests: number;
-      startDate: string;
+      startDate: number;
     }
 
   }
@@ -89,10 +90,10 @@ export class AccommodationDetailsComponent {
     this.reservation.guest = this.authService.getUsername();
 
     if (this.checkInString != null) {
-      this.reservation.startDate = this.checkInString;
+      this.reservation.startDate = Number(this.checkInString);
     }
     if (this.checkOutString != null) {
-      this.reservation.endDate = this.checkOutString;
+      this.reservation.endDate = Number(this.checkOutString);
     }
 
 
@@ -114,8 +115,8 @@ export class AccommodationDetailsComponent {
 
         for(let i = 0; i < availabilities.length; i++){
 
-          const startDate = new Date(availabilities[i].timeSlot.startDate);
-          const endDate = new Date(availabilities[i].timeSlot.endDate);
+          const startDate = new Date(availabilities[i].timeSlot.startEpochTime);
+          const endDate = new Date(availabilities[i].timeSlot.endEpochTime);
           console.log(i+"start"+startDate);
 
           console.log(i+"end"+endDate);
