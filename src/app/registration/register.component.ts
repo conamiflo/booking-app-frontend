@@ -13,7 +13,7 @@ import {GuestReservation} from "../reservation/guest-reservation/model/reservati
 })
 export class RegisterComponent implements OnInit{
   registrationForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,private registerService: RegistrationService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, public registerService: RegistrationService, private router: Router) {
   }
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({

@@ -24,7 +24,7 @@
         <form [formGroup]="registrationForm" class = "register-form" (ngSubmit)="onSubmit()">
         <div class="formcontainer">
           <div class="inputscontainer">
-            <button type="submit" class="signupbtn button">
+            <button type="submit" class="signupbtn button" id="sign-up-btn" [disabled]="!registrationForm.valid">
               <div class="content1">
                 <span class="text04 vTextbutton">SIGN UP</span>
               </div>
