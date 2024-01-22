@@ -133,7 +133,7 @@ describe('AccommodationDetailsComponent', () => {
     tick();
 
     expect(accommodationService.createReservation).toHaveBeenCalledOnceWith(jasmine.any(Object));
-    expect(notificationService.createNotification).toHaveBeenCalledTimes(2); 
+    expect(notificationService.createNotification).toHaveBeenCalledTimes(2);
     expect(component.loadAvailabilities).toHaveBeenCalled();
 
     expect(component.checkInDate).toBeNull();

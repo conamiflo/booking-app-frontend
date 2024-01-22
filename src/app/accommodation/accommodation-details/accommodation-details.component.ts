@@ -207,7 +207,6 @@ export class AccommodationDetailsComponent {
     } else {
       console.log('One or both strings are null or empty.');
     }
-
   }
 
   public loadAvailabilities() {
