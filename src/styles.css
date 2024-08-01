@@ -1,3 +1,6 @@
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
 :root {
   --dl-color-gray-500: #595959;
   --dl-color-gray-700: #999999;
@@ -140,3 +143,9 @@
   font-weight: 400;
   font-stretch: normal;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

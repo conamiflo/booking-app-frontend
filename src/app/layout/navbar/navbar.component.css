@@ -1,0 +1,229 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Set a high z-index value */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  color: #333;
+  border-bottom: 2px solid rgba(241, 90, 42, 1);
+}
+.profile-nav-container{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+}
+.profile-image-container{
+  height: 100%;
+  width: 26px;
+
+}
+
+.logout-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.options-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  padding-right: 40px;
+  padding-left: 40px;
+  gap: 10px;
+}
+.profile-image-container :hover{
+  cursor: pointer;
+}
+
+.profile-image{
+  height: 100%;
+  width: 100%;
+}
+.profile-image :hover{
+  cursor: pointer;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+
+  padding-left: 50px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-name {
+  font-size: 28px;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.navbar-right {
+  padding-right: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+}
+
+.company-logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 28px;
+  text-align: center;
+  font-family: Lato;
+  font-weight: 1000;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: rgba(241, 90, 42, 1);
+  color: rgba(241, 90, 42, 1);
+}
+
+.company-info:hover{
+  cursor: pointer;
+}
+
+.loginBtn{
+  color: var(--dl-color-shades-white);
+  text-align: center;
+  line-height: 36px;
+  font-size: 20px;
+  width: 104px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  background-color: rgba(241, 90, 42, 1);
+  border: none;
+}
+
+.loginBtn:hover{
+  cursor: pointer;
+}
+.dialog-header{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 80px;
+  background-color: #f5a58c;
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+.profile-image-container-dialog{
+  background-color: white;
+  width:70px;
+  height:70px;
+  padding: 15px;
+  margin-bottom: -35px;
+  border-radius: 40px;
+}
+
+.links{
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: rgb(77, 77, 77);
+  color: rgb(90, 90, 90);
+  justify-content: space-between;
+  width:100%
+}
+
+.profile-link{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.profile-link:hover {
+  cursor: pointer;
+}
+.divider {
+  width: 1px;
+  height: 45px;
+  background-color: rgba(241, 90, 42, 1);
+  margin: 0 10px;
+}
+
+.reservations-link{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.reservations-link:hover {
+  cursor: pointer;
+}
+
+
+
+.dialog-content {
+  position:fixed;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  margin-right:50px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 30%;
+}
+.dialog-container{
+  margin-top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: end;
+}
+.dialog-closer{
+  position: absolute;
+  z-index: 9998;
+  width: 100%;
+  height: 100%;
+}

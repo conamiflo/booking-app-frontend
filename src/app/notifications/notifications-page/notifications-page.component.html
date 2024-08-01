@@ -1,0 +1,15 @@
+<div class="guest-reservations-container">
+  <div class="guest-reservations-desktop41">
+    <img src alt="Rectangle55261" class="guest-reservations-rectangle5" />
+    <div class="guest-reservations-reservations">
+      <span class="guest-reservations-text">
+        <span>Notifications</span>
+      </span>
+      <div class="guest-reservations-guest-reservations">
+        <div *ngFor="let notification of notifications">
+          <app-notifications-page-card [notification]="notification"></app-notifications-page-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

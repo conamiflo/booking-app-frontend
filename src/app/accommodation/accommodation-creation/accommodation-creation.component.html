@@ -1,0 +1,299 @@
+<div class="page1-container">
+  <div class="page1-frame31-createappartmentwindow">
+    <form [formGroup]="accommodationCreationForm" (ngSubmit)="onSubmit()">
+    <div class="page1-rectangle2">
+      <div class="page1-mattextareaslot">
+
+        <div class="page1-apartmantnamematinputslot">
+          <div class="page1-apartman-name-frame">
+            <span>Appartment Name</span>
+            <input
+              type="text"
+              class="page1-matinputslot"
+              formControlName="appartmentName"
+            />
+          </div>
+        </div>
+        <div class="page1-descriptionmattextareaslot">
+          <div class="page1-frame">
+            <span>Description</span>
+
+            <textarea type="textArea"
+                      class="page1-matinputslot01"
+                      formControlName="description">
+
+            </textarea>
+          </div>
+        </div>
+        <div class="page1-typeapartmanmatselectslot">
+          <div class="page1-frame1">
+            <span>Appartment type</span>
+              <select type="text"
+                  class="page1-matinputslot02"
+                      formControlName="type">
+                <option>Studio</option>
+                <option>OneBedroom</option>
+                <option>TwoBedroom</option>
+                <option>PentHouse</option>
+              </select>
+
+          </div>
+        </div>
+        <div class="page1-amenity-tablesmatbody">
+          <span class="page1-amenitiestext vTextbody-1">Amenities</span>
+          <span class="page1-selected-amenitiestext">
+            <span class="vTextbody-1">Selected Amenities</span>
+            <br />
+          </span>
+        </div>
+        <div class="page1-amenity-tablesmatbody1">
+          <div class="tableDiv">
+            <table>
+              <thead>
+              <tr>
+                <th>Id</th>
+                <th>Amenity</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let amenity of allAmenities">
+                <td>{{ amenity.id }}</td>
+                <td>{{ amenity.name }}</td>
+                <td>
+                  <button class="page1-add-amenitymatbtn" (click)="addToSelectedAmenities(amenity)">Select</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tableDiv">
+            <table>
+              <thead>
+              <tr>
+                <th>Id</th>
+                <th>Amenity</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let amenity of selectedAmenities; let i = index">
+                <td>{{ amenity.id }}</td>
+                <td>{{ amenity.name }}</td>
+                <td>
+                  <button class="page1-remove-amenitymatbtn" (click)="deleteSelectedRow(i)">Delete</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="page1-locationmatinputslot">
+          <div class="page1-frame2">
+            <span>Location</span>
+            <input
+              type="text"
+              class="page1-matinputslot03"
+              formControlName="location"
+            />
+          </div>
+          <div class="page1-matdivider3"></div>
+        </div>
+        <div class="page1-min-guestsmatinputslot">
+          <div class="page1-frame3">
+            <span>Min guest number</span>
+            <input
+              type="text"
+              class="page1-matinputslot04"
+              formControlName="minGuests"
+            />
+          </div>
+          <div class="page1-matdivider4"></div>
+        </div>
+        <div class="page1-maxguestmatinputslot">
+          <div class="page1-frame4">
+            <span>Max guest number</span>
+            <input
+              type="text"
+              class="page1-matinputslot05"
+              formControlName="maxGuests"
+            />
+          </div>
+          <div class="page1-matdivider5"></div>
+        </div>
+        <div class="page1-pricematinputslot">
+          <div class="page1-frame5">
+            <span>Default price</span>
+            <input
+              type="text"
+              class="page1-matinputslot08"
+              formControlName="defaultPrice"
+            />
+          </div>
+        </div>
+        <div class="page1-pricematinputslot">
+          <div class="page1-frame5">
+            <span>Cancellation days</span>
+            <input
+              type="text"
+              class="page1-matinputslot08"
+              formControlName="cancellationDays"
+            />
+          </div>
+        </div>
+        <button class="page1-matbtn" (click)="createAccommodation()" >
+          <div class="page1-content5">
+            <span class="page1-text35 vTextbutton"><span>confirm</span></span>
+          </div>
+        </button>
+      </div>
+      <div class="page1-mattextareaslot1">
+        <div class="page1-imagesmatbody">
+          <span class="page1-text09">
+            <span>Add images</span>
+            <input type="file" multiple (change)="imageChoosenChanged($event)"
+                   formControlName="pictures">
+            <br />
+          </span>
+        </div>
+        <div class="page1-images-tablematbody">
+          <div class="tableDiv">
+            <table>
+              <thead>
+              <tr>
+                <th>Pictures</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let picture of uploadedPictures; let i = index">
+                <td>{{ picture.name }}</td>
+                <td><button class="page1-remove-amenitymatbtn1" (click)="deletePicture(i)">Delete</button></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <span class="page1-text15 vTextsubtitle-2"><span>Available</span></span>
+        <div class="page1-availabilitymatbody">
+          <div class="calendar-start input">
+            <input
+              type="date"
+              placeholder="From"
+              class="available-start-input"
+              onFocus="(this.type='date')"
+              onBlur="(this.type='text')"
+              formControlName="availableFrom"
+            />
+          </div>
+          <div class="calendar-end input">
+            <input
+              type="date"
+              placeholder="To"
+              class="available-end-input"
+              onFocus="(this.type='date')"
+              onBlur="(this.type='text')"
+              formControlName="availableTo"
+            />
+          </div>
+
+        </div>
+        <button class="page1-add-pricematbtn1"  (click)="addAvailability()">
+          <div class="page1-content4">
+            <span class="page1-text33 vTextbutton"><span>Add</span></span>
+          </div>
+        </button>
+        <div class="page1-images-tablematbody">
+          <table class="tableDiv">
+            <thead>
+            <tr>
+              <th>From</th>
+              <th>To</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <tr *ngFor="let a of availability; let i = index">
+              <td>{{ a.from}}</td>
+              <td>{{ a.to }}</td>
+              <td>
+                <button class="page1-remove-amenitymatbtn1" (click)="removeAvailability(i)">Remove</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <span class="page1-text23 vTextbody-1"><span>Price list</span></span>
+        <div class="page1-pricematinputslot">
+          <div class="page1-frame5">
+            <span>Price</span>
+            <input
+              type="text"
+              class="page1-matinputslot08"
+              formControlName="price"
+            />
+          </div>
+        </div>
+        <div class="page1-price-typematbody">
+          <label for="pg">PER GUEST</label>
+          <input type="radio" class="page1-text25" name="priceType" id="pg"  formControlName="priceType" [value]="'PER_GUEST'">
+          <label for="pu">PER UNIT</label>
+          <input type="radio" class="page1-text25" name="priceType" id="pu"  formControlName="priceType" [value]="'PER_UNIT'">
+        </div>
+        <div class="page1-availabilitymatbody1">
+          <div class="calendar-start input">
+            <input
+              type="date"
+              placeholder="From"
+              class="available-start-input"
+              onFocus="(this.type='date')"
+              onBlur="(this.type='text')"
+              formControlName="priceFrom"
+            />
+          </div>
+          <div class="calendar-end input">
+            <input
+              type="date"
+              placeholder="To"
+              class="available-end-input"
+              onFocus="(this.type='date')"
+              onBlur="(this.type='text')"
+              formControlName="priceTo"
+            />
+          </div>
+        </div>
+        <button class="page1-add-pricematbtn1"  (click)="addPrice()">
+          <div class="page1-content4">
+            <span class="page1-text33 vTextbutton"><span>Add</span></span>
+          </div>
+        </button>
+        <div class="page1-images-tablematbody">
+          <table class="tableDiv">
+            <thead>
+              <tr>
+                <th>Price</th>
+                <th>From</th>
+                <th>To</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <tr *ngFor="let price of prices; let i = index">
+              <td>{{ price.price }}</td>
+              <td>{{ price.from}}</td>
+              <td>{{ price.to }}</td>
+              <td>
+                <button class="page1-remove-amenitymatbtn1" (click)="removePrice(i)">Remove</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div *ngIf="showCard" class="guest-reservation-component-frame150">
+  <div class="guest-reservation-component-accommodation-info">
+    <img
+      [attr.src]="environment.apiImagesLocation+accommodation.photos.at(0)"
+      class="guest-reservation-component-rectangle18"
+    />
+    <span class="guest-reservation-component-accommodation-name" (click)="accommodationPreview()">
+      {{ accommodation.name}}
+    </span>
+  </div>
+  <div class="guest-reservation-component-guest-info">
+    <span class="guest-reservation-component-text">{{ accommodation.ownerEmail }}</span>
+    <img
+      src="/assets/external/person.svg"
+      class="guest-reservation-component-person-logo"
+    />
+  </div>
+  <div class="guest-reservation-component-date-info">
+    <span class="guest-reservation-component-start-date">
+      <span>{{accommodation.status.toString()}}</span>
+    </span>
+  </div>
+  <div class="guest-reservation-component-date2-info">
+    <span class="guest-reservation-component-start-date">
+      <span>{{accommodation.type}}</span>
+    </span>
+  </div>
+  <div class="guest-reservation-component-status-info">
+      <div class="guest-reservation-component-stylelayer button" (click)="acceptRequest()">
+        <span class="guest-reservation-component-text5">Accept</span>
+      </div>
+    <div class="guest-reservation-component-stylelayer button" (click)="declineRequest()">
+        <span class="guest-reservation-component-text5">
+          <span class="guest-reservation-component-text5">Decline</span>
+        </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="guest-reservation-component-frame150">
+  <div class="guest-reservation-component-accommodation-info">
+    <img
+      src="/assets/external/accommodations/1/1.jpg"
+      class="guest-reservation-component-rectangle18"
+    />
+    <span class="guest-reservation-component-accommodation-name">
+      {{ guestReservation.accommodation}}
+    </span>
+  </div>
+  <div class="reservation-status-container">
+    <span>{{ guestReservation.status }}</span>
+  </div>
+  <div class="guest-reservation-component-guest-info">
+    <span class="guest-reservation-component-text">{{ guestReservation.numberOfGuests }}</span>
+    <img
+      src="/assets/external/person.svg"
+      class="guest-reservation-component-person-logo"
+    />
+  </div>
+  <div class="guest-reservation-component-date-info">
+    <img
+      src="/assets/external/uiwdate1246-3quh.svg"
+      class="guest-reservation-component-date-logo"
+    />
+    <span class="guest-reservation-component-start-date">
+      <span>{{guestReservation.startDate}}</span>
+    </span>
+    <span class="guest-reservation-component-end-date">
+      <span>{{guestReservation.endDate}}</span>
+    </span>
+    <span class="guest-reservation-component-text3"> - </span>
+  </div>
+
+  <div class="guest-reservation-component-status-info">
+    <div class="price-container">
+      <span class="guest-reservation-component-price MontserratSemibold24px">
+      <span>${{guestReservation.price.toString()}}</span>
+    </span>
+    </div>
+
+    <button *ngIf="cancelable" [disabled]="!cancelable"  class="guest-reservation-component-status-button button" (click)="cancelReservation()">
+      <div class="guest-reservation-component-stylelayer button">
+        <span class="guest-reservation-component-text5 MontserratSemibold14px">
+          <span class="guest-reservation-component-text5" >Cancel</span>
+        </span>
+      </div>
+    </button>
+    <button *ngIf="deletable" class="guest-reservation-component-status-button button">
+      <div class="guest-reservation-component-stylelayer button">
+        <span class="guest-reservation-component-text5 MontserratSemibold14px">
+          <span class="guest-reservation-component-text5" (click)="onDeleteReservation()" >Delete</span>
+        </span>
+      </div>
+    </button>
+  </div>
+</div>

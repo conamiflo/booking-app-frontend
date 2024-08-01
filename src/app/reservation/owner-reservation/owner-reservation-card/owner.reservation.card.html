@@ -1,0 +1,42 @@
+<div *ngIf="showCard" class="owner-reservation-component-frame150">
+  <div class="owner-reservation-component-accommodation-info">
+    <img
+      src="/assets/external/accommodations/1/1.jpg"
+      class="owner-reservation-component-rectangle18"/>
+    <!--      [attr.src]="environment.apiImagesLocation+accommodation.photos.at(0)"-->
+    <span class="owner-reservation-component-accommodation-name">
+      Accommodation ID : {{ ownerReservation.accommodation}}<br>
+      Status: {{ownerReservation.status}}
+    </span>
+  </div>
+  <div class="owner-reservation-component-guest-info">
+    <span class="owner-reservation-component-text">{{ ownerReservation.guest }}<br>(Cancellations:{{numberOfCancellations.numberOfCancellations}})</span>
+    <img
+      src="/assets/external/person.svg"
+      class="owner-reservation-component-person-logo"
+    />
+  </div>
+  <div class="owner-reservation-component-date-info">
+    <img
+      src="/assets/external/uiwdate1246-3quh.svg"
+      class="owner-reservation-component-date-logo"
+    />
+    <span class="owner-reservation-component-start-date">
+      <span>{{ownerReservation.startDate}}</span>
+    </span>
+    <span class="owner-reservation-component-end-date">
+      <span>{{ownerReservation.endDate}}</span>
+    </span>
+    <span class="owner-reservation-component-text3"> - </span>
+  </div>
+  <div class="owner-reservation-component-status-info" *ngIf="ownerReservation.status == 'Waiting'">
+      <div class="owner-reservation-component-stylelayer button" (click)="acceptRequest()">
+        <span class="owner-reservation-component-text5">Accept</span>
+      </div>
+    <div class="owner-reservation-component-stylelayer button" (click)="declineRequest()">
+        <span class="owner-reservation-component-text5">
+          <span class="owner-reservation-component-text5">Decline</span>
+        </span>
+    </div>
+  </div>
+</div>

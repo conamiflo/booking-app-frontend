@@ -1,0 +1,252 @@
+<div class="page-container">
+  <div class="page-page-container">
+    <div class="page-location-and-price">
+      <div class="page-frame124">
+        <div class="page-frame123">
+          <span class="page-accommodation-name"><span>{{accommodation.name}}</span></span>
+        </div>
+        <div class="page-frame129">
+          <div class="page-frame54">
+            <img
+              alt="Vector1226"
+              src="/assets/external/vector1226-jooip.svg"
+              class="cards-vector1"
+            />
+            <span class="page-accommodation-location">
+              <span>{{accommodation.location}}</span>
+            </span>
+          </div>
+          <div class="page-frame54">
+            <img
+              alt="owner_icon"
+              src="/assets/external/vector1246-yfdf.svg"
+              class="cards-vector1"
+            />
+            <span class="page-accommodation-location">
+              <span>{{accommodation.ownerEmail}}</span>
+            </span>
+          </div>
+        </div>
+        <div class="page-container1">
+          <div class="page-frame52">
+            <img
+              src="/assets/external/star2032-172d.svg"
+              alt="Star2057"
+              class="page-star"
+            />
+            <img
+              src="/assets/external/star2032-172d.svg"
+              alt="Star2057"
+              class="page-star1"
+            />
+            <img
+              src="/assets/external/star2032-172d.svg"
+              alt="Star2057"
+              class="page-star2"
+            />
+            <img
+              src="/assets/external/star2032-172d.svg"
+              alt="Star2057"
+              class="page-star3"
+            />
+            <img
+              src="/assets/external/star2032-172d.svg"
+              alt="Star2057"
+              class="page-star4"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="page-frame135">
+        <span class="page-accommodation-price"><span>${{accommodation.defaultPrice}}/night</span></span>
+        <div class="page-frame134">
+          <div class="page-stylelayer">
+            <img
+              src="/assets/external/heart-ico.png"
+              alt="heartI205"
+              class="page-heart"
+            />
+          </div>
+          <button class="page-button-upper">
+            <div class="page-stylelayer1">
+              <span class="page-text3 MontserratSemibold14px">
+                <span>Book now</span>
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="page-photos">
+<!--      <img [attr.alt]="environment.apiImagesLocation + accommodation.photos.at(0)"-->
+<!--           [attr.src]="accommodation.photos.at(0)"-->
+<!--           class="page-accommodation-image" />-->
+      <ngb-carousel [interval]="2000" class="carousel-wrapper" >
+        <ng-template ngbSlide *ngFor="let image of accommodation.photos" class="carousel-wrapper">
+          <div class="carousel-wrapper">
+              <img class="slider-image" [attr.src]="environment.apiImagesLocation+image" [attr.alt]="image">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+
+      <!--      <c-carousel>-->
+<!--        <c-carousel-indicators></c-carousel-indicators>-->
+<!--        <c-carousel-inner>-->
+<!--          <c-carousel-item *ngFor="let slide of accommodation.photos">-->
+<!--            <img-->
+<!--              [src]="environment.apiImagesLocation+slide"-->
+<!--              alt="{{ slide }}"-->
+<!--              class="d-block w-100"-->
+<!--              loading="lazy" />-->
+<!--          </c-carousel-item>-->
+<!--        </c-carousel-inner>-->
+<!--        <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>-->
+<!--        <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>-->
+<!--      </c-carousel>-->
+    </div>
+
+<div class="description-booking-container">
+  <div class="page-desctiption-frame">
+    <span class="page-text5"><span>About this apartment</span></span>
+    <span class="page-accommodation-description">
+        <span><p></p>
+          <b>Minimum guests: {{accommodation.minGuests}}</b><p></p>
+          <b>Maximum guests: {{accommodation.maxGuests}}</b>
+          <p></p>
+          <p></p>
+          {{accommodation.description}}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          mattis molestie eros in commodo. Quisque non ullamcorper ligula. Sed a
+          leo maximus, sodales lectus at, laoreet nibh. Praesent vitae massa eu
+          lacus consequat scelerisque in vel dolor. Fusce dictum neque at
+          dignissim euismod. Duis ac gravida risus. Nullam vestibulum
+          consectetur porttitor. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Aliquam mattis molestie eros in commodo. Quisque non
+          ullamcorper ligula. Sed a leo maximus, sodales lectus at, laoreet
+          nibh. Praesent vitae massa eu lacus consequat scelerisque in vel
+          dolor. Fusce dictum neque at dignissim euismod. Duis ac gravida risus.
+          Nullam vestibulum consectetur porttitor.
+          <span></span>
+          <p></p><p></p>
+        </span>
+      </span>
+  </div>
+
+  <div *ngIf="!isAccommodationPreview()" class="booking-form-container">
+    <div class="booking-form">
+      <span class="page-text008"><span>Check In</span></span>
+
+      <mat-form-field>
+        <input matInput [matDatepickerFilter]="filter" [matDatepicker]="checkInPicker" [(ngModel)]="checkInDate" placeholder="Choose a check in date">
+        <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>
+        <mat-datepicker #checkInPicker></mat-datepicker>
+      </mat-form-field>
+
+      <span class="page-text008"><span>Check Out</span></span>
+
+      <mat-form-field>
+        <input matInput [matDatepickerFilter]="filter" [matDatepicker]="checkOutPicker" [(ngModel)]="checkOutDate" placeholder="Choose a check out date">
+        <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
+        <mat-datepicker #checkOutPicker></mat-datepicker>
+      </mat-form-field>
+
+
+      <span class="page-text008"><span>Number of Guests</span></span>
+
+      <div class="cards-guestsdropdown">
+        <img
+          alt="Vector1246"
+          src="/assets/external/vector1246-yfdf.svg"
+          class="cards-vector"
+        />
+        <input type="range" min="1" max="12"
+               class="cards-matinputslot"
+               [(ngModel)]="numberOfGuests"
+        >
+        <div class="cards-maticon">{{numberOfGuests}}
+        </div>
+      </div>
+
+
+      <button class="page-button" (click)="bookReservation($event)">
+        <div class="page-stylelayer1">
+                  <span class="page-text3 MontserratSemibold14px">
+                    <span>Book now</span>
+                  </span>
+        </div>
+      </button>
+
+    </div>
+  </div>
+</div>
+
+
+    <span class="page-text008"><span>Location</span></span>
+
+    <div class="location-maps">
+      <app-map [locationToSearch]="accommodation.location"></app-map>
+    </div>
+
+    <div class="page-frame250">
+      <div class="page-frame168">
+        <span class="page-text164">
+          <img
+                  alt="Vector2032"
+                  src="/assets/external/vector2032-6ulc.svg"
+                  class="page-vector"
+                  style="vertical-align: middle; margin-right: 5px; width: 35px; height: 34px; margin-bottom: 5px"
+          />
+          <span>{{averageAccommdoationScore}}/5</span>
+        </span>
+        <span class="page-text170"><span>Accommodation reviews</span></span>
+      </div>
+
+      <div class="review-choice">
+        <button class="page-button-upper" *ngIf="authService.isGuest()" (click)="openReviewAccommodationDialog()">
+          <div class="page-stylelayer1">
+              <span class="page-text3 MontserratSemibold14px">
+                <span>Review accommodation</span>
+              </span>
+          </div>
+        </button>
+      </div>
+
+      <div *ngFor="let review of accommodationReviews">
+        <app-review-card [review]="review" [ownerOfAccommodation]="accommodation.ownerEmail"></app-review-card>
+      </div>
+
+    </div>
+
+
+    <div class="page-frame250">
+      <div class="page-frame168">
+        <span class="page-text164">
+          <img
+            alt="Vector2032"
+            src="/assets/external/vector2032-6ulc.svg"
+            class="page-vector"
+            style="vertical-align: middle; margin-right: 5px; width: 35px; height: 34px; margin-bottom: 5px"
+          />
+          <span>{{averageOwnerScore}}/5</span>
+        </span>
+        <span class="page-text170"><span>Owner reviews</span></span>
+      </div>
+
+      <div class="review-choice">
+        <button class="page-button-upper" *ngIf="authService.isGuest()" (click)="openReviewOwnerDialog()">
+          <div class="page-stylelayer1">
+              <span class="page-text3 MontserratSemibold14px">
+                <span>Review owner</span>
+              </span>
+          </div>
+        </button>
+      </div>
+
+      <div *ngFor="let review of ownerReviews">
+        <app-review-card [review]="review" [ownerOfAccommodation]="accommodation.ownerEmail"></app-review-card>
+      </div>
+
+    </div>
+
+  </div>
+</div>

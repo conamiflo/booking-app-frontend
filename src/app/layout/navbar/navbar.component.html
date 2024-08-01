@@ -1,0 +1,144 @@
+<div class="navbar-container">
+  <div class="navbar-left">
+    <div class="company-info" (click)="redirectToHome()">
+      <img src="/assets/external/logo.svg" alt="Company Logo" class="company-logo" />
+      <span class="company-name">Booking</span>
+    </div>
+
+
+  </div>
+
+  <div class="navbar-right">
+    <ng-container *ngIf="isLoggedIn(); else loggedOut">
+      <div class="profile-nav-container">
+
+          <div class="profile-image-container">
+            <img class="profile-image" id="profile-image-home" src="/assets/external/person.svg" (click)="openDialog()" alt="profile-pic">
+
+          </div>
+
+      </div>
+    </ng-container>
+    <ng-template #loggedOut>
+      <button class="loginBtn" (click)="redirectToLogin()">Login</button>
+    </ng-template>
+  </div>
+</div>
+<div class="dialog-closer" (click)="closeDialog()"*ngIf="showDialog">
+
+</div>
+<div class="dialog-container"*ngIf="showDialog">
+  <div class="dialog-content" >
+    <div class="dialog-header">
+
+      <div class="profile-image-container-dialog">
+        <img class="profile-image" src="/assets/external/person.svg" alt="profile-pic">
+      </div>
+
+    </div>
+
+      <div class="options-container">
+        {{ role }} : {{ username }}
+
+        <ng-container *ngIf="isLoggedIn()">
+          <div class="links">
+            <span class="profile-link" (click)="redirectToProfile()">PROFILE</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInGuest()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToReservations()">RESERVATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedInGuest()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToFavoriteAccommodations()">FAVORITE ACCOMMODATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedInOwner()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToCreateAccommodation()">CREATE ACCOMMODATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInOwner()">
+          <div class="links">
+            <span class="reservations-link" id="my-accommodations" (click)="redirectToOwnersAccommodations()">MY ACCOMMODATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInAdmin()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToAccommodationRequests()">ACCOMMODATION REQUESTS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInOwner()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToOwnerReservations()">RESERVATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInOwner()">
+          <div class="links">
+            <span class="reservations-link" (click)="openOwnerReportDialog()">REPORT GUESTS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInGuest()">
+          <div class="links">
+            <span class="reservations-link" (click)="openGuestReportDialog()">REPORT OWNERS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isLoggedInAdmin()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToAdminReviews()">RATINGS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedInAdmin()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToAdminReports()">REPORTS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedInOwner()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToProfitStatistics()">PROFIT STATISTICS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!isLoggedInAdmin()">
+          <div class="links">
+            <span class="reservations-link" (click)="redirectToNotifications()">NOTIFICATIONS</span>
+            <img src="/assets/external/chevronright1971-wri.svg" alt="arrow" >
+          </div>
+        </ng-container>
+
+
+      </div>
+
+      <div class="logout-container">
+        <button class="loginBtn" (click)="logout()">Log out</button>
+      </div>
+
+
+  </div>
+
+</div>
+
